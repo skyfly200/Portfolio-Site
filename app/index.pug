@@ -1,0 +1,21 @@
+include views/mixins.pug
+
+//- Html Document
+doctype
+html(lang="en")
+  head
+    include views/head.pug
+
+  body
+    .wrapper
+      include views/header.pug
+
+      .content
+        include views/welcome.pug
+        include views/skills.pug
+        include views/resume.pug
+        include views/contact.pug
+
+      include views/footer.pug
+
+    include views/scripts.pug

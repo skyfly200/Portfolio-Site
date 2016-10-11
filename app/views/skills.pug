@@ -1,0 +1,31 @@
+// Skills Section
+.topics-container#skills
+  .topics-header.wow.fadeIn
+    h1 Here is a selection
+    h1 &nbsp;of my various
+    h1 &nbsp;forms of work
+
+  .topics#topics
+    +topic("Back End", "fa-cogs", "back-end")
+      include skills/back-end.pug
+
+    +topic("Front End", "fa-code", "front-end")
+      include skills/front-end.pug
+
+    +topic("Dev Ops", "fa-linux", "dev-ops")
+      include skills/dev-ops.pug
+
+    +topic("Hardware", "fa-bolt", "hardware")
+      include skills/hardware.pug
+
+    +topic("Video Production", "fa-film", "video")
+      include skills/video.pug
+
+    +topic("Audio Production", "fa-microphone", "audio")
+      include skills/audio.pug
+
+    +topic("3D Modeling", "fa-cube", "3d")
+      include skills/3d.pug
+
+    +topic("Photography", "fa-camera", "photo")
+      include skills/photo.pug
