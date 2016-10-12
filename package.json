@@ -4,6 +4,7 @@
   "description": "Portfolio Website for Skyler Fly-Wilson",
   "main": "index.js",
   "dependencies": {
+    "gulp-sourcemaps": "^2.0.1"
   },
   "devDependencies": {
     "browser-sync": "^2.17.1",
@@ -12,17 +13,17 @@
     "gulp-autoprefixer": "^3.1.1",
     "gulp-cache": "^0.4.5",
     "gulp-changed": "^1.3.2",
-	  "gulp-cssnano": "^2.1.2",
-    "gulp-if": "^2.0.1",
+    "gulp-cssnano": "^2.1.2",
     "gulp-imagemin": "^3.0.3",
+    "gulp-minify-html": "^1.0.6",
     "gulp-pug": "^3.1.0",
+    "gulp-rev": "^7.1.2",
     "gulp-sass": "^2.3.2",
     "gulp-uglify": "^2.0.0",
-    "gulp-useref": "^3.1.2",
+    "gulp-usemin": "^0.3.24",
     "run-sequence": "^1.2.2"
   },
-  "scripts": {
-  },
+  "scripts": {},
   "author": "",
   "license": "ISC"
 }

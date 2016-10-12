@@ -5,11 +5,13 @@ var del = require('del');
 var cache = require('gulp-cache');
 const autoprefixer = require('gulp-autoprefixer');
 var runSequence = require('run-sequence');
+var sourcemaps = require('gulp-sourcemaps');
+var rev = require('gulp-rev');
 var sass = require('gulp-sass');
 var pug = require('gulp-pug');
-var useref = require('gulp-useref');
+var usemin = require('gulp-usemin');
+var minifyHtml = require('gulp-minify-html');
 var uglify = require('gulp-uglify');
-var gulpIf = require('gulp-if');
 var cssnano = require('gulp-cssnano');
 var imagemin = require('gulp-imagemin');
 var browserSync = require('browser-sync').create();
@@ -17,7 +19,7 @@ var browserSync = require('browser-sync').create();
 // Default Task
 // runs for the gulp command with no args
 gulp.task('default', function (callback) {
-  runSequence(['watch'],
+  runSequence(['serve'],
     callback
   )
 })
@@ -36,11 +38,13 @@ gulp.task('templates', function() {
 // Compile SASS to CSS and autoprefix
 gulp.task('sass', function(){
   return gulp.src('app/sass/*.+(scss|sass)')
+    .pipe(sourcemaps.init())
     .pipe(sass()) // Using gulp-sass
     .pipe(autoprefixer({
             browsers: ['> 1% in US'],
             cascade: false
         }))
+    .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('app/css/'))
     .pipe(browserSync.reload({
       stream: true
@@ -63,14 +67,17 @@ gulp.task('watch', ['browserSync', 'templates', 'sass'], function(){
   gulp.watch('app/js/**/*.js', browserSync.reload);
 })
 
-// <-- Build Tasks -->
-// Concatinate and minify JS and CSS files with useref
-gulp.task('useref', function(){
-  return gulp.src('app/*.html')
-    // .pipe(useref())
-    // .pipe(gulpIf('*.js', uglify()))
-    // .pipe(gulpIf('*.css', cssnano()))
-    .pipe(gulp.dest('dist'))
+// Concatinate and minify HTML, JS and CSS files with usemin
+gulp.task('usemin', function() {
+  return gulp.src('app/index.html')
+    .pipe(usemin({
+      css: [ cssnano(), rev() ],
+      html: [ minifyHtml({ empty: true }) ],
+      js: [ rev() ]
+      //js: [ uglify(), rev() ]
+    }))
+    .on('error', function(err) { console.log(err); })
+    .pipe(gulp.dest('dist/'));
 });
 
 // Optimize Images with imagemin
@@ -89,12 +96,14 @@ gulp.task('fonts', function() {
 // Copy css to dist
 gulp.task('css', function() {
   return gulp.src('app/css/**/*')
+  //.pipe(cssnano())
   .pipe(gulp.dest('dist/css'))
 })
 
 // Copy js to dist
 gulp.task('js', function() {
   return gulp.src('app/js/**/*')
+  //.pipe(uglify())
   .pipe(gulp.dest('dist/js'))
 })
 
@@ -124,7 +133,25 @@ gulp.task('cache:clear', function (callback) {
 gulp.task('build', function (callback) {
   runSequence('clean:dist',
     ['templates', 'sass'],
-    ['useref', 'images', 'fonts', 'css', 'js', 'tools', 'favicon'],
+    ['usemin', 'images', 'fonts', 'css', 'js', 'tools', 'favicon'],
     callback
   )
 })
+
+// Browser Sync
+gulp.task('browserSync:dist', function() {
+  browserSync.init({
+    server: {
+      baseDir: 'dist'
+    },
+  })
+})
+
+// starts a production server
+// runs the build task before,
+// and serves the dist folder
+gulp.task('serve:dist', ['build'], function (callback) {
+  runSequence(['browserSync:dist'],
+    callback
+  )
+});
