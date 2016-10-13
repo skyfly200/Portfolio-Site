@@ -73,7 +73,8 @@ gulp.task('usemin', function() {
     .pipe(usemin({
       css: [ cssnano(), rev() ],
       html: [ minifyHtml({ empty: true }) ],
-      js: [ uglify(), rev() ]
+      js: [ uglify(), rev() ],
+      js1: [ uglify(), rev() ]
     }))
     .pipe(gulp.dest('dist/'));
 });
