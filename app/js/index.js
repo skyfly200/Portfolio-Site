@@ -19,7 +19,7 @@ $(function(){
   // if url hash points to a skill topic, expand that topic and fade others out
   if ($section.hasClass('topic')) {
     // select all topics and fade them out
-    $('.topic').stop().fadeOut("fast", ()=> {
+    $('.topic').stop().fadeOut("fast", function () {
       // section top position relative to the document
       pos = $section.offset().top;
 
@@ -142,7 +142,7 @@ $('.topic').on("click", function() {
     $('.topic-expanded').removeClass('topic-expanded');
 
     // select all topics and fade them out
-    $('.topic').stop().fadeOut("fast", ()=> {
+    $('.topic').stop().fadeOut("fast", function () {
       // add topic-expanded class to selected topic and inverse class to topics container
       $topic.addClass('topic-expanded');
       $(".topics-container").addClass("feature-topic");
@@ -172,7 +172,7 @@ $('.topic-close').on("click", function(event) {
   event.stopPropagation();
 
   // fade out the topic
-  $topic.stop().fadeOut("fast", () => {
+  $topic.stop().fadeOut("fast", function () {
     // remove topic-expanded class from topic and inverse class from topics container
     $topic.delay(100).removeClass('topic-expanded');
     $(".topics-container").removeClass("feature-topic");

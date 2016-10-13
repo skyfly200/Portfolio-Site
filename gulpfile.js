@@ -60,8 +60,8 @@ gulp.task('browserSync', function() {
   })
 })
 
-// Watch SASS and PUG files or changes and reload with browser sync
-gulp.task('watch', ['browserSync', 'templates', 'sass'], function(){
+// Watch SASS, JS and PUG files or changes and reload with browser sync
+gulp.task('serve', ['browserSync', 'templates', 'sass'], function(){
   gulp.watch('app/sass/*.+(scss|sass)', ['sass', browserSync.reload]);
   gulp.watch('app/**/*.+(pug|jade)', ['templates', browserSync.reload]);
   gulp.watch('app/js/**/*.js', browserSync.reload);
@@ -73,10 +73,8 @@ gulp.task('usemin', function() {
     .pipe(usemin({
       css: [ cssnano(), rev() ],
       html: [ minifyHtml({ empty: true }) ],
-      js: [ rev() ]
-      //js: [ uglify(), rev() ]
+      js: [ uglify(), rev() ]
     }))
-    .on('error', function(err) { console.log(err); })
     .pipe(gulp.dest('dist/'));
 });
 
@@ -91,20 +89,6 @@ gulp.task('images', function(){
 gulp.task('fonts', function() {
   return gulp.src('app/fonts/**/*')
   .pipe(gulp.dest('dist/fonts'))
-})
-
-// Copy css to dist
-gulp.task('css', function() {
-  return gulp.src('app/css/**/*')
-  //.pipe(cssnano())
-  .pipe(gulp.dest('dist/css'))
-})
-
-// Copy js to dist
-gulp.task('js', function() {
-  return gulp.src('app/js/**/*')
-  //.pipe(uglify())
-  .pipe(gulp.dest('dist/js'))
 })
 
 // Copy tools to dist
@@ -133,7 +117,7 @@ gulp.task('cache:clear', function (callback) {
 gulp.task('build', function (callback) {
   runSequence('clean:dist',
     ['templates', 'sass'],
-    ['usemin', 'images', 'fonts', 'css', 'js', 'tools', 'favicon'],
+    ['usemin', 'images', 'fonts', 'favicon'],
     callback
   )
 })

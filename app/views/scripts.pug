@@ -1,12 +1,13 @@
 // Vendor Scripts
 script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js') // jQuery
-script(src="https://f.vimeocdn.com/js/froogaloop2.min.js") // Froogaloop2 - Vimeo Player API
-script(src='https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js') // WOW.js - run animations on scroll to show
-script(src="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.6.3/jquery.flexslider.min.js") // FlexSlider - Slider Plugin
-script(src="https://cdnjs.cloudflare.com/ajax/libs/fitvids/1.1.0/jquery.fitvids.min.js") // FitVids - Responsive Video Plugin
 
-// Local Files to concatinate and minify
-<!-- build:js js/app.min.js -->
+// JS Files to concatinate and minify
+<!-- build:js js/main.min.js -->
+// 3rd Party Libraries
+script(src='js/wow.js') // WOW.js - run animations on scroll to show
+script(src="js/froogaloop2.js") // Froogaloop2 - Vimeo Player API
+script(src="js/jquery.fitvids.js") // FitVids - Responsive Video Plugin
+script(src="js/jquery.flexslider.js") // FlexSlider - Slider Plugin
 // My Script file
 script(type="text/javascript", src="/js/index.js")
 <!-- endbuild -->
