@@ -91,7 +91,8 @@ body {
 .slider-wrapper {
   overflow-x: hidden;
   background-color: #333;
-  height: 100vh; }
+  width: 100%;
+  height: 100%; }
 
 .flexslider {
   margin: 0;
@@ -103,10 +104,6 @@ body {
   .flexslider .slides img {
     width: 100%;
     display: block; }
-  .flexslider .slides iframe {
-    width: 100vw;
-    max-height: 85vh;
-    height: 70vw; }
   .flexslider .slides:after {
     content: "\0020";
     display: block;
@@ -129,7 +126,7 @@ html[xmlns] .flexslider .slides {
  * DEFAULT THEME
  * ==================================================================================================================== */
 .flexslider {
-  margin: 0 0 60px;
+  margin: 0 0 40px;
   background: #333;
   border: 0px;
   position: relative;
@@ -237,7 +234,7 @@ html[xmlns] .flexslider .slides {
   width: 11px;
   height: 11px;
   display: block;
-  background: #666;
+  background: #999;
   cursor: pointer;
   text-indent: -9999px;
   -o-box-shadow: inset 0 0 3px rgba(255, 255, 255, 0.3);
@@ -484,7 +481,8 @@ html[xmlns] .flexslider .slides {
     .topics-container .topic .topic-full {
       width: 100%;
       display: none;
-      padding: 20px; }
+      padding: 20px;
+      padding-top: 0px; }
     .topics-container .topic:hover, .topics-container .topic:active {
       background-color: #333;
       color: #FFF; }
@@ -509,10 +507,9 @@ html[xmlns] .flexslider .slides {
       order: -1;
       flex: 100%;
       max-width: 100%;
-      min-height: 100vh;
       color: #FFF;
       background-color: #333;
-      padding: 20px 10px; }
+      padding: 10px 10px; }
       .topics-container .topic.topic-expanded .icon-box {
         float: left;
         z-index: 21; }
@@ -539,7 +536,8 @@ html[xmlns] .flexslider .slides {
       .topics-container .topic.topic-expanded .expand-hint {
         display: none; }
       .topics-container .topic.topic-expanded .topic-close {
-        display: block; }
+        display: block;
+        margin-top: 10px; }
       .topics-container .topic.topic-expanded .topic-full {
         display: flex; }
   .topics-container.feature-topic {

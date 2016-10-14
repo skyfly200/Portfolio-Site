@@ -49,7 +49,6 @@ function initVideoSlider() {
           vimeoPlayer.addEvent('pause', flexsliderPlay);
           vimeoPlayer.addEvent('play', flexsliderPause);
           vimeoPlayer.addEvent('finish', flexsliderPlay);
-  //        vimeoPlayer.addEvent('loadProgress', flexsliderPause);
       });
       vimeoPlayers.push(vimeoPlayer);
 }
@@ -226,6 +225,7 @@ function initFlexslider() {
   // Setting WIKI
   // https://github.com/woocommerce/FlexSlider/wiki/FlexSlider-Properties
   $(".flexslider")
+    .fitVids()
     .flexslider({
       animation: "fade",
       video: true,
