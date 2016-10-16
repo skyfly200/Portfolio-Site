@@ -10,6 +10,7 @@ var rev = require('gulp-rev');
 var sass = require('gulp-sass');
 var pug = require('gulp-pug');
 var usemin = require('gulp-usemin');
+var defer = require("gulp-defer");
 var minifyHtml = require('gulp-minify-html');
 var uglify = require('gulp-uglify');
 var cssnano = require('gulp-cssnano');
@@ -69,13 +70,17 @@ gulp.task('serve', ['browserSync', 'templates', 'sass'], function(){
 
 // Concatinate and minify HTML, JS and CSS files with usemin
 gulp.task('usemin', function() {
-  return gulp.src('app/index.html')
-    .pipe(usemin({
-      css: [ cssnano(), rev() ],
-      html: [ minifyHtml({ empty: true }) ],
-      js: [ uglify(), rev() ],
-      js1: [ uglify(), rev() ]
-    }))
+  return gulp.src('./app/index.html')
+    // causing write error
+    // .pipe(usemin({
+    //   css: [ cssnano(), rev() ],
+    //   html: [ function () {return $.minifyHtml({ empty: true });} ],
+    //   jslib: [ uglify(), rev() ],
+    //   jsapp: [ uglify(), rev() ],
+    //   inlinejs: [ uglify() ],
+    //   inlinecss: [ cssnano(), 'concat' ]
+    // }))
+    .pipe(defer())
     .pipe(gulp.dest('dist/'));
 });
 
