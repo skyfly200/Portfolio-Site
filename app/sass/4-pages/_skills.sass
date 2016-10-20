@@ -21,6 +21,7 @@
 
   .topics
     padding: 0px
+    padding-bottom: 30px
     display: flex
     flex-wrap: wrap
     justify-content: start
@@ -56,14 +57,6 @@
       text-align: center
       font-size: 135%
 
-    .expand-hint
-      visibility: hidden
-      padding: 5px
-      text-align: center
-      margin: auto
-      a
-        color: #FFF
-
     .topic-close
       display: none
       float: right
@@ -91,10 +84,6 @@
         .fa-inverse
           color: #FFF
           text-shadow: 0px 0px 5px rgba(255,255,255,0.75)
-      .expand-hint
-        visibility: visible
-        display: block
-        color: #FFF
 
     @media (max-width: 1124px)
       max-width: 50%
@@ -134,8 +123,6 @@
           h2
             font-size: 1.5em
       .topic-short
-        display: none
-      .expand-hint
         display: none
       .topic-close
         display: block

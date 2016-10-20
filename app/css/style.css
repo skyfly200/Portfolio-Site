@@ -88,6 +88,11 @@ body {
 /* ====================================================================================================================
  * BASE STYLES
  * ==================================================================================================================== */
+#3d-slider {
+  background-color: #333;
+  width: 40%;
+  height: 100%; }
+
 .slider-wrapper {
   overflow-x: hidden;
   background-color: #333;
@@ -431,6 +436,7 @@ html[xmlns] .flexslider .slides {
           font-size: 1.8em; } }
   .topics-container .topics {
     padding: 0px;
+    padding-bottom: 30px;
     display: flex;
     flex-wrap: wrap;
     justify-content: start;
@@ -459,13 +465,6 @@ html[xmlns] .flexslider .slides {
     .topics-container .topic .topic-short {
       text-align: center;
       font-size: 135%; }
-    .topics-container .topic .expand-hint {
-      visibility: hidden;
-      padding: 5px;
-      text-align: center;
-      margin: auto; }
-      .topics-container .topic .expand-hint a {
-        color: #FFF; }
     .topics-container .topic .topic-close {
       display: none;
       float: right;
@@ -491,10 +490,6 @@ html[xmlns] .flexslider .slides {
         .topics-container .topic:hover .topic-icon .fa-inverse, .topics-container .topic:active .topic-icon .fa-inverse {
           color: #FFF;
           text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.75); }
-      .topics-container .topic:hover .expand-hint, .topics-container .topic:active .expand-hint {
-        visibility: visible;
-        display: block;
-        color: #FFF; }
     @media (max-width: 1124px) {
       .topics-container .topic {
         max-width: 50%;
@@ -532,8 +527,6 @@ html[xmlns] .flexslider .slides {
           .topics-container .topic.topic-expanded .topic-title h2 {
             font-size: 1.5em; } }
       .topics-container .topic.topic-expanded .topic-short {
-        display: none; }
-      .topics-container .topic.topic-expanded .expand-hint {
         display: none; }
       .topics-container .topic.topic-expanded .topic-close {
         display: block;
