@@ -63,9 +63,16 @@ gulp.task('browserSync', function() {
 
 // Watch SASS, JS and PUG files or changes and reload with browser sync
 gulp.task('serve', ['browserSync', 'templates', 'sass'], function(){
-  gulp.watch('app/sass/*.+(scss|sass)', ['sass', browserSync.reload]);
+  gulp.watch('app/sass/**/*.+(scss|sass)', ['sass', browserSync.reload]);
   gulp.watch('app/**/*.+(pug|jade)', ['templates', browserSync.reload]);
   gulp.watch('app/js/**/*.js', browserSync.reload);
+})
+
+// runs serve task for dev alias
+gulp.task('dev', function (callback) {
+  runSequence(['serve'],
+    callback
+  )
 })
 
 // Concatinate and minify HTML, JS and CSS files with usemin
@@ -145,3 +152,10 @@ gulp.task('serve:dist', ['build'], function (callback) {
     callback
   )
 });
+
+// runs serve task for dist alias
+gulp.task('dist', function (callback) {
+  runSequence(['serve:dist'],
+    callback
+  )
+})

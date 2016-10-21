@@ -1,0 +1,59 @@
+// Topic Specific Styles
+.topics-container
+  .topics
+    #video .topic-full
+      text-align: center
+      &.topic-expanded
+        display: flex
+        align-items: center
+
+    #audio .topic-full
+      text-align: center
+      &.topic-expanded
+        display: flex
+        align-items: center
+      .audio-info
+        width: 60%
+
+      .archives
+        display: flex
+        flex-direction: column
+        width: 40%
+        button
+          margin: 20px
+          font-size: 2em
+          padding: 20px
+          min-width: 40px
+          border-radius: 10px
+
+        .archive-player
+          padding: 10px 20px
+          width: 100%
+          color: #000
+          border: 2px #000
+          border-radius: 10px
+          background: rgba(255,255,255,0.8)
+          h3
+            margin: 5px
+
+
+    #_3d .topic-full
+      &.topic-expanded
+        display: flex
+        align-items: center
+      .slider-wrapper
+        width: 400px
+      .info-3d
+        text-align: center
+        width: calc(100% - 400px)
+        button
+          font-size: 2em
+          padding: 20px
+          min-width: 40px
+          border-radius: 10px
+
+    #photo .topic-full
+      text-align: center
+      &.topic-expanded
+        display: flex
+        align-items: center

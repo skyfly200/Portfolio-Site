@@ -41,8 +41,8 @@ function initImgSlider() {
   $('#img-slider').flexslider({
     animation: "fade",
     controlNav: "thumbnails",
-    //animationLoop: true,
-    //slideshow: true,
+    animationLoop: true,
+    slideshow: true,
     start: function(slider){
       $('body').removeClass('loading');
     }
@@ -54,12 +54,12 @@ function init3dSlider() {
   // initialize 3d model gallery FlexSlider
   // The slider being synced must be initialized first
 
-  $('#3d-slider').flexslider({
+  $('#_3d-slider').flexslider({
     animation: "fade",
     animationLoop: true,
     slideshow: true,
-    slideshowSpeed: 3000,
-    pauseOnHover: true,
+    //slideshowSpeed: 3000,
+    //pauseOnHover: true,
     itemWidth: 400,
     start: function(slider){
       $('body').removeClass('loading');
