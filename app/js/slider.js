@@ -57,10 +57,9 @@ function init3dSlider() {
   $('#_3d-slider').flexslider({
     animation: "fade",
     animationLoop: true,
-    slideshow: true,
+    //slideshow: true,
     //slideshowSpeed: 3000,
-    //pauseOnHover: true,
-    itemWidth: 400,
+    pauseOnHover: true,
     start: function(slider){
       $('body').removeClass('loading');
     }

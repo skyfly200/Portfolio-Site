@@ -14,11 +14,15 @@
         align-items: center
       .audio-info
         width: 60%
+        h1
+          margin-top: 0px
 
       .archives
         display: flex
         flex-direction: column
+        align-items: center
         width: 40%
+        min-width: 320px
         button
           margin: 20px
           font-size: 2em
@@ -42,7 +46,17 @@
         display: flex
         align-items: center
       .slider-wrapper
-        width: 400px
+        width: 625px
+        height: 652px
+        overflow-y: hidden
+        li
+          display: flex
+          align-items: center
+          iframe
+            width: 625px
+            height: 652px
+        .flexslider
+          margin: 0px
       .info-3d
         text-align: center
         width: calc(100% - 400px)
@@ -57,3 +71,65 @@
       &.topic-expanded
         display: flex
         align-items: center
+
+    // responsive styles
+    @media (max-width: 1044px)
+      #_3d .topic-full .slider-wrapper
+        width: 400px
+        height: 468px
+        li iframe
+          width: 400px
+          height: 468px
+
+    @media (max-width: 800px)
+      #photo, #video
+        .topic-full
+          padding: 0px
+
+      #audio .topic-full
+        flex-direction: column
+        .audio-info
+          width: 100%
+          bottom-padding: 20px
+        .archives
+          width: 100vw
+          .archive-player
+            width: 80%
+
+      #_3d .topic-full
+        flex-direction: column
+        align-items: center
+        .info-3d
+          padding-bottom: 20px
+          width: 100%
+
+        .slider-wrapper
+          width: 400px
+          height: 468px
+          li iframe
+            width: 400px
+            height: 468px
+
+    @media (max-width: 520px)
+      #audio .topic-full
+        padding: 0px
+        .archives
+          width: 100vw
+          .archive-player
+            width: 95vw
+
+    @media (max-width: 400px)
+      #_3d .topic-full .slider-wrapper
+        width: 300px
+        height: 372px
+        li iframe
+          width: 300px
+          height: 372px
+
+    @media (max-width: 380px)
+      #audio .topic-full .archives
+        align-items: center
+        .archive-player
+          border-radius: 0px
+          padding: 0px
+          width: 100%
