@@ -287,6 +287,44 @@ html[xmlns] .flexslider .slides {
   align-items: center;
   justify-content: center; }
 
+.topics-container .topics #back-end .topic-full .projects-list button {
+  margin: 10px;
+  font-size: 1em;
+  padding: 10px;
+  min-width: 40px;
+  border-radius: 5px; }
+
+.topics-container .topics #front-end .topic-full .site-list button {
+  margin: 10px;
+  font-size: 1em;
+  padding: 10px;
+  min-width: 40px;
+  border-radius: 5px; }
+
+.topics-container .topics #dev-ops .topic-full .projects-list button {
+  margin: 10px;
+  font-size: 1em;
+  padding: 10px;
+  min-width: 40px;
+  border-radius: 5px; }
+
+.topics-container .topics #hardware .topic-full {
+  width: 100%; }
+  .topics-container .topics #hardware .topic-full .hardware-info {
+    text-align: center;
+    margin: auto; }
+    .topics-container .topics #hardware .topic-full .hardware-info button {
+      margin: 10px;
+      font-size: 1em;
+      padding: 10px;
+      min-width: 40px;
+      border-radius: 5px; }
+  .topics-container .topics #hardware .topic-full .hardware-img {
+    float: right; }
+    .topics-container .topics #hardware .topic-full .hardware-img img {
+      max-height: 80vh;
+      max-width: 60vw; }
+
 .topics-container .topics #video .topic-full {
   text-align: center; }
   .topics-container .topics #video .topic-full.topic-expanded {
@@ -356,7 +394,7 @@ html[xmlns] .flexslider .slides {
     display: flex;
     align-items: center; }
 
-@media (max-width: 1044px) {
+@media (max-width: 2000px) {
   .topics-container .topics #_3d .topic-full .slider-wrapper {
     width: 400px;
     height: 468px; }

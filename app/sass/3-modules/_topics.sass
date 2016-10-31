@@ -1,6 +1,51 @@
 // Topic Specific Styles
 .topics-container
   .topics
+    #back-end .topic-full
+      .projects-list
+        button
+          margin: 10px
+          font-size: 1em
+          padding: 10px
+          min-width: 40px
+          border-radius: 5px
+
+    #front-end .topic-full
+      .site-list
+        button
+          margin: 10px
+          font-size: 1em
+          padding: 10px
+          min-width: 40px
+          border-radius: 5px
+
+    #dev-ops .topic-full
+      .projects-list
+        button
+          margin: 10px
+          font-size: 1em
+          padding: 10px
+          min-width: 40px
+          border-radius: 5px
+
+    #hardware .topic-full
+      width: 100%
+      .hardware-info
+        text-align: center
+        margin: auto
+        button
+          margin: 10px
+          font-size: 1em
+          padding: 10px
+          min-width: 40px
+          border-radius: 5px
+
+      .hardware-img
+        float: right
+        img
+          max-height: 80vh
+          max-width: 60vw
+
     #video .topic-full
       text-align: center
       &.topic-expanded
@@ -73,7 +118,7 @@
         align-items: center
 
     // responsive styles
-    @media (max-width: 1044px)
+    @media (max-width: 2000px)
       #_3d .topic-full .slider-wrapper
         width: 400px
         height: 468px
