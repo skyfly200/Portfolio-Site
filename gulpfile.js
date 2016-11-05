@@ -148,7 +148,9 @@ gulp.task('browserSync:dist', function() {
 // runs the build task before,
 // and serves the dist folder
 gulp.task('serve:dist', ['build'], function (callback) {
-  runSequence(['browserSync:dist'],
+  runSequence(
+    ['build'],
+    ['browserSync:dist'],
     callback
   )
 });
@@ -159,3 +161,4 @@ gulp.task('dist', function (callback) {
     callback
   )
 })
+1
