@@ -1,15 +1,17 @@
 // Main SASS Style Sheet
 // Only used to import other sass sheets
 
-@import 1-basics/_vars.sass
-@import 1-basics/_base.sass
-@import 0-tools/_slider.sass
-@import 1-basics/_animations.sass
-@import 1-basics/_mixin-extend.sass
-@import 3-modules/_topics.sass
-@import 4-pages/_header.sass
-@import 4-pages/_welcome.sass
-@import 4-pages/_skills.sass
-@import 4-pages/_resume.sass
-@import 4-pages/_contact.sass
-@import 4-pages/_footer.sass
+// must come before other styles
+@import 0-basics/_vars.sass
+@import 0-basics/_base.sass
+// other styles
+@import 1-tools/_slider.sass
+@import 0-basics/_animations.sass
+@import 1-tools/_mixin-extend.sass
+@import 2-modules/_topics.sass
+@import 3-pages/_header.sass
+@import 3-pages/_welcome.sass
+@import 3-pages/_skills.sass
+@import 3-pages/_resume.sass
+@import 3-pages/_contact.sass
+@import 3-pages/_footer.sass
