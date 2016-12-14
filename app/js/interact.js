@@ -45,6 +45,9 @@ $('.topic').on("click", function() {
       $('body, html').stop().animate({scrollTop: pos});
 
     });
+
+    // load topic content in to section
+    $topic.find('.topic-full').load(("skills/" + $topic.attr('id').replace(/_/g, "") + ".html"));
   }
 });
 

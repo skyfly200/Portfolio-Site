@@ -29,6 +29,9 @@ $(function(){
       // fade in new view
       $section.fadeIn("fast");
     });
+
+    // load topic content in to section
+    $section.find('.topic-full').load(("skills/" + $section.attr('id').replace(/_/g, "") + ".html"));
   } else {
     // top position relative to the document
     pos = $(section).parent().offset().top;

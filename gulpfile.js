@@ -33,6 +33,12 @@ gulp.task('templates', function() {
     .pipe(gulp.dest('app/'))
     .pipe(browserSync.reload({
       stream: true
+    })),
+  gulp.src('app/views/skills/*.pug')
+    .pipe(pug({}))
+    .pipe(gulp.dest('app/skills/'))
+    .pipe(browserSync.reload({
+      stream: true
     }))
 });
 
