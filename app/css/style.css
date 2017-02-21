@@ -522,7 +522,7 @@ html[xmlns] .flexslider .slides {
 
 .welcome {
   width: 100%;
-  min-height: 100vh;
+  min-height: 105vh;
   diplay: flex;
   background-color: #FF5600;
   position: relative;
@@ -553,7 +553,7 @@ html[xmlns] .flexslider .slides {
         .welcome .welcome-block h2 {
           font-size: 2em; } }
   .welcome .welcome-img {
-    margin: 10px;
+    margin: 10px 10px 25px 10px;
     padding: 1vw;
     border-radius: 50%;
     background-color: #00603C;
