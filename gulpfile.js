@@ -19,11 +19,7 @@ var browserSync = require('browser-sync').create();
 
 // Default Task
 // runs for the gulp command with no args
-gulp.task('default', function (callback) {
-  runSequence(['serve'],
-    callback
-  )
-})
+gulp.task('default', ['serve']);
 
 // <-- Development Tasks -->
 // Compile Pug(Jade) Templates to Html
@@ -58,42 +54,38 @@ gulp.task('sass', function(){
     }))
 });
 
-// Browser Sync
+// Browser Sync for dev server
 gulp.task('browserSync', function() {
   browserSync.init({
     server: {
       baseDir: 'app'
     },
   })
-})
+});
 
 // Watch SASS, JS and PUG files or changes and reload with browser sync
 gulp.task('serve', ['browserSync', 'templates', 'sass'], function(){
   gulp.watch('app/sass/**/*.+(scss|sass)', ['sass', browserSync.reload]);
   gulp.watch('app/**/*.+(pug|jade)', ['templates', browserSync.reload]);
   gulp.watch('app/js/**/*.js', browserSync.reload);
-})
+});
 
-// runs serve task for dev alias
-gulp.task('dev', function (callback) {
-  runSequence(['serve'],
-    callback
-  )
-})
+// dev alias for serve task
+gulp.task('dev', function (callback) { runSequence(['serve'], callback) });
 
+// Production build tasks
 // Concatinate and minify HTML, JS and CSS files with usemin
 gulp.task('usemin', function() {
   return gulp.src('./app/index.html')
     // causing write error
-    // .pipe(usemin({
-    //   css: [ cssnano(), rev() ],
-    //   html: [ function () {return $.minifyHtml({ empty: true });} ],
-    //   jslib: [ uglify(), rev() ],
-    //   jsapp: [ uglify(), rev() ],
-    //   inlinejs: [ uglify() ],
-    //   inlinecss: [ cssnano(), 'concat' ]
-    // }))
-    .pipe(defer())
+    .pipe(usemin({
+      css: [ cssnano(), rev() ],
+      html: [ function () {return $.minifyHtml({ empty: true });} ],
+      jslib: [ uglify(), rev() ],
+      jsapp: [ uglify(), rev() ],
+      inlinejs: [ uglify() ],
+      inlinecss: [ cssnano(), 'concat' ]
+    }))
     .pipe(gulp.dest('dist/'));
 });
 
@@ -108,52 +100,48 @@ gulp.task('images', function(){
 gulp.task('fonts', function() {
   return gulp.src('app/fonts/**/*')
   .pipe(gulp.dest('dist/fonts'))
-})
+});
 
-// Copy tools to dist
-gulp.task('tools', function() {
-  return gulp.src('app/tools/**/*')
-  .pipe(gulp.dest('dist/tools'))
-})
+// Copy core source to dist
+gulp.task('core', function() {
+  return gulp.src('app/**/*.+(html|HTML|css|CSS|js|JS)')
+  .pipe(gulp.dest('dist'))
+});
 
 // Copy favicon to dist
 gulp.task('favicon', function() {
   return gulp.src('app/favicon.ico')
   .pipe(gulp.dest('dist'))
-})
+});
 
 // clean out dist directory
-gulp.task('clean:dist', function() {
-  return del.sync('dist');
-})
+gulp.task('clean:dist', function() { return del.sync('dist'); });
 
 // clear caches
-gulp.task('cache:clear', function (callback) {
-  return cache.clearAll(callback)
-})
+gulp.task('cache:clear', function (callback) { return cache.clearAll(callback) });
 
 // run the production build sequence
 gulp.task('build', function (callback) {
   runSequence('clean:dist',
     ['templates', 'sass'],
-    ['usemin', 'images', 'fonts', 'favicon'],
+    ['core', 'images', 'fonts', 'favicon'],
     callback
   )
-})
+});
 
-// Browser Sync
+// Browser Sync for production test server
 gulp.task('browserSync:dist', function() {
   browserSync.init({
     server: {
       baseDir: 'dist'
     },
   })
-})
+});
 
-// starts a production server
+// starts a test production server
 // runs the build task before,
 // and serves the dist folder
-gulp.task('serve:dist', ['build'], function (callback) {
+gulp.task('serve:dist', function (callback) {
   runSequence(
     ['build'],
     ['browserSync:dist'],
@@ -162,9 +150,4 @@ gulp.task('serve:dist', ['build'], function (callback) {
 });
 
 // runs serve task for dist alias
-gulp.task('dist', function (callback) {
-  runSequence(['serve:dist'],
-    callback
-  )
-})
-1
+gulp.task('dist', ['serve:dist']);
