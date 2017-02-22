@@ -1,13 +1,4 @@
-// Video FlexSlider API Variables
-var tag,
-  vimeoPlayer,
-  youtubePlayer,
-  firstScriptTag,
-  youtubePlayers = [],
-  vimeoPlayers = [],
-  $videoSlider = $("#video-slider .flexslider");
-
-
+// onload handler
 $(function(){
   // YouTube API setup
   // Load the iFrame Player API code asynchronously.
@@ -21,6 +12,15 @@ $(function(){
   init3dSlider();
   initVideoSlider();
 });
+
+// Video FlexSlider API Variables
+var tag,
+  vimeoPlayer,
+  youtubePlayer,
+  firstScriptTag,
+  youtubePlayers = [],
+  vimeoPlayers = [],
+  $videoSlider = $("#video-slider .flexslider");
 
 
 function initVideoSlider() {

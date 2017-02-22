@@ -294,12 +294,15 @@ html[xmlns] .flexslider .slides {
   min-width: 40px;
   border-radius: 5px; }
 
-.topics-container .topics #front-end .topic-full .site-list button {
-  margin: 10px;
-  font-size: 1em;
-  padding: 10px;
-  min-width: 40px;
-  border-radius: 5px; }
+.topics-container .topics #front-end .topic-full {
+  align-items: center;
+  flex-direction: column; }
+  .topics-container .topics #front-end .topic-full .site-images a {
+    display: flex;
+    justify-content: center; }
+    .topics-container .topics #front-end .topic-full .site-images a img {
+      width: 80%;
+      height: 100%; }
 
 .topics-container .topics #dev-ops .topic-full .projects-list button {
   margin: 10px;
@@ -425,7 +428,9 @@ html[xmlns] .flexslider .slides {
       height: 468px; }
       .topics-container .topics #_3d .topic-full .slider-wrapper li iframe {
         width: 400px;
-        height: 468px; } }
+        height: 468px; }
+  .topics-container .topics #front-end .topic-full .site-images a img {
+    width: 100%; } }
 
 @media (max-width: 520px) {
   .topics-container .topics #audio .topic-full {

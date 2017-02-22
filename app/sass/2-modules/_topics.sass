@@ -11,13 +11,15 @@
           border-radius: 5px
 
     #front-end .topic-full
-      .site-list
-        button
-          margin: 10px
-          font-size: 1em
-          padding: 10px
-          min-width: 40px
-          border-radius: 5px
+      align-items: center
+      flex-direction: column
+      .site-images
+        a
+          display: flex
+          justify-content: center
+          img
+            width: 80%
+            height: 100%
 
     #dev-ops .topic-full
       .projects-list
@@ -154,6 +156,10 @@
           li iframe
             width: 400px
             height: 468px
+
+      #front-end .topic-full
+        .site-images a img
+          width: 100%
 
     @media (max-width: 520px)
       #audio .topic-full
