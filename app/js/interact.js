@@ -26,7 +26,7 @@ $('.topic').on("click", function() {
 
   // only run for not expanded topics
   if (!$topic.hasClass("topic-expanded")) {
-    // remove topic-expanded class from all topics
+    // remove topic-expanded class from all expanded topics
     $('.topic-expanded').removeClass('topic-expanded');
 
     // select all topics and fade them out
@@ -34,6 +34,10 @@ $('.topic').on("click", function() {
       // add topic-expanded class to selected topic and inverse class to topics container
       $topic.addClass('topic-expanded');
       $(".topics-container").addClass("feature-topic");
+
+      // run initilizer for topic
+      $currentTopic = $topic;
+      initImageSlider($topic.attr('id'));
 
       // fade in new view
       $topic.fadeIn("fast");

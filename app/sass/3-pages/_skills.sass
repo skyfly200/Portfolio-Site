@@ -8,15 +8,22 @@
     width: 100%
     padding: 30px 20px
     text-align: center
-    display: flex
-    justify-content: center
-    flex-wrap: wrap
-    h1
-      margin: 0.5vh
-      @media (max-width: 400px)
-        font-size: 2em
-      @media (max-width: 320px)
-        font-size: 1.8em
+    .topics-heading
+      display: flex
+      justify-content: center
+      flex-wrap: wrap
+      h1
+        text-shadow: 0px 4px 15px #000
+        margin: 0.5vh
+        @media (max-width: 400px)
+          font-size: 2em
+        @media (max-width: 320px)
+          font-size: 1.8em
+    .topics-hint h3
+      @media (max-width: 450px)
+        font-size: 1.4em
+      @media (max-width: 360px)
+        font-size: 1.2em
 
   .topics
     padding: 0px
@@ -51,6 +58,7 @@
 
     .topic-title
       text-align: center
+      text-shadow: 0px 2px 5px rgba(0,0,0,0.75)
 
     .topic-short
       text-align: center

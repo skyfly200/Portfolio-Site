@@ -1,15 +1,15 @@
 // Skills Section
 .topics-container#skills
   .topics-header.wow.fadeIn
-    h1 Here is a selection
-    h1 &nbsp;of my various
-    h1 &nbsp;forms of work
+    .topics-heading
+      h1 Explore my diverse range of skills
+    .topics-hint
+      h3 Select&nbsp;a&nbsp;topic to&nbsp;find&nbsp;out&nbsp;more!
 
   .topics#topics
     +topic("Back End", "fa-cogs", "back-end")
-      p Python, PHP
-      p MySQL, Apache
-      p Memcache
+      p Python, PHP, JS
+      p Node, Express, SQL
 
     +topic("Front End", "fa-code", "front-end")
       p HTML5, SASS, JS
@@ -18,12 +18,12 @@
 
     +topic("Dev Ops", "fa-linux", "dev-ops")
       p Linux, Shell, FTP
-      p Apache, MySQL, Icecast
+      p Apache, MySQL, SQLite
       p Digital Ocean, Lets Encrypt
 
     +topic("Hardware", "fa-bolt", "hardware")
       p Sensing, Control, Automation
-      p Arduino(C/C++), RaspberryPi(Python)
+      p Arduino/Atmel MCUs, RaspberryPi
 
     +topic("Video Production", "fa-film", "video")
       p Videography, Editing, Effects
@@ -31,13 +31,14 @@
 
     +topic("Audio Production", "fa-microphone", "audio")
       p Live, Tracking, Mixing
-      p Broadcast
-      p Pro Tools, Audition, Audacity
+      p FM and Online Broadcasting
+      p Pro Tools, Audition, Ableton
 
-    +topic("3D Modeling", "fa-cube", "_3d")
-      p Art, Design
+    +topic("3D Design", "fa-cube", "_3d")
+      p Art, Design, Invention
       p Prototyping, Printing
-      p Blender, SketchUp, Maya, OpenSCAD
+      p Blender, SketchUp, Maya
 
     +topic("Photography", "fa-camera", "photo")
+      p Lighting, Lenses, Exposure
       p Photoshop, Lightroom

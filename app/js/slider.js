@@ -1,54 +1,32 @@
+// start sliders at 1st slide
+var slideIndex = 1;
+
 // onload handler
 $(function(){
-  // YouTube API setup
-  // Load the iFrame Player API code asynchronously.
-  tag = document.createElement('script');
-  tag.src = "https://www.youtube.com/player_api";
-  firstScriptTag = document.getElementsByTagName('script')[0];
-  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-  // initialize image, 3d and video FlexSliders
-  initImgSlider();
+  // initialize 3D Slider
   init3dSlider();
-  initVideoSlider();
 });
 
-// Video FlexSlider API Variables
-var tag,
-  vimeoPlayer,
-  youtubePlayer,
-  firstScriptTag,
-  youtubePlayers = [],
-  vimeoPlayers = [],
-  $videoSlider = $("#video-slider .flexslider");
-
-
-function initVideoSlider() {
-  var iframe = $('#js-vimeo1')[0];
-      vimeoPlayer = $f(iframe);
-
-      // When the player is ready, add listeners for pause, finish, and playProgress
-      vimeoPlayer.addEvent('ready', function() {
-          vimeoPlayer.addEvent('pause', flexsliderPlay);
-          vimeoPlayer.addEvent('play', flexsliderPause);
-          vimeoPlayer.addEvent('finish', flexsliderPlay);
-      });
-      vimeoPlayers.push(vimeoPlayer);
+// init custom image slider
+function initImageSlider() {
+  showDivs(slideIndex);
 }
 
-function initImgSlider() {
-  // initialize image gallery FlexSlider
-  $('#img-slider').flexslider({
-    animation: "fade",
-    controlNav: "thumbnails",
-    animationLoop: true,
-    slideshow: true,
-    start: function(slider){
-      $('body').removeClass('loading');
-    }
-  });
+//
+function plusDivs(n) {
+  showDivs(slideIndex += n);
 }
 
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("slide");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  x[slideIndex-1].style.display = "block";
+}
 
 function init3dSlider() {
   // initialize 3d model gallery FlexSlider
@@ -64,80 +42,4 @@ function init3dSlider() {
       $('body').removeClass('loading');
     }
   });
-}
-
-// YouTube player after the API code downloads.
-function onYouTubePlayerAPIReady() {
-  // Store youtube player object (iFrame ID)
-  addYouTubePlayer('js-youtube1', 'gYpYreUpXYk');
-
-  addYouTubePlayer('js-youtube2', '9o6mhFOJO5c');
-
-  addYouTubePlayer('js-youtube3', 'AxLkKNhtkvs');
-
-  addYouTubePlayer('js-youtube4', 'tflcA9Anjoc');
-}
-
-function addYouTubePlayer(id, video) {
-  youtubePlayer = new YT.Player(id, {
-    videoId: video,
-    playerVars: {
-      'autoplay': 0,
-      'controls': 2,
-      'rel': 0,
-      'showinfo': 1
-    },
-    events: {
-      'onReady': onYouTubePlayerReady,
-      'onStateChange': onPlayerStateChange
-    }
-  });
-  youtubePlayers.push(youtubePlayer);
-}
-
-function onYouTubePlayerReady() {
-    // Flexslider go!
-    initFlexslider();
-}
-  // YouTube
-function onPlayerStateChange(event) {
-  if (event.data === -1 || event.data === 1 || event.data === 5) {
-    flexsliderPause();
-  } else if (event.data === 0 || event.data === 2) {
-    flexsliderPlay();
-  }
-}
-
-function initFlexslider() {
-  // Setting WIKI
-  // https://github.com/woocommerce/FlexSlider/wiki/FlexSlider-Properties
-  $videoSlider
-    .fitVids()
-    .flexslider({
-      animation: "fade",
-      video: true,
-      useCSS: false,
-      slideshowSpeed: 3000,
-      pauseOnHover: true,
-      before: function(slider) {
-        pausePlayers();
-      }
-    });
-}
-
-function flexsliderPause() {
-  $videoSlider.flexslider("pause");
-}
-
-function flexsliderPlay() {
-  $videoSlider.flexslider("play");
-}
-
-function pausePlayers() {
-  for (key in youtubePlayers) {
-    youtubePlayers[key].pauseVideo();
-  }
-  for (key in vimeoPlayers) {
-    vimeoPlayers[key].api('pause');
-  }
 }

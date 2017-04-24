@@ -1,5 +1,8 @@
 // Page intialize
 $(function(){
+  // topic card oprin
+  var $currentTopic = '';
+
   // WOW js init
   new WOW().init();
 
@@ -28,6 +31,9 @@ $(function(){
       // add topic-expanded class to selected topic and inverse class to topics container
       $section.addClass('topic-expanded');
       $(".topics-container").addClass("feature-topic");
+
+      // run initilizer for Photo Slider
+      initImageSlider();
 
       // fade in new view
       $section.fadeIn("fast");
