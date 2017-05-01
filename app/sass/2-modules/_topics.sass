@@ -1,50 +1,93 @@
 // Topic Specific Styles
 .topics-container
   .topics
+    .github-button button
+      margin: 10px 0px
+      padding: 5px 10px
+      min-width: 220px
+      box-shadow: 0px 1px 3px #000
+      font-family: 'Nixie One', sans-serif
+      display: flex
+      align-items: baseline
+      .fa
+        float:left
+      .label
+        font-size: 1.6em
+        line-height: 50%
+        vertical-align: middle
+
     #back-end .topic-full
       background: rgba(255,255,255,0.75)
       color: #000
+      .skills-list
+        margin: 0px auto
       .projects-list
-        margin-left: 20px
-        button
-          margin: 10px
-          font-size: 1em
-          padding: 10px
-          min-width: 40px
-          border-radius: 5px
+        margin: 0px auto
 
     #front-end .topic-full
       align-items: center
       flex-direction: column
+      text-align: center
       .logos
         display: flex
         justify-content: center
-        img
-           width: 15%
-           height: 15%
+        align-items: center
+      .logo
+        width: 15%
+        height: 15%
       .responsive-pics
         display: flex
+        justify-content: center
+        align-items: center
         .mobile-pic
-          width: 20%
-          height: 20%
+          width: 18%
+          height: 18%
         .desktop-pic
           width: 75%
           height: 75%
         img
           margin: 10px
-          box-shadow: 0px 0px 10px #FFF
+      .site-pic
+        box-shadow: 0px 0px 5px #FFF
+      .gulp-pics
+        display: flex
+        justify-content: center
+        .mobile-pic
+          width: auto
+          height: 440px
+        .desktop-pic
+          width: auto
+          height: 440px
+        img
+          margin: 10px
+        .gulp-code-pic
+          width: 30%
+          height: 30%
+        .gulp-logo
+          height: 15%
+        .gulp-tasks-pic
+          width: 30%
+          height: 30%
+      .github-button
+        display: flex
+        justify-content: center
+        button
+          min-width: 355px
+          font-size: 2em
+          align-items: center
 
     #dev-ops .topic-full
       color: #000
       background: rgba(255,255,255,0.75)
+      .skills-list
+        margin: 0px auto
+        li
+          font-size: 1.2em
       .projects-list
-        margin-left: 5px
-        button
-          margin: 10px
-          font-size: 1em
-          padding: 10px
-          min-width: 40px
-          border-radius: 5px
+        margin: 0px auto
+        padding: 0px 10px
+        li
+          font-size: 1.2em
 
     #hardware .topic-full
       width: 100%
@@ -140,6 +183,9 @@
         .flexslider
           margin: 0px
       .info-3d
+        display: flex
+        align-items: center
+        flex-direction: column
         text-align: center
         width: calc(100% - 400px)
         margin: 5px
@@ -156,6 +202,9 @@
         display: flex
         align-items: center
       .gallery
+        .slides
+          button
+            color: #000
         .slide
           display: none
           img
@@ -238,3 +287,7 @@
           border-radius: 0px
           padding: 0px
           width: 100%
+
+      #front-end .topic-full .github-button button
+        min-width: 240px
+        font-size: 1.3em

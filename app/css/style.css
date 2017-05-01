@@ -13,6 +13,8 @@ body {
     background-color: #999;
     border-color: #999;
     color: #999; }
+  body button {
+    min-width: 40px; }
   body a {
     color: #3E0480;
     text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.75);
@@ -21,7 +23,7 @@ body {
       text-decoration: none;
       text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.75);
       color: #7627D0; }
-    body a:visited {
+    body a:visited, body a:focus {
       text-decoration: none;
       color: #3E0480; }
 
@@ -282,55 +284,96 @@ html[xmlns] .flexslider .slides {
     opacity: 1;
     transform: translateY(20vh); } }
 
-.flex-box-center, .scroll-hint, .header-wrapper .header .header-content .header-statement, .welcome, .welcome .welcome-block, .topics-container .topic .icon-box, .resume-download, .contact .contact-block, .contact .contact-block .contact-info {
+.flex-box-center, .scroll-hint, .welcome, .welcome .welcome-block, .topics-container .topic .icon-box, .resume-download, .contact .contact-block, .contact .contact-block .contact-info {
   display: flex;
   align-items: center;
   justify-content: center; }
 
+.topics-container .topics .github-button button {
+  margin: 10px 0px;
+  padding: 5px 10px;
+  min-width: 220px;
+  box-shadow: 0px 1px 3px #000;
+  font-family: 'Nixie One', sans-serif;
+  display: flex;
+  align-items: baseline; }
+  .topics-container .topics .github-button button .label {
+    font-size: 1.6em;
+    line-height: 50%;
+    vertical-align: middle; }
+
 .topics-container .topics #back-end .topic-full {
   background: rgba(255, 255, 255, 0.75);
   color: #000; }
+  .topics-container .topics #back-end .topic-full .skills-list {
+    margin: 0px auto; }
   .topics-container .topics #back-end .topic-full .projects-list {
-    margin-left: 20px; }
-    .topics-container .topics #back-end .topic-full .projects-list button {
-      margin: 10px;
-      font-size: 1em;
-      padding: 10px;
-      min-width: 40px;
-      border-radius: 5px; }
+    margin: 0px auto; }
 
 .topics-container .topics #front-end .topic-full {
   align-items: center;
-  flex-direction: column; }
+  flex-direction: column;
+  text-align: center; }
   .topics-container .topics #front-end .topic-full .logos {
     display: flex;
-    justify-content: center; }
-    .topics-container .topics #front-end .topic-full .logos img {
-      width: 15%;
-      height: 15%; }
+    justify-content: center;
+    align-items: center; }
+  .topics-container .topics #front-end .topic-full .logo {
+    width: 15%;
+    height: 15%; }
   .topics-container .topics #front-end .topic-full .responsive-pics {
-    display: flex; }
+    display: flex;
+    justify-content: center;
+    align-items: center; }
     .topics-container .topics #front-end .topic-full .responsive-pics .mobile-pic {
-      width: 20%;
-      height: 20%; }
+      width: 18%;
+      height: 18%; }
     .topics-container .topics #front-end .topic-full .responsive-pics .desktop-pic {
       width: 75%;
       height: 75%; }
     .topics-container .topics #front-end .topic-full .responsive-pics img {
-      margin: 10px;
-      box-shadow: 0px 0px 10px #FFF; }
+      margin: 10px; }
+  .topics-container .topics #front-end .topic-full .site-pic {
+    box-shadow: 0px 0px 5px #FFF; }
+  .topics-container .topics #front-end .topic-full .gulp-pics {
+    display: flex;
+    justify-content: center; }
+    .topics-container .topics #front-end .topic-full .gulp-pics .mobile-pic {
+      width: auto;
+      height: 440px; }
+    .topics-container .topics #front-end .topic-full .gulp-pics .desktop-pic {
+      width: auto;
+      height: 440px; }
+    .topics-container .topics #front-end .topic-full .gulp-pics img {
+      margin: 10px; }
+    .topics-container .topics #front-end .topic-full .gulp-pics .gulp-code-pic {
+      width: 30%;
+      height: 30%; }
+    .topics-container .topics #front-end .topic-full .gulp-pics .gulp-logo {
+      height: 15%; }
+    .topics-container .topics #front-end .topic-full .gulp-pics .gulp-tasks-pic {
+      width: 30%;
+      height: 30%; }
+  .topics-container .topics #front-end .topic-full .github-button {
+    display: flex;
+    justify-content: center; }
+    .topics-container .topics #front-end .topic-full .github-button button {
+      min-width: 355px;
+      font-size: 2em;
+      align-items: center; }
 
 .topics-container .topics #dev-ops .topic-full {
   color: #000;
   background: rgba(255, 255, 255, 0.75); }
+  .topics-container .topics #dev-ops .topic-full .skills-list {
+    margin: 0px auto; }
+    .topics-container .topics #dev-ops .topic-full .skills-list li {
+      font-size: 1.2em; }
   .topics-container .topics #dev-ops .topic-full .projects-list {
-    margin-left: 5px; }
-    .topics-container .topics #dev-ops .topic-full .projects-list button {
-      margin: 10px;
-      font-size: 1em;
-      padding: 10px;
-      min-width: 40px;
-      border-radius: 5px; }
+    margin: 0px auto;
+    padding: 0px 10px; }
+    .topics-container .topics #dev-ops .topic-full .projects-list li {
+      font-size: 1.2em; }
 
 .topics-container .topics #hardware .topic-full {
   width: 100%;
@@ -421,6 +464,9 @@ html[xmlns] .flexslider .slides {
     .topics-container .topics #_3d .topic-full .slider-wrapper .flexslider {
       margin: 0px; }
   .topics-container .topics #_3d .topic-full .info-3d {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     text-align: center;
     width: calc(100% - 400px);
     margin: 5px;
@@ -436,6 +482,8 @@ html[xmlns] .flexslider .slides {
   .topics-container .topics #photo .topic-full.topic-expanded {
     display: flex;
     align-items: center; }
+  .topics-container .topics #photo .topic-full .gallery .slides button {
+    color: #000; }
   .topics-container .topics #photo .topic-full .gallery .slide {
     display: none; }
     .topics-container .topics #photo .topic-full .gallery .slide img {
@@ -509,7 +557,10 @@ html[xmlns] .flexslider .slides {
     .topics-container .topics #audio .topic-full .archives .archive-player {
       border-radius: 0px;
       padding: 0px;
-      width: 100%; } }
+      width: 100%; }
+  .topics-container .topics #front-end .topic-full .github-button button {
+    min-width: 240px;
+    font-size: 1.3em; } }
 
 .scroll-hint {
   margin-top: -15vh;
@@ -556,20 +607,22 @@ html[xmlns] .flexslider .slides {
         @media (max-width: 400px) {
           .header-wrapper .header .header-content .header-name {
             flex-direction: column; } }
-      .header-wrapper .header .header-content .header-caption h2 {
-        margin: 0px;
-        padding: 0px;
+      .header-wrapper .header .header-content .header-caption {
+        margin-top: 10px;
         text-shadow: 0px 1px 1px black;
         opacity: 0;
         animation: 800ms ease-in-out 400ms 1 forwards fadeInUp; }
-        @media (max-width: 500px) {
-          .header-wrapper .header .header-content .header-caption h2 {
-            margin-top: 5px;
-            font-size: 1.9em; } }
-        @media (max-width: 400px) {
-          .header-wrapper .header .header-content .header-caption h2 {
-            margin-top: 10px;
-            font-size: 1.8em; } }
+        .header-wrapper .header .header-content .header-caption h2 {
+          margin: 0px;
+          padding: 0px; }
+          @media (max-width: 500px) {
+            .header-wrapper .header .header-content .header-caption h2 {
+              margin-top: 5px;
+              font-size: 1.9em; } }
+          @media (max-width: 400px) {
+            .header-wrapper .header .header-content .header-caption h2 {
+              margin-top: 10px;
+              font-size: 1.8em; } }
       .header-wrapper .header .header-content .header-statement {
         margin: 50px;
         opacity: 0;
@@ -792,6 +845,7 @@ html[xmlns] .flexslider .slides {
     align-items: center;
     margin-bottom: 40px; }
     .resume-download .resume-buttons button.resume-btn {
+      width: 200px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -800,7 +854,7 @@ html[xmlns] .flexslider .slides {
       font-size: 180%;
       background-color: rgba(0, 0, 0, 0.8);
       color: #FFF;
-      border-radius: 25px;
+      border-radius: 0px;
       border: 1px solid white;
       font-family: 'Nixie One', sans-serif;
       box-shadow: 1px 2px 5px black;
@@ -811,7 +865,6 @@ html[xmlns] .flexslider .slides {
         color: #000; }
     @media (max-width: 900px) {
       .resume-download .resume-buttons button.resume-btn {
-        width: auto;
         margin: 10px;
         font-size: 1.8em;
         padding-left: 15px;
