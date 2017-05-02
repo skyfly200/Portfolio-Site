@@ -16,6 +16,7 @@ var uglify = require('gulp-uglify');
 var cssnano = require('gulp-cssnano');
 var imagemin = require('gulp-imagemin');
 var browserSync = require('browser-sync').create();
+var deploy      = require('gulp-gh-pages');
 
 // Default Task
 // runs for the gulp command with no args
@@ -151,3 +152,11 @@ gulp.task('serve:dist', function (callback) {
 
 // runs serve task for dist alias
 gulp.task('dist', ['serve:dist']);
+
+/**
+ * Push build to gh-pages
+ */
+gulp.task('deploy', function () {
+  return gulp.src("./dist/**/*")
+    .pipe(deploy())
+});
