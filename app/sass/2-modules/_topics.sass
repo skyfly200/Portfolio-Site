@@ -84,6 +84,8 @@
         padding: 0px 10px
         li
           font-size: 1.2em
+        .github-button button
+          min-width: 292px
 
     #hardware .topic-full
       width: 100%
@@ -99,6 +101,7 @@
 
       .hardware-img
         float: right
+        margin: 0px auto
         img
           max-height: 80vh
           max-width: 60vw
@@ -213,6 +216,10 @@
         .video-info
           width: 100%
 
+    @media (max-width: 940px)
+      #hardware .topic-full
+        flex-direction: column
+
     @media (max-width: 800px)
       #photo, #video
         .topic-full
@@ -250,6 +257,16 @@
         .site-images a img
           width: 100%
 
+    @media (max-width: 660px)
+      #back-end .topic-full
+        flex-direction: column
+
+      #dev-ops .topic-full
+        flex-direction: column
+        .projects-list .github-button button
+          min-width: 200px
+          font-size: 1.2em
+
     @media (max-width: 520px)
       #audio .topic-full
         padding: 0px
@@ -280,4 +297,7 @@
 
       .github-button button
         min-width: 200px
+        font-size: 0.8em
+
+      #dev-ops .topic-full .projects-list .github-button button
         font-size: 0.8em
