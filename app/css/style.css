@@ -495,7 +495,6 @@ html[xmlns] .flexslider .slides {
 
 @media (max-width: 1050px) {
   .topics-container .topics #video .topic-full {
-    display: flex;
     flex-direction: column; }
     .topics-container .topics #video .topic-full .video-info {
       width: 100%; } }
@@ -781,14 +780,15 @@ html[xmlns] .flexslider .slides {
       display: none;
       padding: 20px;
       padding-top: 0px; }
-    .topics-container .topic:hover, .topics-container .topic:active {
-      background-color: #333;
-      color: #FFF; }
-      .topics-container .topic:hover .topic-icon, .topics-container .topic:active .topic-icon {
-        color: #2E0260; }
-        .topics-container .topic:hover .topic-icon .fa-inverse, .topics-container .topic:active .topic-icon .fa-inverse {
-          color: #FFF;
-          text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.75); }
+    @media (hover: hover) {
+      .topics-container .topic:hover {
+        background-color: #333;
+        color: #FFF; }
+        .topics-container .topic:hover .topic-icon {
+          color: #2E0260; }
+          .topics-container .topic:hover .topic-icon .fa-inverse {
+            color: #FFF;
+            text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.75); } }
     @media (max-width: 1124px) {
       .topics-container .topic {
         max-width: 50%;
