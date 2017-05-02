@@ -2,13 +2,9 @@
 .topics-container
   .topics
     .github-button button
-      margin: 10px 0px
-      padding: 5px 10px
-      min-width: 220px
-      box-shadow: 0px 1px 3px #000
-      font-family: 'Nixie One', sans-serif
       display: flex
       align-items: baseline
+      min-width: 240px
       .fa
         float:left
       .label
@@ -97,12 +93,9 @@
       .hardware-info
         text-align: center
         margin: auto
-        button
-          margin: 10px
-          font-size: 1em
-          padding: 10px
-          min-width: 40px
-          border-radius: 5px
+        .github-button
+          display: flex
+          justify-content: center
 
       .hardware-img
         float: right
@@ -149,13 +142,6 @@
         align-items: center
         width: 40%
         min-width: 320px
-        button
-          margin: 20px
-          font-size: 2em
-          padding: 20px
-          min-width: 40px
-          border-radius: 10px
-
         .archive-player
           padding: 10px 20px
           width: 100%
@@ -291,3 +277,7 @@
       #front-end .topic-full .github-button button
         min-width: 240px
         font-size: 1.3em
+
+      .github-button button
+        min-width: 200px
+        font-size: 0.8em
