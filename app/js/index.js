@@ -7,7 +7,7 @@ $(function(){
   new WOW().init();
 
   // set copright date
-  $('.copyright').html('&copy; Skyler Bright Fly-Wilson ' + new Date().getFullYear());
+  $('.copyright').html('&copy; Skyler Fly-Wilson ' + new Date().getFullYear());
 
   // get hash from url
   var section = window.location.hash;

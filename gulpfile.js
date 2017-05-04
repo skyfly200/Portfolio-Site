@@ -116,7 +116,9 @@ gulp.task('favicon', function() {
 });
 
 // clean out dist directory
-gulp.task('clean:dist', function() { return del.sync('dist'); });
+gulp.task('clean:dist', function() {
+  return del(['dist/**/*','!dist/.git*', '!dist/CNAME', '!dist/license.txt', '!dist/README.md', '!dist/README.txt'])
+});
 
 // clear caches
 gulp.task('cache:clear', function (callback) { return cache.clearAll(callback) });
