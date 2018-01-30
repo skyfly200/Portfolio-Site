@@ -21,7 +21,8 @@
     "gulp-sourcemaps": "^2.0.1",
     "gulp-uglify": "^2.0.0",
     "gulp-usemin": "^0.3.24",
-    "run-sequence": "^1.2.2"
+    "run-sequence": "^1.2.2",
+    "webpack": "^3.10.0"
   },
   "scripts": {},
   "author": "",
