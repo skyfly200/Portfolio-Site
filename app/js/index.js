@@ -40,7 +40,7 @@ $(function(){
     });
 
     // load topic content in to section
-    $section.find('.topic-full').load(("skills/" + $section.attr('id').replace(/_/g, "") + ".html"));
+    $section.find('.topic-full').load(("views/skills/" + $section.attr('id').replace(/_/g, "") + ".html"));
   } else {
     // top position relative to the document
     pos = $(section).parent().offset().top;

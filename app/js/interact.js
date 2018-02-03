@@ -51,7 +51,7 @@ $('.topic').on("click", function() {
     });
 
     // load topic content in to section
-    $topic.find('.topic-full').load(("skills/" + $topic.attr('id').replace(/_/g, "") + ".html"));
+    $topic.find('.topic-full').load(("views/skills/" + $topic.attr('id').replace(/_/g, "") + ".html"));
   }
 });
 
