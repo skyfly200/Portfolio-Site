@@ -1,3 +1,7 @@
+// Webpack Bundling
+import $ from 'jquery';
+window.WOW = require('wowjs').WOW;
+
 // Page intialize
 $(function(){
   // topic card oprin

@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 // handle links with @href started with '#' only
 $(document).on('click', 'a[href^="#"]', function(e) {
     // get hash url from link
