@@ -46,6 +46,6 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-# Project node-modules and dist folders
+# Project node-modules and public folders
 node_modules/
-dist/
+public/
