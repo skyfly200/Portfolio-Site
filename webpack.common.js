@@ -1,17 +1,20 @@
-const webpack = require('webpack');
 const path = require('path');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+//const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: [
     './app/app.js'
   ],
+  plugins: [
+    new CleanWebpackPlugin(['public'])
+  ],
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'public/js')
+    path: path.resolve(__dirname, 'public')
   },
-  devtool: "source-map",
-  devServer: {
-    contentBase: './public'
+  resolve: {
+    extensions: ['.js', '.json']
   },
   module: {
     rules: [
@@ -33,7 +36,7 @@ module.exports = {
             loader: 'file-loader',
             options: {
               name: '[path][name].html',
-              outputPath: '../',
+              outputPath: './',
               context: 'app'
             }
           },
@@ -49,7 +52,7 @@ module.exports = {
             loader: 'file-loader',
             options: {
               name: '[path][name].[ext]',
-              outputPath: '../',
+              outputPath: './',
               context: 'app'
             }
           },
@@ -63,8 +66,8 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: 'css/[name].css',
-              outputPath: '../',
+              name: '[name].css',
+              outputPath: './',
               context: 'app'
             }
           },
@@ -74,19 +77,27 @@ module.exports = {
         ]
       },
       {
-        test: /\.(woff|woff2|eot|ttf|otf|svg|png|jpg|gif)$/,
+        test: /\.(png|jpg|gif)$/,
         use: [{
           loader: 'file-loader',
           options: {
             name: '[path][name].[ext]',
-            outputPath: '../',
+            outputPath: './',
+            context: 'app'
+          }
+        }]
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf|svg)$/,
+        use: [{
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]',
+            outputPath: './fonts/',
             context: 'app'
           }
         }]
       }
     ]
-  },
-  resolve: {
-    extensions: ['.js', '.json']
   }
 };

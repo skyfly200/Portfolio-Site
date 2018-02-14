@@ -584,7 +584,7 @@ html[xmlns] .flexslider .slides {
 
 .header-wrapper {
   height: 100vh;
-  background-image: url(../images/bkgs/20140810_123425_003-v1.jpg);
+  background-image: url(./images/bkgs/20140810_123425_003-v1.jpg);
   background-size: cover;
   z-index: 0; }
   .header-wrapper .scroll-hint {

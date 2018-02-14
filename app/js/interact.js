@@ -1,5 +1,8 @@
 import $ from 'jquery';
 
+// topic card open
+var $currentTopic = '';
+
 // handle links with @href started with '#' only
 $(document).on('click', 'a[href^="#"]', function(e) {
     // get hash url from link
@@ -39,7 +42,7 @@ $('.topic').on("click", function() {
 
       // run initilizer for topic
       $currentTopic = $topic;
-      initImageSlider($topic.attr('id'));
+      //initImageSlider($topic.attr('id'));
 
       // fade in new view
       $topic.fadeIn("fast");

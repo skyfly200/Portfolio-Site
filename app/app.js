@@ -11,8 +11,8 @@ requireAll(require.context('./views/skills', true, /\.pug$/));
 
 // 3rd Party Styles
 import './css/bootstrap.css';
-import './css/font-awesome.css';
 import './css/animate.css';
+import './font-awesome.css';
 
 // My Styles
-import './sass/style.sass';
+import './style.sass';
