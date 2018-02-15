@@ -3,14 +3,14 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 //const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: [
-    './app/app.js'
-  ],
+  entry: {
+    app: './app/app.js'
+  },
   plugins: [
     new CleanWebpackPlugin(['public'])
   ],
   output: {
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'public')
   },
   resolve: {
