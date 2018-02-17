@@ -24,8 +24,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            //presets: ['@babel/preset-env'],
-            //plugins: ['@babel/transform-runtime']
+            presets: ['babel-preset-env']
           }
         }
       },
@@ -77,7 +76,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.(png|jpg|gif)$/,
+        test: /\.(png|jpg|gif|svg)$/,
         use: [{
           loader: 'file-loader',
           options: {

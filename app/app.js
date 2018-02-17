@@ -16,3 +16,6 @@ import './font-awesome.css';
 
 // My Styles
 import './style.sass';
+
+// Images
+requireAll(require.context('./images', true, /\.(png|jpg|gif|svg)$/));
