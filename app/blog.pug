@@ -7,29 +7,19 @@ html(lang="en")
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0")
     
-    title Skyler Fly
+    title Skyler Fly - Blog
     
     // 3rd Party Styles
     link(rel="stylesheet", type="text/css", href="css/bootstrap.css")
     link(rel="stylesheet", type="text/css", href="css/animate.css")
     link(rel="stylesheet", type="text/css", href="font-awesome.css")
-    
-    // My Styles
-    link(rel="stylesheet", href="style.css")
-
 
   body
     .wrapper
-      include views/header.pug
-
-      .content
-        include views/welcome.pug
-        include views/skills.pug
-        include views/blog-preview.pug
-        include views/resume.pug
-        include views/contact.pug
-
-      include views/footer.pug
-
-    // Webpack Bundled script file
-    script(src="app.bundle.js")
+      #app
+          
+    <!-- development version, includes helpful console warnings -->
+    script(src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js")
+    // Include Webpack Bundled file
+    script(src="blog.bundle.js")
+    

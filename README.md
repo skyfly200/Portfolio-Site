@@ -1,4 +1,26 @@
-# Portfolio-Site
-Portfolio site source code
+# Vue-Project-Template
 
-more info to come soon!
+## Project setup
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Run your tests
+```
+npm run test
+```
+
+### Lints and fixes files
+```
+npm run lint
+```

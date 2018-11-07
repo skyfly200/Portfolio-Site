@@ -1,0 +1,49 @@
+{
+  "name": "sbfw-portfolio",
+  "version": "2.1.1",
+  "description": "Portfolio Website for Skyler Fly-Wilson",
+  "author": "Skyler Fly-Wilson",
+  "license": "GPL-3.0",
+  "main": "app.js",
+  "repository": "github:skyfly200/Portfolio-Site",
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-runtime": "^6.26.0",
+    "jquery": "^3.3.1",
+    "vue": "^2.5.17",
+    "vue-loader": "^15.4.2",
+    "vue-template-compiler": "^2.5.17",
+    "wowjs": "^1.1.3"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "clean-webpack-plugin": "^0.1.18",
+    "css-loader": "^0.28.9",
+    "extract-loader": "^1.0.2",
+    "file-loader": "^1.1.6",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^2.30.1",
+    "moment": "^2.22.2",
+    "node-sass": "^4.7.2",
+    "pug": "^2.0.3",
+    "pug-html-loader": "^1.1.5",
+    "pug-loader": "^2.4.0",
+    "pug-plain-loader": "^1.0.0",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.20.1",
+    "uglifyjs-webpack-plugin": "^1.1.8",
+    "webpack": "^3.11.0",
+    "webpack-dev-server": "^2.11.1",
+    "webpack-merge": "^4.1.4"
+  },
+  "scripts": {
+    "build": "webpack --config webpack.prod.js",
+    "test": "webpack --config webpack.dev.js",
+    "watch": "webpack --watch --config webpack.dev.js",
+    "start": "webpack-dev-server --open --config webpack.dev.js"
+  }
+}
