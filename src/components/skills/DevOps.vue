@@ -1,0 +1,38 @@
+<template lang="pug">
+  .dev-ops
+    .skills-list
+      h2 Experience and Skillset
+      ul
+        li Install and Configure Linux Servers
+        li Linux Command Line, Cron Tab, Permissions, Shell Scripts
+        li Create and Configure Digital Ocean Droplets
+        li HTTPS with Lets Encrypt
+        li Icecast Configuration and Broadcasting
+        li GitHub Project Managment Habits
+    .projects-list
+      h2 Some of my projects
+      ul
+        li
+          a(href="//github.com/skyfly200/Radio-Control-System" target="_blank") Radio Control System
+        li
+          a(href="//github.com/skyfly200/Radio-Programming-Automation-in-Python" target="_blank") Radio Automation
+        li
+          a(href="//github.com/skyfly200/PythonProcessBabysitter" target="_blank") Process BabySitter
+
+      .github-button
+        a(href="//github.com/skyfly200" target="_blank")
+          button
+            .fa.fa-github.fa-2x
+            .label &nbsp;More on GitHub
+
+</template>
+
+<script>
+export default {
+  name: "dev-ops",
+  components: {}
+};
+</script>
+
+<style lang="sass">
+</style>

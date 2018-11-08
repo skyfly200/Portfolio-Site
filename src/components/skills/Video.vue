@@ -1,0 +1,21 @@
+<template lang="pug">
+  .video
+    .video-info
+      h2 As a picture is worth a thousand words, video is indescribable
+      p Video is a powerful medium, useful for conveyong complex messages, in an easily digestable form.
+        | I apreciate this power and harness it to educate, inspire and prevoke new perspectives.
+      h3 Now check out my friend Critter's entry video to American Ninja Warrior.
+
+    .video-player
+      iframe(src="https://www.youtube.com/embed/9o6mhFOJO5c?rel=0" frameborder="0" allowfullscreen)
+</template>
+
+<script>
+export default {
+  name: "video",
+  components: {}
+};
+</script>
+
+<style lang="sass">
+</style>

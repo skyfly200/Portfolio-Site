@@ -1,34 +1,61 @@
 <template lang="pug">
-  // Skills Section
-  .topics-container#skills
-    .topics-header.wow.fadeIn
-      .topics-heading
-        h1 Explore my diverse range of skills
-      .topics-hint
-        h3 Select&nbsp;a&nbsp;topic to&nbsp;find&nbsp;out&nbsp;more!
+  #skills
+    .topics-container
+      .topics-list(v-if="!feature.state")
+        .topics-header.wow.fadeIn
+          .topics-heading
+            h1 Explore my diverse range of skills
+          .topics-hint
+            h3 Select&nbsp;a&nbsp;topic to&nbsp;find&nbsp;out&nbsp;more!
 
-    .topics#topics
-      Topic(v-bind="topics.frontEnd")
-      Topic(v-bind="topics.backEnd")
-      Topic(v-bind="topics.devOps")
-      Topic(v-bind="topics.hardware")
-      Topic(v-bind="topics.audio")
-      Topic(v-bind="topics._3d")
-      Topic(v-bind="topics.photo")
-      Topic(v-bind="topics.video")
+        .topics#topics
+          Topic(v-for="topic in topics" v-bind="topic")
+
+      .topic-feature(v-if="feature.state")
+        Empty(v-if="feature.topic == ''")
+        FrontEnd(v-if="feature.topic == 'front-end'")
+        BackEnd(v-if="feature.topic == 'back-end'")
+        DevOps(v-if="feature.topic == 'dev-ops'")
+        Hardware(v-if="feature.topic == 'hardware'")
+        Audio(v-if="feature.topic == 'audio'")
+        Design3D(v-if="feature.topic == '3d'")
+        Video(v-if="feature.topic == 'video'")
+        Photo(v-if="feature.topic == 'photo'")
 
 </template>
 
 <script>
 import Topic from "@/components/Topic.vue";
+import Empty from "@/components/skills/EmptyComp.vue";
+import FrontEnd from "@/components/skills/FrontEnd.vue";
+import BackEnd from "@/components/skills/BackEnd.vue";
+import DevOps from "@/components/skills/DevOps.vue";
+import Hardware from "@/components/skills/Hardware.vue";
+import Audio from "@/components/skills/Audio.vue";
+import Design3D from "@/components/skills/Design3D.vue";
+import Video from "@/components/skills/Video.vue";
+import Photo from "@/components/skills/Photo.vue";
 
 export default {
   name: "skills",
   components: {
-    Topic
+    Topic,
+    Empty,
+    FrontEnd,
+    BackEnd,
+    DevOps,
+    Hardware,
+    Audio,
+    Design3D,
+    Photo,
+    Video
   },
   data: () => {
     return {
+      feature: {
+        state: false,
+        topic: null
+      },
       topics: {
         frontEnd: {
           name: "Front End",
@@ -66,18 +93,8 @@ export default {
           hash: "hardware",
           summary: [
             "Sensing, Control, Automation",
-            "Arduino, RaspberryPi, WiFi",
+            "Arduino, RaspberryPi, WiFi, BT",
             "LEDs, Solar, Circuit Boards"
-          ]
-        },
-        video: {
-          name: "Videography",
-          icon: "fa-film",
-          hash: "video",
-          summary: [
-            "Videography, Audio, Directing",
-            "Editing, Effects, Animation",
-            "Premiere, After Effects"
           ]
         },
         audio: {
@@ -108,6 +125,16 @@ export default {
             "Perspective, Macro, Landscape",
             "Lighting, Lenses, Techniques",
             "Photoshop, Lightroom"
+          ]
+        },
+        video: {
+          name: "Videography",
+          icon: "fa-film",
+          hash: "video",
+          summary: [
+            "Videography, Audio, Directing",
+            "Editing, Effects, Animation",
+            "Premiere, After Effects"
           ]
         }
       }
