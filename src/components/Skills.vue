@@ -9,10 +9,9 @@
             h3 Select&nbsp;a&nbsp;topic to&nbsp;find&nbsp;out&nbsp;more!
 
         .topics#topics
-          Topic(v-for="topic in topics" v-bind="topic")
+          Topic(v-for="topic in topics" v-bind="topic" v-bind:key="topic.hash")
 
       .topic-feature(v-if="feature.state")
-        Empty(v-if="feature.topic == ''")
         FrontEnd(v-if="feature.topic == 'front-end'")
         BackEnd(v-if="feature.topic == 'back-end'")
         DevOps(v-if="feature.topic == 'dev-ops'")
@@ -26,7 +25,6 @@
 
 <script>
 import Topic from "@/components/Topic.vue";
-import Empty from "@/components/skills/EmptyComp.vue";
 import FrontEnd from "@/components/skills/FrontEnd.vue";
 import BackEnd from "@/components/skills/BackEnd.vue";
 import DevOps from "@/components/skills/DevOps.vue";
@@ -40,7 +38,6 @@ export default {
   name: "skills",
   components: {
     Topic,
-    Empty,
     FrontEnd,
     BackEnd,
     DevOps,
