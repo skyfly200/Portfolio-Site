@@ -26,12 +26,9 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-  //@import "mixins"
-  //@import "vars"
-
   // style an arrow bouncing to hint at scrolling to view more content
   .scroll-hint
-    //@extend .flex-box-center
+    @extend .flex-box-center
     margin-top: -15vh
     width: 100%
     a
@@ -43,7 +40,7 @@ export default {
   // landing Styles
   .landing-wrapper
     height: 100vh
-    background-image: url('../assets/images/bkgs/20140810_123425_003-v1.jpg')
+    background-image: url('/images/bkg.jpg')
     background-size: cover
     z-index: 0
     .scroll-hint

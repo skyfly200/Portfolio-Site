@@ -3,4 +3,4 @@
     router-view
 </template>
 
-<style src="./styles/_base.sass" lang="sass"></style>
+<style src="./styles/base.sass" lang="sass"></style>

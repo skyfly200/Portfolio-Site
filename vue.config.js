@@ -1,16 +1,14 @@
-const path = require("path");
 module.exports = {
-  configureWebpack: {
-    resolve: {
-      alias: {
-        assets: path.resolve(__dirname, "./src/assets/"),
-        styles: path.resolve(__dirname, "./src/styles/"),
-        vars: path.resolve(__dirname, "./src/styles/1-base/_vars.sass"),
-        mixins: path.resolve(
-          __dirname,
-          "./src/styles/0-plugins/_mixin-extends.sass"
-        )
-      }
-    }
+  chainWebpack: config => {
+    const oneOfsMap = config.module.rule("sass").oneOfs.store;
+    oneOfsMap.forEach(item => {
+      item
+        .use("sass-resources-loader")
+        .loader("sass-resources-loader")
+        .options({
+          resources: ["./src/styles/vars.sass", "./src/styles/mixins.sass"]
+        })
+        .end();
+    });
   }
 };
