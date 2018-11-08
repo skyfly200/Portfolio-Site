@@ -61,17 +61,34 @@
         p Prototyping, Printing
         p Blender, SketchUp, Maya
 
-      +topic("Photography", "fa-camera", "photo")
-        p Perspective, Macro, Landscape
-        p Lighting, Lenses, Techniques
-        p Photoshop, Lightroom
+      Topic(v-bind="topics.photo")
 
 </template>
 
 <script>
+import Topic from "@/components/Topic.vue";
+
 export default {
   name: "skills",
-  components: {}
+  components: {
+    Topic
+  },
+  data: () => {
+    return {
+      topics: {
+        photo: {
+          name: "Photography",
+          icon: "fa-camera",
+          hash: "photo",
+          summary: [
+            "Perspective, Macro, Landscape",
+            "Lighting, Lenses, Techniques",
+            "Photoshop, Lightroom"
+          ]
+        }
+      }
+    };
+  }
 };
 </script>
 
