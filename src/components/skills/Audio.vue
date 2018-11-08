@@ -30,4 +30,49 @@ export default {
 </script>
 
 <style lang="sass">
+  #audio
+    text-align: center
+    color: #000
+    background: rgba(255,255,255,0.75)
+    &.topic-expanded
+      display: flex
+      align-items: center
+    .audio-info
+      width: 60%
+      margin: 10px
+      text-align: center
+      margin: auto
+      h1
+        margin-top: 0px
+
+    .archives
+      display: flex
+      flex-direction: column
+      align-items: center
+      width: 40%
+      min-width: 320px
+      .archive-player
+        padding: 10px 20px
+        width: 100%
+        h3
+          margin: 5px
+      @media (max-width: 520px)
+        width: calc(100vw - 40px)
+        .archive-player
+          width: calc(95vw - 40px)
+      @media (max-width: 380px)
+        align-items: center
+        .archive-player
+          border-radius: 0px
+          padding: 0px
+          width: 100%
+    @media (max-width: 800px)
+      flex-direction: column
+      .audio-info
+        width: 100%
+        padding: 20px 0px
+      .archives
+        width: 100%
+        .archive-player
+          width: 80%
 </style>

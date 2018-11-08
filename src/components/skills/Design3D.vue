@@ -38,4 +38,58 @@ export default {
 </script>
 
 <style lang="sass">
+  ._3d
+    color: black
+    background: rgba(255,255,255,0.75)
+    box-shadow: 2px 5px 5px black
+    &.topic-expanded
+      display: flex
+      align-items: center
+    .slider-wrapper
+      width: 625px
+      height: 652px
+      overflow-y: hidden
+      li
+        display: flex
+        align-items: center
+        iframe
+          width: 625px
+          height: 652px
+      .flexslider
+        margin: 0px
+      @media (max-width: 2000px)
+        width: 400px
+        height: 468px
+        li iframe
+          width: 400px
+          height: 468px
+
+      @media (max-width: 400px)
+        width: 300px
+        height: 372px
+        li iframe
+          width: 300px
+          height: 372px
+    .info-3d
+      display: flex
+      align-items: center
+      flex-direction: column
+      text-align: center
+      width: calc(100% - 400px)
+      margin: 5px
+      padding: 10px
+        
+    @media (max-width: 800px)
+      flex-direction: column
+      align-items: center
+      .info-3d
+        padding-bottom: 20px
+        width: 100%
+
+      .slider-wrapper
+        width: 400px
+        height: 468px
+        li iframe
+          width: 400px
+          height: 468px
 </style>

@@ -34,4 +34,24 @@ export default {
 </script>
 
 <style lang="sass">
+  .hardware
+    width: 100%
+    background: rgba(255,255,255,0.75)
+    color: #000
+    padding: 20px
+    .hardware-info
+      text-align: center
+      margin: auto
+      .github-button
+        display: flex
+        justify-content: center
+
+    .hardware-img
+      float: right
+      margin: 0px auto
+      img
+        max-height: 80vh
+        max-width: 60vw
+    @media (max-width: 940px)
+      flex-direction: column
 </style>

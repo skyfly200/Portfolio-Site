@@ -42,4 +42,13 @@ export default {
 </script>
 
 <style lang="sass">
+  .back-end
+    background: rgba(255,255,255,0.75)
+    color: #000
+    .skills-list
+      margin: 0px auto
+    .projects-list
+      margin: 0px auto
+    @media (max-width: 660px)
+      flex-direction: column
 </style>

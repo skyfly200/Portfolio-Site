@@ -35,4 +35,24 @@ export default {
 </script>
 
 <style lang="sass">
+  .dev-ops
+    color: #000
+    background: rgba(255,255,255,0.75)
+    .skills-list
+      margin: 0px auto
+      li
+        font-size: 1.2em
+    .projects-list
+      margin: 0px auto
+      padding: 0px 10px
+      li
+        font-size: 1.2em
+      .github-button button
+        min-width: 292px
+
+    @media (max-width: 660px)
+      flex-direction: column
+      .projects-list .github-button button
+        min-width: 200px
+        font-size: 1.2em
 </style>

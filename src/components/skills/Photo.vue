@@ -21,4 +21,24 @@ export default {
 </script>
 
 <style lang="sass">
+  .gallery
+    text-align: center
+    &.topic-expanded
+      display: flex
+      align-items: center
+    .gallery
+      .slides
+        button
+          color: #000
+      .slide
+        display: none
+        img
+          max-width: 100%
+          max-height: 95vh
+    @media (max-width: 800px)
+      padding: 0px
+      .video-player
+        iframe
+          width: 480px
+          height: 360px
 </style>
