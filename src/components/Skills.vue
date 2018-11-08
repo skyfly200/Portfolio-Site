@@ -1,22 +1,4 @@
 <template lang="pug">
-  //- Pug Mixins
-  mixin topic(name, icon, hash)
-    div(id=hash).topic.wow
-      .icon-box
-        .topic-icon
-          span.fa-stack.fa-3x
-            i.fa.fa-circle.fa-stack-2x
-            i(class=icon).fa.fa-stack-1x.fa-inverse
-      .topic-title
-        h2= name
-      .topic-close
-        a(href="#null")
-          i.fa.fa-close.fa-2x
-      .topic-content
-        .topic-short
-          block
-        .topic-full
-
   // Skills Section
   .topics-container#skills
     .topics-header.wow.fadeIn
@@ -26,42 +8,14 @@
         h3 Select&nbsp;a&nbsp;topic to&nbsp;find&nbsp;out&nbsp;more!
 
     .topics#topics
-      +topic("Back End", "fa-cogs", "back-end")
-        p Python, PHP, JS, C
-        p Node, Express, SQL
-        p REST, Data Structures
-
-      +topic("Front End", "fa-code", "front-end")
-        p HTML5, CSS3, JS, jQuery
-        p SASS, Jade, Bootstrap
-        p Responsive Design
-
-      +topic("Dev Ops", "fa-linux", "dev-ops")
-        p Linux Admin, Terminal Skills
-        p Apache, MySQL, FTP, SSH
-        p Digital Ocean, Lets Encrypt
-
-      +topic("Hardware", "fa-bolt", "hardware")
-        p Sensing, Control, Automation
-        p Arduino, RaspberryPi, WiFi
-        p LEDs, Solar, Circuit Boards
-
-      +topic("Video", "fa-film", "video")
-        p Videography, Audio, Directing
-        p Editing, Effects, Animation
-        p Premiere, After Effects
-
-      +topic("Audio", "fa-microphone", "audio")
-        p Live, Tracking, Mixing
-        p FM and Online Broadcasting
-        p Pro Tools, Audition, Ableton
-
-      +topic("3D Design", "fa-cube", "_3d")
-        p Art, Design, Invention
-        p Prototyping, Printing
-        p Blender, SketchUp, Maya
-
+      Topic(v-bind="topics.frontEnd")
+      Topic(v-bind="topics.backEnd")
+      Topic(v-bind="topics.devOps")
+      Topic(v-bind="topics.hardware")
+      Topic(v-bind="topics.audio")
+      Topic(v-bind="topics._3d")
       Topic(v-bind="topics.photo")
+      Topic(v-bind="topics.video")
 
 </template>
 
@@ -76,6 +30,76 @@ export default {
   data: () => {
     return {
       topics: {
+        frontEnd: {
+          name: "Front End",
+          icon: "fa-code",
+          hash: "front-end",
+          summary: [
+            "HTML5, CSS3, JS, jQuery",
+            "SASS, Jade, Bootstrap",
+            "Responsive Design"
+          ]
+        },
+        backEnd: {
+          name: "Back End",
+          icon: "fa-cogs",
+          hash: "back-end",
+          summary: [
+            "Python, PHP, JS, C",
+            "Node, Express, SQL",
+            "REST, Data Structures"
+          ]
+        },
+        devOps: {
+          name: "Dev Ops",
+          icon: "fa-linux",
+          hash: "dev-ops",
+          summary: [
+            "Linux Admin, Terminal Skills",
+            "Apache, MySQL, FTP, SSH",
+            "Digital Ocean, Lets Encrypt"
+          ]
+        },
+        hardware: {
+          name: "Hardware",
+          icon: "fa-bolt",
+          hash: "hardware",
+          summary: [
+            "Sensing, Control, Automation",
+            "Arduino, RaspberryPi, WiFi",
+            "LEDs, Solar, Circuit Boards"
+          ]
+        },
+        video: {
+          name: "Videography",
+          icon: "fa-film",
+          hash: "video",
+          summary: [
+            "Videography, Audio, Directing",
+            "Editing, Effects, Animation",
+            "Premiere, After Effects"
+          ]
+        },
+        audio: {
+          name: "Audio",
+          icon: "fa-microphone",
+          hash: "audio",
+          summary: [
+            "Live, Tracking, Mixing",
+            "FM and Online Broadcasting",
+            "Pro Tools, Audition, Ableton"
+          ]
+        },
+        _3d: {
+          name: "3D Design",
+          icon: "fa-cube",
+          hash: "_3d",
+          summary: [
+            "Art, Design, Invention",
+            "Prototyping, Printing",
+            "Blender, SketchUp, Maya"
+          ]
+        },
         photo: {
           name: "Photography",
           icon: "fa-camera",
