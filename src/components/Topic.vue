@@ -7,10 +7,7 @@
           i.fa.fa-stack-1x.fa-inverse(:class="icon")
     .topic-title
       h2 {{ name }}
-    .topic-close
-      a(href="#null")
-        i.fa.fa-close.fa-2x
-    .topic-content
+    .topic-cont
       .topic-short
         p(v-for="line in summary") {{ line }}
 </template>

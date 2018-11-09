@@ -1,5 +1,5 @@
 <template lang="pug">
-  .skills
+  .skills#skills
     .topics-container
       .topics-list(v-if="!feature")
         .topics-header.wow.fadeIn
@@ -12,7 +12,10 @@
           Topic(v-for="topic in topics" v-bind="topic" v-bind:key="topic.hash")
 
       .topic-feature(v-if="feature")
-        FrontEnd(v-if="feature == 'front-end'" v-on:click="alert")
+        .topic-close
+          a(href="#skills" v-on:click="clearTopic")
+            i.fa.fa-close.fa-2x
+        FrontEnd(v-if="feature == 'front-end'")
         BackEnd(v-if="feature == 'back-end'")
         DevOps(v-if="feature == 'dev-ops'")
         Hardware(v-if="feature == 'hardware'")
@@ -50,6 +53,11 @@ export default {
   computed: {
     feature() {
       return this.$store.state.feature;
+    }
+  },
+  methods: {
+    clearTopic() {
+      this.$store.commit("clearTopic");
     }
   },
   data: () => {
