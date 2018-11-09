@@ -4,7 +4,16 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: {},
-  mutations: {},
+  state: {
+    feature: null
+  },
+  mutations: {
+    showTopic(state, topic) {
+      state.feature = topic;
+    },
+    clearTopic(state) {
+      state.feature = null;
+    }
+  },
   actions: {}
 });

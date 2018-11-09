@@ -1,7 +1,7 @@
 <template lang="pug">
-  #skills
+  .skills
     .topics-container
-      .topics-list(v-if="!feature.state")
+      .topics-list(v-if="!feature")
         .topics-header.wow.fadeIn
           .topics-heading
             h1 Explore my diverse range of skills
@@ -11,15 +11,15 @@
         .topics#topics
           Topic(v-for="topic in topics" v-bind="topic" v-bind:key="topic.hash")
 
-      .topic-feature(v-if="feature.state")
-        FrontEnd(v-if="feature.topic == 'front-end'")
-        BackEnd(v-if="feature.topic == 'back-end'")
-        DevOps(v-if="feature.topic == 'dev-ops'")
-        Hardware(v-if="feature.topic == 'hardware'")
-        Audio(v-if="feature.topic == 'audio'")
-        Design3D(v-if="feature.topic == '3d'")
-        Video(v-if="feature.topic == 'video'")
-        Photo(v-if="feature.topic == 'photo'")
+      .topic-feature(v-if="feature")
+        FrontEnd(v-if="feature == 'front-end'" v-on:click="alert")
+        BackEnd(v-if="feature == 'back-end'")
+        DevOps(v-if="feature == 'dev-ops'")
+        Hardware(v-if="feature == 'hardware'")
+        Audio(v-if="feature == 'audio'")
+        Design3D(v-if="feature == '3d'")
+        Video(v-if="feature == 'video'")
+        Photo(v-if="feature == 'photo'")
 
 </template>
 
@@ -47,12 +47,13 @@ export default {
     Photo,
     Video
   },
+  computed: {
+    feature() {
+      return this.$store.state.feature;
+    }
+  },
   data: () => {
     return {
-      feature: {
-        state: false,
-        topic: null
-      },
       topics: {
         frontEnd: {
           name: "Front End",

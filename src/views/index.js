@@ -1,9 +1,5 @@
-// Webpack Bundling
-import $ from 'jquery';
-window.WOW = require('wowjs').WOW;
-
 // Page intialize
-$(function(){
+$(function() {
   // WOW js init
   new WOW().init();
 
@@ -13,38 +9,43 @@ $(function(){
   // target section element
   var $section = $(section);
   if ($section.length === 0) {
-      return;
+    return;
   }
 
   // initialize pos
   var pos = 0;
 
   // if url hash points to a skill topic, expand that topic and fade others out
-  if ($section.hasClass('topic')) {
+  if ($section.hasClass("topic")) {
     // select all topics and fade them out
-    $('.topic').stop().fadeOut("fast", function () {
-      // section top position relative to the document
-      pos = $section.offset().top;
+    $(".topic")
+      .stop()
+      .fadeOut("fast", function() {
+        // section top position relative to the document
+        pos = $section.offset().top;
 
-      // add topic-expanded class to selected topic and inverse class to topics container
-      $section.addClass('topic-expanded');
-      $(".topics-container").addClass("feature-topic");
+        // add topic-expanded class to selected topic and inverse class to topics container
+        $section.addClass("topic-expanded");
+        $(".topics-container").addClass("feature-topic");
 
-      // run initilizer for Photo Slider
-      initImageSlider();
+        // run initilizer for Photo Slider
+        initImageSlider();
 
-      // fade in new view
-      $section.fadeIn("fast");
-    });
+        // fade in new view
+        $section.fadeIn("fast");
+      });
 
     // load topic content in to section
-    $section.find('.topic-full').load(("views/skills/" + $section.attr('id').replace(/_/g, "") + ".html"));
+    $section
+      .find(".topic-full")
+      .load("views/skills/" + $section.attr("id").replace(/_/g, "") + ".html");
   } else {
     // top position relative to the document
-    pos = $(section).parent().offset().top;
+    pos = $(section)
+      .parent()
+      .offset().top;
   }
 
   // move scroll scroll position to top of section
-  $('body, html').css("scrollTop", pos);
-
+  $("body, html").css("scrollTop", pos);
 });

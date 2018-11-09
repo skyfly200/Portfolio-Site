@@ -1,5 +1,5 @@
 <template lang="pug">
-  .topic.wow(:id="hash")
+  a.topic.wow(:id="hash" v-on:click="showTopic")
     .icon-box
       .topic-icon
         span.fa-stack.fa-3x
@@ -23,6 +23,11 @@ export default {
     icon: String,
     name: String,
     summary: Array
+  },
+  methods: {
+    showTopic() {
+      this.$store.commit("showTopic", this.hash);
+    }
   }
 };
 </script>
