@@ -106,7 +106,7 @@ export default {
         audio: {
           name: "Audio",
           icon: "fa-microphone",
-          hash: "audio",
+          hash: "audios",
           summary: [
             "Live, Tracking, Mixing",
             "FM and Online Broadcasting",
@@ -126,7 +126,7 @@ export default {
         photo: {
           name: "Photography",
           icon: "fa-camera",
-          hash: "photo",
+          hash: "photos",
           summary: [
             "Perspective, Macro, Landscape",
             "Lighting, Lenses, Techniques",
@@ -136,7 +136,7 @@ export default {
         video: {
           name: "Videography",
           icon: "fa-film",
-          hash: "video",
+          hash: "videos",
           summary: [
             "Videography, Audio, Directing",
             "Editing, Effects, Animation",
@@ -202,5 +202,10 @@ export default {
           font-size: 1.4em
           line-height: 50%
           vertical-align: middle
+
+  .topic-feature
+    width: 100%
+    padding: 20px
+    padding-top: 0px
 
 </style>

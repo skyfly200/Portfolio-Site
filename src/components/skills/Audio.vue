@@ -34,9 +34,6 @@ export default {
     text-align: center
     color: #000
     background: rgba(255,255,255,0.75)
-    &.topic-expanded
-      display: flex
-      align-items: center
     .audio-info
       width: 60%
       margin: 10px

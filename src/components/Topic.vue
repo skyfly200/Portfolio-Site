@@ -73,22 +73,14 @@ export default {
         top: -12vh
         right: 1vh
 
-    .topic-full
-      width: 100%
-      display: none
-      padding: 20px
-      padding-top: 0px
-
-    @media (hover:hover)
-      &:hover
-        background-color: $grey-0
-        color: #FFF
-        .topic-icon
-          color: $color-primary-4
-
-          .fa-inverse
-            color: #FFF
-            text-shadow: 0px 0px 5px rgba(255,255,255,0.75)
+    &:hover
+      background-color: $grey-0
+      color: #FFF
+      .topic-icon
+        color: $color-primary-4
+        .fa-inverse
+          color: #FFF
+          text-shadow: 0px 0px 5px rgba(255,255,255,0.75)
 
     @media (max-width: 1124px)
       max-width: 50%
