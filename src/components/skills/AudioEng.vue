@@ -1,5 +1,5 @@
 <template lang="pug">
-  .audio
+  .audio-eng
     .audio-info
       p With an comprehensive understanding of signal flow and equipment, as well as a well refined ear,
         | I'm confident in my ability to create powerful sounding experiences.
@@ -24,13 +24,15 @@
 
 <script>
 export default {
-  name: "audio",
+  name: "audioEng",
   components: {}
 };
 </script>
 
 <style lang="sass">
-  #audio
+  .audio-eng
+    display: flex
+    justify-content: center
     text-align: center
     color: #000
     background: rgba(255,255,255,0.75)
@@ -58,7 +60,6 @@ export default {
         .archive-player
           width: calc(95vw - 40px)
       @media (max-width: 380px)
-        align-items: center
         .archive-player
           border-radius: 0px
           padding: 0px

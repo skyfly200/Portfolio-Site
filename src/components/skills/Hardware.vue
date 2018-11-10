@@ -35,6 +35,8 @@ export default {
 
 <style lang="sass">
   .hardware
+    display: flex
+    justify-content: center
     width: 100%
     background: rgba(255,255,255,0.75)
     color: #000

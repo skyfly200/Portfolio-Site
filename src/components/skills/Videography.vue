@@ -4,7 +4,7 @@
       h2 As a picture is worth a thousand words, video is indescribable
       p Video is a powerful medium, useful for conveyong complex messages, in an easily digestable form.
         | I apreciate this power and harness it to educate, inspire and prevoke new perspectives.
-      h3 Now check out my friend Critter's entry video to American Ninja Warrior.
+      h3 Now check out this American Ninja Warrior entry video I produced for my friend Critter .
 
     .video-player
       iframe(src="https://www.youtube.com/embed/9o6mhFOJO5c?rel=0" frameborder="0" allowfullscreen)
@@ -12,17 +12,16 @@
 
 <script>
 export default {
-  name: "video",
+  name: "videography",
   components: {}
 };
 </script>
 
 <style lang="sass">
   .video
+    display: flex
     text-align: center
-    color: black
-    background: rgba(255,255,255,0.75)
-    box-shadow: 2px 5px 5px black
+    color: white
     padding: 10px
     &.topic-expanded
       display: flex
@@ -31,6 +30,8 @@ export default {
       padding: 10px 25px
       width: auto
       margin: auto
+      p
+        font-size: 1.2em
     .video-player
       iframe
         width: 720px

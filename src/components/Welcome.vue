@@ -6,14 +6,16 @@
         .welcome-heading.wow
           h2 Welcome
         .welcome-blurb.wow
-          p I dabble in a diverse range of interest.
-          p Learning new things is a top priority for me.
-          p Below I have distilled an array of my most potent talents.
+          p I am Skyler and I dabble in a diverse range of interests that fascinate me.
+          p
+          | Learning new things is a top priority. I am a lifelong learner and I try to learn new things every day.
+          | Below I have distilled an array of projects and content showcasing my most potent talents.
+          | I add new content regularly so check back to see what I am up to.
         .welcome-social.wow
           a(href="https://github.com/skyfly200", target="_blank").fa.fa-github.fa-2x
           a(href="http://codepen.io/skyfly200/", target="_blank").fa.fa-codepen.fa-2x
           a(href="https://www.linkedin.com/in/skyler-fly-wilson-38870986", target="_blank").fa.fa-linkedin.fa-2x
-          a(href="mailto:skyler@skybfly.com", target="_blank").fa.fa-envelope.fa-2x
+          a(href="mailto:skyler@skylerfly.com", target="_blank").fa.fa-envelope.fa-2x
 
     .welcome-img.wow
       img(src="/images/bio-img.jpg" alt="A picture of me")

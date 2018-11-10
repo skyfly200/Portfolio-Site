@@ -39,6 +39,8 @@ export default {
 
 <style lang="sass">
   ._3d
+    display: flex
+    justify-content: center
     color: black
     background: rgba(255,255,255,0.75)
     box-shadow: 2px 5px 5px black
@@ -57,6 +59,9 @@ export default {
           height: 652px
       .flexslider
         margin: 0px
+        .slides
+          padding: 0
+          margin: 0
       @media (max-width: 2000px)
         width: 400px
         height: 468px
@@ -78,7 +83,7 @@ export default {
       width: calc(100% - 400px)
       margin: 5px
       padding: 10px
-        
+
     @media (max-width: 800px)
       flex-direction: column
       align-items: center

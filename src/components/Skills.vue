@@ -19,10 +19,10 @@
         BackEnd(v-if="feature == 'back-end'")
         DevOps(v-if="feature == 'dev-ops'")
         Hardware(v-if="feature == 'hardware'")
-        Audio(v-if="feature == 'audio'")
-        Design3D(v-if="feature == '3d'")
-        Video(v-if="feature == 'video'")
-        Photo(v-if="feature == 'photo'")
+        AudioEng(v-if="feature == 'audios'")
+        Design3D(v-if="feature == '_3d'")
+        Videography(v-if="feature == 'videos'")
+        Photo(v-if="feature == 'photos'")
 
 </template>
 
@@ -32,9 +32,9 @@ import FrontEnd from "@/components/skills/FrontEnd.vue";
 import BackEnd from "@/components/skills/BackEnd.vue";
 import DevOps from "@/components/skills/DevOps.vue";
 import Hardware from "@/components/skills/Hardware.vue";
-import Audio from "@/components/skills/Audio.vue";
+import AudioEng from "@/components/skills/AudioEng.vue";
 import Design3D from "@/components/skills/Design3D.vue";
-import Video from "@/components/skills/Video.vue";
+import Videography from "@/components/skills/Videography.vue";
 import Photo from "@/components/skills/Photo.vue";
 
 export default {
@@ -45,10 +45,10 @@ export default {
     BackEnd,
     DevOps,
     Hardware,
-    Audio,
+    AudioEng,
     Design3D,
     Photo,
-    Video
+    Videography
   },
   computed: {
     feature() {
@@ -177,13 +177,6 @@ export default {
         @media (max-width: 360px)
           font-size: 1.2em
 
-    &.feature-topic
-      color: #FFF
-      background-color: $grey-0
-
-      .topics-header
-        display: none
-
     .topics
       padding: 0px
       padding-bottom: 30px
@@ -205,7 +198,16 @@ export default {
 
   .topic-feature
     width: 100%
+    min-height: 100vh
     padding: 20px
     padding-top: 0px
+    color: #FFF
+    background-color: $grey-0
+    .topics-header
+      display: none
+    .topic-close a
+      text-shadow: 0px 0px 0.5px white
+      i
+        margin: 10px 0px 10px -10px
 
 </style>

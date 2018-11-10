@@ -36,6 +36,8 @@ export default {
 
 <style lang="sass">
   .dev-ops
+    display: flex
+    justify-content: center
     color: #000
     background: rgba(255,255,255,0.75)
     .skills-list

@@ -43,6 +43,7 @@ export default {
 
 <style lang="sass">
   .back-end
+    display: flex
     background: rgba(255,255,255,0.75)
     color: #000
     .skills-list

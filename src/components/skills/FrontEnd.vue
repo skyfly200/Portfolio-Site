@@ -34,7 +34,7 @@ export default {
 </script>
 
 <style lang="sass">
-  .front-end
+  .site-tech
     align-items: center
     flex-direction: column
     text-align: center
@@ -85,9 +85,9 @@ export default {
         min-width: 355px
         font-size: 2em
         align-items: center
-      @media (max-width: 380px)
-        min-width: 240px
-        font-size: 1.3em
+        @media (max-width: 380px)
+          min-width: 240px
+          font-size: 1.3em
     @media (max-width: 800px)
       .site-images a img
         width: 100%
