@@ -15,6 +15,7 @@
         .topic-close
           a(href="#skills" v-on:click="clearTopic")
             i.fa.fa-close.fa-2x
+            span &nbsp;Back
         FrontEnd(v-if="feature == 'front-end'")
         BackEnd(v-if="feature == 'back-end'")
         DevOps(v-if="feature == 'dev-ops'")
@@ -206,8 +207,12 @@ export default {
     .topics-header
       display: none
     .topic-close a
+      display: flex
       text-shadow: 0px 0px 0.5px white
       i
         margin: 10px 0px 10px -10px
+      span
+        font-size: 1.5em
+        margin: 14px 0px
 
 </style>
