@@ -24,6 +24,8 @@ export default {
   methods: {
     showTopic() {
       this.$store.commit("showTopic", this.hash);
+      // scroll element into view
+      document.querySelector("#skills").scrollIntoView();
     }
   }
 };

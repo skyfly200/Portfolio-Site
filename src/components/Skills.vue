@@ -11,7 +11,7 @@
         .topics#topics
           Topic(v-for="topic in topics" v-bind="topic" v-bind:key="topic.hash")
 
-      .topic-feature(v-if="feature")
+      .topic-feature(v-if="feature")#feature
         .topic-close
           a(href="#skills" v-on:click="clearTopic")
             i.fa.fa-close.fa-2x
