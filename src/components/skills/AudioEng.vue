@@ -1,5 +1,5 @@
 <template lang="pug">
-  .audio-eng
+  .audio-eng.skill
     .audio-info
       p With an comprehensive understanding of signal flow and equipment, as well as a well refined ear,
         | I'm confident in my ability to create powerful sounding experiences.

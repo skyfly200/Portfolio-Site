@@ -1,5 +1,5 @@
 <template lang="pug">
-  .hardware
+  .hardware.skill
     .hardware-info
       .projects-list
         h2 Hardware Projects Firmware

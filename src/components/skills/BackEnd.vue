@@ -1,5 +1,5 @@
 <template lang="pug">
-  .back-end
+  .back-end.skill
     .skills-list
       h2 Back End Skills
       ul

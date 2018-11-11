@@ -1,5 +1,5 @@
 <template lang="pug">
-  .gallery
+  .gallery.skill
     .slides
       .slide
         img(src="/images/bkgs/20140615_161556.jpg")

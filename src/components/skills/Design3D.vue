@@ -1,5 +1,5 @@
 <template lang="pug">
-  ._3d
+  ._3d.skill
     .info-3d
       h2 Exploring new dimensions of posibility
       p

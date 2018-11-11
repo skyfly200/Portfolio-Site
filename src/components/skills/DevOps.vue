@@ -1,5 +1,5 @@
 <template lang="pug">
-  .dev-ops
+  .dev-ops.skill
     .skills-list
       h2 Experience and Skillset
       ul

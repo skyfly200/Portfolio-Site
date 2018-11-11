@@ -1,5 +1,5 @@
 <template lang="pug">
-  .site-tech
+  .front-end.skill
     h2 This website represents my present skillset in front end design.
     h3 It utilizes modern tecnologies
     .logos
@@ -34,7 +34,7 @@ export default {
 </script>
 
 <style lang="sass">
-  .site-tech
+  .front-end
     align-items: center
     flex-direction: column
     text-align: center

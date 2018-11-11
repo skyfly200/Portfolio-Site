@@ -1,5 +1,5 @@
 <template lang="pug">
-  .video
+  .video.skill
     .video-info
       h2 As a picture is worth a thousand words, video is indescribable
       p Video is a powerful medium, useful for conveyong complex messages, in an easily digestable form.
