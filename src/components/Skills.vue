@@ -13,7 +13,7 @@
 
       .topic-feature(v-if="feature")#feature
         .topic-close
-          a(href="#skills" v-on:click="clearTopic")
+          a(href="#skills" @click="clearTopic")
             i.fa.fa-close.fa-2x
             span &nbsp;Back
         FrontEnd(v-if="feature == 'front-end'")
@@ -59,7 +59,23 @@ export default {
   methods: {
     clearTopic() {
       this.$store.commit("clearTopic");
+    },
+    loadHash() {
+      // get hash from url
+      var section = window.location.hash.substring(1);
+      // if set hash is a skill then open that skill section
+      for (var t in this.topics) {
+        if (this.topics[t].hash === section) {
+          // set skill page display
+          this.$store.commit("showTopic", section);
+          // scroll to top of skills
+          document.querySelector("#skills").scrollIntoView();
+        }
+      }
     }
+  },
+  mounted: function() {
+    this.loadHash();
   },
   data: () => {
     return {

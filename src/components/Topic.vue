@@ -1,5 +1,5 @@
 <template lang="pug">
-  a.topic.wow(:id="hash" v-on:click="showTopic")
+  a.topic.wow(:href="'#'+hash" :id="hash" @click.prevent="showTopic")
     .icon-box
       .topic-icon
         span.fa-stack.fa-3x
@@ -24,6 +24,8 @@ export default {
   methods: {
     showTopic() {
       this.$store.commit("showTopic", this.hash);
+      // Set url Hash
+      window.location.hash = "#" + this.hash;
       // scroll element into view
       document.querySelector("#skills").scrollIntoView();
     }
