@@ -5,8 +5,9 @@
       :images="fluxImages"
       :transitions="fluxTransitions"
       ref="slider")
-    button(@click="$refs.slider.showImage('next')") &#10094;
-    button(@click="$refs.slider.showImage('previous')") &#10095;
+    .gallery-nav
+      button(@click="$refs.slider.showImage('previous')") &#10094;
+      button(@click="$refs.slider.showImage('next')") &#10095;
 </template>
 
 <script>
@@ -22,11 +23,34 @@ export default {
       autoplay: true
     },
     fluxImages: [
-      "http://placekitten.com/1000/800",
-      "http://placekitten.com/1000/700",
-      "http://placekitten.com/1000/701",
-      "http://placekitten.com/1000/702",
-      "http://placekitten.com/1000/900"
+      "/images/features/light/1.jpg",
+      "/images/features/light/2.jpg",
+      "/images/features/light/3.jpg",
+      "/images/features/light/4.jpg",
+      "/images/features/water/1.jpg",
+      "/images/features/water/2.jpg",
+      "/images/features/water/3.jpg",
+      "/images/features/water/4.jpg",
+      "/images/features/water/5.jpg",
+      "/images/features/texture/1.jpg",
+      "/images/features/landscape/1.jpg",
+      "/images/features/landscape/2.jpg",
+      "/images/features/landscape/3.jpg",
+      "/images/features/landscape/4.jpg",
+      "/images/features/landscape/5.jpg",
+      "/images/features/landscape/6.jpg",
+      "/images/features/insects/1.jpg",
+      "/images/features/insects/2.jpg",
+      "/images/features/insects/3.jpg",
+      "/images/features/plants/1.jpg",
+      "/images/features/plants/2.jpg",
+      "/images/features/fungi/1.jpg",
+      "/images/features/fungi/2.jpg",
+      "/images/features/fungi/3.jpg",
+      "/images/features/fungi/4.jpg",
+      "/images/features/fungi/5.jpg",
+      "/images/features/fungi/6.jpg",
+      "/images/features/fungi/7.jpg"
     ],
     fluxTransitions: {
       transitionBook: Transitions.transitionCamera
@@ -37,6 +61,14 @@ export default {
 
 <style lang="sass">
   .gallery
+    display: flex
+    flex-direction: column
     text-align: center
     height: 80vh
+    @media(min-width: 1000px)
+      max-width: 943px
+      margin: auto
+    .gallery-nav
+      button
+        color: black
 </style>
