@@ -1,0 +1,20 @@
+// SASS Mixins
+
+// Extend class for centering objects
+.flex-box-center
+  display: flex
+  align-items: center
+  justify-content: center
+
+// Mixin for card depth style
+@mixin card-depth($index)
+  position: relative
+  z-index: (10 * $index)
+  box-shadow: 0px -15px 50px rgba(0,0,0,0.8)
+
+// Mixin for clearfix
+@mixin clearfix()
+  &::after
+    display: block
+    content: ""
+    clear: both
