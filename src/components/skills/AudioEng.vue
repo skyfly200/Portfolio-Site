@@ -1,12 +1,15 @@
 <template lang="pug">
   .audio-eng.skill
     .audio-info
-      p With an comprehensive understanding of signal flow and equipment, as well as a well refined ear,
+      p
+        | With an comprehensive understanding of signal flow and equipment, as well as a well refined ear,
         | I'm confident in my ability to create powerful sounding experiences.
-      p I have run sound at venues in the Boulder area, including Shine, The Laughing Goat and The Caribou Room.
-        | I worked as a Stage Manager at Frozen Dead Guy Days 2017. Comfortable in a studio environment as well,
+      p
+        | I have run sound at venues in the Boulder area, including Shine, The Laughing Goat and The Caribou Room.
+        | I worked as a Stage Manager at Frozen Dead Guy Days 2017 and 2018. Comfortable in a studio environment as well,
         | I have tracked, mixed and mastered content at Kodiak Lake Studios.
-      p A founder of Colorado Community Radio Network (CCRN) and Technical Director Way High Radio.
+      p
+        | A founder of Colorado Community Radio Network (CCRN) and Technical Director Way High Radio.
         | I manage a wide degree of projects, to keep our community radio network running smoothly.
       a(href="http://coloradocommunityradio.com/" target="_blank")
         button Learn More About CCRN
