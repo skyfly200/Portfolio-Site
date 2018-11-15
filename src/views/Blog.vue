@@ -32,6 +32,30 @@ export default {
             { title: "Software", url: "/blog/#" }
           ],
           key: "post-1"
+        },
+        {
+          title: "Test Post 2",
+          body:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel mauris est. Duis viverra lorem et mattis porttitor. Maecenas interdum, erat quis cursus laoreet, elit magna placerat mauris, ac semper neque dolor et lectus. Curabitur et iaculis nibh, ac bibendum neque. Suspendisse iaculis elit vel ipsum ultrices eleifend. Nam facilisis viverra nisl nec facilisis. Donec sollicitudin nisi enim, ut imperdiet nisl ultricies ut. Quisque nec tincidunt tellus. Donec faucibus iaculis tellus sit amet ultrices. Mauris nec felis ac nunc rhoncus blandit eu eget ex. Ut eleifend nunc vel elit scelerisque, aliquet faucibus lectus elementum.",
+          datetime: "Oct 2nd 2018 5:55:00 PM MDT",
+          tags: [
+            { title: "LEDs", url: "/blog/#" },
+            { title: "Electronics", url: "/blog/#" },
+            { title: "Software", url: "/blog/#" },
+            { title: "Sound", url: "/blog/#" }
+          ],
+          key: "post-2"
+        },
+        {
+          title: "Test Post 3",
+          body:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel mauris est. Duis viverra lorem et mattis porttitor. Maecenas interdum, erat quis cursus laoreet, elit magna placerat mauris, ac semper neque dolor et lectus. Curabitur et iaculis nibh, ac bibendum neque. Suspendisse iaculis elit vel ipsum ultrices eleifend. Nam facilisis viverra nisl nec facilisis. Donec sollicitudin nisi enim, ut imperdiet nisl ultricies ut. Quisque nec tincidunt tellus. Donec faucibus iaculis tellus sit amet ultrices. Mauris nec felis ac nunc rhoncus blandit eu eget ex. Ut eleifend nunc vel elit scelerisque, aliquet faucibus lectus elementum.",
+          datetime: "Oct 2nd 2018 5:55:00 PM MDT",
+          tags: [
+            { title: "Electronics", url: "/blog/#" },
+            { title: "Video", url: "/blog/#" }
+          ],
+          key: "post-3"
         }
       ]
     };
