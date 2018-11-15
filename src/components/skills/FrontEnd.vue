@@ -3,20 +3,20 @@
     h2 This website represents my present skillset in front end design.
     h3 It utilizes modern tecnologies
     .logos
-      img(src="/images/logos/html5.png").html5-logo.logo
-      img(src="/images/logos/JS.png").js-logo.logo
-      img(src="/images/logos/jquery.png").jquery-logo.logo
-      img(src="/images/logos/sass.png").sass-logo.logo
-      img(src="/images/logos/pug.png").pug-logo.logo
+      img(src="/images/front-end/logos/html5.png").html5-logo.logo
+      img(src="/images/front-end/logos/JS.png").js-logo.logo
+      img(src="/images/front-end/logos/jquery.png").jquery-logo.logo
+      img(src="/images/front-end/logos/sass.png").sass-logo.logo
+      img(src="/images/front-end/logos/pug.png").pug-logo.logo
     h3 Features Responsive Layouts
     .responsive-pics
-      img(src="/images/Mobile.png").mobile-pic.site-pic
-      img(src="/images/Desktop.png").desktop-pic.site-pic
+      img(src="/images/front-end/Mobile.png").mobile-pic.site-pic
+      img(src="/images/front-end/Desktop.png").desktop-pic.site-pic
     h3 Build tasks are managed with Gulp
     .gulp-pics
-      img(src="/images/GulpCode.jpg").gulp-code-pic.site-pic
-      img(src="/images/logos/gulp.png").gulp-logo.logo
-      img(src="/images/GulpTasks.jpg").gulp-tasks-pic.site-pic
+      img(src="/images/front-end/GulpCode.jpg").gulp-code-pic.site-pic
+      img(src="/images/front-end/logos/gulp.png").gulp-logo.logo
+      img(src="/images/front-end/GulpTasks.jpg").gulp-tasks-pic.site-pic
     h3 Source Managed and Published with GitHub
     .site-github.github-button
       a(href="https://github.com/skyfly200/Portfolio-Site" target="_blank")

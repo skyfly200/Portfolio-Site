@@ -22,7 +22,7 @@
 
 
     .hardware-img
-      img(src="/images/HW-p1.jpg" alt="Arduino music reactive lights")
+      img(src="/images/harware/HW-p1.jpg" alt="Arduino music reactive lights")
 
 </template>
 

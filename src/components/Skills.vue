@@ -29,27 +29,19 @@
 
 <script>
 import Topic from "@/components/Topic.vue";
-import FrontEnd from "@/components/skills/FrontEnd.vue";
-import BackEnd from "@/components/skills/BackEnd.vue";
-import DevOps from "@/components/skills/DevOps.vue";
-import Hardware from "@/components/skills/Hardware.vue";
-import AudioEng from "@/components/skills/AudioEng.vue";
-import Design3D from "@/components/skills/Design3D.vue";
-import Videography from "@/components/skills/Videography.vue";
-import Photo from "@/components/skills/Photo.vue";
 
 export default {
   name: "skills",
   components: {
     Topic,
-    FrontEnd,
-    BackEnd,
-    DevOps,
-    Hardware,
-    AudioEng,
-    Design3D,
-    Photo,
-    Videography
+    FrontEnd: () => import("@/components/skills/FrontEnd.vue"),
+    BackEnd: () => import("@/components/skills/BackEnd.vue"),
+    DevOps: () => import("@/components/skills/DevOps.vue"),
+    Hardware: () => import("@/components/skills/Hardware.vue"),
+    AudioEng: () => import("@/components/skills/AudioEng.vue"),
+    Design3D: () => import("@/components/skills/Design3D.vue"),
+    Photo: () => import("@/components/skills/Photo.vue"),
+    Videography: () => import("@/components/skills/Videography.vue")
   },
   computed: {
     feature() {
