@@ -38,6 +38,8 @@ export default {
     text-align: right
     padding-right: 5%
     padding-top: 1.5%
+    position: fixed
+    right: 0
 
   .nav-header
     text-decoration: underline

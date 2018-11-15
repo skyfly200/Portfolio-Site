@@ -29,3 +29,9 @@ export default {
   }
 };
 </script>
+
+<style lang="sass">
+  .wrapper footer
+    z-index: 400
+    @include card-depth(5)
+</style>

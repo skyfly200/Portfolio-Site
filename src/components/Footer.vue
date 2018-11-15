@@ -18,11 +18,9 @@ export default {
 <style lang="sass" scoped>
   // Footer styles
   footer
-    z-index: 400
     width: 100%
     text-align: center
     padding: 20px 0px
     h4
       color: #000
-    @include card-depth(5)
 </style>

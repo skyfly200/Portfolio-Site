@@ -1,22 +1,31 @@
 <template lang="pug">
   .blog
-    .blog-header
-      h1 YAY, it's my new blog!
+    .back-link
+      a(href="/") << Return to Home
+    .wrapper
+      .blog-body
+        .blog-header
+          h1 Skyler Fly-Wilson's Blog
+          h3 Welcome to my new blog!
 
-    .blog-body
-      .blog-posts
-        Post(v-for="post in posts" v-bind="post" v-bind:key="post.key")
+        .blog-posts
+          Post(v-for="post in posts" v-bind="post" v-bind:key="post.key")
+
       Navigation
+
+    Footer
 </template>
 
 <script>
 import Post from "@/components/blog/Post.vue";
 import Navigation from "@/components/blog/Navigation.vue";
+import Footer from "@/components/Footer.vue";
 
 export default {
   components: {
     Post,
-    Navigation
+    Navigation,
+    Footer
   },
   data: () => {
     return {
@@ -64,12 +73,22 @@ export default {
 </script>
 
 <style lang="sass">
+  .wrapper
+    display: flex
+    padding-bottom: 20px
+
+  .back-link
+    margin: 15px
+    position: absolute
+    font-size: 1.2em
+
   .blog-header
     text-align: center
     text-shadow: 0em 0.1em 0.15em rgba(0,0,0,0.5)
 
   .blog-body
     display: flex
+    flex-direction: column
 
   .blog-posts
     width: 80%
