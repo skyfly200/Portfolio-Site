@@ -9,11 +9,11 @@
         textarea(:value="post.body" @input="updateBody" :rows="rows")
         label Post Tags
         input(:value="post.tags" @input="updateTags")
-        input(type="submit")
     hr
     #post-preview
       h3 Post Preview
       Post(v-bind="post")
+    button(@click="submitPost") Add Post
 </template>
 
 <script>
@@ -29,7 +29,7 @@ export default {
     return {
       post: {
         title: "Post Title",
-        body: "enter post with markdown here",
+        body: "enter Markdown here",
         tags: [],
         datetime: Date()
       },
