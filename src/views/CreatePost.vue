@@ -52,7 +52,12 @@ export default {
     updateDatetime: function() {
       this.post.datetime = Date();
     },
-    submitPost: function() {}
+    submitPost: function() {
+      this.axios
+        .post("#", this.post)
+        .then(response => console.log(response.data)) //
+        .catch(error => console.log(error));
+    }
   }
 };
 </script>
