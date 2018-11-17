@@ -1,0 +1,82 @@
+<template lang="pug">
+  #create-post
+    h1 Create a New Blog Post
+    #editor
+      form.post-form(@submit.prevent="submitPost")
+        label Post Title
+        input(:value="post.title" @input="updateTitle")
+        label Post Body
+        textarea(:value="post.body" @input="updateBody" :rows="rows")
+        label Post Tags
+        input(:value="post.tags" @input="updateTags")
+        input(type="submit")
+    hr
+    #post-preview
+      h3 Post Preview
+      Post(v-bind="post")
+</template>
+
+<script>
+import Post from "@/components/blog/Post.vue";
+import _ from "lodash";
+
+export default {
+  name: "create-post",
+  components: {
+    Post
+  },
+  data: () => {
+    return {
+      post: {
+        title: "Post Title",
+        body: "enter post with markdown here",
+        tags: [],
+        datetime: Date()
+      },
+      rows: 3
+    };
+  },
+  methods: {
+    updateTitle: function(e) {
+      this.post.title = e.target.value;
+      this.updateDatetime();
+    },
+    updateBody: _.debounce(function(e) {
+      this.post.body = e.target.value;
+      this.updateDatetime();
+    }, 300),
+    updateTags: function(e) {
+      this.post.tags = e.target.value.split(/[\s,]+/);
+      this.updateDatetime();
+    },
+    updateDatetime: function() {
+      this.post.datetime = Date();
+    },
+    submitPost: function() {}
+  }
+};
+</script>
+
+<style lang="sass">
+  body
+    text-align: center
+    margin: 0
+  #editor
+    display: flex
+    flex-direction: column
+    align-items: center
+    width: auto
+    margin: auto
+    .post-form
+      display: flex
+      flex-direction: column
+      width: 100%
+      align-items: center
+      input, textarea
+        width: 90%
+        margin: 10px auto
+
+  #post-preview
+    width: 100%
+
+</style>
