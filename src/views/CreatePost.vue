@@ -31,7 +31,8 @@ export default {
         title: "Post Title",
         body: "enter Markdown here",
         tags: [],
-        datetime: Date()
+        datetime: Date(),
+        key: ""
       },
       rows: 3
     };
@@ -39,6 +40,7 @@ export default {
   methods: {
     updateTitle: function(e) {
       this.post.title = e.target.value;
+      this.post.key = this.post.title.toLowerCase().replace(" ", "_");
       this.updateDatetime();
     },
     updateBody: _.debounce(function(e) {
@@ -54,9 +56,14 @@ export default {
     },
     submitPost: function() {
       this.axios
-        .post("#", this.post)
-        .then(response => console.log(response.data)) //
-        .catch(error => console.log(error));
+        .post("https://skylerflyserver.appspot.com/submit", this.post)
+        .then(res => {
+          if (res.status === 200) alert("Post Submited /n" + res);
+          else console.error(res.data);
+        })
+        .catch(error => {
+          console.error(error);
+        });
     }
   }
 };
