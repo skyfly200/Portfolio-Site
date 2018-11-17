@@ -1,7 +1,8 @@
 <template lang="pug">
   .post
     .post-header
-      h2 {{ title }}
+      a(:href="'#' + key")
+        h2 {{ title }}
     .post-body(v-html="compiledMarkdown")
     .post-footer
       ul.tag-list(v-if="tags")
@@ -21,7 +22,8 @@ export default {
     title: String,
     body: String,
     tags: Array,
-    datetime: String
+    datetime: String,
+    key: String
   },
   computed: {
     compiledMarkdown: function() {
