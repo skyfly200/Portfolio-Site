@@ -32,7 +32,7 @@ export default {
         body: "enter Markdown here",
         tags: [],
         datetime: Date(),
-        key: ""
+        id: "post_title"
       },
       rows: 3
     };
@@ -40,7 +40,7 @@ export default {
   methods: {
     updateTitle: function(e) {
       this.post.title = e.target.value;
-      this.post.key = this.post.title.toLowerCase().replace(" ", "_");
+      this.post.id = this.post.title.replace(/\s/g, "_").toLowerCase();
       this.updateDatetime();
     },
     updateBody: _.debounce(function(e) {
@@ -58,7 +58,7 @@ export default {
       this.axios
         .post("https://skylerflyserver.appspot.com/submit", this.post)
         .then(res => {
-          if (res.status === 200) alert("Post Submited /n" + res);
+          if (res.status === 200) window.location.href = "/blog";
           else console.error(res.data);
         })
         .catch(error => {

@@ -1,7 +1,7 @@
 <template lang="pug">
   .post
     .post-header
-      a(:href="'#' + key")
+      a(:href="'/blog/' + id")
         h2 {{ title }}
     .post-body(v-html="compiledMarkdown")
     .post-footer
@@ -23,7 +23,7 @@ export default {
     body: String,
     tags: Array,
     datetime: String,
-    key: String
+    id: String
   },
   computed: {
     compiledMarkdown: function() {

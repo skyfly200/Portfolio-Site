@@ -9,7 +9,7 @@
           h3 Welcome to my new blog!
 
         .blog-posts
-          Post(v-for="post in posts" v-bind="post" v-bind:key="post.key")
+          Post(v-for="post in posts" v-bind="post" v-bind:key="post.id")
 
       Navigation(:topics="topics" :posts="posts")
     Footer
@@ -43,7 +43,7 @@ export default {
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel mauris est. Duis viverra lorem et mattis porttitor. Maecenas interdum, erat quis cursus laoreet, elit magna placerat mauris, ac semper neque dolor et lectus. Curabitur et iaculis nibh, ac bibendum neque. Suspendisse iaculis elit vel ipsum ultrices eleifend. Nam facilisis viverra nisl nec facilisis. Donec sollicitudin nisi enim, ut imperdiet nisl ultricies ut. Quisque nec tincidunt tellus. Donec faucibus iaculis tellus sit amet ultrices. Mauris nec felis ac nunc rhoncus blandit eu eget ex. Ut eleifend nunc vel elit scelerisque, aliquet faucibus lectus elementum.",
           datetime: "Oct 2nd 2018 5:55:00 PM MDT",
           tags: ["mycology", "hardware", "software"],
-          key: "post-1"
+          id: "post-1"
         },
         {
           title: "Test Post 2",
@@ -51,7 +51,7 @@ export default {
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel mauris est. Duis viverra lorem et mattis porttitor. Maecenas interdum, erat quis cursus laoreet, elit magna placerat mauris, ac semper neque dolor et lectus. Curabitur et iaculis nibh, ac bibendum neque. Suspendisse iaculis elit vel ipsum ultrices eleifend. Nam facilisis viverra nisl nec facilisis. Donec sollicitudin nisi enim, ut imperdiet nisl ultricies ut. Quisque nec tincidunt tellus. Donec faucibus iaculis tellus sit amet ultrices. Mauris nec felis ac nunc rhoncus blandit eu eget ex. Ut eleifend nunc vel elit scelerisque, aliquet faucibus lectus elementum.",
           datetime: "Oct 2nd 2018 5:55:00 PM MDT",
           tags: ["hardware", "software", "leds"],
-          key: "post-2"
+          id: "post-2"
         },
         {
           title: "Test Post 3",
@@ -59,7 +59,7 @@ export default {
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel mauris est. Duis viverra lorem et mattis porttitor. Maecenas interdum, erat quis cursus laoreet, elit magna placerat mauris, ac semper neque dolor et lectus. Curabitur et iaculis nibh, ac bibendum neque. Suspendisse iaculis elit vel ipsum ultrices eleifend. Nam facilisis viverra nisl nec facilisis. Donec sollicitudin nisi enim, ut imperdiet nisl ultricies ut. Quisque nec tincidunt tellus. Donec faucibus iaculis tellus sit amet ultrices. Mauris nec felis ac nunc rhoncus blandit eu eget ex. Ut eleifend nunc vel elit scelerisque, aliquet faucibus lectus elementum.",
           datetime: "Oct 2nd 2018 5:55:00 PM MDT",
           tags: ["audio", "video"],
-          key: "post-3"
+          id: "post-3"
         },
         {
           title: "Test Post 4",
@@ -67,7 +67,7 @@ export default {
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel mauris est. Duis viverra lorem et mattis porttitor. Maecenas interdum, erat quis cursus laoreet, elit magna placerat mauris, ac semper neque dolor et lectus. Curabitur et iaculis nibh, ac bibendum neque. Suspendisse iaculis elit vel ipsum ultrices eleifend. Nam facilisis viverra nisl nec facilisis. Donec sollicitudin nisi enim, ut imperdiet nisl ultricies ut. Quisque nec tincidunt tellus. Donec faucibus iaculis tellus sit amet ultrices. Mauris nec felis ac nunc rhoncus blandit eu eget ex. Ut eleifend nunc vel elit scelerisque, aliquet faucibus lectus elementum.",
           datetime: "Oct 2nd 2018 5:55:00 PM MDT",
           tags: ["mycology", "hardware", "software"],
-          key: "post-4"
+          id: "post-4"
         }
       ]
     };

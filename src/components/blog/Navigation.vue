@@ -1,21 +1,16 @@
 <template lang="pug">
   .nav-wrap
     .nav
-      //- .featured-posts
-      //-   .nav-header
-      //-     h4 Featured
-      //-   .post-link
-      //-     a(href="/blog/#") Post 1
       .post-topics
         .nav-header
           h4 Topics
         .tag-link(v-for="topic in topics")
-          a(:href="'/blog/#' + topic.title.toLowerCase()") {{ topic.title }}
+          a(:href="'/blog/?t=' + topic.title.toLowerCase()") {{ topic.title }}
       .post-history
         .nav-header
           h4 History
         .post-link(v-for="post in posts")
-          a(:href="'/blog/#' + post.key") {{ post.title }}
+          a(:href="'/blog/' + post.id") {{ post.title }}
 </template>
 
 <script>
