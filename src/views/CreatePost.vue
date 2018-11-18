@@ -11,8 +11,8 @@
         input(:value="post.tags" @input="updateTags")
     hr
     #post-preview
-      h3 Post Preview
       Post(v-bind="post")
+    hr
     button(@click="submitPost") Add Post
 </template>
 

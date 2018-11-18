@@ -21,6 +21,4 @@ export default {
     width: 100%
     text-align: center
     padding: 20px 0px
-    h4
-      color: #000
 </style>

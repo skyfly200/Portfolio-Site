@@ -1,13 +1,13 @@
 <template lang="pug">
   .post
     .post-header
-      a(:href="'/blog/' + id")
-        h2 {{ title }}
+      a(:href="'/blog/post/' + id")
+        h1 {{ title }}
     .post-body(v-html="compiledMarkdown")
     .post-footer
-      ul.tag-list(v-if="tags")
-        li(v-for="tag in tags" v-if="tag").tag
-          a(:href="'#' + tag").tag-link {{ tag }}
+      .tags(v-if="tags")
+          .tag(v-for="tag in tags")
+            a(:href="'#' + tag").tag-link {{ tag }}
       .datetime
         p {{ datetime }}
 </template>
@@ -40,22 +40,25 @@ export default {
     margin: 1em auto
     align-content: center
     text-align: center
-    background-color: rgba(150, 0, 255, 0.2)
-    box-shadow: 0em 0.5em 3em 0.1em rgba(0,0,0,0.5)
+    background-color: white
+    box-shadow: 0em 0em 1em 0.1em rgba(255,255,255,0.5)
     .post-header h3
       margin-top: 5px
     .post-body
       width: 100%
+      img
+        width: 100%
+        height: auto
     .post-footer
       display: flex
       justify-content: space-between
       align-items: flex-end
-      ul
+      .tags
         margin: 0
         padding: 0
         display: flex
         list-style-type: none
-        li
+        .tag
           margin: 0 0.2em
           padding: 0.2em
           background-color: rgba(0,255,0,0.2)

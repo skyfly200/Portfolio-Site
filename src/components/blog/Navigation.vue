@@ -1,16 +1,16 @@
 <template lang="pug">
   .nav-wrap
     .nav
-      .post-topics
+      .post-topics(v-if="false")
         .nav-header
           h4 Topics
         .tag-link(v-for="topic in topics")
-          a(:href="'/blog/?t=' + topic.title.toLowerCase()") {{ topic.title }}
+          a(:href="'/blog/tag/' + topic.title.toLowerCase()") {{ topic.title }}
       .post-history
         .nav-header
           h4 History
         .post-link(v-for="post in posts")
-          a(:href="'/blog/' + post.id") {{ post.title }}
+          a(:href="'/blog/post/' + post.id") {{ post.title }}
 </template>
 
 <script>
@@ -28,10 +28,14 @@ export default {
   .nav-wrap
     display: flex
     flex-direction: column
+    width: 15%
+    margin-left: 15px
+    @media(max-width: 600px)
+      width: 20%
     .nav
-    text-align: right
-    padding-right: 2em
-    padding-top: 1.5%
+      position: fixed
+      text-align: right
+      margin-top: 20px
 
     .nav-header
       text-decoration: underline

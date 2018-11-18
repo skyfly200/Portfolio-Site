@@ -34,4 +34,6 @@ export default {
   .wrapper footer
     z-index: 400
     @include card-depth(5)
+    h4
+      color: black
 </style>
