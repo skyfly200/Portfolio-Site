@@ -34,7 +34,7 @@ export default {
 };
 </script>
 
-<style lang="sass" scoped>
+<style lang="sass">
   .post
     width: 90%
     padding: 1em
