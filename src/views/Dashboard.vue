@@ -7,7 +7,8 @@
       .dash-body
         .dash-header
           h1 Blog Admin Dashboard
-          a(href="/blog/new") New Post
+          a(href="/blog/new")
+            button New Post
 
         .blog-posts
           Post(v-for="post in posts" v-bind="post" v-bind:key="post.id")
@@ -72,6 +73,8 @@ export default {
     .post, .post a
       color: black
       margin-top: 20px
+    button
+      color: black
 
   .back-link
     margin: 15px

@@ -1,5 +1,10 @@
 <template lang="pug">
   .post
+    .post-ctrls
+      span
+        a(:href="'/blog/edit/' + id") edit
+        | &nbsp;-&nbsp;
+        a(@click="" href="#") delete
     .post-header
       a(:href="'/blog/post/' + id")
         h1 {{ title }}
@@ -20,6 +25,7 @@ export default {
   name: "post",
   components: {},
   props: {
+    admin: Boolean,
     title: String,
     body: String,
     tags: Array,
@@ -44,6 +50,9 @@ export default {
     background-color: white
     color: black
     box-shadow: 0em 0em 1em 0.1em rgba(255,255,255,0.5)
+    .post-ctrls
+      width: 100%
+      text-align: right
     .post-header h3
       margin-top: 5px
     .post-body
