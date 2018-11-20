@@ -2,6 +2,7 @@
   .blog
     .back-link
       a(href="/") Return to Home
+    AuthView
     .wrapper
       .blog-body
         .blog-header
@@ -17,12 +18,14 @@
 
 <script>
 import Post from "@/components/blog/Post.vue";
+import AuthView from "@/components/blog/AuthView.vue";
 import Navigation from "@/components/blog/Navigation.vue";
 import Footer from "@/components/Footer.vue";
 
 export default {
   components: {
     Post,
+    AuthView,
     Navigation,
     Footer
   },
@@ -48,7 +51,7 @@ export default {
 };
 </script>
 
-<style lang="sass" scoped>
+<style lang="sass">
   body
     margin: 0
     .wrapper

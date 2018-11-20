@@ -35,7 +35,7 @@ export default {
     .nav
       position: fixed
       text-align: right
-      margin-top: 20px
+      margin-top: 30px
 
     .nav-header
       text-decoration: underline

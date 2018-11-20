@@ -40,7 +40,7 @@ let router = new Router({
         import(/* webpackChunkName: "dashboard" */ "./views/Dashboard.vue"),
       meta: {
         requiresAuth: true,
-        is_admin: true
+        admin: true
       }
     },
     {
@@ -50,7 +50,7 @@ let router = new Router({
         import(/* webpackChunkName: "blog-create" */ "./views/CreatePost.vue"),
       meta: {
         requiresAuth: true,
-        is_admin: true
+        admin: true
       }
     },
     {
@@ -63,15 +63,15 @@ let router = new Router({
 
 router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresAuth)) {
-    if (localStorage.getItem("jwt") == null) {
+    if (localStorage.getItem("token") == null) {
       next({
         path: "/auth",
         params: { nextUrl: to.fullPath }
       });
     } else {
-      let user = JSON.parse(localStorage.getItem("user"));
-      if (to.matched.some(record => record.meta.is_admin)) {
-        if (user.is_admin == 1) {
+      let token = JSON.parse(localStorage.getItem("token"));
+      if (to.matched.some(record => record.meta.admin)) {
+        if (token.admin == 1) {
           next();
         } else {
           next({ name: "blog" });
@@ -81,10 +81,15 @@ router.beforeEach((to, from, next) => {
       }
     }
   } else if (to.matched.some(record => record.meta.guest)) {
-    if (localStorage.getItem("jwt") == null) {
+    if (localStorage.getItem("token") == null) {
       next();
     } else {
-      next({ name: "blog" });
+      let token = JSON.parse(localStorage.getItem("token"));
+      if (token.admin == 1) {
+        next({ name: "dashboard" });
+      } else {
+        next({ name: "blog" });
+      }
     }
   } else {
     next();
