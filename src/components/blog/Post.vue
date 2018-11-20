@@ -4,6 +4,7 @@
       a(:href="'/blog/post/' + id")
         h1 {{ title }}
     .post-body(v-html="compiledMarkdown")
+    hr
     .post-footer
       .tags(v-if="tags")
           .tag(v-for="tag in tags")

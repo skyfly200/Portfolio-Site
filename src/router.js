@@ -4,7 +4,7 @@ import Home from "./views/Home.vue";
 
 Vue.use(Router);
 
-export default new Router({
+let router = new Router({
   mode: "history",
   base: process.env.BASE_URL,
   routes: [
@@ -16,27 +16,42 @@ export default new Router({
     {
       path: "/blog",
       name: "blog",
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "blog" */ "./views/Blog.vue")
     },
     {
       path: "/blog/post/:id",
       name: "blog-post",
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "blog-post" */ "./views/BlogPost.vue")
+      component: () =>
+        import(/* webpackChunkName: "blog-post" */ "./views/BlogPost.vue")
+    },
+    {
+      path: "/auth",
+      name: "auth",
+      component: () =>
+        import(/* webpackChunkName: "auth" */ "./views/Auth.vue"),
+      meta: {
+        guest: true
+      }
+    },
+    {
+      path: "/blog/dash",
+      name: "dashboard",
+      component: () =>
+        import(/* webpackChunkName: "dashboard" */ "./views/Dashboard.vue"),
+      meta: {
+        requiresAuth: true,
+        is_admin: true
+      }
     },
     {
       path: "/blog/new",
       name: "blog-create",
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: () =>
-        import(/* webpackChunkName: "blog-create" */ "./views/CreatePost.vue")
+        import(/* webpackChunkName: "blog-create" */ "./views/CreatePost.vue"),
+      meta: {
+        requiresAuth: true,
+        is_admin: true
+      }
     },
     {
       path: "*",
@@ -45,3 +60,35 @@ export default new Router({
     }
   ]
 });
+
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    if (localStorage.getItem("jwt") == null) {
+      next({
+        path: "/auth",
+        params: { nextUrl: to.fullPath }
+      });
+    } else {
+      let user = JSON.parse(localStorage.getItem("user"));
+      if (to.matched.some(record => record.meta.is_admin)) {
+        if (user.is_admin == 1) {
+          next();
+        } else {
+          next({ name: "blog" });
+        }
+      } else {
+        next();
+      }
+    }
+  } else if (to.matched.some(record => record.meta.guest)) {
+    if (localStorage.getItem("jwt") == null) {
+      next();
+    } else {
+      next({ name: "blog" });
+    }
+  } else {
+    next();
+  }
+});
+
+export default router;
