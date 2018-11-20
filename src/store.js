@@ -9,7 +9,9 @@ export default new Vuex.Store({
     feature: null,
     status: "",
     token: localStorage.getItem("token") || "",
-    user: {}
+    user: {
+      admin: false
+    }
   },
   mutations: {
     showTopic(state, topic) {
@@ -21,10 +23,10 @@ export default new Vuex.Store({
     auth_request(state) {
       state.status = "loading";
     },
-    auth_success(state, token, user) {
+    auth_success(state, data) {
       state.status = "success";
-      state.token = token;
-      state.user = user;
+      state.token = data.token;
+      state.user = data.user;
     },
     auth_error(state) {
       state.status = "error";
@@ -39,7 +41,7 @@ export default new Vuex.Store({
       return new Promise((resolve, reject) => {
         commit("auth_request");
         axios({
-          url: "http://localhost:3000/login",
+          url: "https://skylerflyserver.appspot.com/login",
           data: user,
           method: "POST"
         })
@@ -48,7 +50,7 @@ export default new Vuex.Store({
             const user = resp.data.user;
             localStorage.setItem("token", token);
             axios.defaults.headers.common["Authorization"] = token;
-            commit("auth_success", token, user);
+            commit("auth_success", { token, user });
             resolve(resp);
           })
           .catch(err => {
@@ -62,7 +64,7 @@ export default new Vuex.Store({
       return new Promise((resolve, reject) => {
         commit("auth_request");
         axios({
-          url: "http://localhost:3000/register",
+          url: "https://skylerflyserver.appspot.com/register",
           data: user,
           method: "POST"
         })
@@ -92,6 +94,8 @@ export default new Vuex.Store({
   },
   getters: {
     isLoggedIn: state => !!state.token,
+    isAdmin: state => state.user.admin,
+    name: state => state.user.name,
     authStatus: state => state.status
   }
 });

@@ -2,10 +2,12 @@
   .dashboard
     .back-link
       a(href="/") Return to Home
+    AuthView
     .wrapper
       .dash-body
         .dash-header
           h1 Blog Admin Dashboard
+          a(href="/blog/new") Add a new Post
 
         .blog-posts
           Post(v-for="post in posts" v-bind="post" v-bind:key="post.id")
@@ -16,12 +18,14 @@
 
 <script>
 import Post from "@/components/blog/Post.vue";
+import AuthView from "@/components/blog/AuthView.vue";
 import Navigation from "@/components/blog/Navigation.vue";
 import Footer from "@/components/Footer.vue";
 
 export default {
   components: {
     Post,
+    AuthView,
     Navigation,
     Footer
   },
@@ -59,7 +63,7 @@ export default {
       background-color: $color-primary-4
       h4
         color: white
-    .nav a, .back-link a
+    .back-link a, a
       color: $color-secondary-2-1
       &:visted, &:focus, &:active
         color: $color-secondary-2-3

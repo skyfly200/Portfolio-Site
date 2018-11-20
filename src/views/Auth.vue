@@ -13,6 +13,8 @@
         div
           button(type='submit', @click='handleLogin')
             | Login
+        div
+          a(@click="new_user = true") Dont have an account? Register!
     .register(v-else)
       h4 Register
       form
@@ -31,6 +33,8 @@
         div
           button(type='submit', @click='handleRegister')
             | Register
+        div
+          a(@click="new_user = false") Already have an account? Login!
 </template>
 
 <script>
@@ -39,7 +43,7 @@ export default {
   components: {},
   data: function() {
     return {
-      new_user: true,
+      new_user: false,
       name: "",
       email: "",
       password: "",
@@ -54,33 +58,18 @@ export default {
         let password = this.password;
         this.$store
           .dispatch("login", { email, password })
-          .then(() => this.$router.push("/blog"))
-          .catch(err => console.log(err));
-        this.axios
-          .post("https://skylerflyserver.appspot.com/login", {
-            email: this.email,
-            password: this.password
-          })
-          .then(response => {
-            let admin = response.data.user.admin;
-            localStorage.setItem("user", JSON.stringify(response.data.user));
-            localStorage.setItem("jwt", response.data.token);
-            if (localStorage.getItem("jwt") != null) {
-              this.$emit("loggedIn");
-              if (this.$route.params.nextUrl != null) {
-                this.$router.push(this.$route.params.nextUrl);
+          .then(() => {
+            if (this.$route.params.nextUrl != null) {
+              this.$router.push(this.$route.params.nextUrl);
+            } else {
+              if (this.$store.getters.isAdmin) {
+                this.$router.push("blog/dash");
               } else {
-                if (admin == 1) {
-                  this.$router.push("dashboard");
-                } else {
-                  this.$router.push("blog");
-                }
+                this.$router.push("blog");
               }
             }
           })
-          .catch(function(error) {
-            console.error(error.response);
-          });
+          .catch(err => console.log(err));
       }
     },
     handleRegister(e) {
@@ -96,26 +85,14 @@ export default {
         };
         this.$store
           .dispatch("register", user)
-          .then(() => this.$router.push("/blog"))
-          .catch(err => console.log(err));
-        this.axios
-          .post("https://skylerflyserver.appspot.com/register", user)
-          .then(response => {
-            localStorage.setItem("user", JSON.stringify(response.data.user));
-            localStorage.setItem("jwt", response.data.token);
-
-            if (localStorage.getItem("jwt") != null) {
-              this.$emit("loggedIn");
-              if (this.$route.params.nextUrl != null) {
-                this.$router.push(this.$route.params.nextUrl);
-              } else {
-                this.$router.push("/blog");
-              }
+          .then(() => {
+            if (this.$route.params.nextUrl != null) {
+              this.$router.push(this.$route.params.nextUrl);
+            } else {
+              this.$router.push("/blog");
             }
           })
-          .catch(error => {
-            console.error(error);
-          });
+          .catch(err => console.log(err));
       } else {
         this.password = "";
         this.passwordConfirm = "";

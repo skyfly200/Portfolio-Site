@@ -24,7 +24,7 @@ export default {
 };
 </script>
 
-<style lang="sass">
+<style lang="sass" scoped>
   .nav-wrap
     display: flex
     flex-direction: column
@@ -36,6 +36,12 @@ export default {
       position: fixed
       text-align: right
       margin-top: 30px
+      a
+        color: $color-secondary-2-1
+        &:visted, &:focus, &:active
+          color: $color-secondary-2-3
+        &:hover
+          color: $color-secondary-2-1
 
     .nav-header
       text-decoration: underline

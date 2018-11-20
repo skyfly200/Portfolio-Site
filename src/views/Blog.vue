@@ -51,7 +51,7 @@ export default {
 };
 </script>
 
-<style lang="sass">
+<style lang="sass" scoped>
   body
     margin: 0
     .wrapper
@@ -63,7 +63,7 @@ export default {
       background-color: $color-primary-4
       h4
         color: white
-    .nav a, .back-link a
+    .back-link a, a
       color: $color-secondary-2-1
       &:visted, &:focus, &:active
         color: $color-secondary-2-3

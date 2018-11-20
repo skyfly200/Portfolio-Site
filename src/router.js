@@ -1,5 +1,6 @@
 import Vue from "vue";
-import Router from "vue-router";
+import Router from 'vue-router';
+import store from './store.js';
 import Home from "./views/Home.vue";
 
 Vue.use(Router);
@@ -31,6 +32,15 @@ let router = new Router({
         import(/* webpackChunkName: "auth" */ "./views/Auth.vue"),
       meta: {
         guest: true
+      }
+    },
+    {
+      path: "/blog/user",
+      name: "user",
+      component: () =>
+        import(/* webpackChunkName: "user" */ "./views/User.vue"),
+      meta: {
+        requiresAuth: true
       }
     },
     {
@@ -69,9 +79,9 @@ router.beforeEach((to, from, next) => {
         params: { nextUrl: to.fullPath }
       });
     } else {
-      let token = JSON.parse(localStorage.getItem("token"));
+      let token = localStorage.getItem("token");
       if (to.matched.some(record => record.meta.admin)) {
-        if (token.admin == 1) {
+        if (store.getters.isAdmin) {
           next();
         } else {
           next({ name: "blog" });
@@ -84,12 +94,7 @@ router.beforeEach((to, from, next) => {
     if (localStorage.getItem("token") == null) {
       next();
     } else {
-      let token = JSON.parse(localStorage.getItem("token"));
-      if (token.admin == 1) {
-        next({ name: "dashboard" });
-      } else {
-        next({ name: "blog" });
-      }
+      next({ name: "blog" });
     }
   } else {
     next();

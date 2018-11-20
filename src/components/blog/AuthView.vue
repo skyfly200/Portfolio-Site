@@ -1,7 +1,7 @@
 <template lang="pug">
   .auth-view
     .logout(v-if="isLoggedIn")
-      a(@click="logout" href="") Logout
+      a(@click="logout" href="#") Logout
     .login(v-else)
       a(href="/auth") Login
 </template>
