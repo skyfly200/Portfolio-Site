@@ -1,13 +1,13 @@
 <template lang="pug">
   .dashboard
     .back-link
-      a(href="/") Return to Home
+      a(href="/blog") Return to Blog
     AuthView
     .wrapper
       .dash-body
         .dash-header
           h1 Blog Admin Dashboard
-          a(href="/blog/new") Add a new Post
+          a(href="/blog/new") New Post
 
         .blog-posts
           Post(v-for="post in posts" v-bind="post" v-bind:key="post.id")

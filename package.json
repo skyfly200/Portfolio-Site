@@ -15,7 +15,8 @@
     "vue-axios": "^2.1.4",
     "vue-flux": "^5.1.5",
     "vue-router": "^3.0.1",
-    "vuex": "^3.0.1"
+    "vuex": "^3.0.1",
+    "vuex-persist": "^2.0.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.4",

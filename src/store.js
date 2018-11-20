@@ -1,10 +1,17 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import VuexPersist from "vuex-persist";
 import axios from "axios";
 
 Vue.use(Vuex);
 
+const vuexLocalStorage = new VuexPersist({
+  key: "vuex",
+  storage: window.localStorage
+});
+
 export default new Vuex.Store({
+  plugins: [vuexLocalStorage.plugin],
   state: {
     feature: null,
     status: "",

@@ -34,7 +34,7 @@ export default {
 };
 </script>
 
-<style lang="sass">
+<style lang="sass" scoped>
   .post
     width: 90%
     padding: 1em
@@ -42,6 +42,7 @@ export default {
     align-content: center
     text-align: center
     background-color: white
+    color: black
     box-shadow: 0em 0em 1em 0.1em rgba(255,255,255,0.5)
     .post-header h3
       margin-top: 5px

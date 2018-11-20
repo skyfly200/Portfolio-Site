@@ -86,7 +86,11 @@ export default {
       align-items: center
       input, textarea
         width: 90%
+        color: black
         margin: 10px auto
+        
+  button
+    color: black
 
   #post-preview
     width: 100%
