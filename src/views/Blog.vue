@@ -48,7 +48,7 @@ export default {
 };
 </script>
 
-<style lang="sass">
+<style lang="sass" scoped>
   body
     margin: 0
     .wrapper

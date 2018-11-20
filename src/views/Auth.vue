@@ -1,9 +1,14 @@
 <template lang="pug">
   .auth
     .login
-      h1 Please Login
+      a(@click="")
+        h2 Login
+    .or
+      span or
     .register
-      
+      a(@click="")
+        h2 Register
+
 </template>
 
 <script>
@@ -13,5 +18,9 @@ export default {
 };
 </script>
 
-<style lang="sass">
+<style lang="sass" scoped>
+  .auth
+    text-align: center
+    .or
+      margin-top: 20px
 </style>
