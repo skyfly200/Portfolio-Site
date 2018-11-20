@@ -13,7 +13,7 @@
     #post-preview
       Post(v-bind="post")
     hr
-    button(@click="submitPost") Add Post
+    button(@click="submitPost") {{ edit ? "Save" : "Add"}} Post
 </template>
 
 <script>
