@@ -69,6 +69,7 @@ export default {
     display: flex
     flex-direction: column
     width: 100%
+    margin-top: 2.5em
 
   .blog-post
     width: 100%

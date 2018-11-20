@@ -25,6 +25,19 @@ export default {
   components: {
     Post
   },
+  created() {
+    if (this.$route.params.id) {
+      let url =
+        "https://skylerflyserver.appspot.com/post/" + this.$route.params.id;
+      this.axios
+        .get(url)
+        .then(response => {
+          this.post = response.data.post;
+          this.edit = true;
+        })
+        .catch(error => console.log(error));
+    }
+  },
   data: () => {
     return {
       post: {
@@ -34,7 +47,8 @@ export default {
         datetime: Date(),
         id: "post_title"
       },
-      rows: 3
+      rows: 3,
+      edit: false
     };
   },
   methods: {
@@ -88,7 +102,7 @@ export default {
         width: 90%
         color: black
         margin: 10px auto
-        
+
   button
     color: black
 

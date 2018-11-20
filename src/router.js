@@ -54,10 +54,10 @@ let router = new Router({
       }
     },
     {
-      path: "/blog/new",
-      name: "blog-create",
+      path: "/blog/edit/:id?",
+      name: "editor",
       component: () =>
-        import(/* webpackChunkName: "blog-create" */ "./views/CreatePost.vue"),
+        import(/* webpackChunkName: "editor" */ "./views/Editor.vue"),
       meta: {
         requiresAuth: true,
         admin: true
