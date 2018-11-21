@@ -62,8 +62,7 @@ export default {
     color: black
     box-shadow: 0em 0em 1em 0.1em rgba(255,255,255,0.5)
     .post-ctrls
-      width: auto
-      max-width: 100px
+      width: 6em
       display: flex
       align-items: center
       justify-content: space-around

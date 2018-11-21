@@ -1,6 +1,7 @@
 <template lang="pug">
   .nav-wrap
     .nav
+      AuthView
       .post-topics(v-if="false")
         .nav-header
           h4 Topics
@@ -14,13 +15,17 @@
 </template>
 
 <script>
+import AuthView from "@/components/blog/AuthView.vue";
+
 export default {
   name: "navigtion",
   props: {
     topics: Object,
     posts: Array
   },
-  components: {}
+  components: {
+    AuthView
+  }
 };
 </script>
 
@@ -35,7 +40,7 @@ export default {
     .nav
       position: fixed
       text-align: right
-      margin-top: 30px
+      margin-top: 10px
       a
         color: $color-secondary-2-1
         &:visted, &:focus, &:active

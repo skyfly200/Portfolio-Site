@@ -2,7 +2,6 @@
   .dashboard
     .back-link
       a(href="/blog") Return to Blog
-    AuthView
     .wrapper
       .dash-body
         .dash-header
@@ -19,14 +18,12 @@
 
 <script>
 import Post from "@/components/blog/Post.vue";
-import AuthView from "@/components/blog/AuthView.vue";
 import Navigation from "@/components/blog/Navigation.vue";
 import Footer from "@/components/Footer.vue";
 
 export default {
   components: {
     Post,
-    AuthView,
     Navigation,
     Footer
   },

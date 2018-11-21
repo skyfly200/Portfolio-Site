@@ -28,13 +28,9 @@ export default {
 
 <style lang="sass" scoped>
   .auth-view
-    margin: 15px
-    position: absolute
-    right: 0
     font-size: 1.2em
     text-decoration: underline
-    @media(max-width: 900px)
-      margin-top: 10px
+    margin: 0
     a
       color: $color-secondary-2-1
       &:visted, &:focus, &:active
