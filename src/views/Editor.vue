@@ -1,6 +1,7 @@
 <template lang="pug">
   #create-post
-    h1 Create a New Blog Post
+    h1(v-if="edit") Edit Blog Post
+    h1(v-else) New Blog Post
     #editor
       form.post-form(@submit.prevent="submitPost")
         label Post Title

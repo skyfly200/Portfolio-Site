@@ -7,7 +7,7 @@
       .dash-body
         .dash-header
           h1 Blog Admin Dashboard
-          a(href="/blog/new")
+          a(href="/blog/edit")
             button New Post
 
         .blog-posts
