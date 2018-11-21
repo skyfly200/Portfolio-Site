@@ -1,8 +1,10 @@
 <template lang="pug">
   .post
     .post-ctrls(v-if="showCtrls")
-        a(:href="'/blog/edit/' + id") edit
-        a(@click.prevent="deletePost" href="#") delete
+        a(:href="'/blog/edit/' + id")
+          i.fa.fa-2x.fa-pencil
+        a(@click.prevent="deletePost" href="#")
+          i.fa.fa-2x.fa-trash
     .post-header
       a(:href="'/blog/post/' + id")
         h1 {{ title }}
@@ -60,8 +62,13 @@ export default {
     color: black
     box-shadow: 0em 0em 1em 0.1em rgba(255,255,255,0.5)
     .post-ctrls
-      width: 100%
-      text-align: right
+      width: auto
+      max-width: 100px
+      display: flex
+      align-items: center
+      justify-content: space-around
+      a
+        margin: auto
     .post-header h3
       margin-top: 5px
     .post-body
