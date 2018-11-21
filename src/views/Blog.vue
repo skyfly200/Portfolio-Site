@@ -10,7 +10,7 @@
           h3 Stay up to date on my latest projects and ideas
 
         .blog-posts
-          Post(v-for="post in posts" v-bind="post" v-bind:key="post.id")
+          Post(v-for="post in posts" :admin="false"  v-bind="post" v-bind:key="post.id")
 
       Navigation(:topics="topics" :posts="posts")
     Footer
@@ -35,7 +35,7 @@ export default {
       .then(response => (this.posts = response.data.posts))
       .catch(error => console.log(error));
   },
-  data: () => {
+  data: function() {
     return {
       topics: {
         mycology: { title: "Mycology" },

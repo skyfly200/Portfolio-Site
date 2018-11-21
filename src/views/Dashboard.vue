@@ -11,7 +11,7 @@
             button New Post
 
         .blog-posts
-          Post(v-for="post in posts" v-bind="post" v-bind:key="post.id")
+          Post(v-for="post in posts" :admin="true" v-bind="post" v-bind:key="post.id")
 
       Navigation(:topics="topics" :posts="posts")
     Footer

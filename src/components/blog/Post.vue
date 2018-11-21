@@ -1,10 +1,8 @@
 <template lang="pug">
   .post
-    .post-ctrls
-      span
+    .post-ctrls(v-if="showCtrls")
         a(:href="'/blog/edit/' + id") edit
-        | &nbsp;-&nbsp;
-        a(@click="" href="#") delete
+        a(@click.prevent="deletePost" href="#") delete
     .post-header
       a(:href="'/blog/post/' + id")
         h1 {{ title }}
@@ -35,6 +33,17 @@ export default {
   computed: {
     compiledMarkdown: function() {
       return marked(this.body, { sanitize: true });
+    },
+    showCtrls: function() {
+      return this.admin;
+    }
+  },
+  methods: {
+    deletePost(e) {
+      this.axios.delete(
+        "https://skylerflyserver.appspot.com/post/" + this.id,
+        {}
+      );
     }
   }
 };
