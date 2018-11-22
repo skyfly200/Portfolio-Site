@@ -3,7 +3,7 @@
     .post-ctrls(v-if="showCtrls")
         a(:href="'/blog/edit/' + id")
           i.fas.fa-2x.fa-edit
-        a(@click.prevent="deletePost" href="#")
+        a(@click.prevent="deleteConfirm" href="#")
           i.fas.fa-2x.fa-trash
     .post-header
       a(:href="'/blog/post/' + id")
@@ -48,6 +48,12 @@ export default {
           if (res.data.result.indexUpdates > 0) this.$emit("refreshPosts");
         })
         .catch();
+    },
+    deleteConfirm() {
+      this.$dialog
+        .confirm("Are you sure you want to permanently delete this Post?")
+        .then(this.deletePost())
+        .catch(); // delete cancled
     }
   }
 };
