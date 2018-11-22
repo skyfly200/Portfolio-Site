@@ -2,9 +2,9 @@
   .post
     .post-ctrls(v-if="showCtrls")
         a(:href="'/blog/edit/' + id")
-          i.fa.fa-2x.fa-pencil
+          i.fas.fa-2x.fa-edit
         a(@click.prevent="deletePost" href="#")
-          i.fa.fa-2x.fa-trash
+          i.fas.fa-2x.fa-trash
     .post-header
       a(:href="'/blog/post/' + id")
         h1 {{ title }}

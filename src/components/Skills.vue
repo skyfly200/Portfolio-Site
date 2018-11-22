@@ -94,7 +94,7 @@ export default {
         },
         devOps: {
           name: "Dev Ops",
-          icon: "fa-linux",
+          icon: "fa-terminal",
           hash: "dev-ops",
           summary: [
             "Linux Admin, Terminal Skills",
