@@ -36,7 +36,7 @@ export default {
           this.post = response.data.post;
           this.edit = true;
         })
-        .catch(error => console.log(error));
+        .catch();
     }
   },
   data: () => {

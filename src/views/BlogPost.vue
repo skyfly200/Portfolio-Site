@@ -25,7 +25,7 @@ export default {
     this.axios
       .get(url)
       .then(response => (this.post = response.data.post))
-      .catch(error => console.log(error));
+      .catch();
   },
   data: () => {
     return {

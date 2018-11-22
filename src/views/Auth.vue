@@ -69,7 +69,7 @@ export default {
               }
             }
           })
-          .catch(err => console.log(err));
+          .catch();
       }
     },
     handleRegister(e) {
@@ -92,7 +92,7 @@ export default {
               this.$router.push("/blog");
             }
           })
-          .catch(err => console.log(err));
+          .catch();
       } else {
         this.password = "";
         this.passwordConfirm = "";

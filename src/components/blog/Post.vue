@@ -41,7 +41,7 @@ export default {
     }
   },
   methods: {
-    deletePost(e) {
+    deletePost() {
       this.axios
         .delete("https://skylerflyserver.appspot.com/post/" + this.id, {})
         .then(res => {
