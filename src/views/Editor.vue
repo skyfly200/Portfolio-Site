@@ -73,7 +73,7 @@ export default {
       this.axios
         .post("https://skylerflyserver.appspot.com/submit", this.post)
         .then(res => {
-          if (res.status === 200) window.location.href = "/blog";
+          if (res.status === 200) this.$router.push("/blog/dash");
           else console.error(res.data);
         })
         .catch(error => {

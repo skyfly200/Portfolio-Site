@@ -42,10 +42,12 @@ export default {
   },
   methods: {
     deletePost(e) {
-      this.axios.delete(
-        "https://skylerflyserver.appspot.com/post/" + this.id,
-        {}
-      );
+      this.axios
+        .delete("https://skylerflyserver.appspot.com/post/" + this.id, {})
+        .then(res => {
+          if (res.data.result.indexUpdates > 0) this.$emit("refreshPosts");
+        })
+        .catch();
     }
   }
 };

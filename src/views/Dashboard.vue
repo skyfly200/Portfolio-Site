@@ -10,7 +10,7 @@
             button New Post
 
         .blog-posts
-          Post(v-for="post in posts" :admin="true" v-bind="post" v-bind:key="post.id")
+          Post(v-for="post in posts" :admin="true" v-on:refreshPosts="loadPosts" v-bind="post" v-bind:key="post.id")
 
       Navigation(:topics="topics" :posts="posts")
     Footer
@@ -28,10 +28,7 @@ export default {
     Footer
   },
   created() {
-    this.axios
-      .get("https://skylerflyserver.appspot.com/posts")
-      .then(response => (this.posts = response.data.posts))
-      .catch(error => console.log(error));
+    this.loadPosts();
   },
   data: () => {
     return {
@@ -45,6 +42,14 @@ export default {
       },
       posts: []
     };
+  },
+  methods: {
+    loadPosts: function() {
+      this.axios
+        .get("https://skylerflyserver.appspot.com/posts")
+        .then(response => (this.posts = response.data.posts))
+        .catch(error => console.log(error));
+    }
   }
 };
 </script>
