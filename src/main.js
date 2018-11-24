@@ -5,7 +5,6 @@ import axios from "axios";
 import VueAxios from "vue-axios";
 import store from "./store";
 import VuejsDialog from "vuejs-dialog";
-//import VuejsDialogMixin from "vuejs-dialog/vuejs-dialog-mixin.min.js"; // only needed in custom components
 
 // include the default style
 import "../node_modules/vuejs-dialog/dist/vuejs-dialog.min.css";
