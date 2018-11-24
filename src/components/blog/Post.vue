@@ -50,8 +50,12 @@ export default {
         .catch();
     },
     deleteConfirm() {
+      let message = {
+        title: "Confirm Delete Post",
+        body: "Are you sure you want to permanently delete this Post?"
+      };
       this.$dialog
-        .confirm("Are you sure you want to permanently delete this Post?")
+        .confirm(message)
         .then(this.deletePost())
         .catch(); // delete cancled
     }
