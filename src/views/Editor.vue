@@ -20,6 +20,7 @@
 <script>
 import Post from "@/components/blog/Post.vue";
 import _ from "lodash";
+import moment from "moment";
 
 export default {
   name: "create-post",
@@ -45,7 +46,7 @@ export default {
         title: "Post Title",
         body: "enter Markdown here",
         tags: [],
-        datetime: Date(),
+        datetime: moment().format("dddd, MMMM Do YYYY, h:mm:ss a"),
         id: "post_title"
       },
       rows: 3,
@@ -67,7 +68,7 @@ export default {
       this.updateDatetime();
     },
     updateDatetime: function() {
-      this.post.datetime = Date();
+      this.post.datetime = moment().format("dddd, MMMM Do YYYY, h:mm:ss a"); ;
     },
     submitPost: function() {
       this.axios
