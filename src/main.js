@@ -8,7 +8,7 @@ import VuejsDialog from "vuejs-dialog";
 //import VuejsDialogMixin from "vuejs-dialog/vuejs-dialog-mixin.min.js"; // only needed in custom components
 
 // include the default style
-//import "vuejs-dialog/vuejs-dialog.min.css";
+import "../node_modules/vuejs-dialog/dist/vuejs-dialog.min.css";
 
 // setup Vue plugins
 Vue.use(VuejsDialog);
