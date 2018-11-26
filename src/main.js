@@ -1,16 +1,25 @@
+// Vue core
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
+import store from "./store";
+
+// 3rd party
 import axios from "axios";
 import VueAxios from "vue-axios";
-import store from "./store";
 import VuejsDialog from "vuejs-dialog";
+import BootstrapVue from "bootstrap-vue";
 
-// include the default style
+// include the default dailog plugin styles
 import "../node_modules/vuejs-dialog/dist/vuejs-dialog.min.css";
+
+// bootstrap styles
+//import "bootstrap/dist/css/bootstrap.css";
+//import "bootstrap-vue/dist/bootstrap-vue.css";
 
 // setup Vue plugins
 Vue.use(VuejsDialog);
+Vue.use(BootstrapVue);
 Vue.use(VueAxios, axios);
 
 const token = localStorage.getItem("token");
