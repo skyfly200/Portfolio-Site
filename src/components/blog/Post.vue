@@ -15,7 +15,7 @@
           .tag(v-for="tag in tags")
             a(:href="'#' + tag").tag-link {{ tag }}
       .datetime
-        p {{ created }}
+        p {{ edited ? edited : created }}
 </template>
 
 <script>
@@ -30,6 +30,7 @@ export default {
     body: String,
     tags: Array,
     created: String,
+    edited: String,
     id: String
   },
   computed: {
