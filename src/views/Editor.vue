@@ -22,7 +22,6 @@
 <script>
 import Post from "@/components/blog/Post.vue";
 import _ from "lodash";
-import moment from "moment";
 
 export default {
   name: "create-post",
@@ -45,6 +44,8 @@ export default {
           });
         })
         .catch();
+    } else {
+      this.post.created = this.post.edited;
     }
   },
   data: () => {
@@ -54,7 +55,7 @@ export default {
         body: "enter Markdown here",
         edits: [],
         tags: [],
-        edited: moment().format("dddd, MMMM Do YYYY, h:mm:ss a"),
+        edited: Date().toString(),
         created: null,
         id: "post_title"
       },
@@ -78,7 +79,8 @@ export default {
       this.updateDatetime();
     },
     updateDatetime: function() {
-      this.post.edited = moment().format("dddd, MMMM Do YYYY, h:mm:ss a");
+      this.post.edited = new Date().toString();
+      if (!this.edit) this.post.created = this.post.edited;
     },
     verifyPost: function() {
       this.errors = [];
@@ -95,7 +97,6 @@ export default {
     },
     submitPost: function() {
       if (this.verifyPost()) {
-        if (!this.edit) this.post.created = this.post.edited;
         this.axios
           .post("https://skylerflyserver.appspot.com/submit", this.post)
           .then(res => {

@@ -15,11 +15,12 @@
           .tag(v-for="tag in tags")
             a(:href="'#' + tag").tag-link {{ tag }}
       .datetime
-        p {{ edited ? edited : created }}
+        p {{ timestamp }}
 </template>
 
 <script>
 import marked from "marked";
+import moment from "moment";
 
 export default {
   name: "post",
@@ -34,6 +35,9 @@ export default {
     id: String
   },
   computed: {
+    timestamp: function() {
+      return moment(this.created).format("dddd, MMMM Do YYYY, h:mm:ss a");
+    },
     compiledMarkdown: function() {
       return marked(this.body, { sanitize: true });
     },
