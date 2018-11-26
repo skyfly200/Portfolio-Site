@@ -11,7 +11,7 @@
         label Post Tags
         input(:value="post.tags" @input="updateTags")
       ul.errors
-        li.error(v-for="error in errors")
+        li.error(v-for="error in errors") {{ error }}
     hr
     #post-preview
       Post(v-bind="post")
@@ -82,11 +82,11 @@ export default {
     },
     verifyPost: function() {
       let valid = true;
-      if (this.post.title !== "") {
+      if (this.post.title === "") {
         valid = false;
         this.errors.push("Title May Not Be Empty!");
       }
-      if (this.post.body !== "") {
+      if (this.post.body === "") {
         valid = false;
         this.errors.push("Body May Not Be Empty!");
       }
