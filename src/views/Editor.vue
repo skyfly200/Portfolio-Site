@@ -36,6 +36,11 @@ export default {
         .then(response => {
           this.post = response.data.post;
           this.edit = true;
+          this.post.edits.append({
+            timestamp: this.post.updated,
+            body: this.post.updated,
+            tags: this.post.tags
+          });
         })
         .catch();
     }
@@ -43,14 +48,17 @@ export default {
   data: () => {
     return {
       post: {
-        title: "Post Title",
+        title: "",
         body: "enter Markdown here",
+        edits: [],
         tags: [],
-        datetime: moment().format("dddd, MMMM Do YYYY, h:mm:ss a"),
+        edited: moment().format("dddd, MMMM Do YYYY, h:mm:ss a"),
+        created: null,
         id: "post_title"
       },
       rows: 3,
-      edit: false
+      edit: false,
+      errors: []
     };
   },
   methods: {
@@ -68,17 +76,18 @@ export default {
       this.updateDatetime();
     },
     updateDatetime: function() {
-      this.post.datetime = moment().format("dddd, MMMM Do YYYY, h:mm:ss a"); ;
+      this.post.edited = moment().format("dddd, MMMM Do YYYY, h:mm:ss a");
     },
     submitPost: function() {
+      if (!this.edit) this.post.created = this.post.edited;
       this.axios
         .post("https://skylerflyserver.appspot.com/submit", this.post)
         .then(res => {
           if (res.status === 200) this.$router.push("/blog/dash");
-          else console.error(res.data);
+          else this.errors.append(res.data);
         })
         .catch(error => {
-          console.error(error);
+          this.errors.append(error);
         });
     }
   }
