@@ -10,6 +10,8 @@
         textarea(:value="post.body" @input="updateBody" :rows="rows")
         label Post Tags
         input(:value="post.tags" @input="updateTags")
+      ul.errors
+        li.error(v-for="error in errors")
     hr
     #post-preview
       Post(v-bind="post")
@@ -78,17 +80,31 @@ export default {
     updateDatetime: function() {
       this.post.edited = moment().format("dddd, MMMM Do YYYY, h:mm:ss a");
     },
+    verifyPost: function() {
+      let valid = true;
+      if (this.post.title !== "") {
+        valid = false;
+        this.errors.append("Title May Not Be Empty!");
+      }
+      if (this.post.body !== "") {
+        valid = false;
+        this.errors.append("Body May Not Be Empty!");
+      }
+      return valid;
+    },
     submitPost: function() {
-      if (!this.edit) this.post.created = this.post.edited;
-      this.axios
-        .post("https://skylerflyserver.appspot.com/submit", this.post)
-        .then(res => {
-          if (res.status === 200) this.$router.push("/blog/dash");
-          else this.errors.append(res.data);
-        })
-        .catch(error => {
-          this.errors.append(error);
-        });
+      if (this.verifyPost()) {
+        if (!this.edit) this.post.created = this.post.edited;
+        this.axios
+          .post("https://skylerflyserver.appspot.com/submit", this.post)
+          .then(res => {
+            if (res.status === 200) this.$router.push("/blog/dash");
+            else this.errors.append(res.data);
+          })
+          .catch(error => {
+            this.errors.append(error);
+          });
+      }
     }
   }
 };
