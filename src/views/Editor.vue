@@ -81,6 +81,7 @@ export default {
       this.post.edited = moment().format("dddd, MMMM Do YYYY, h:mm:ss a");
     },
     verifyPost: function() {
+      this.errors = [];
       let valid = true;
       if (this.post.title === "") {
         valid = false;
