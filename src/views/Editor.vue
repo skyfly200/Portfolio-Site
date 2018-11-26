@@ -84,11 +84,11 @@ export default {
       let valid = true;
       if (this.post.title !== "") {
         valid = false;
-        this.errors.append("Title May Not Be Empty!");
+        this.errors.push("Title May Not Be Empty!");
       }
       if (this.post.body !== "") {
         valid = false;
-        this.errors.append("Body May Not Be Empty!");
+        this.errors.push("Body May Not Be Empty!");
       }
       return valid;
     },
@@ -102,7 +102,7 @@ export default {
             else this.errors.append(res.data);
           })
           .catch(error => {
-            this.errors.append(error);
+            this.errors.push(error);
           });
       }
     }
