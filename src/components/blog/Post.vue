@@ -59,10 +59,13 @@ export default {
         title: "Confirm Delete Post",
         body: "Are you sure you want to permanently delete this Post?"
       };
+      var post = this;
       this.$dialog
         .confirm(message)
-        .then(this.deletePost())
-        .catch(); // delete cancled
+        .then(function() {
+          post.deletePost();
+        })
+        .catch();
     }
   }
 };
