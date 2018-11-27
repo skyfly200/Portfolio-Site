@@ -14,7 +14,7 @@
       .topic-feature(v-if="feature")#feature
         .topic-close
           a(href="#skills" @click="clearTopic")
-            i.fa.fa-close.fa-2x
+            svg.far.fa-times-circle.fa-2x
             span &nbsp;Back
         FrontEnd(v-if="feature == 'front-end'")
         BackEnd(v-if="feature == 'back-end'")
@@ -217,7 +217,7 @@ export default {
     .topic-close a
       display: flex
       text-shadow: 0px 0px 0.5px white
-      i
+      svg
         margin: 10px 0px 10px -10px
       span
         font-size: 1.5em
