@@ -1,6 +1,7 @@
-# node and build
+# node, build and test
 node_modules
 /dist
+/coverage
 
 # local env files
 .env.local
