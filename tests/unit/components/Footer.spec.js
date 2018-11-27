@@ -1,5 +1,3 @@
-import { expect } from "chai";
-import { shallowMount } from "@vue/test-utils";
 import Footer from "@/components/Footer.vue";
 
 describe("Footer.vue", () => {
