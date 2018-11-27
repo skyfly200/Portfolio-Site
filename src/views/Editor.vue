@@ -43,7 +43,7 @@ export default {
             tags: this.post.tags
           });
         })
-        .catch();
+        .catch(() => {});
     }
   },
   data: () => {

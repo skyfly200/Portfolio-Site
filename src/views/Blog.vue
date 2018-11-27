@@ -30,7 +30,7 @@ export default {
     this.axios
       .get("https://skylerflyserver.appspot.com/posts")
       .then(response => (this.posts = response.data.posts))
-      .catch();
+      .catch(() => {});
   },
   data: function() {
     return {

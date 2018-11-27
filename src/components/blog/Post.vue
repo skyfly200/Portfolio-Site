@@ -52,7 +52,7 @@ export default {
         .then(res => {
           if (res.data.result.indexUpdates > 0) this.$emit("refreshPosts");
         })
-        .catch();
+        .catch(() => {});
     },
     deleteConfirm() {
       let message = {
@@ -65,7 +65,7 @@ export default {
         .then(function() {
           post.deletePost();
         })
-        .catch();
+        .catch(() => {});
     }
   }
 };
