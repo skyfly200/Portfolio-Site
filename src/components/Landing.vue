@@ -9,14 +9,14 @@
 
         .landing-caption
           h2 Multidisciplinary Magic&nbsp;
-            i.fa.fa-magic.fa-sm
+            svg.fa.fa-magic.fa-sm
 
         .landing-statement
           h4 "Any sufficiently advanced technology is indistinguishable from magic"
           h5 Arthur C. Clarke
 
     a.scroll-hint(href="#welcome")
-      i.fa.fa-angle-down.fa-3x
+      svg.fa.fa-angle-down.fa-3x
 </template>
 
 <script>

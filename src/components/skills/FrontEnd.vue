@@ -21,7 +21,7 @@
     .site-github.github-button
       a(href="https://github.com/skyfly200/Portfolio-Site" target="_blank")
         button
-          i.fa.fa-github.fa.lg
+          svg.fa.fa-github.fa.lg
           span &nbsp;View the source code
 
 </template>

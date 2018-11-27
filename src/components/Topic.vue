@@ -3,8 +3,8 @@
     .icon-box
       .topic-icon
         span.fa-stack.fa-3x
-          i.fa.fa-circle.fa-stack-2x
-          i.fa.fa-stack-1x.fa-inverse(:class="icon")
+          svg.fa.fa-circle.fa-stack-2x
+          svg.fa.fa-stack-1x.fa-inverse(:class="icon")
     .topic-title
       h2 {{ name }}
     .topic-cont

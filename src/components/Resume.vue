@@ -6,11 +6,11 @@
     .resume-buttons.wow.fadeInUp
       a(href="https://docs.google.com/document/d/1LhEbXxxuoJ2cZf7JwBqwVxxfu7WX4ovKvswWQmyxmn0/edit?usp=sharing", target="_blank")
         button.resume-btn.btn.btn-default.wow.zoomIn
-          i.fa.fa-cogs &nbsp;
+          svg.fa.fa-cogs &nbsp;
           .btn-text Software
       a(href="https://docs.google.com/document/d/1SrNxaV6kmGSgyJfo2iXVY9L-e66pVPKJBvSu4CQSrsk/edit?usp=sharing", target="_blank")
         button.resume-btn.btn.btn-default.wow.zoomIn
-          i.fa.fa-film &nbsp;
+          svg.fa.fa-film &nbsp;
           .btn-text Multimedia
 
 </template>

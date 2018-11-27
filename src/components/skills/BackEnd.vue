@@ -29,7 +29,7 @@
         .github-button
           a(href="//github.com/skyfly200" target="_blank")
             button
-              .fa.fa-github.fa-2x
+              svg.fa.fa-github.fa-2x
               .label &nbsp;More on GitHub
 
 </template>
