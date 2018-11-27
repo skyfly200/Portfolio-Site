@@ -1,8 +1,8 @@
 <template lang="pug">
   .auth-view
     a.logout(v-if="isLoggedIn" @click="logout" href="#")
-      i.fas.fa-user-astronaut.fa-2x(v-if="isAdmin")
-      i.fas.fa-user.fa-2x(v-else)
+      svg.fas.fa-user-astronaut.fa-2x(v-if="isAdmin")
+      svg.fas.fa-user.fa-2x(v-else)
       span Logout
     .login(v-else)
       a(href="/auth") Login
@@ -50,6 +50,6 @@ export default {
     .logout
       display: flex
       flex-direction: column
-      i
+      svg
         margin: 5px 20px
 </style>
