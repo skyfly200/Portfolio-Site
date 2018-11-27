@@ -4,7 +4,7 @@
   "description": "Portfolio Website for Skyler Fly-Wilson",
   "author": "Skyler Fly-Wilson",
   "license": "GPL-3.0",
-  "repository": "github:skyfly200/Portfolio-Site"
+  "repository": "github:skyfly200/Portfolio-Site",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -80,5 +80,5 @@
     ],
     "instrument": false,
     "sourceMap": false
-  },
+  }
 }

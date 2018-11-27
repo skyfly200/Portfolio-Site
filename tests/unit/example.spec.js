@@ -1,13 +1,10 @@
-import { expect } from 'chai'
-import { shallowMount } from '@vue/test-utils'
-import HelloWorld from '@/components/HelloWorld.vue'
+import { expect } from "chai";
+import { shallowMount } from "@vue/test-utils";
+import Footer from "@/components/Footer.vue";
 
-describe('HelloWorld.vue', () => {
-  it('renders props.msg when passed', () => {
-    const msg = 'new message'
-    const wrapper = shallowMount(HelloWorld, {
-      propsData: { msg }
-    })
-    expect(wrapper.text()).to.include(msg)
-  })
-})
+describe("Footer.vue", () => {
+  it("Footer Renders My Name", () => {
+    const wrapper = shallowMount(Footer);
+    expect(wrapper.text()).to.include("Skyler Fly-Wilson");
+  });
+});
