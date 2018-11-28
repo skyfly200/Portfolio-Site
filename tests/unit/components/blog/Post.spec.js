@@ -4,12 +4,12 @@ import Post from "@/components/blog/Post.vue";
 
 var postProps = {
   admin: false,
-  title: "Title",
+  title: "Test Title",
   body: "",
-  tags: Array,
+  tags: [],
   created: "",
   edited: "",
-  id: String
+  id: ""
 };
 
 describe("Post.vue", () => {
@@ -17,6 +17,6 @@ describe("Post.vue", () => {
     const wrapper = shallowMount(Post, {
       propsData: postProps
     });
-    expect(wrapper.text()).to.include("Skyler Fly-Wilson");
+    expect(wrapper.text()).to.include("Test Title");
   });
 });
