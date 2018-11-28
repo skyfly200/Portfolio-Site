@@ -1,5 +1,8 @@
 const path = require("path");
 module.exports = {
+  configureWebpack: {
+    devtool: "eval"
+  },
   chainWebpack: config => {
     const oneOfsMap = config.module.rule("sass").oneOfs.store;
     oneOfsMap.forEach(item => {

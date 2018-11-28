@@ -10,7 +10,7 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
-    "cover": "nyc vue-cli-service test:unit"
+    "coverage": "nyc vue-cli-service test:unit"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -86,7 +86,8 @@
     "functions": 90,
     "branches": 90,
     "include": [
-      "src/**/*.{js,vue}"
+      "src/**/*.{js,vue}",
+      "src/*.vue"
     ],
     "exclude": [
       "src/*.js"
