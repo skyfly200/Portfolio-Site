@@ -4,10 +4,9 @@
       svg.fas.fa-home.fa-lg
     router-link(to="/blog" title="Blog")
       svg.fas.fa-quote-right.fa-lg
-    router-link(v-if="isAdmin" to="/blog/user"  title="Admin Dashboard")
-      svg.fas.fa-user-astronaut.fa-lg
-    router-link(v-else to="/blog/user" title="User Dashboard")
-      svg.fas.fa-user.fa-lg
+    router-link(to="/blog/user" title="Account")
+      svg.fas.fa-user-astronaut.fa-lg(v-if="isAdmin")
+      svg.fas.fa-user.fa-lg(v-else)
     router-link(v-if="isAdmin" to="/blog/edit" title="New Post")
       svg.fas.fa-plus.fa-lg
     a.logout(v-if="isLoggedIn" @click.prevent="logout" href="#logout" title="Logout")
