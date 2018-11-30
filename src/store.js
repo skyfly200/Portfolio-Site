@@ -40,8 +40,8 @@ export default new Vuex.Store({
     },
     logout(state) {
       state.status = "";
-      state.token = {};
-      state.user = {};
+      state.token = "";
+      state.user = { admin: false };
     }
   },
   actions: {
@@ -101,8 +101,8 @@ export default new Vuex.Store({
     }
   },
   getters: {
-    isLoggedIn: state => !!state.token,
-    isAdmin: state => (state.user.admin ? state.user.admin : false),
+    isLoggedIn: state => state.token !== "",
+    isAdmin: state => (state.user.admin ? state.user.admin === 1 : false),
     name: state => state.user.name,
     authStatus: state => state.status
   }
