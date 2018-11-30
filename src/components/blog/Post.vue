@@ -1,15 +1,17 @@
 <template lang="pug">
   .post
-    .post-ctrls(v-if="showCtrls")
-        a(:href="'/blog/edit/' + id")
-          svg.fas.fa-lg.fa-edit
-        a(@click.prevent="deleteConfirm" href="#")
-          svg.fas.fa-lg.fa-trash
-        a(v-if="edits && edits.length > 0" v-b-toggle.edit-history href="#")
-          svg.fas.fa-lg.fa-clock
     .post-header
-      a(:href="'/blog/post/' + id")
-        h1 {{ title }}
+      .post-title
+        a(:href="'/blog/post/' + id")
+          h1 {{ title }}
+      .post-ctrls(v-if="showCtrls")
+          a(:href="'/blog/edit/' + id")
+            svg.fas.fa-lg.fa-edit
+          a(@click.prevent="deleteConfirm" href="#")
+            svg.fas.fa-lg.fa-trash
+          a(v-if="edits && edits.length > 0" v-b-toggle.edit-history href="#")
+            svg.fas.fa-lg.fa-clock
+    hr
     .post-body(v-html="compiledMarkdown")
     hr
     .post-footer
@@ -88,21 +90,24 @@ export default {
     padding: 1em
     margin: 1em auto
     align-content: center
-    text-align: center
     background-color: white
     color: black
     box-shadow: 0em 0em 1em 0.1em rgba(255,255,255,0.5)
-    .post-ctrls
-      width: auto
+    .post-header
       display: flex
-      align-items: center
-      justify-content: left
-      a
-        width: 2em
-        margin: 0
-    .post-header h3
-      margin-top: 5px
-      font-size: 1.5rem
+      justify-content: space-between
+      margin: -10px 0 -16px 0
+      .post-title
+        margin-top: 5px
+        font-size: 1.5rem
+      .post-ctrls
+        width: auto
+        display: flex
+        align-items: center
+        justify-content: right
+        a
+          width: 2em
+          margin: 0
     .post-body
       width: 100%
       img
