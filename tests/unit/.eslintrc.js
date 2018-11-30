@@ -2,8 +2,8 @@ module.exports = {
   env: {
     mocha: true
   },
-  "globals": {
-    "expect": false,
-    "shallowMount": false
+  globals: {
+    expect: false,
+    shallowMount: false
   }
-}
+};
