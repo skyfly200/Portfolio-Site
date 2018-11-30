@@ -4,7 +4,7 @@
       svg.fas.fa-home.fa-lg
     router-link(to="/blog" title="Blog")
       svg.fas.fa-quote-right.fa-lg
-    router-link(v-if="isAdmin" to="/blog/dash"  title="Admin Dashboard")
+    router-link(v-if="isAdmin" to="/blog/user"  title="Admin Dashboard")
       svg.fas.fa-user-astronaut.fa-lg
     router-link(v-else to="/blog/user" title="User Dashboard")
       svg.fas.fa-user.fa-lg

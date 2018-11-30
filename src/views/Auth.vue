@@ -62,11 +62,7 @@ export default {
             if (this.$route.params.nextUrl != null) {
               this.$router.push(this.$route.params.nextUrl);
             } else {
-              if (this.$store.getters.isAdmin) {
-                this.$router.push("blog/dash");
-              } else {
-                this.$router.push("blog");
-              }
+              this.$router.push("blog");
             }
           })
           .catch(() => {});

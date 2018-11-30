@@ -40,16 +40,6 @@ let router = new Router({
       }
     },
     {
-      path: "/blog/dash",
-      name: "dashboard",
-      component: () =>
-        import(/* webpackChunkName: "dashboard" */ "./views/Dashboard.vue"),
-      meta: {
-        requiresAuth: true,
-        admin: true
-      }
-    },
-    {
       path: "/blog/edit/:id?",
       name: "editor",
       component: () =>

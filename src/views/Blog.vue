@@ -2,11 +2,14 @@
   .blog
     BlogMenu
     .blog-header
-      h1 My Blog
-      h3 Stay up to date on my latest projects and ideas
+      template(v-if="isAdmin")
+        h1 Welcome Admin
+      template(v-else)
+        h1 My Blog
+        h3 Stay up to date on my latest projects and ideas
     .blog-body
       .blog-posts
-        Post(v-for="post in posts" :admin="false"  v-bind="post" v-bind:key="post.id")
+        Post(v-for="post in posts" :admin="isAdmin" v-on:refreshPosts="loadPosts" v-bind="post" v-bind:key="post.id")
 
       Navigation(:topics="topics" :posts="posts")
     Footer
@@ -25,15 +28,18 @@ export default {
     Navigation,
     Footer
   },
-  created() {
-    let url = "https://skylerflyserver.appspot.com/posts";
-    url = this.$route.params.tag ? url + "/" + this.$route.params.tag : url;
-    this.axios
-      .get(url)
-      .then(response => (this.posts = response.data.posts))
-      .catch(() => {});
+  computed: {
+    isLoggedIn: function() {
+      return this.$store.getters.isLoggedIn;
+    },
+    isAdmin: function() {
+      return this.$store.getters.isAdmin;
+    }
   },
-  data: function() {
+  created() {
+    this.loadPosts();
+  },
+  data: () => {
     return {
       topics: {
         mycology: { title: "Mycology" },
@@ -45,6 +51,16 @@ export default {
       },
       posts: []
     };
+  },
+  methods: {
+    loadPosts: function() {
+      let url = "https://skylerflyserver.appspot.com/posts";
+      url = this.$route.params.tag ? url + "/" + this.$route.params.tag : url;
+      this.axios
+        .get(url)
+        .then(response => (this.posts = response.data.posts))
+        .catch(() => {});
+    }
   }
 };
 </script>
@@ -63,12 +79,13 @@ export default {
     .post, .post a
       color: black
       margin-top: 20px
+    button
+      color: black
 
   .blog-header
     text-align: center
-    text-shadow: 0em 0.1em 0.15em rgba(0,0,0,0.5)
-    h1
-      padding-top: 10px
+    text-shadow: 0em 0.1em 0.15em rgba(0,0,0,0.5)h1
+    padding-top: 10px
 
   .blog-body
     display: flex
