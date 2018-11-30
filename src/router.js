@@ -15,8 +15,13 @@ let router = new Router({
       component: Home
     },
     {
-      path: "/blog/:tag?",
+      path: "/blog",
       name: "blog",
+      component: () => import(/* webpackChunkName: "blog" */ "./views/Blog.vue")
+    },
+    {
+      path: "/blog/tag/:tag?",
+      name: "blog-tag",
       component: () => import(/* webpackChunkName: "blog" */ "./views/Blog.vue")
     },
     {
@@ -24,15 +29,6 @@ let router = new Router({
       name: "blog-post",
       component: () =>
         import(/* webpackChunkName: "blog-post" */ "./views/BlogPost.vue")
-    },
-    {
-      path: "/auth",
-      name: "auth",
-      component: () =>
-        import(/* webpackChunkName: "auth" */ "./views/Auth.vue"),
-      meta: {
-        guest: true
-      }
     },
     {
       path: "/blog/user",
@@ -61,6 +57,15 @@ let router = new Router({
       meta: {
         requiresAuth: true,
         admin: true
+      }
+    },
+    {
+      path: "/auth",
+      name: "auth",
+      component: () =>
+        import(/* webpackChunkName: "auth" */ "./views/Auth.vue"),
+      meta: {
+        guest: true
       }
     },
     {

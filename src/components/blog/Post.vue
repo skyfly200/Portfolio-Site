@@ -21,7 +21,7 @@
     .post-footer
       .tags(v-if="tags")
           .tag(v-for="tag in tags")
-            router-link(:to="'/blog/' + tag").tag-link {{ tag }}
+            router-link(:to="'/blog/tag/' + tag").tag-link {{ tag }}
       .datetime
         p.created Posted: {{ formatDatetime(created) }}
         p.edited(v-if="edited") Last Edit: {{ formatDatetime(edited) }}

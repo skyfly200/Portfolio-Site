@@ -27,8 +27,10 @@ export default {
     Footer
   },
   created() {
+    let url = "https://skylerflyserver.appspot.com/posts";
+    url = this.$route.params.tag ? url + "/" + this.$route.params.tag : url;
     this.axios
-      .get("https://skylerflyserver.appspot.com/posts")
+      .get(url)
       .then(response => (this.posts = response.data.posts))
       .catch(() => {});
   },
