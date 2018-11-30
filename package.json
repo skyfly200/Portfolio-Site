@@ -10,8 +10,7 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
-    "coverage": "nyc vue-cli-service test:unit",
-    "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov -t f8c33280-dce8-4374-a9e1-664447b170c7"
+    "coverage": "nyc vue-cli-service test:unit --recursive src/**/*.vue tests/unit/**/*.js && nyc report --reporter=text-lcov > coverage.lcov && codecov -t f8c33280-dce8-4374-a9e1-664447b170c7"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -80,7 +79,7 @@
   "nyc": {
     "instrument": false,
     "sourceMap": false,
-    "check-coverage": true,
+    "check-coverage": false,
     "per-file": true,
     "lines": 90,
     "statements": 90,
@@ -90,16 +89,10 @@
       "src/**/*.{js,vue}",
       "src/*.vue"
     ],
-    "exclude": [
-      "src/*.js"
-    ],
     "reporter": [
       "lcov",
       "text",
       "text-summary"
-    ],
-    "extension": [
-      ".js"
     ],
     "cache": true,
     "all": true

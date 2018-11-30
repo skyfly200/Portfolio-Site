@@ -79,7 +79,6 @@ router.beforeEach((to, from, next) => {
         params: { nextUrl: to.fullPath }
       });
     } else {
-      let token = localStorage.getItem("token");
       if (to.matched.some(record => record.meta.admin)) {
         if (store.getters.isAdmin) {
           next();
