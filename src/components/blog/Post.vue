@@ -9,8 +9,12 @@
             svg.fas.fa-lg.fa-edit
           a(@click.prevent="deleteConfirm" href="#")
             svg.fas.fa-lg.fa-trash
-          a(v-if="edits && edits.length > 0" v-b-toggle.edit-history href="#")
-            svg.fas.fa-lg.fa-clock
+          a(v-if="edits && edits.length > 0" href="#"
+            @click="showEdits = !showEdits"
+            :class="showEdits ? 'collapsed' : null"
+            :aria-controls="'edits-' + id"
+            :aria-expanded="showEdits ? 'true' : 'false'")
+              svg.fas.fa-lg.fa-clock
     hr
     .post-body(v-html="compiledMarkdown")
     hr
@@ -19,8 +23,9 @@
           .tag(v-for="tag in tags")
             a(:href="'#' + tag").tag-link {{ tag }}
       .datetime
-        p {{ timestamp }}
-    b-collapse#edit-history
+        p.created Posted: {{ formatDatetime(created) }}
+        p.edited(v-if="edited") Last Edit: {{ formatDatetime(edited) }}
+    b-collapse(:id="'edits-' + id" v-model="showEdits").mt-2
       h3 Edit History
       ul.edits
         li(v-for="(item,index) in edits")
@@ -44,10 +49,12 @@ export default {
     edits: Array,
     id: String
   },
+  data() {
+    return {
+      showEdits: false
+    };
+  },
   computed: {
-    timestamp: function() {
-      return moment(this.created).format("dddd, MMMM Do YYYY, h:mm:ss a");
-    },
     compiledMarkdown: function() {
       return marked(this.body, { sanitize: true });
     },
@@ -56,6 +63,9 @@ export default {
     }
   },
   methods: {
+    formatDatetime(datetime) {
+      return moment(datetime).format("dddd, MMMM Do YYYY, h:mm:ss a");
+    },
     deletePost() {
       this.axios
         .delete("https://skylerflyserver.appspot.com/post/" + this.id, {})
@@ -63,9 +73,6 @@ export default {
           if (res.data.result.indexUpdates > 0) this.$emit("refreshPosts");
         })
         .catch(() => {});
-    },
-    formatDatetime(datetime) {
-      return moment(datetime).format("dddd, MMMM Do YYYY, h:mm:ss a");
     },
     deleteConfirm() {
       let message = {
