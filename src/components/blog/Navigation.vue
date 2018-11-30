@@ -1,7 +1,6 @@
 <template lang="pug">
   .nav-wrap
     .nav
-      AuthView
       .post-topics(v-if="false")
         .nav-header
           h4 Topics
@@ -15,17 +14,13 @@
 </template>
 
 <script>
-import AuthView from "@/components/blog/AuthView.vue";
-
 export default {
   name: "navigtion",
   props: {
     topics: Object,
     posts: Array
   },
-  components: {
-    AuthView
-  }
+  components: {}
 };
 </script>
 

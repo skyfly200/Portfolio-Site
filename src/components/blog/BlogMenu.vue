@@ -1,13 +1,17 @@
 <template lang="pug">
-  .auth-view
-    a(v-if="isAdmin" href="/blog/dash")
-      svg.fas.fa-user-astronaut.fa-2x
-    a(v-else href="/blog/user")
-      svg.fas.fa-user.fa-2x
-    a.logout(v-if="isLoggedIn" @click="logout" href="#")
-      svg.fas.fa-sign-out-alt.fa-2x
-    a.login(v-else href="/auth")
-      svg.fas.fa-sign-in-alt.fa-2x
+  .blog-menu
+    router-link(to="/blog" title="Blog Home")
+      svg.fas.fa-home.fa-lg
+    router-link(v-if="isAdmin" to="/blog/dash"  title="Admin Dashboard")
+      svg.fas.fa-user-astronaut.fa-lg
+    router-link(v-else to="/blog/user" title="User Home")
+      svg.fas.fa-user.fa-lg
+    router-link(v-if="isAdmin" to="/blog/edit" title="New Post")
+      svg.fas.fa-plus.fa-lg
+    a.logout(v-if="isLoggedIn" @click.prevent="logout" href="#logout" title="Logout")
+      svg.fas.fa-sign-out-alt.fa-lg
+    router-link.login(v-else to="/auth" title="Login")
+      svg.fas.fa-sign-in-alt.fa-lg
 
 </template>
 
@@ -35,16 +39,20 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-  .auth-view
+  .blog-menu
     font-size: 1.2em
     text-decoration: underline
     text-align: center
     display: flex
+    justify-content: space-around
+    width: auto
     margin: 0
     padding: 5px
     background-color: rgba(255,255,255,0.2)
     border-radius: 5px
     border: solid black 1px
+    position: fixed
+    right: 0
     a
       color: $color-secondary-2-1
       &:visted, &:focus, &:active
@@ -52,5 +60,6 @@ export default {
       &:hover
         color: $color-secondary-2-1
     svg
+      width: 1em
       margin: 5px 10px
 </style>
