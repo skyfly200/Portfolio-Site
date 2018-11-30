@@ -23,8 +23,12 @@
           .tag(v-for="tag in tags")
             router-link(:to="'/blog/tag/' + tag").tag-link {{ tag }}
       .datetime
-        p.created Posted: {{ formatDatetime(created) }}
-        p.edited(v-if="edited") Last Edit: {{ formatDatetime(edited) }}
+        .created
+          span.datetime-label Posted:&nbsp;
+          span.datetime-created {{ formatDatetime(created) }}
+        .edited(v-if="edited")
+          span.datetime-label Last Edit:&nbsp;
+          span.datetime-edited {{ formatDatetime(edited) }}
     b-collapse(:id="'edits-' + id" v-model="showEdits").mt-2
       h3 Edit History
       ul.edits
@@ -64,7 +68,7 @@ export default {
   },
   methods: {
     formatDatetime(datetime) {
-      return moment(datetime).format("dddd, MMMM Do YYYY, h:mm:ss a");
+      return moment(datetime).format("dddd, MMM Do YYYY, h:mm a");
     },
     deletePost() {
       this.axios
@@ -124,15 +128,27 @@ export default {
       display: flex
       justify-content: space-between
       align-items: flex-end
+      flex-wrap: wrap-reverse
       .tags
-        margin: 0
+        margin: auto
         padding: 0
+        align-content: center
         display: flex
         list-style-type: none
-        .tag
-          margin: 0 0.2em
-          padding: 0.2em
-          background-color: rgba(0,255,0,0.2)
-      .datetime p
+        @media(max-width: 500px)
+          font-size: 0.9em
+          flex-wrap: wrap
+          .tag
+            margin: 0.4em
+      .tag
+        margin: 0.5em 0.2em
+        padding: 0.2em 0.5em
+        background-color: rgba(0,255,0,0.2)
+      .datetime
         margin: 0
+        @media(max-width: 500px)
+          .datetime-created
+            font-size: 0.8em
+          .datetime-label, .datetime-edited
+            display: none
 </style>
