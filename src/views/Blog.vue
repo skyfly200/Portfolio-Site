@@ -5,7 +5,7 @@
     .wrapper
       .blog-body
         .blog-header
-          h1 Skyler Fly-Wilson's Blog
+          h1 My Blog
           h3 Stay up to date on my latest projects and ideas
 
         .blog-posts

@@ -1,7 +1,7 @@
 <template lang="pug">
   .dashboard
     .back-link
-      a(href="/blog") Return to Blog
+      router-link(to="/blog") Return to Blog
     .wrapper
       .dash-body
         .dash-header

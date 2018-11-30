@@ -2,10 +2,10 @@
   .post
     .post-header
       .post-title
-        a(:href="'/blog/post/' + id")
+        router-link(:to="'/blog/post/' + id")
           h1 {{ title }}
       .post-ctrls(v-if="showCtrls")
-          a(:href="'/blog/edit/' + id")
+          router-link(:to="'/blog/edit/' + id")
             svg.fas.fa-lg.fa-edit
           a(@click.prevent="deleteConfirm" href="#")
             svg.fas.fa-lg.fa-trash
@@ -29,7 +29,7 @@
       h3 Edit History
       ul.edits
         li(v-for="(item,index) in edits")
-          a(:href="'/blog/post/' + id + '/' + index") {{ formatDatetime(item.edited) }}
+          router-link(:to="'/blog/post/' + id + '/' + index") {{ formatDatetime(item.edited) }}
 </template>
 
 <script>

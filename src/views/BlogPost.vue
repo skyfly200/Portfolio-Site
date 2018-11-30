@@ -33,6 +33,7 @@ export default {
           let edit = this.post.edits[this.$route.params.edit];
           this.post.body = edit.body;
           this.post.tags = edit.tags;
+          this.post.edited = edit.edited;
         }
       })
       .catch(() => {});
