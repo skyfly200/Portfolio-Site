@@ -15,7 +15,7 @@ let router = new Router({
       component: Home
     },
     {
-      path: "/blog",
+      path: "/blog/:tag?",
       name: "blog",
       component: () => import(/* webpackChunkName: "blog" */ "./views/Blog.vue")
     },
