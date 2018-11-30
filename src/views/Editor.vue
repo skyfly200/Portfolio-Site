@@ -65,7 +65,8 @@ export default {
   methods: {
     updateTitle: function(e) {
       this.post.title = e.target.value;
-      this.post.id = this.post.title.replace(/\s/g, "_").toLowerCase();
+      if (!this.edit)
+        this.post.id = this.post.title.replace(/\s/g, "_").toLowerCase();
       this.updateDatetime();
     },
     updateBody: _.debounce(function(e) {
