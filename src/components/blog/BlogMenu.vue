@@ -19,7 +19,7 @@
 
 <script>
 export default {
-  name: "auth-view",
+  name: "blog-menu",
   components: {},
   computed: {
     isLoggedIn: function() {
