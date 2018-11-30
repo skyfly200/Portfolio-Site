@@ -1,10 +1,12 @@
 <template lang="pug">
   .blog-menu
-    router-link(to="/blog" title="Blog Home")
+    a(href="/" title="Home")
       svg.fas.fa-home.fa-lg
+    router-link(to="/blog" title="Blog")
+      svg.fas.fa-quote-right.fa-lg
     router-link(v-if="isAdmin" to="/blog/dash"  title="Admin Dashboard")
       svg.fas.fa-user-astronaut.fa-lg
-    router-link(v-else to="/blog/user" title="User Home")
+    router-link(v-else to="/blog/user" title="User Dashboard")
       svg.fas.fa-user.fa-lg
     router-link(v-if="isAdmin" to="/blog/edit" title="New Post")
       svg.fas.fa-plus.fa-lg
@@ -30,7 +32,7 @@ export default {
   methods: {
     logout() {
       this.$store.dispatch("logout").then(() => {
-        this.$router.push("/auth");
+        this.$router.push("/blog");
       });
       localStorage.removeItem("jwt");
     }
