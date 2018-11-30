@@ -2,7 +2,7 @@
   .dashboard
     BlogMenu
     .dash-header
-      h1 Blog Admin Dashboard
+      h1 Admin Dashboard
     .dash-body
       .blog-posts
         Post(v-for="post in posts" :admin="true" v-on:refreshPosts="loadPosts" v-bind="post" v-bind:key="post.id")

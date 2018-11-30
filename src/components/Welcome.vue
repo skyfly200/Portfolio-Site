@@ -6,7 +6,9 @@
         .welcome-heading.wow
           h2 Welcome
         .welcome-blurb.wow
-          p I'm Skyler and I dabble in a diverse range of interests that fascinate me.
+          p
+          | I'm Skyler and I dabble in a diverse range of interests that fascinate me.
+          | A core thread that ties these areas together is a desire to create expierences for people that are seamless, intuitive and awe inspiring.
           p
           | Learning new things is a top priority. I am a lifelong learner and I try to learn new things every day.
           | Below I have distilled an array of projects and content showcasing my most potent talents.
