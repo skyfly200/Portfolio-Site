@@ -14,8 +14,8 @@ import BootstrapVue from "bootstrap-vue";
 import "../node_modules/vuejs-dialog/dist/vuejs-dialog.min.css";
 
 // bootstrap styles
-//import "bootstrap/dist/css/bootstrap.css";
-//import "bootstrap-vue/dist/bootstrap-vue.css";
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap-vue/dist/bootstrap-vue.css";
 
 // setup Vue plugins
 Vue.use(VuejsDialog);
