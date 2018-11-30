@@ -24,7 +24,17 @@ export default {
       "https://skylerflyserver.appspot.com/post/" + this.$route.params.id;
     this.axios
       .get(url)
-      .then(response => (this.post = response.data.post))
+      .then(response => {
+        this.post = response.data.post;
+        if (
+          this.$route.params.edit &&
+          this.post.edits[this.$route.params.edit]
+        ) {
+          let edit = this.post.edits[this.$route.params.edit];
+          this.post.body = edit.body;
+          this.post.tags = edit.tags;
+        }
+      })
       .catch(() => {});
   },
   data: () => {

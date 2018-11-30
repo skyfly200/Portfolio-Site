@@ -2,9 +2,11 @@
   .post
     .post-ctrls(v-if="showCtrls")
         a(:href="'/blog/edit/' + id")
-          svg.fas.fa-2x.fa-edit
+          svg.fas.fa-lg.fa-edit
         a(@click.prevent="deleteConfirm" href="#")
-          svg.fas.fa-2x.fa-trash
+          svg.fas.fa-lg.fa-trash
+        a(v-if="edits && edits.length > 0" v-b-toggle.edit-history href="#")
+          svg.fas.fa-lg.fa-clock
     .post-header
       a(:href="'/blog/post/' + id")
         h1 {{ title }}
@@ -16,6 +18,11 @@
             a(:href="'#' + tag").tag-link {{ tag }}
       .datetime
         p {{ timestamp }}
+    b-collapse#edit-history
+      h3 Edit History
+      ul.edits
+        li(v-for="(item,index) in edits")
+          a(:href="'/blog/post/' + id + '?e=' + index") {{ formatDatetime(item.edited) }}
 </template>
 
 <script>
@@ -32,6 +39,7 @@ export default {
     tags: Array,
     created: String,
     edited: String,
+    edits: Array,
     id: String
   },
   computed: {
@@ -53,6 +61,9 @@ export default {
           if (res.data.result.indexUpdates > 0) this.$emit("refreshPosts");
         })
         .catch(() => {});
+    },
+    formatDatetime(datetime) {
+      return moment(datetime).format("dddd, MMMM Do YYYY, h:mm:ss a");
     },
     deleteConfirm() {
       let message = {
@@ -82,12 +93,13 @@ export default {
     color: black
     box-shadow: 0em 0em 1em 0.1em rgba(255,255,255,0.5)
     .post-ctrls
-      width: 6em
+      width: auto
       display: flex
       align-items: center
-      justify-content: space-around
+      justify-content: left
       a
-        margin: auto
+        width: 2em
+        margin: 0
     .post-header h3
       margin-top: 5px
       font-size: 1.5rem

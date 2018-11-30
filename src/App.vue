@@ -6,20 +6,10 @@
 <script>
 export default {
   created: function() {
-    return new Promise(function(resolve, reject) {
-      this.axios.interceptors.response.use(
-        response => resolve(response),
-        function(err) {
-          if (
-            err.status === 401 &&
-            err.config &&
-            !err.config.__isRetryRequest
-          ) {
-            this.$store.dispatch("logout");
-          }
-          reject(err);
-        }
-      );
+    this.axios.interceptors.response.use(undefined, function(err) {
+      if (err.status === 401 && err.config && !err.config.__isRetryRequest) {
+        this.$store.dispatch("logout");
+      }
     });
   }
 };
