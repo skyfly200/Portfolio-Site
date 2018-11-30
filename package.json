@@ -10,7 +10,8 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
-    "coverage": "nyc vue-cli-service test:unit"
+    "coverage": "nyc vue-cli-service test:unit",
+    "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov -t f8c33280-dce8-4374-a9e1-664447b170c7"
   },
   "dependencies": {
     "axios": "^0.18.0",
