@@ -22,7 +22,7 @@
       h3 Edit History
       ul.edits
         li(v-for="(item,index) in edits")
-          a(:href="'/blog/post/' + id + '?e=' + index") {{ formatDatetime(item.edited) }}
+          a(:href="'/blog/post/' + id + '/' + index") {{ formatDatetime(item.edited) }}
 </template>
 
 <script>
