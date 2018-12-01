@@ -4,17 +4,34 @@
       .post-title
         router-link(:to="'/blog/post/' + id")
           h1 {{ title }}
-      .post-ctrls(v-if="showCtrls")
-          router-link(:to="'/blog/edit/' + id")
+      .post-ctrls(v-if="isAdmin")
+        #post-ctrls-full
+          b-link(:to="'/blog/edit/' + id")
             svg.fas.fa-lg.fa-edit
-          a(@click.prevent="deleteConfirm" href="#")
+          b-link(@click.prevent="deleteConfirm" href="#")
             svg.fas.fa-lg.fa-trash
-          a(v-if="edits && edits.length > 0" href="#"
+          b-link(v-if="edits && edits.length > 0" href="#"
             @click="showEdits = !showEdits"
             :class="showEdits ? 'collapsed' : null"
             :aria-controls="'edits-' + id"
             :aria-expanded="showEdits ? 'true' : 'false'")
               svg.fas.fa-lg.fa-clock
+        b-dropdown#post-ctrls-col.m-md-2(variant="link" right no-caret)
+          template(slot="button-content")
+            svg.fas.fa-lg.fa-ellipsis-v
+          b-dropdown-item(:to="'/blog/edit/' + id")
+            svg.fas.fa-lg.fa-edit
+            span Edit Post
+          b-dropdown-item(@click.prevent="deleteConfirm" href="#")
+            svg.fas.fa-lg.fa-trash
+            span Delete Post
+          b-dropdown-item(v-if="edits && edits.length > 0" href="#"
+            @click="showEdits = !showEdits"
+            :class="showEdits ? 'collapsed' : null"
+            :aria-controls="'edits-' + id"
+            :aria-expanded="showEdits ? 'true' : 'false'")
+              svg.fas.fa-lg.fa-clock
+              span Edit History
     hr
     .post-body(v-html="compiledMarkdown")
     hr
@@ -62,7 +79,7 @@ export default {
     compiledMarkdown: function() {
       return marked(this.body, { sanitize: true });
     },
-    showCtrls: function() {
+    isAdmin: function() {
       return this.admin;
     }
   },
@@ -112,13 +129,25 @@ export default {
         margin-top: 5px
         font-size: 1.5rem
       .post-ctrls
+        margin: auto 0
+        a
+          width: 2em
+          margin: 0
+      #post-ctrls-col
+        display: none
+        svg
+          color: black
+      #post-ctrls-full
         width: auto
         display: flex
         align-items: center
         justify-content: right
-        a
-          width: 2em
-          margin: 0
+      @media(max-width: 500px)
+        #post-ctrls-full
+          display: none
+        #post-ctrls-col
+          display: flex
+
     .post-body
       width: 100%
       img
