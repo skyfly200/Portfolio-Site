@@ -1,24 +1,20 @@
 <template lang="pug">
   .blog
     BlogMenu
-    .blog-header
-      template(v-if="isAdmin")
-        h1 Welcome Admin
-      template(v-else)
-        h1 My Blog
-        h3 Stay up to date on my latest projects and ideas
-    .blog-body
-      .blog-posts
-        Post(v-for="post in posts" :admin="isAdmin" v-on:refreshPosts="loadPosts" v-bind="post" v-bind:key="post.id")
-
-      Navigation(:topics="topics" :posts="posts")
+    b-container(fluid)
+      b-row.blog-body
+        b-col.blog-posts(md="10")
+          Post(v-for="post in posts" :admin="isAdmin"
+            v-on:refreshPosts="loadPosts" v-bind="post" v-bind:key="post.id")
+        b-col(md="2" cols="0")
+          Index(:topics="topics" :posts="posts")
     Footer
 </template>
 
 <script>
 import Post from "@/components/blog/Post.vue";
 import BlogMenu from "@/components/blog/BlogMenu.vue";
-import Navigation from "@/components/blog/Navigation.vue";
+import Index from "@/components/blog/Index.vue";
 import Footer from "@/components/Footer.vue";
 
 export default {
@@ -26,7 +22,7 @@ export default {
   components: {
     Post,
     BlogMenu,
-    Navigation,
+    Index,
     Footer
   },
   computed: {
@@ -35,6 +31,9 @@ export default {
     },
     isAdmin: function() {
       return this.$store.getters.isAdmin;
+    },
+    username: function() {
+      return this.$store.getters.name;
     }
   },
   created() {
@@ -83,18 +82,7 @@ export default {
     button
       color: black
 
-  .blog-header
-    text-align: center
-    text-shadow: 0em 0.1em 0.15em rgba(0,0,0,0.5)h1
-    padding-top: 10px
-
-  .blog-body
-    display: flex
-    flex-direction: row
-    width: 100%
-
   .blog-posts
-    width: 80%
     display: flex
     flex-direction: column
     align-items: center

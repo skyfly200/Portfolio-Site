@@ -1,18 +1,25 @@
 <template lang="pug">
-  .blog-menu
-    a(href="/" title="Home")
-      svg.fas.fa-home.fa-lg
-    router-link(to="/blog" title="Blog")
-      svg.fas.fa-quote-right.fa-lg
-    router-link(to="/blog/user" title="Account")
-      svg.fas.fa-user-astronaut.fa-lg(v-if="isAdmin")
-      svg.fas.fa-user.fa-lg(v-else)
-    router-link(v-if="isAdmin" to="/blog/edit" title="New Post")
-      svg.fas.fa-plus.fa-lg
-    a.logout(v-if="isLoggedIn" @click.prevent="logout" href="#logout" title="Logout")
-      svg.fas.fa-sign-out-alt.fa-lg
-    router-link.login(v-else to="/auth" title="Login")
-      svg.fas.fa-sign-in-alt.fa-lg
+  b-navbar(toggleable="md" type="dark" variant="dark" fixed="top" sticky=true).blog-menu
+    b-navbar-toggle(target="nav_collapse")
+    b-navbar-brand(to="/blog" tag="h1" class="mb-0") Skyler's Blog
+    b-collapse(is-nav id="nav_collapse")
+      b-navbar-nav(class="ml-auto")
+        b-nav-item(href="/" title="Home").home-link
+          svg.fas.fa-home.fa-lg
+          span &nbsp;Home
+        b-nav-item(v-if="isLoggedIn" to="/user" title="Account").account
+          svg.fas.fa-lg.fa-user-astronaut(v-if="isAdmin")
+          svg.fas.fa-lg.fa-user(v-else)
+          span &nbsp;User
+        b-nav-item(v-if="isAdmin" to="/blog/edit" title="New Post").new-post
+          svg.fas.fa-plus.fa-lg
+          span &nbsp;New Post
+        b-nav-item(v-if="isLoggedIn" @click.prevent="logout" href="#logout" title="Logout").logout
+          svg.fas.fa-sign-out-alt.fa-lg
+          span &nbsp;Logout
+        b-nav-item(v-else title="Login" to="/auth").login
+          svg.fas.fa-sign-in-alt.fa-lg
+          span &nbsp;Login
 
 </template>
 
@@ -41,19 +48,9 @@ export default {
 
 <style lang="sass" scoped>
   .blog-menu
-    font-size: 1.2em
-    text-decoration: underline
-    text-align: center
-    display: flex
-    justify-content: space-around
-    width: auto
-    margin: 0
-    padding: 5px
-    background-color: rgba(255,255,255,0.2)
-    border-radius: 5px
-    border: solid black 1px
-    position: fixed
-    right: 0
+    .nav-link
+      display: flex
+      align-items: center
     a
       color: $color-secondary-2-1
       &:visted, &:focus, &:active

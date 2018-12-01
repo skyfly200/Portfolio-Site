@@ -31,15 +31,6 @@ let router = new Router({
         import(/* webpackChunkName: "blog-post" */ "./views/BlogPost.vue")
     },
     {
-      path: "/blog/user",
-      name: "user",
-      component: () =>
-        import(/* webpackChunkName: "user" */ "./views/User.vue"),
-      meta: {
-        requiresAuth: true
-      }
-    },
-    {
       path: "/blog/edit/:id?",
       name: "editor",
       component: () =>
@@ -56,6 +47,15 @@ let router = new Router({
         import(/* webpackChunkName: "auth" */ "./views/Auth.vue"),
       meta: {
         guest: true
+      }
+    },
+    {
+      path: "/user",
+      name: "user",
+      component: () =>
+        import(/* webpackChunkName: "user" */ "./views/User.vue"),
+      meta: {
+        requiresAuth: true
       }
     },
     {

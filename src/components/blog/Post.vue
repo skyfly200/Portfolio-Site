@@ -127,12 +127,10 @@ export default {
     .post-footer
       display: flex
       justify-content: space-between
-      align-items: flex-end
       flex-wrap: wrap-reverse
       .tags
-        margin: auto
         padding: 0
-        align-content: center
+        align-items: center
         display: flex
         list-style-type: none
         @media(max-width: 500px)
