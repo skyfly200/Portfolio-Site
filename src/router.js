@@ -27,8 +27,7 @@ let router = new Router({
     {
       path: "/blog/post/:id/:edit?",
       name: "blog-post",
-      component: () =>
-        import(/* webpackChunkName: "blog-post" */ "./views/BlogPost.vue")
+      component: () => import(/* webpackChunkName: "blog" */ "./views/Blog.vue")
     },
     {
       path: "/blog/edit/:id?",

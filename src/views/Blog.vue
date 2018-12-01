@@ -1,19 +1,19 @@
 <template lang="pug">
   .blog
-    BlogMenu
+    Menu
     b-container(fluid)
       b-row.blog-body
-        b-col.blog-posts(md="10")
+        b-col.blog-posts
           Post(v-for="post in posts" :admin="isAdmin"
             v-on:refreshPosts="loadPosts" v-bind="post" v-bind:key="post.id")
-        b-col(md="2" cols="0")
+        b-col(v-if="showIndex" md="2" cols="0")
           Index(:topics="topics" :posts="posts")
     Footer
 </template>
 
 <script>
 import Post from "@/components/blog/Post.vue";
-import BlogMenu from "@/components/blog/BlogMenu.vue";
+import Menu from "@/components/blog/Menu.vue";
 import Index from "@/components/blog/Index.vue";
 import Footer from "@/components/Footer.vue";
 
@@ -21,7 +21,7 @@ export default {
   name: "blog",
   components: {
     Post,
-    BlogMenu,
+    Menu,
     Index,
     Footer
   },
@@ -34,10 +34,20 @@ export default {
     },
     username: function() {
       return this.$store.getters.name;
+    },
+    showIndex: function() {
+      return this.index;
     }
   },
   created() {
-    this.loadPosts();
+    if (this.$route.params.id) this.loadPost();
+    else this.loadPosts();
+  },
+  watch: {
+    $route(to, from) {
+      if (this.$route.params.id) this.loadPost();
+      else this.loadPosts();
+    }
   },
   data: () => {
     return {
@@ -49,16 +59,38 @@ export default {
         audio: { title: "Audio" },
         video: { title: "Video" }
       },
-      posts: []
+      posts: [],
+      index: true
     };
   },
   methods: {
+    loadPost: function() {
+      let url =
+        "https://skylerflyserver.appspot.com/post/" + this.$route.params.id;
+      this.axios
+        .get(url)
+        .then(response => {
+          let post = response.data.post;
+          if (this.$route.params.edit && post.edits[this.$route.params.edit]) {
+            let edit = post.edits[this.$route.params.edit];
+            post.body = edit.body;
+            post.tags = edit.tags;
+            post.edited = edit.edited;
+          }
+          this.index = false;
+          this.posts = [post];
+        })
+        .catch(() => {});
+    },
     loadPosts: function() {
       let url = "https://skylerflyserver.appspot.com/posts";
       url = this.$route.params.tag ? url + "/" + this.$route.params.tag : url;
       this.axios
         .get(url)
-        .then(response => (this.posts = response.data.posts))
+        .then(response => {
+          this.posts = response.data.posts;
+          this.index = true;
+        })
         .catch(() => {});
     }
   }

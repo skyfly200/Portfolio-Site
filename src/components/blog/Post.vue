@@ -2,7 +2,7 @@
   .post
     .post-header
       .post-title
-        router-link(:to="'/blog/post/' + id")
+        b-link(:to="'/blog/post/' + id")
           h1 {{ title }}
       .post-ctrls(v-if="isAdmin")
         #post-ctrls-full
@@ -38,7 +38,7 @@
     .post-footer
       .tags(v-if="tags")
           .tag(v-for="tag in tags")
-            router-link(:to="'/blog/tag/' + tag").tag-link {{ tag }}
+            b-link(:to="'/blog/tag/' + tag").tag-link {{ tag }}
       .datetime
         .created
           span.datetime-label Posted:&nbsp;
@@ -50,7 +50,7 @@
       h3 Edit History
       ul.edits
         li(v-for="(item,index) in edits")
-          router-link(:to="'/blog/post/' + id + '/' + index") {{ formatDatetime(item.edited) }}
+          b-link(:to="'/blog/post/' + id + '/' + index") {{ formatDatetime(item.edited) }}
 </template>
 
 <script>
