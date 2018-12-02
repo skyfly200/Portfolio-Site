@@ -41,9 +41,9 @@
             b-link(:to="'/blog/tag/' + tag").tag-link {{ tag }}
       .datetime
         .created
-          span.datetime-label Posted:&nbsp;
+          span.datetime-label Published:&nbsp;
           span.datetime-created {{ formatDatetime(created) }}
-        .edited(v-if="edited")
+        .edited(v-if="edits")
           span.datetime-label Last Edit:&nbsp;
           span.datetime-edited {{ formatDatetime(edited) }}
     b-collapse(:id="'edits-' + id" v-model="showEdits").mt-2
