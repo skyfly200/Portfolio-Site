@@ -44,7 +44,7 @@ export default {
     else this.loadPosts();
   },
   watch: {
-    $route(to, from) {
+    $route() {
       if (this.$route.params.id) this.loadPost();
       else this.loadPosts();
     }
