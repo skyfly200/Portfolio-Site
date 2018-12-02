@@ -7,12 +7,12 @@
           h2 Welcome
         .welcome-blurb.wow
           p
-          | I'm Skyler and I dabble in a diverse range of interests that fascinate me.
-          | A core thread that ties these areas together is a desire to create expierences for people that are seamless, intuitive and awe inspiring.
+          | I'm Skyler and I dabble in a diverse range of fascinating interests.
+          | A core thread that ties these areas together is a desire to create seamless, intuitive and awe inspiring expierences.
           p
-          | Learning new things is a top priority. I am a lifelong learner and I try to learn new things every day.
-          | Below I have distilled an array of projects and content showcasing my most potent talents.
-          | I add new content regularly so check back to see what I am up to.
+          | Learning new things is a top priority. I am a lifelong learner, finding new concepts and perspectives every day.
+          | Below I have distilled an array of projects and content showcasing my most potent passions and talents.
+          | I will be regularly updating this site, so be sure to check back to see what I am up to.
         .welcome-social.wow
           a(href="https://github.com/skyfly200", target="_blank")
             svg.fab.fa-github.fa-2x
