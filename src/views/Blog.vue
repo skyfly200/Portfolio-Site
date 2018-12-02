@@ -118,5 +118,7 @@ export default {
     display: flex
     flex-direction: column
     align-items: center
+    .post
+      margin: 1em
 
 </style>

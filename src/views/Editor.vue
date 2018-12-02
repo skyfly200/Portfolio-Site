@@ -4,8 +4,8 @@
       b-col
         h1(v-if="edit") Edit Post
         h1(v-else) New Post
-    b-row
-      b-col
+    b-row#editor-body
+      b-col(lg="6")
         b-form#editor-form(@submit.prevent="submitPost")
           b-form-group#title-input-group( horizontal
             label="Post Title"
@@ -166,10 +166,21 @@ export default {
       background-color: $color-primary-4
       color: white
   #editor
+    min-height: 100vh
+    display: flex
+    flex-direction: column
+    justify-content: space-around
+    #editor-header
+      text-align: center
+    #editor-body
+      margin: auto 0
+      display: flex
     #editor-form
       width: auto
       margin: auto
+      margin-bottom: 3%
       button
         margin: 0 5px
     #post-preview
+      margin-bottom: 3%
 </style>

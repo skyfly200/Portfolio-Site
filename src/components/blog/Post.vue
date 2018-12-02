@@ -114,9 +114,8 @@ export default {
 
 <style lang="sass">
   .post
-    width: 90%
+    width: 100%
     padding: 1em
-    margin: 1em auto
     align-content: center
     background-color: white
     color: black
