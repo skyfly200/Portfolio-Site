@@ -7,40 +7,40 @@
     b-row#editor-body
       b-col(lg="6")
         b-form#editor-form(@submit.prevent="submitPost")
-          b-form-group#title-input-group( horizontal
+          b-form-group#title-input-group(
             label="Post Title"
             label-for="post-title-field")
             b-input#post-title-field(v-model="post.title" @input="updateTitle" required)
-          b-form-group#body-input-group( horizontal
+          b-form-group#body-input-group(
             label="Post Body"
             label-for="post-body-field")
             b-form-textarea#post-body-field(v-model="post.body" @input="updateBody" :rows="rows")
-          b-form-group#tags-input-group( horizontal
+          b-form-group#tags-input-group(
             description="Commas or space seperated list of tags"
             label="Post Tags"
             label-for="post-tags-field")
             b-input#post-tags-field(v-model="rawTags" @input="updateTags")
           b-btn#advanced-link(v-b-toggle.post-advanced size="sm" variant="outline-success") Advanced Options
           b-collapse#post-advanced
-            b-form-group#id-input-group( horizontal
+            b-form-group#id-input-group(
               label="Post ID"
               label-for="post-id-field")
               b-input#post-id-field(v-model="post.id" disabled)
-            b-form-group#created-input-group( horizontal
+            b-form-group#created-input-group(
               label="Post Created"
               label-for="post-created-field")
               b-input#post-created-field(:value="formatDatetime(post.created)" disabled)
-            b-form-group#version-input-group( horizontal
+            b-form-group#version-input-group(
               label="Version History"
               label-for="post-version-field"
-              v-if="post.edits.length > 0")
+              v-if="post.edits && post.edits.length > 0")
               b-form-select#post-version-field(class="mb-3")
                 option(v-for="(item,index) in post.edits" :value="index") {{ index + ": " + formatDatetime(item.edited) }}
-            b-checkbox#post-id-field(v-model="!post.comments" disabled) Disable Post Comments
+            b-checkbox#post-id-field(v-model="!post.canComment") Disable Post Comments
           ul.errors
             li.error(v-for="error in errors") {{ error }}
           b-button(variant="success" type="submit" size="lg" @click="submitPost") Publish
-          b-button(v-if="!edit" variant="primary" size="lg" @click="savePost") Save
+          //-b-button(v-if="!edit" variant="primary" size="lg" @click="savePost") Save
       b-col#post-preview(lg="6")
         Post(v-bind="post")
 </template>
@@ -64,6 +64,7 @@ export default {
         .then(response => {
           this.post = response.data.post;
           this.edit = true;
+          this.rawTags = this.post.tags.join();
           this.post.edits.push({
             edited: this.post.edited,
             body: this.post.body,
@@ -82,8 +83,11 @@ export default {
         tags: [],
         edited: new Date().toISOString(),
         created: new Date().toISOString(),
-        comments: true,
-        published: false,
+        canComment: true,
+        comments: [],
+        isPublished: false,
+        published: "",
+        archived: false,
         id: "post_title"
       },
       rawTags: "",
@@ -143,7 +147,8 @@ export default {
     },
     submitPost: function() {
       if (this.verifyPost()) {
-        this.post.published = true;
+        this.post.isPublished = true;
+        this.published = new Date().toISOString();
         this.axios
           .post("https://skylerflyserver.appspot.com/submit", this.post)
           .then(res => {
