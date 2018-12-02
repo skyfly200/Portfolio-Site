@@ -1,27 +1,54 @@
 <template lang="pug">
-  #create-post
-    h1(v-if="edit") Edit Blog Post
-    h1(v-else) New Blog Post
-    #editor
-      form.post-form(@submit.prevent="submitPost")
-        label Post Title
-        input(:value="post.title" @input="updateTitle")
-        label Post Body
-        textarea(:value="post.body" @input="updateBody" :rows="rows")
-        label Post Tags
-        input(:value="post.tags" @input="updateTags")
-      ul.errors
-        li.error(v-for="error in errors") {{ error }}
-    hr
-    #post-preview
-      Post(v-bind="post")
-    hr
-    button(@click="submitPost") {{ edit ? "Save" : "Add"}} Post
+  b-container#editor(fluid)
+    b-row#editor-header
+      b-col
+        h1(v-if="edit") Edit Post
+        h1(v-else) New Post
+    b-row
+      b-col
+        b-form#editor-form(@submit.prevent="submitPost")
+          b-form-group#title-input-group( horizontal
+            label="Post Title"
+            label-for="post-title-field")
+            b-input#post-title-field(v-model="post.title" @input="updateTitle" required)
+          b-form-group#body-input-group( horizontal
+            label="Post Body"
+            label-for="post-body-field")
+            b-form-textarea#post-body-field(v-model="post.body" @input="updateBody" :rows="rows")
+          b-form-group#tags-input-group( horizontal
+            description="Commas or space seperated list of tags"
+            label="Post Tags"
+            label-for="post-tags-field")
+            b-input#post-tags-field(v-model="rawTags" @input="updateTags")
+          b-btn#advanced-link(v-b-toggle.post-advanced size="sm" variant="outline-success") Advanced Options
+          b-collapse#post-advanced
+            b-form-group#id-input-group( horizontal
+              label="Post ID"
+              label-for="post-id-field")
+              b-input#post-id-field(v-model="post.id" disabled)
+            b-form-group#created-input-group( horizontal
+              label="Post Created"
+              label-for="post-created-field")
+              b-input#post-created-field(:value="formatDatetime(post.created)" disabled)
+            b-form-group#version-input-group( horizontal
+              label="Version History"
+              label-for="post-version-field"
+              v-if="post.edits.length > 0")
+              b-form-select#post-version-field(class="mb-3")
+                option(v-for="(item,index) in post.edits" :value="index") {{ index + ": " + formatDatetime(item.edited) }}
+            b-checkbox#post-id-field(v-model="!post.comments" disabled) Disable Post Comments
+          ul.errors
+            li.error(v-for="error in errors") {{ error }}
+          b-button(variant="success" type="submit" size="lg" @click="submitPost") Publish
+          b-button(v-if="!edit" variant="primary" size="lg" @click="savePost") Save
+      b-col#post-preview(lg="6")
+        Post(v-bind="post")
 </template>
 
 <script>
 import Post from "@/components/blog/Post.vue";
 import _ from "lodash";
+import moment from "moment";
 
 export default {
   name: "create-post",
@@ -49,32 +76,36 @@ export default {
   data: () => {
     return {
       post: {
-        title: "",
-        body: "enter Markdown here",
+        title: "Post Title",
+        body: "Write post in Markdown here",
         edits: [],
         tags: [],
         edited: new Date().toISOString(),
         created: new Date().toISOString(),
+        comments: true,
+        published: false,
         id: "post_title"
       },
+      rawTags: "",
       rows: 3,
       edit: false,
       errors: []
     };
   },
   methods: {
-    updateTitle: function(e) {
-      this.post.title = e.target.value;
+    formatDatetime(datetime) {
+      return moment(datetime).format("dddd, MMM Do YYYY, h:mm a");
+    },
+    updateTitle: function() {
       if (!this.edit)
         this.post.id = this.post.title.replace(/\s/g, "_").toLowerCase();
       this.updateDatetime();
     },
-    updateBody: _.debounce(function(e) {
-      this.post.body = e.target.value;
+    updateBody: _.debounce(function() {
       this.updateDatetime();
     }, 300),
-    updateTags: function(e) {
-      this.post.tags = e.target.value.split(/[\s,]+/);
+    updateTags: function() {
+      this.post.tags = this.rawTags.split(/[\s,]+/);
       this.updateDatetime();
     },
     updateDatetime: function() {
@@ -87,6 +118,9 @@ export default {
       if (this.post.title === "") {
         valid = false;
         this.errors.push("Title May Not Be Empty!");
+      } else if (this.post.title === "Post Title") {
+        valid = false;
+        this.errors.push("Title Must Be Unique!");
       }
       if (this.post.body === "") {
         valid = false;
@@ -94,12 +128,26 @@ export default {
       }
       return valid;
     },
-    submitPost: function() {
+    savePost: function() {
       if (this.verifyPost()) {
         this.axios
           .post("https://skylerflyserver.appspot.com/submit", this.post)
           .then(res => {
-            if (res.status === 200) this.$router.push("/blog/dash");
+            if (res.status === 200) this.$router.push("/blog");
+            else this.errors.push(res.data);
+          })
+          .catch(error => {
+            this.errors.push(error);
+          });
+      }
+    },
+    submitPost: function() {
+      if (this.verifyPost()) {
+        this.post.published = true;
+        this.axios
+          .post("https://skylerflyserver.appspot.com/submit", this.post)
+          .then(res => {
+            if (res.status === 200) this.$router.push("/blog");
             else this.errors.push(res.data);
           })
           .catch(error => {
@@ -112,29 +160,16 @@ export default {
 </script>
 
 <style lang="sass">
-  body
-    text-align: center
+  html
     margin: 0
+    body
+      background-color: $color-primary-4
+      color: white
   #editor
-    display: flex
-    flex-direction: column
-    align-items: center
-    width: auto
-    margin: auto
-    .post-form
-      display: flex
-      flex-direction: column
-      width: 100%
-      align-items: center
-      input, textarea
-        width: 90%
-        color: black
-        margin: 10px auto
-
-  button
-    color: black
-
-  #post-preview
-    width: 100%
-
+    #editor-form
+      width: auto
+      margin: auto
+      button
+        margin: 0 5px
+    #post-preview
 </style>
