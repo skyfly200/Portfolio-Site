@@ -35,8 +35,11 @@ export default {
         color: $color-secondary-2-3
       &:hover
         color: $color-secondary-2-1
+    @media(max-width: 768px)
+      display: none
 
   .index-header
     text-decoration: underline
     font-weight: bold
+
 </style>
