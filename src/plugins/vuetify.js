@@ -3,8 +3,21 @@ import Vue from "vue";
 import Vuetify, {
   VApp, // required
   VNavigationDrawer,
+  VContainer,
+  VContent,
+  VLayout,
+  VList,
+  VCard,
+  VCardMedia,
+  VCardTitle,
+  VCardText,
+  VCardActions,
+  VChip,
+  VBtn,
   VFooter,
   VToolbar,
+  VToolbarSideIcon,
+  VToolbarTitle,
   transitions
 } from "vuetify/lib";
 import "vuetify/src/stylus/app.styl";
@@ -14,8 +27,21 @@ Vue.use(Vuetify, {
   components: {
     VApp,
     VNavigationDrawer,
+    VContainer,
+    VContent,
+    VLayout,
+    VList,
+    VCard,
+    VCardMedia,
+    VCardTitle,
+    VCardText,
+    VCardActions,
+    VChip,
+    VBtn,
     VFooter,
     VToolbar,
+    VToolbarSideIcon,
+    VToolbarTitle,
     transitions
   },
   directives: {

@@ -15,6 +15,12 @@ let router = new Router({
       component: Home
     },
     {
+      path: "/vuetify",
+      name: "vuetify",
+      component: () =>
+        import(/* webpackChunkName: "vuetify" */ "./views/Vuetify.vue")
+    },
+    {
       path: "/blog",
       name: "blog",
       component: () => import(/* webpackChunkName: "blog" */ "./views/Blog.vue")
