@@ -5,7 +5,7 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 
-// 3rd party
+// 3rd party libraries
 import axios from "axios";
 import VueAxios from "vue-axios";
 import VuejsDialog from "vuejs-dialog";
@@ -14,7 +14,7 @@ import BootstrapVue from "bootstrap-vue";
 // include the default dailog plugin styles
 import "../node_modules/vuejs-dialog/dist/vuejs-dialog.min.css";
 
-// bootstrap styles
+// load bootstrap styles
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 
