@@ -1,5 +1,5 @@
 <template lang="pug">
-  v-navigation-drawer(app v-model="drawer")
+  v-navigation-drawer(app width="150" v-model="drawer")
     v-list
       v-list-tile(href="/" title="Home").home-link
         svg.fas.fa-home.fa-lg
