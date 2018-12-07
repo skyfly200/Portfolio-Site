@@ -1,6 +1,6 @@
 <template lang="pug">
   v-toolbar(app).blog-menu
-    v-toolbar-side-icon(@click="showDrawer")
+    v-toolbar-side-icon(@click="toggleDrawer")
     v-toolbar-title(to="/blog" tag="h1") Skyler's Blog
 
 </template>
@@ -10,8 +10,9 @@ export default {
   name: "blog-menu",
   components: {},
   methods: {
-    showDrawer() {
-      this.$store.commit("setDrawer", true);
+    toggleDrawer() {
+      let drawerState = !(this.$store.getters.drawer);
+      this.$store.commit("setDrawer", drawerState);
     }
   }
 };

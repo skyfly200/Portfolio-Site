@@ -16,7 +16,7 @@ export default new Vuex.Store({
     feature: null,
     status: "",
     token: localStorage.getItem("token") || "",
-    drawer: null,
+    drawer: false,
     user: {
       admin: false
     }
