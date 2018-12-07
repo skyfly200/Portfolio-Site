@@ -42,7 +42,7 @@
     .post-footer
       .tags(v-if="tags")
         router-link(v-for="tag in tags" :to="'/blog/tag/' + tag").tag-link
-          v-chip.tag {{ tag }}
+          v-chip(small).tag {{ tag }}
       .datetime
         .created
           span.datetime-label Published:&nbsp;
@@ -170,8 +170,6 @@ export default {
           flex-wrap: wrap
           .tag
             margin: 0.4em
-      .tag
-        background-color: rgba(0,255,0,0.2)
       .datetime
         margin: 0
         @media(max-width: 500px)

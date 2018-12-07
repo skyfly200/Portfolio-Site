@@ -1,47 +1,49 @@
 <template lang="pug">
-  b-container#editor(fluid)
-    b-row#editor-header
-      b-col
+  v-container#editor(fluid grid-list-md)
+    v-layout#editor-header
+      v-flex
         h1(v-if="edit") Edit Post
         h1(v-else) New Post
-    b-row#editor-body
-      b-col(lg="6")
-        b-form#editor-form(@submit.prevent="submitPost")
-          b-form-group#title-input-group(
-            label="Post Title"
-            label-for="post-title-field")
-            b-input#post-title-field(v-model="post.title" @input="updateTitle" required)
-          b-form-group#body-input-group(
-            label="Post Body"
-            label-for="post-body-field")
-            b-form-textarea#post-body-field(v-model="post.body" @input="updateBody" :rows="rows")
-          b-form-group#tags-input-group(
-            description="Commas or space seperated list of tags"
-            label="Post Tags"
-            label-for="post-tags-field")
-            b-input#post-tags-field(v-model="rawTags" @input="updateTags")
-          b-btn#advanced-link(v-b-toggle.post-advanced size="sm" variant="outline-success") Advanced Options
-          b-collapse#post-advanced
-            b-form-group#id-input-group(
-              label="Post ID"
-              label-for="post-id-field")
-              b-input#post-id-field(v-model="post.id" disabled)
-            b-form-group#created-input-group(
-              label="Post Created"
-              label-for="post-created-field")
-              b-input#post-created-field(:value="formatDatetime(post.created)" disabled)
-            b-form-group#version-input-group(
-              label="Version History"
-              label-for="post-version-field"
-              v-if="post.edits && post.edits.length > 0")
-              b-form-select#post-version-field(class="mb-3")
-                option(v-for="(item,index) in post.edits" :value="index") {{ index + ": " + formatDatetime(item.edited) }}
-            b-checkbox#post-id-field(v-model="!post.canComment") Disable Post Comments
-          ul.errors
-            li.error(v-for="error in errors") {{ error }}
-          b-button(variant="success" type="submit" size="lg" @click="submitPost") Publish
-          //-b-button(v-if="!edit" variant="primary" size="lg" @click="savePost") Save
-      b-col#post-preview(lg="6")
+    v-layout(align-center row fill-height)#editor-body
+      v-flex(xs12 md6)
+        v-card.pa-3
+          v-form#editor-form(@submit.prevent="submitPost")
+            v-text-field#title-field( label="Post Title" v-model="post.title" @input="updateTitle" solo required)
+            v-textarea#body-input-group(label="Post Body" v-model="post.body" @input="updateBody" solo :rows="rows")
+            v-combobox#tags-input-group(small-chips solo multiple
+              :search-input.sync="search"
+              :hide-no-data="!search"
+              hide-selected
+              label="Search for tags"
+              v-model="post.tags" :items="topics")
+                template(slot="no-data")
+                  v-list-tile
+                    v-list-tile-content
+                      v-list-tile-title
+                      | No results matching "
+                      strong {{ search }}
+                      | ". Press
+                      kbd enter
+                      | to create a new one
+                template(slot="selection" slot-scope="{ item, parent, selected }")
+                  v-chip(small close :selected="selected" @input="removeTag(item)")
+                    span.pr-2 {{ item }}
+            v-btn#advanced-link(v-b-toggle.post-advanced flat small variant="outline-success") Show Advanced
+            b-collapse#post-advanced
+              v-text-field#id-field(label="Post ID" v-model="post.id" readonly)
+              v-text-field#created-field(label="Post Created" :value="formatDatetime(post.created)" readonly)
+              b-form-group#version-input-group(
+                label="Version History"
+                label-for="post-version-field"
+                v-if="post.edits && post.edits.length > 0")
+                b-form-select#post-version-field(class="mb-3")
+                  option(v-for="(item,index) in post.edits" :value="index") {{ index + ": " + formatDatetime(item.edited) }}
+              v-switch#post-id-field(v-model="post.canComment" label="Post Comments")
+            ul.errors
+              li.error(v-for="error in errors") {{ error }}
+            v-btn(color="success" type="submit" large @click="submitPost") Publish
+            //-v-button(v-if="!edit" variant="primary" size="lg" @click="savePost") Save
+      v-flex#post-preview(xs12 md6)
         Post(v-bind="post")
 </template>
 
@@ -76,6 +78,7 @@ export default {
   },
   data: () => {
     return {
+      topics: ["Mycology", "Hardware", "Software", "LEDs", "Audio", "Video"],
       post: {
         title: "Post Title",
         body: "Write post in Markdown here",
@@ -93,10 +96,15 @@ export default {
       rawTags: "",
       rows: 3,
       edit: false,
-      errors: []
+      errors: [],
+      search: null
     };
   },
   methods: {
+    removeTag(tag) {
+      this.post.tags.splice(this.post.tags.indexOf(tag), 1);
+      this.post.tags = [...this.post.tags];
+    },
     formatDatetime(datetime) {
       return moment(datetime).format("dddd, MMM Do YYYY, h:mm a");
     },
@@ -172,20 +180,6 @@ export default {
       color: white
   #editor
     min-height: 100vh
-    display: flex
-    flex-direction: column
-    justify-content: space-around
     #editor-header
       text-align: center
-    #editor-body
-      margin: auto 0
-      display: flex
-    #editor-form
-      width: auto
-      margin: auto
-      margin-bottom: 3%
-      button
-        margin: 0 5px
-    #post-preview
-      margin-bottom: 3%
 </style>
