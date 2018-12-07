@@ -3,7 +3,7 @@
     .icon-box
       .topic-icon
         span.fa-stack.fa-3x
-          svg.fa.fa-circle.fa-stack-2x
+          svg.fas.fa-circle.fa-stack-2x
           svg.fa.fa-stack-1x.fa-inverse(:class="icon")
     .topic-title
       h2 {{ name }}
@@ -50,7 +50,9 @@ export default {
       .topic-icon
         padding: 0px
         text-shadow: 2px 5px 15px rgba(0,0,0,1)
-        transition: text-shadow 2s
+        transition: text-shadow
+        .fa-circle
+          width: 1em
 
     .fa-inverse
       color: $color-primary-1
