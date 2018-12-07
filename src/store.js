@@ -16,6 +16,7 @@ export default new Vuex.Store({
     feature: null,
     status: "",
     token: localStorage.getItem("token") || "",
+    drawer: false,
     user: {
       admin: false
     }
@@ -42,6 +43,9 @@ export default new Vuex.Store({
       state.status = "";
       state.token = "";
       state.user = { admin: false };
+    },
+    toggleDrawer(state) {
+      state.drawer = !state.drawer;
     }
   },
   actions: {
@@ -98,12 +102,16 @@ export default new Vuex.Store({
         delete axios.defaults.headers.common["Authorization"];
         resolve();
       });
+    },
+    toggleDrawer({ commit }) {
+      commit("toggleDrawer");
     }
   },
   getters: {
     isLoggedIn: state => state.token !== "",
     isAdmin: state => (state.user.admin ? state.user.admin === 1 : false),
     name: state => state.user.name,
+    drawerOpen: state => state.drawer,
     authStatus: state => state.status
   }
 });

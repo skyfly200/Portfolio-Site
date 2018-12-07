@@ -1,44 +1,48 @@
 <template lang="pug">
-  .post
+  v-card.post.elevation-8
     .post-header
       .post-title
-        b-link(:to="'/blog/post/' + id")
+        router-link(:to="'/blog/post/' + id")
           h1 {{ title }}
       .post-ctrls(v-if="isAdmin")
         #post-ctrls-full
-          b-link(:to="'/blog/edit/' + id")
+          router-link(:to="'/blog/edit/' + id")
             svg.fas.fa-lg.fa-edit
-          b-link(@click.prevent="deleteConfirm" href="#")
+          a(@click.prevent="deleteConfirm" href="#")
             svg.fas.fa-lg.fa-trash
-          b-link(v-if="edits && edits.length > 0" href="#"
+          a(v-if="edits && edits.length > 0" href="#"
             @click="showEdits = !showEdits"
             :class="showEdits ? 'collapsed' : null"
             :aria-controls="'edits-' + id"
             :aria-expanded="showEdits ? 'true' : 'false'")
               svg.fas.fa-lg.fa-clock
-        b-dropdown#post-ctrls-col.m-md-2(variant="link" right no-caret)
-          template(slot="button-content")
+        v-menu#post-ctrls-col.m-md-2(variant="link" right no-caret)
+          template(slot="activator")
             svg.fas.fa-lg.fa-ellipsis-v
-          b-dropdown-item(:to="'/blog/edit/' + id")
-            svg.fas.fa-lg.fa-edit
-            span Edit Post
-          b-dropdown-item(@click.prevent="deleteConfirm" href="#")
-            svg.fas.fa-lg.fa-trash
-            span Delete Post
-          b-dropdown-item(v-if="edits && edits.length > 0" href="#"
-            @click="showEdits = !showEdits"
-            :class="showEdits ? 'collapsed' : null"
-            :aria-controls="'edits-' + id"
-            :aria-expanded="showEdits ? 'true' : 'false'")
-              svg.fas.fa-lg.fa-clock
-              span Edit History
-    hr
+          v-list
+            v-list-tile
+              router-link(:to="'/blog/edit/' + id")
+                svg.fas.fa-lg.fa-edit
+                span Edit Post
+            v-list-tile
+              a(@click.pre0vent="deleteConfirm" href="#")
+                svg.fas.fa-lg.fa-trash
+                span Delete Post
+            v-list-tile
+              a(v-if="edits && edits.length > 0" href="#"
+                @click="showEdits = !showEdits"
+                :class="showEdits ? 'collapsed' : null"
+                :aria-controls="'edits-' + id"
+                :aria-expanded="showEdits ? 'true' : 'false'")
+                  svg.fas.fa-lg.fa-clock
+                  span Edit History
+    v-divider
     .post-body(v-html="compiledMarkdown")
-    hr
+    v-divider
     .post-footer
       .tags(v-if="tags")
-          .tag(v-for="tag in tags")
-            b-link(:to="'/blog/tag/' + tag").tag-link {{ tag }}
+        router-link(v-for="tag in tags" :to="'/blog/tag/' + tag").tag-link
+          v-chip.tag {{ tag }}
       .datetime
         .created
           span.datetime-label Published:&nbsp;
@@ -46,11 +50,11 @@
         .edited(v-if="edits")
           span.datetime-label Last Edit:&nbsp;
           span.datetime-edited {{ formatDatetime(edited) }}
-    b-collapse(:id="'edits-' + id" v-model="showEdits").mt-2
+    .history(:id="'edits-' + id" v-show="showEdits").mt-2
       h3 Edit History
-      ul.edits
+      v-list.edits
         li(v-for="(item,index) in edits")
-          b-link(:to="'/blog/post/' + id + '/' + index") {{ formatDatetime(item.edited) }}
+          router-link(:to="'/blog/post/' + id + '/' + index") {{ formatDatetime(item.edited) }}
 </template>
 
 <script>
@@ -167,8 +171,6 @@ export default {
           .tag
             margin: 0.4em
       .tag
-        margin: 0.5em 0.2em
-        padding: 0.2em 0.5em
         background-color: rgba(0,255,0,0.2)
       .datetime
         margin: 0

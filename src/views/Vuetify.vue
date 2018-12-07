@@ -11,7 +11,7 @@
     v-content
       v-container(fluid)
         v-layout
-          v-card
+          v-card.elevation-10
             v-card-title
               h1 Blog Post
             v-card-text

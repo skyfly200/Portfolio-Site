@@ -1,11 +1,11 @@
 <template lang="pug">
   .index
-    .post-topics(v-if="topics !== {}")
+    v-list.post-topics(v-if="topics !== {}")
       .index-header
         h4 Topics
       .tag-link(v-for="topic in topics")
         a(:href="'/blog/tag/' + topic.title.toLowerCase()") {{ topic.title }}
-    .post-history
+    v-list.post-history
       .index-header
         h4 History
       .post-link(v-for="post in posts")
@@ -29,6 +29,9 @@ export default {
     flex-direction: column
     text-align: right
     margin-top: 20px
+    .v-list
+      background-color: rgba(0,0,0,0)
+      color: white
     a
       color: $color-secondary-2-1
       &:visted, &:focus, &:active

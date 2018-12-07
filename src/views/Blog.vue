@@ -1,12 +1,13 @@
 <template lang="pug">
   .blog
     Menu
-    b-container(fluid)
-      b-row.blog-body
-        b-col.blog-posts
+    Drawer
+    v-container(fluid)
+      v-layout.blog-body
+        v-flex.blog-posts
           Post(v-for="post in posts" :admin="isAdmin"
             v-on:refreshPosts="loadPosts" v-bind="post" v-bind:key="post.id")
-        b-col(v-if="showIndex" md="2" cols="0")
+        v-flex(v-if="showIndex").md2
           Index(:topics="topics" :posts="posts")
     Footer
 </template>
@@ -14,6 +15,7 @@
 <script>
 import Post from "@/components/blog/Post.vue";
 import Menu from "@/components/blog/Menu.vue";
+import Drawer from "@/components/blog/Drawer.vue";
 import Index from "@/components/blog/Index.vue";
 import Footer from "@/components/Footer.vue";
 
@@ -22,6 +24,7 @@ export default {
   components: {
     Post,
     Menu,
+    Drawer,
     Index,
     Footer
   },
