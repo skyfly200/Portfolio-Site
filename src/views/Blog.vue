@@ -2,7 +2,7 @@
   .blog
     Menu
     Drawer
-    v-container(fluid)
+    v-container(fluid  grid-list-md)
       v-layout.blog-body
         v-flex.blog-posts
           Post(v-for="post in posts" :admin="isAdmin"

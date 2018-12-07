@@ -28,21 +28,21 @@
                 template(slot="selection" slot-scope="{ item, parent, selected }")
                   v-chip(small close :selected="selected" @input="removeTag(item)")
                     span.pr-2 {{ item }}
-            v-btn#advanced-link(v-b-toggle.post-advanced flat small variant="outline-success") Show Advanced
-            b-collapse#post-advanced
+            v-btn#advanced-link(@click="advanced = !advanced" flat small) Show Advanced
+            #post-advanced(v-show="advanced")
               v-text-field#id-field(label="Post ID" v-model="post.id" readonly)
               v-text-field#created-field(label="Post Created" :value="formatDatetime(post.created)" readonly)
-              b-form-group#version-input-group(
+              v-select#version-field(return-object
+                v-model="version"
                 label="Version History"
-                label-for="post-version-field"
-                v-if="post.edits && post.edits.length > 0")
-                b-form-select#post-version-field(class="mb-3")
-                  option(v-for="(item,index) in post.edits" :value="index") {{ index + ": " + formatDatetime(item.edited) }}
+                v-if="post.edits && post.edits.length > 0"
+                :items="post.edits"
+                item-text="edited")
               v-switch#post-id-field(v-model="post.canComment" label="Post Comments")
             ul.errors
               li.error(v-for="error in errors") {{ error }}
             v-btn(color="success" type="submit" large @click="submitPost") Publish
-            //-v-button(v-if="!edit" variant="primary" size="lg" @click="savePost") Save
+            //-v-btn(v-if="!edit" variant="primary" size="lg" @click="savePost") Save
       v-flex#post-preview(xs12 md6)
         Post(v-bind="post")
 </template>
@@ -96,8 +96,10 @@ export default {
       rawTags: "",
       rows: 3,
       edit: false,
+      version: null,
       errors: [],
-      search: null
+      search: null,
+      advanced: false
     };
   },
   methods: {
