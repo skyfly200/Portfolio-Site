@@ -11,7 +11,7 @@ export default {
   components: {},
   methods: {
     showDrawer() {
-      this.$store.dispatch("toggleDrawer");
+      this.$store.commit("setDrawer", true);
     }
   }
 };

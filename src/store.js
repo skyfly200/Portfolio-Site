@@ -44,8 +44,8 @@ export default new Vuex.Store({
       state.token = "";
       state.user = { admin: false };
     },
-    toggleDrawer(state) {
-      state.drawer = !state.drawer;
+    setDrawer(state, drawer) {
+      state.drawer = drawer;
     }
   },
   actions: {
@@ -103,15 +103,15 @@ export default new Vuex.Store({
         resolve();
       });
     },
-    toggleDrawer({ commit }) {
-      commit("toggleDrawer");
+    openDrawer({ commit }) {
+      commit("setDrawer", true);
     }
   },
   getters: {
     isLoggedIn: state => state.token !== "",
     isAdmin: state => (state.user.admin ? state.user.admin === 1 : false),
     name: state => state.user.name,
-    drawerOpen: state => state.drawer,
+    drawer: state => state.drawer,
     authStatus: state => state.status
   }
 });

@@ -1,5 +1,5 @@
 <template lang="pug">
-  v-navigation-drawer(app v-model="drawerOpen")
+  v-navigation-drawer(app v-model="drawer")
     v-list
       v-list-tile(href="/" title="Home").home-link
         svg.fas.fa-home.fa-lg
@@ -30,8 +30,13 @@ export default {
     isAdmin: function() {
       return this.$store.getters.isAdmin;
     },
-    drawerOpen: function() {
-      return this.$store.getters.drawerOpen;
+    drawer: {
+      set(drawer) {
+        this.$store.commit("setDrawer", drawer);
+      },
+      get() {
+        return this.$store.getters.drawer;
+      }
     }
   },
   methods: {
