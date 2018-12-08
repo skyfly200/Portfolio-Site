@@ -11,7 +11,7 @@ export default {
   components: {},
   methods: {
     toggleDrawer() {
-      let drawerState = !(this.$store.getters.drawer);
+      let drawerState = !this.$store.getters.drawer;
       this.$store.commit("setDrawer", drawerState);
     }
   }

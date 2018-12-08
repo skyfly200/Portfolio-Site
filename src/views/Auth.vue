@@ -1,49 +1,42 @@
 <template lang="pug">
   .auth
-    .login(v-if="!new_user")
+    v-card.login(v-if="!new_user").ma-5.pa-5
       h4 Login
-      form
-        label(for='email') E-Mail Address
-        div
-          input#email(type='email', v-model='email', required='', autofocus='')
-        div
-          label(for='password') Password
-          div
-            input#password(type='password', v-model='password', required='')
-        div
-          button(type='submit', @click='handleLogin')
-            | Login
-        div
-          a(@click="new_user = true") Dont have an account? Register!
-    .register(v-else)
+      v-form
+        v-text-field#email-field(label="E-Mail" v-model="email" solo required autofocus)
+        v-text-field#password-field(solo required
+          label="Password"
+          v-model="password"
+          :append-icon="show ? 'fa-eye-slash' : 'fa-eye'"
+          :rules="[rules.required, rules.min]"
+          :type="show ? 'text' : 'password'"
+          @click:append-icon="show = !show")
+        v-btn(type='submit' @click='handleLogin') Login
+        p Dont have an account?
+        v-btn(@click="new_user = true") Register
+    v-card.register(v-else).ma-5.pa-5
       h4 Register
-      form
-        label(for='first-name') First Name
-        div
-          input#name(type='text', v-model='firstName', required='', autofocus='')
-        label(for='last-name') Last Name
-        div
-          input#name(type='text', v-model='lastName', required='')
-        label(for='username') Username
-        div
-          input#name(type='text', v-model='username', required='')
-        label(for='email') E-Mail Address
-        div
-          input#email(type='email', v-model='email', required='')
-        label(for='password') Password
-        div
-          input#password(type='password', v-model='password', required='')
-        label(for='password-confirm') Confirm Password
-        div
-          input#password-confirm(type='password', v-model='password_confirmation', required='')
-        div
-          input#subscribe(type="checkbox" v-model="subscribe")
-          label &nbsp;Subscribe to Email List?
-        div
-          button(type='submit', @click='handleRegister')
-            | Register
-        div
-          a(@click="new_user = false") Already have an account? Login!
+      v-form
+        v-text-field#first-name-field(label="First Name" v-model="firstName" solo required- autofocus)
+        v-text-field#last-name-field(label="Last Name" v-model="lastName" solo required)
+        v-text-field#username-field(label="Username" v-model="username" solo required)
+        v-text-field#email-field(label="E-Mail" v-model="email" solo required)
+        v-text-field#password-field(solo required
+          label="Password"
+          v-model="password"
+          :append-icon="show ? 'fa-eye-slash' : 'fa-eye'"
+          :rules="[rules.required, rules.min]"
+          :type="show ? 'text' : 'password'"
+          @click:append="show = !show")
+        v-text-field#password-confirm-field(solo required
+          label="Confirm Password"
+          v-model="password_confirmation"
+          :rules="[rules.required, rules.min]"
+          :type="show ? 'text' : 'password'")
+        v-switch#subscribe(v-model="subscribe" label="Subscribe to Email List")
+        v-btn(type='submit', @click='handleRegister') Register
+        p Already have an account?
+        v-btn(@click="new_user = false") Login
 </template>
 
 <script>
@@ -58,11 +51,19 @@ export default {
       username: "",
       email: "",
       password: "",
+      show: false,
       password_confirmation: "",
-      subscribe: false
+      subscribe: false,
+      rules: {
+        required: value => !!value || "Required.",
+        min: v => v.length >= 8 || "Min 8 characters"
+      }
     };
   },
   methods: {
+    toggleShowPass() {
+      this.show = !this.show;
+    },
     handleLogin(e) {
       e.preventDefault();
       if (this.password.length > 0) {
