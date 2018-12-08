@@ -5,12 +5,13 @@
       v-form
         v-text-field#email-field(label="E-Mail" v-model="email" solo required autofocus)
         v-text-field#password-field(solo required
+          name="password"
           label="Password"
           v-model="password"
           :append-icon="show ? 'fa-eye-slash' : 'fa-eye'"
           :rules="[rules.required, rules.min]"
           :type="show ? 'text' : 'password'"
-          @click:append-icon="show = !show")
+          @click:append="show = !show")
         v-btn(type='submit' @click='handleLogin') Login
         p Dont have an account?
         v-btn(@click="new_user = true") Register

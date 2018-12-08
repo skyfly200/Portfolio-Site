@@ -81,6 +81,7 @@ export default {
             post.edited = edit.edited;
           }
           this.index = false;
+          this.$store.commit("setDrawer", false);
           this.posts = [post];
         })
         .catch(() => {});
@@ -92,6 +93,7 @@ export default {
         .get(url)
         .then(response => {
           this.posts = response.data.posts;
+          this.$store.commit("setDrawer", false);
           this.index = true;
         })
         .catch(() => {});
