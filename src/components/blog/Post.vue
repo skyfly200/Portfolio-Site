@@ -6,28 +6,20 @@
           h1 {{ title }}
       .post-ctrls(v-if="isAdmin")
         #post-ctrls-full
-          router-link(:to="'/blog/edit/' + id")
-            svg.fas.fa-lg.fa-edit
-          a(@click.prevent="deleteConfirm" href="#")
-            svg.fas.fa-lg.fa-trash
           a(v-if="edits && edits.length > 0" href="#"
             @click="showEdits = !showEdits"
             :class="showEdits ? 'collapsed' : null"
             :aria-controls="'edits-' + id"
             :aria-expanded="showEdits ? 'true' : 'false'")
               svg.fas.fa-lg.fa-clock
+          router-link(:to="'/blog/edit/' + id")
+            svg.fas.fa-lg.fa-edit
+          a(@click.prevent="deleteConfirm" href="#")
+            svg.fas.fa-lg.fa-trash
         v-menu#post-ctrls-col.m-md-2(variant="link" right no-caret)
           template(slot="activator")
             svg.fas.fa-lg.fa-ellipsis-v
           v-list
-            v-list-tile
-              router-link(:to="'/blog/edit/' + id")
-                svg.fas.fa-lg.fa-edit
-                span Edit Post
-            v-list-tile
-              a(@click.pre0vent="deleteConfirm" href="#")
-                svg.fas.fa-lg.fa-trash
-                span Delete Post
             v-list-tile
               a(v-if="edits && edits.length > 0" href="#"
                 @click="showEdits = !showEdits"
@@ -36,13 +28,21 @@
                 :aria-expanded="showEdits ? 'true' : 'false'")
                   svg.fas.fa-lg.fa-clock
                   span Edit History
+            v-list-tile
+              router-link(:to="'/blog/edit/' + id")
+                svg.fas.fa-lg.fa-edit
+                span Edit Post
+            v-list-tile
+              a(@click.pre0vent="deleteConfirm" href="#")
+                svg.fas.fa-lg.fa-trash
+                span Delete Post
     v-divider
     .post-body(v-html="compiledMarkdown")
     v-divider
     .post-footer
       .tags(v-if="tags")
-        router-link(v-for="tag in tags" :to="'/blog/tag/' + tag").tag-link
-          v-chip(small).tag {{ tag }}
+        router-link(v-for="tag in tags" :to="'/blog/tag/' + tag.id").tag-link
+          v-chip(small).tag {{ tag.title }}
       .datetime
         .created
           span.datetime-label Published:&nbsp;
@@ -121,8 +121,7 @@ export default {
     width: 100%
     padding: 1em
     align-content: center
-    background-color: white
-    color: black
+    color: white
     box-shadow: 0em 0em 1em 0.1em rgba(255,255,255,0.5)
     .post-header
       display: flex
@@ -139,7 +138,7 @@ export default {
       #post-ctrls-col
         display: none
         svg
-          color: black
+          color: white
       #post-ctrls-full
         width: auto
         display: flex
