@@ -16,7 +16,7 @@
 export default {
   name: "index",
   props: {
-    topics: Object,
+    topics: Array,
     posts: Array
   },
   components: {}
