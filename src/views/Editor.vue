@@ -14,20 +14,23 @@
               :search-input.sync="search"
               :hide-no-data="!search"
               hide-selected
+              @change="addTag"
               label="Search for tags"
-              v-model="post.tags" :items="topics")
+              v-model="post.tags"
+              item-text="title" item-value="id" :items="tags")
                 template(slot="no-data")
                   v-list-tile
                     v-list-tile-content
                       v-list-tile-title
-                      | No results matching "
-                      strong {{ search }}
-                      | ". Press
-                      kbd enter
-                      | to create a new one
-                template(slot="selection" slot-scope="{ item, parent, selected }")
-                  v-chip(small close :selected="selected" @input="removeTag(item)")
-                    span.pr-2 {{ item }}
+                        | No tags matching "
+                        strong {{ search }}
+                        | ". Press&nbsp;
+                        kbd enter
+                        | &nbsp;to create a new one
+                template(slot="selection" slot-scope="{ item, parent }")
+                  v-chip(small close @input="removeTag(item)")
+                    span.pr-2 {{ item.title }}
+
             v-btn#advanced-link(@click="advanced = !advanced" flat small) Show Advanced
             #post-advanced(v-show="advanced")
               v-text-field#id-field(label="Post ID" v-model="post.id" readonly)
@@ -42,7 +45,7 @@
             ul.errors
               li.error(v-for="error in errors") {{ error }}
             v-btn(color="success" type="submit" large @click="submitPost") Publish
-            //-v-btn(v-if="!edit" variant="primary" size="lg" @click="savePost") Save
+            v-btn(v-if="edit" color="error" type="submit" large @click="revertPost") Discard Changes
       v-flex#post-preview(xs12 md6)
         Post(v-bind="post")
 </template>
@@ -58,6 +61,11 @@ export default {
     Post
   },
   created() {
+    this.axios
+      .get("https://skylerflyserver.appspot.com/tags")
+      .then(response => {
+        this.tags = response.data.tags;
+      });
     if (this.$route.params.id) {
       let url =
         "https://skylerflyserver.appspot.com/post/" + this.$route.params.id;
@@ -66,7 +74,6 @@ export default {
         .then(response => {
           this.post = response.data.post;
           this.edit = true;
-          this.rawTags = this.post.tags.join();
           this.post.edits.push({
             edited: this.post.edited,
             body: this.post.body,
@@ -74,11 +81,18 @@ export default {
           });
         })
         .catch(() => {});
+    } else {
+      this.axios
+        .get("https://skylerflyserver.appspot.com/uid")
+        .then(response => {
+          this.post.id = response.data.id;
+          this.post.created = new Date().toISOString();
+        });
     }
   },
   data: () => {
     return {
-      topics: ["Mycology", "Hardware", "Software", "LEDs", "Audio", "Video"],
+      tags: [],
       post: {
         title: "Post Title",
         body: "Write post in Markdown here",
@@ -88,43 +102,65 @@ export default {
         created: new Date().toISOString(),
         canComment: true,
         comments: [],
-        isPublished: false,
         published: "",
+        publishedVersion: "",
         archived: false,
-        id: "post_title"
+        id: ""
       },
-      rawTags: "",
       rows: 3,
       edit: false,
       version: null,
       errors: [],
       search: null,
+      saved: "",
       advanced: false
     };
   },
   methods: {
+    updateTags(tag, increment) {
+      this.axios.post("https://skylerflyserver.appspot.com/tags", {
+        tag: tag.title,
+        increment: increment
+      });
+    },
+    addTag(selection) {
+      var tag;
+      if (typeof selection.slice(0).pop() === "string") {
+        var title = selection.pop();
+        tag = {
+          title: title,
+          id: title.toLowerCase()
+        };
+        this.post.tags.push(tag);
+      } else {
+        tag = this.post.tags.slice(0).pop();
+      }
+      this.updateTags(tag, true);
+      this.search = null;
+      this.updateDatetime();
+      this.savePost();
+    },
     removeTag(tag) {
       this.post.tags.splice(this.post.tags.indexOf(tag), 1);
       this.post.tags = [...this.post.tags];
+      this.updateTags(tag, false);
+      this.search = null;
+      this.updateDatetime();
+      this.savePost();
     },
     formatDatetime(datetime) {
       return moment(datetime).format("dddd, MMM Do YYYY, h:mm a");
     },
     updateTitle: function() {
-      if (!this.edit)
-        this.post.id = this.post.title.replace(/\s/g, "_").toLowerCase();
       this.updateDatetime();
+      this.savePost();
     },
     updateBody: _.debounce(function() {
       this.updateDatetime();
+      this.savePost();
     }, 300),
-    updateTags: function() {
-      this.post.tags = this.rawTags.split(/[\s,]+/);
-      this.updateDatetime();
-    },
     updateDatetime: function() {
       this.post.edited = new Date().toISOString();
-      if (!this.edit) this.post.created = this.post.edited;
     },
     verifyPost: function() {
       this.errors = [];
@@ -142,23 +178,36 @@ export default {
       }
       return valid;
     },
+    revertPost: function() {
+      var lastEdit = this.post.edits.pop();
+      console.log(lastEdit);
+      this.post.edited = lastEdit.edited;
+      this.post.body = lastEdit.body;
+      this.post.tags = lastEdit.tags;
+      this.axios
+        .post("https://skylerflyserver.appspot.com/submit", this.post)
+        .then(res => {
+          if (res.status !== 200) this.errors.push(res.data);
+        })
+        .catch(error => {
+          this.errors.push(error);
+        });
+    },
     savePost: function() {
-      if (this.verifyPost()) {
-        this.axios
-          .post("https://skylerflyserver.appspot.com/submit", this.post)
-          .then(res => {
-            if (res.status === 200) this.$router.push("/blog");
-            else this.errors.push(res.data);
-          })
-          .catch(error => {
-            this.errors.push(error);
-          });
-      }
+      this.axios
+        .post("https://skylerflyserver.appspot.com/submit", this.post)
+        .then(res => {
+          if (res.status === 200) this.saved = new Date().toISOString();
+          else this.errors.push(res.data);
+        })
+        .catch(error => {
+          this.errors.push(error);
+        });
     },
     submitPost: function() {
       if (this.verifyPost()) {
-        this.post.isPublished = true;
-        this.published = new Date().toISOString();
+        this.post.publishedVersion = this.post.edited;
+        this.post.published = new Date().toISOString();
         this.axios
           .post("https://skylerflyserver.appspot.com/submit", this.post)
           .then(res => {
