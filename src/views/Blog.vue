@@ -8,7 +8,7 @@
           Post(v-for="post in posts" :admin="isAdmin"
             v-on:refreshPosts="loadPosts" v-bind="post" v-bind:key="post.id")
         v-flex(v-if="showIndex").md2
-          Index(:topics="topics" :posts="posts")
+          Index(:topics="tags" :posts="posts")
     Footer
 </template>
 
@@ -44,7 +44,10 @@ export default {
   },
   created() {
     if (this.$route.params.id) this.loadPost();
-    else this.loadPosts();
+    else {
+      this.loadPosts();
+      this.loadTags();
+    }
   },
   watch: {
     $route() {
@@ -54,14 +57,7 @@ export default {
   },
   data: () => {
     return {
-      topics: {
-        mycology: { title: "Mycology" },
-        hardware: { title: "Hardware" },
-        software: { title: "Software" },
-        leds: { title: "LEDs" },
-        audio: { title: "Audio" },
-        video: { title: "Video" }
-      },
+      tags: [],
       posts: [],
       index: true
     };
@@ -97,6 +93,13 @@ export default {
           this.index = true;
         })
         .catch(() => {});
+    },
+    loadTags: function() {
+      this.axios
+        .get("https://skylerflyserver.appspot.com/tags")
+        .then(response => {
+          this.tags = response.data.tags;
+        });
     }
   }
 };
@@ -114,7 +117,7 @@ export default {
       h4
         color: white
     .post, .post a
-      color: black
+      color: white
       margin-top: 20px
     button
       color: black
