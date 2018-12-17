@@ -4,6 +4,9 @@
       v-list-tile(href="/" title="Home").home-link
         svg.fas.fa-home.fa-lg
         span &nbsp;Home
+      v-list-tile(to="/blog" title="Blog").blog-link
+        svg.fas.fa-quote-right.fa-lg
+        span &nbsp;Blog
       v-list-tile(v-if="isLoggedIn" to="/user" title="Account").account
         svg.fas.fa-lg.fa-user-astronaut(v-if="isAdmin")
         svg.fas.fa-lg.fa-user(v-else)
@@ -50,9 +53,9 @@ export default {
 };
 </script>
 
-<style lang="sass" scoped>
+<style lang="sass">
   .drawer
-    a
+    .v-list a
       color: $color-secondary-2-1
       &:visted, &:focus, &:active
         color: $color-secondary-2-3

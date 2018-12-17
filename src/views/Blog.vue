@@ -87,10 +87,12 @@ export default {
       this.axios
         .get(url)
         .then(response => {
-          // filter out unpublished posts
-          let posts = response.data.posts.filter(
-            p => new Date(p.published) <= new Date()
-          );
+          // filter out unpublished posts for non admin users
+          let posts = response.data.posts;
+          if (!this.isAdmin) {
+            posts = posts.filter(p => new Date(p.published) <= new Date());
+          } // else if showArchive & archived or !archived
+          // filter posts by tag if provided
           if (this.$route.params.tag) {
             let filterTag = this.$route.params.tag;
             this.posts = posts.filter(

@@ -53,7 +53,7 @@ export default new Vuex.Store({
       return new Promise((resolve, reject) => {
         commit("auth_request");
         axios({
-          url: "https://skylerflyserver.appspot.com/login",
+          url: "https://skylerflyserver.appspot.com/users/login",
           data: user,
           method: "POST"
         })
@@ -76,7 +76,7 @@ export default new Vuex.Store({
       return new Promise((resolve, reject) => {
         commit("auth_request");
         axios({
-          url: "https://skylerflyserver.appspot.com/register",
+          url: "https://skylerflyserver.appspot.com/users/register",
           data: user,
           method: "POST"
         })

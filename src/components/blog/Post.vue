@@ -6,6 +6,10 @@
           h1 {{ title }}
       .post-ctrls(v-if="isAdmin")
         #post-ctrls-full
+          a(v-if="unpublished" @click.prevent="publish" href="#")
+            svg.fas.fa-lg.fa-eye-slash
+          a(v-if="future" href="#")
+            svg.fas.fa-lg.fa-hourglass-start
           a(v-if="edits && edits.length > 0" href="#"
             @click="showEdits = !showEdits"
             :class="showEdits ? 'collapsed' : null"
@@ -72,6 +76,11 @@ export default {
     created: String,
     edited: String,
     edits: Array,
+    canComment: Boolean,
+    comments: Array,
+    published: String,
+    publishedVersion: String,
+    archived: Boolean,
     id: String
   },
   data() {
@@ -85,9 +94,16 @@ export default {
     },
     isAdmin: function() {
       return this.admin;
+    },
+    future: function() {
+      return new Date(this.published) >= new Date();
+    },
+    unpublished: function() {
+      return !this.published;
     }
   },
   methods: {
+    publish() {},
     formatDatetime(datetime) {
       return moment(datetime).format("dddd, MMM Do YYYY, h:mm a");
     },

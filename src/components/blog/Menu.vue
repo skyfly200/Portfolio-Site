@@ -1,7 +1,8 @@
 <template lang="pug">
   v-toolbar(app).blog-menu
     v-toolbar-side-icon(@click="toggleDrawer")
-    v-toolbar-title(to="/blog" tag="h1") Skyler's Blog
+    v-toolbar-title
+      router-link(to="/blog") Skyler's Blog
 
 </template>
 
