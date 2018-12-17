@@ -4,7 +4,7 @@
       .index-header
         h4 Tags
       .tag-link(v-for="tag in tags")
-        a(:href="'/blog/tag/' + tag.id")
+        a(v-if="tag.count > 0" :href="'/blog/tag/' + tag.id")
           v-chip(small color="orange")
             v-avatar(right).darken-4.orange {{ tag.count}}
             | {{ tag.title }}
