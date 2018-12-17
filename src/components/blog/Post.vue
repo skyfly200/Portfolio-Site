@@ -103,7 +103,31 @@ export default {
     }
   },
   methods: {
-    publish() {},
+    publish() {
+      let post = {
+        admin: this.admin,
+        title: this.title,
+        body: this.body,
+        tags: this.tags,
+        created: this.created,
+        edited: this.edited,
+        edits: this.edits,
+        canComment: this.canComment,
+        comments: this.comments,
+        published: new Date().toISOString(),
+        publishedVersion: this.edited,
+        archived: this.archived,
+        id: this.id
+      };
+      this.axios
+        .post("https://skylerflyserver.appspot.com/posts/submit", post)
+        .then(res => {
+          if (res.status === 200) this.$emit("refreshPosts");
+        })
+        .catch(error => {
+          this.errors.push(error);
+        });
+    },
     formatDatetime(datetime) {
       return moment(datetime).format("dddd, MMM Do YYYY, h:mm a");
     },

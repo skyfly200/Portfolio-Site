@@ -7,7 +7,7 @@
     v-layout(align-center row fill-height)#editor-body
       v-flex(xs12 md6)
         v-card.pa-3
-          v-form#editor-form(@submit.prevent="submitPost")
+          v-form#editor-form(@submit.prevent="publishPost")
             v-text-field#title-field( label="Post Title" v-model="post.title" @input="updateTitle" solo required)
             v-textarea#body-input-group(label="Post Body" v-model="post.body" @input="updateBody" solo :rows="rows")
             v-combobox(small-chips solo multiple
@@ -44,7 +44,7 @@
               v-switch#post-id-field(v-model="post.canComment" label="Post Comments")
             ul.errors
               li.error(v-for="error in errors") {{ error }}
-            v-btn(color="success" type="submit" large @click="submitPost") Publish
+            v-btn(color="success" type="submit" large @click="publishPost") Publish
             v-btn(v-if="edit" color="error" large @click="revertPost") Discard Changes
       v-flex#post-preview(xs12 md6)
         Post(v-bind="post")
@@ -76,10 +76,11 @@ export default {
           this.post = response.data.post;
           this.edit = true;
           this.post.edits.push({
-            edited: this.post.edited,
-            body: this.post.body,
-            tags: this.post.tags
+            edited: this.post.edited.slice(0),
+            body: this.post.body.slice(0),
+            tags: this.post.tags.slice(0)
           });
+          console.log(this.post.tags);
         })
         .catch(() => {});
     } else {
@@ -180,16 +181,17 @@ export default {
       return valid;
     },
     revertPost: function() {
-      var lastEdit = this.post.edits.pop();
+      var preEdit = this.post.edits.pop();
       // get diff of tags list and update tags
-      var oldTags = lastEdit.tags.filter(x => !this.post.tags.includes(x));
-      var newTags = this.post.tags.filter(x => !lastEdit.tags.includes(x));
+      var oldTags = preEdit.tags.filter(x => !this.post.tags.includes(x));
+      var newTags = this.post.tags.filter(x => !preEdit.tags.includes(x));
       // decrement new tags and increent old tags
-      for (let t in oldTags) this.updateTags(t, true);
-      for (let t in newTags) this.updateTags(t, false);
-      this.post.edited = lastEdit.edited;
-      this.post.body = lastEdit.body;
-      this.post.tags = lastEdit.tags;
+      console.log({ oldTags, newTags, preEdit, post: this.post });
+      for (let t in oldTags) this.updateTags(oldTags[t], true);
+      for (let t in newTags) this.updateTags(newTags[t], false);
+      this.post.edited = preEdit.edited;
+      this.post.body = preEdit.body;
+      this.post.tags = preEdit.tags;
       this.axios
         .post("https://skylerflyserver.appspot.com/posts/submit", this.post)
         .then(res => {
@@ -211,7 +213,7 @@ export default {
           this.errors.push(error);
         });
     },
-    submitPost: function() {
+    publishPost: function() {
       if (this.verifyPost()) {
         this.post.publishedVersion = this.post.edited;
         this.post.published = new Date().toISOString();
