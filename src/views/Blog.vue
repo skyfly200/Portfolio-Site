@@ -7,8 +7,8 @@
         v-flex.blog-posts
           Post(v-for="post in posts" :admin="isAdmin"
             v-on:refreshPosts="loadPosts" v-bind="post" v-bind:key="post.id")
-        v-flex(v-if="showIndex").md2
-          Index(:topics="tags" :posts="posts")
+        v-flex(v-if="showIndex")
+          Index(:tags="tags" :posts="posts")
     Footer
 </template>
 
@@ -65,7 +65,7 @@ export default {
   methods: {
     loadPost: function() {
       let url =
-        "https://skylerflyserver.appspot.com/post/" + this.$route.params.id;
+        "https://skylerflyserver.appspot.com/posts/post/" + this.$route.params.id;
       this.axios
         .get(url)
         .then(response => {
@@ -83,12 +83,22 @@ export default {
         .catch(() => {});
     },
     loadPosts: function() {
-      let url = "https://skylerflyserver.appspot.com/posts";
-      url = this.$route.params.tag ? url + "/" + this.$route.params.tag : url;
+      let url = "https://skylerflyserver.appspot.com/posts/";
       this.axios
         .get(url)
         .then(response => {
-          this.posts = response.data.posts;
+          // filter out unpublished posts
+          let posts = response.data.posts.filter(
+            p => new Date(p.published) <= new Date()
+          );
+          if (this.$route.params.tag) {
+            let filterTag = this.$route.params.tag;
+            this.posts = posts.filter(
+              p => p.tags.filter(t => t.id === filterTag).length > 0
+            );
+          } else {
+            this.posts = posts;
+          }
           this.$store.commit("setDrawer", false);
           this.index = true;
         })
@@ -96,7 +106,7 @@ export default {
     },
     loadTags: function() {
       this.axios
-        .get("https://skylerflyserver.appspot.com/tags")
+        .get("https://skylerflyserver.appspot.com/tags/")
         .then(response => {
           this.tags = response.data.tags;
         });
@@ -118,7 +128,7 @@ export default {
         color: white
     .post, .post a
       color: white
-      margin-top: 20px
+      margin-bottom: 20px
     button
       color: black
 

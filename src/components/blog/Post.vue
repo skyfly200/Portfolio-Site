@@ -93,7 +93,7 @@ export default {
     },
     deletePost() {
       this.axios
-        .delete("https://skylerflyserver.appspot.com/post/" + this.id, {})
+        .delete("https://skylerflyserver.appspot.com/posts/post/" + this.id, {})
         .then(res => {
           if (res.data.result.indexUpdates > 0) this.$emit("refreshPosts");
         })
@@ -164,6 +164,10 @@ export default {
         align-items: center
         display: flex
         list-style-type: none
+        .v-chip
+          border: none
+          color: white
+          background-color: $color-secondary-2-1
         @media(max-width: 500px)
           font-size: 0.9em
           flex-wrap: wrap

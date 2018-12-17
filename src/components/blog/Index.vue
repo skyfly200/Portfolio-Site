@@ -1,10 +1,13 @@
 <template lang="pug">
-  .index
-    v-list.post-topics(v-if="topics !== {}")
+  v-card.index.pa3
+    v-list.post-topics(v-if="tags !== {}")
       .index-header
-        h4 Topics
-      .tag-link(v-for="topic in topics")
-        a(:href="'/blog/tag/' + topic.title.toLowerCase()") {{ topic.title }}
+        h4 Tags
+      .tag-link(v-for="tag in tags")
+        a(:href="'/blog/tag/' + tag.id")
+          v-chip(small color="orange")
+            v-avatar(right).darken-4.orange {{ tag.count}}
+            | {{ tag.title }}
     v-list.post-history
       .index-header
         h4 History
@@ -16,7 +19,7 @@
 export default {
   name: "index",
   props: {
-    topics: Array,
+    tags: Array,
     posts: Array
   },
   components: {}
@@ -28,7 +31,15 @@ export default {
     display: flex
     flex-direction: column
     text-align: right
-    margin-top: 20px
+    padding: 1em
+    .v-chip
+      border: none
+      color: white
+      background-color: $color-secondary-2-1
+      .v-avatar
+        background-color: $color-secondary-2-3
+      .v-chip__content
+        padding: 0 11px
     .v-list
       background-color: rgba(0,0,0,0)
       color: white

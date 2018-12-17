@@ -10,7 +10,7 @@
           v-form#editor-form(@submit.prevent="submitPost")
             v-text-field#title-field( label="Post Title" v-model="post.title" @input="updateTitle" solo required)
             v-textarea#body-input-group(label="Post Body" v-model="post.body" @input="updateBody" solo :rows="rows")
-            v-combobox#tags-input-group(small-chips solo multiple
+            v-combobox(small-chips solo multiple
               :search-input.sync="search"
               :hide-no-data="!search"
               hide-selected
@@ -45,7 +45,7 @@
             ul.errors
               li.error(v-for="error in errors") {{ error }}
             v-btn(color="success" type="submit" large @click="submitPost") Publish
-            v-btn(v-if="edit" color="error" type="submit" large @click="revertPost") Discard Changes
+            v-btn(v-if="edit" color="error" large @click="revertPost") Discard Changes
       v-flex#post-preview(xs12 md6)
         Post(v-bind="post")
 </template>
@@ -68,7 +68,8 @@ export default {
       });
     if (this.$route.params.id) {
       let url =
-        "https://skylerflyserver.appspot.com/post/" + this.$route.params.id;
+        "https://skylerflyserver.appspot.com/posts/post/" +
+        this.$route.params.id;
       this.axios
         .get(url)
         .then(response => {
@@ -83,7 +84,7 @@ export default {
         .catch(() => {});
     } else {
       this.axios
-        .get("https://skylerflyserver.appspot.com/uid")
+        .get("https://skylerflyserver.appspot.com/posts/uid")
         .then(response => {
           this.post.id = response.data.id;
           this.post.created = new Date().toISOString();
@@ -180,14 +181,20 @@ export default {
     },
     revertPost: function() {
       var lastEdit = this.post.edits.pop();
-      console.log(lastEdit);
+      // get diff of tags list and update tags
+      var oldTags = lastEdit.tags.filter(x => !this.post.tags.includes(x));
+      var newTags = this.post.tags.filter(x => !lastEdit.tags.includes(x));
+      // decrement new tags and increent old tags
+      for (let t in oldTags) this.updateTags(t, true);
+      for (let t in newTags) this.updateTags(t, false);
       this.post.edited = lastEdit.edited;
       this.post.body = lastEdit.body;
       this.post.tags = lastEdit.tags;
       this.axios
-        .post("https://skylerflyserver.appspot.com/submit", this.post)
+        .post("https://skylerflyserver.appspot.com/posts/submit", this.post)
         .then(res => {
           if (res.status !== 200) this.errors.push(res.data);
+          else this.$router.push("/blog");
         })
         .catch(error => {
           this.errors.push(error);
@@ -195,7 +202,7 @@ export default {
     },
     savePost: function() {
       this.axios
-        .post("https://skylerflyserver.appspot.com/submit", this.post)
+        .post("https://skylerflyserver.appspot.com/posts/submit", this.post)
         .then(res => {
           if (res.status === 200) this.saved = new Date().toISOString();
           else this.errors.push(res.data);
@@ -209,7 +216,7 @@ export default {
         this.post.publishedVersion = this.post.edited;
         this.post.published = new Date().toISOString();
         this.axios
-          .post("https://skylerflyserver.appspot.com/submit", this.post)
+          .post("https://skylerflyserver.appspot.com/posts/submit", this.post)
           .then(res => {
             if (res.status === 200) this.$router.push("/blog");
             else this.errors.push(res.data);
@@ -233,4 +240,8 @@ export default {
     min-height: 100vh
     #editor-header
       text-align: center
+    .v-autocomplete .v-chip
+      border: none
+      color: white
+      background-color: $color-secondary-2-1
 </style>

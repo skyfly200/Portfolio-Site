@@ -1,5 +1,5 @@
 <template lang="pug">
-  v-navigation-drawer(app width="150" v-model="drawer")
+  v-navigation-drawer(app width="150" v-model="drawer").drawer
     v-list
       v-list-tile(href="/" title="Home").home-link
         svg.fas.fa-home.fa-lg
@@ -51,4 +51,11 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+  .drawer
+    a
+      color: $color-secondary-2-1
+      &:visted, &:focus, &:active
+        color: $color-secondary-2-3
+      &:hover
+        color: $color-secondary-2-1
 </style>
