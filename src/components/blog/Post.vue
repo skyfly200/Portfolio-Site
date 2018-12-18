@@ -24,8 +24,16 @@
           template(slot="activator")
             svg.fas.fa-lg.fa-ellipsis-v
           v-list
-            v-list-tile
-              a(v-if="edits && edits.length > 0" href="#"
+            v-list-tile(v-if="unpublished")
+              a(@click.prevent="publish" href="#")
+                svg.fas.fa-lg.fa-eye-slash
+                span Publish
+            v-list-tile(v-if="future")
+              a(href="#")
+                svg.fas.fa-lg.fa-hourglass-start
+                span Scheduled
+            v-list-tile(v-if="edits && edits.length > 0")
+              a(href="#"
                 @click="showEdits = !showEdits"
                 :class="showEdits ? 'collapsed' : null"
                 :aria-controls="'edits-' + id"
@@ -122,7 +130,7 @@ export default {
       this.axios
         .post("https://skylerflyserver.appspot.com/posts/submit", post)
         .then(res => {
-          if (res.status === 200) this.$emit("refreshPosts");
+          if (res.status === 200) this.$emit("refresh");
         })
         .catch(error => {
           this.errors.push(error);
@@ -135,7 +143,7 @@ export default {
       this.axios
         .delete("https://skylerflyserver.appspot.com/posts/post/" + this.id, {})
         .then(res => {
-          if (res.data.result.indexUpdates > 0) this.$emit("refreshPosts");
+          if (res.data.result.indexUpdates > 0) this.$emit("refresh");
         })
         .catch(() => {});
     },
@@ -157,6 +165,12 @@ export default {
 </script>
 
 <style lang="sass">
+  body a
+    color: $color-secondary-2-1
+    &:visited, &:focus, &:active
+      color: $color-secondary-2-2
+    &:hover
+      color: $color-secondary-2-1
   .post
     width: 100%
     padding: 1em

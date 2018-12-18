@@ -1,49 +1,60 @@
 <template lang="pug">
   .auth
-    v-card.login(v-if="!new_user").ma-5.pa-5
-      h4 Login
-      v-form
-        v-text-field#email-field(label="E-Mail" v-model="email" solo required autofocus)
-        v-text-field#password-field(solo required
-          name="password"
-          label="Password"
-          v-model="password"
-          :append-icon="show ? 'fa-eye-slash' : 'fa-eye'"
-          :rules="[rules.required, rules.min]"
-          :type="show ? 'text' : 'password'"
-          @click:append="show = !show")
-        v-btn(type='submit' @click='handleLogin') Login
-        p Dont have an account?
-        v-btn(@click="new_user = true") Register
-    v-card.register(v-else).ma-5.pa-5
-      h4 Register
-      v-form
-        v-text-field#first-name-field(label="First Name" v-model="firstName" solo required- autofocus)
-        v-text-field#last-name-field(label="Last Name" v-model="lastName" solo required)
-        v-text-field#username-field(label="Username" v-model="username" solo required)
-        v-text-field#email-field(label="E-Mail" v-model="email" solo required)
-        v-text-field#password-field(solo required
-          label="Password"
-          v-model="password"
-          :append-icon="show ? 'fa-eye-slash' : 'fa-eye'"
-          :rules="[rules.required, rules.min]"
-          :type="show ? 'text' : 'password'"
-          @click:append="show = !show")
-        v-text-field#password-confirm-field(solo required
-          label="Confirm Password"
-          v-model="password_confirmation"
-          :rules="[rules.required, rules.min]"
-          :type="show ? 'text' : 'password'")
-        v-switch#subscribe(v-model="subscribe" label="Subscribe to Email List")
-        v-btn(type='submit', @click='handleRegister') Register
-        p Already have an account?
-        v-btn(@click="new_user = false") Login
+    Menu
+    Drawer
+    v-container(fluid)
+      v-layout
+        v-flex
+          v-card.login(v-if="!new_user").ma-5.pa-5
+            h4 Login
+            v-form
+              v-text-field#email-field(label="E-Mail" v-model="email" solo required autofocus)
+              v-text-field#password-field(solo required
+                name="password"
+                label="Password"
+                v-model="password"
+                :append-icon="show ? 'fa-eye-slash' : 'fa-eye'"
+                :rules="[rules.required, rules.min]"
+                :type="show ? 'text' : 'password'"
+                @click:append="show = !show")
+              v-btn(type='submit' @click='handleLogin') Login
+              p Dont have an account?
+              v-btn(@click="new_user = true") Register
+          v-card.register(v-else).ma-5.pa-5
+            h4 Register
+            v-form
+              v-text-field#first-name-field(label="First Name" v-model="firstName" solo required- autofocus)
+              v-text-field#last-name-field(label="Last Name" v-model="lastName" solo required)
+              v-text-field#username-field(label="Username" v-model="username" solo required)
+              v-text-field#email-field(label="E-Mail" v-model="email" solo required)
+              v-text-field#password-field(solo required
+                label="Password"
+                v-model="password"
+                :append-icon="show ? 'fa-eye-slash' : 'fa-eye'"
+                :rules="[rules.required, rules.min]"
+                :type="show ? 'text' : 'password'"
+                @click:append="show = !show")
+              v-text-field#password-confirm-field(solo required
+                label="Confirm Password"
+                v-model="password_confirmation"
+                :rules="[rules.required, rules.min]"
+                :type="show ? 'text' : 'password'")
+              v-switch#subscribe(v-model="subscribe" label="Subscribe to Email List")
+              v-btn(type='submit', @click='handleRegister') Register
+              p Already have an account?
+              v-btn(@click="new_user = false") Login
 </template>
 
 <script>
+import Menu from "@/components/blog/Menu.vue";
+import Drawer from "@/components/blog/Drawer.vue";
+
 export default {
   name: "auth",
-  components: {},
+  components: {
+    Menu,
+    Drawer
+  },
   data: function() {
     return {
       new_user: false,

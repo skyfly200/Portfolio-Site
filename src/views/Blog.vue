@@ -6,7 +6,7 @@
       v-layout.blog-body
         v-flex.blog-posts
           Post(v-for="post in posts" :admin="isAdmin"
-            v-on:refreshPosts="loadPosts" v-bind="post" v-bind:key="post.id")
+            v-on:refresh="refresh" v-bind="post" v-bind:key="post.id")
         v-flex(v-if="showIndex")
           Index(:tags="tags" :posts="posts")
     Footer
@@ -63,6 +63,10 @@ export default {
     };
   },
   methods: {
+    refresh: function() {
+      this.loadPosts();
+      this.loadTags();
+    },
     loadPost: function() {
       let url =
         "https://skylerflyserver.appspot.com/posts/post/" + this.$route.params.id;
@@ -133,12 +137,10 @@ export default {
       margin-bottom: 20px
     button
       color: black
-
+  .blog-body
+    margin-top: 1em
   .blog-posts
     display: flex
     flex-direction: column
     align-items: center
-    .post
-      margin: 1em
-
 </style>

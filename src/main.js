@@ -11,7 +11,7 @@ import VueAxios from "vue-axios";
 import VuejsDialog from "vuejs-dialog";
 import BootstrapVue from "bootstrap-vue";
 
-// include the default dailog plugin styles
+// include the default dialog plugin styles
 import "../node_modules/vuejs-dialog/dist/vuejs-dialog.min.css";
 
 // load bootstrap styles

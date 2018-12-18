@@ -61,4 +61,7 @@ export default {
         color: $color-secondary-2-3
       &:hover
         color: $color-secondary-2-1
+    .primary--text
+      text-shadow: 0px 0px 10px white
+      color: $color-primary-3 !important
 </style>

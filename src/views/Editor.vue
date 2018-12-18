@@ -1,64 +1,73 @@
 <template lang="pug">
-  v-container#editor(fluid grid-list-md)
-    v-layout#editor-header
-      v-flex
-        h1(v-if="edit") Edit Post
-        h1(v-else) New Post
-    v-layout(align-center row fill-height)#editor-body
-      v-flex(xs12 md6)
-        v-card.pa-3
-          v-form#editor-form(@submit.prevent="publishPost")
-            v-text-field#title-field( label="Post Title" v-model="post.title" @input="updateTitle" solo required)
-            v-textarea#body-input-group(label="Post Body" v-model="post.body" @input="updateBody" solo :rows="rows")
-            v-combobox(small-chips solo multiple
-              :search-input.sync="search"
-              :hide-no-data="!search"
-              hide-selected
-              @change="addTag"
-              label="Search for tags"
-              v-model="post.tags"
-              item-text="title" item-value="id" :items="tags")
-                template(slot="no-data")
-                  v-list-tile
-                    v-list-tile-content
-                      v-list-tile-title
-                        | No tags matching "
-                        strong {{ search }}
-                        | ". Press&nbsp;
-                        kbd enter
-                        | &nbsp;to create a new one
-                template(slot="selection" slot-scope="{ item, parent }")
-                  v-chip(small close @input="removeTag(item)")
-                    span.pr-2 {{ item.title }}
+  #editor
+    Menu
+    Drawer
+    v-container(fluid grid-list-md)
+      v-layout#editor-header
+        v-flex
+          h1(v-if="edit") Edit Post
+          h1(v-else) New Post
+      v-layout(align-center row fill-height)#editor-body
+        v-flex(xs12 md6)
+          v-card.pa-3
+            v-form#editor-form(@submit.prevent="publishPost")
+              v-text-field#title-field( label="Post Title" v-model="post.title" @input="updateTitle" solo required)
+              v-textarea#body-input-group(label="Post Body" v-model="post.body" @input="updateBody" solo :rows="rows")
+              v-combobox(small-chips solo multiple
+                :search-input.sync="search"
+                :hide-no-data="!search"
+                hide-selected
+                @change="addTag"
+                label="Search for tags"
+                v-model="post.tags"
+                item-text="title" item-value="id" :items="tags")
+                  template(slot="no-data")
+                    v-list-tile
+                      v-list-tile-content
+                        v-list-tile-title
+                          | No tags matching "
+                          strong {{ search }}
+                          | ". Press&nbsp;
+                          kbd enter
+                          | &nbsp;to create a new one
+                  template(slot="selection" slot-scope="{ item, parent }")
+                    v-chip(small close @input="removeTag(item)")
+                      span.pr-2 {{ item.title }}
 
-            v-btn#advanced-link(@click="advanced = !advanced" flat small) Show Advanced
-            #post-advanced(v-show="advanced")
-              v-text-field#id-field(label="Post ID" v-model="post.id" readonly)
-              v-text-field#created-field(label="Post Created" :value="formatDatetime(post.created)" readonly)
-              v-select#version-field(return-object
-                v-model="version"
-                label="Version History"
-                v-if="post.edits && post.edits.length > 0"
-                :items="post.edits"
-                item-text="edited")
-              v-switch#post-id-field(v-model="post.canComment" label="Post Comments")
-            ul.errors
-              li.error(v-for="error in errors") {{ error }}
-            v-btn(color="success" type="submit" large @click="publishPost") Publish
-            v-btn(v-if="edit" color="error" large @click="revertPost") Discard Changes
-      v-flex#post-preview(xs12 md6)
-        Post(v-bind="post")
+              v-btn#advanced-link(@click="advanced = !advanced" flat small) Show Advanced
+              #post-advanced(v-show="advanced")
+                v-text-field#id-field(label="Post ID" v-model="post.id" readonly)
+                v-text-field#created-field(label="Post Created" :value="formatDatetime(post.created)" readonly)
+                v-select#version-field(return-object
+                  v-model="version"
+                  label="Version History"
+                  v-if="post.edits && post.edits.length > 0"
+                  :items="post.edits"
+                  item-text="edited")
+                v-switch#post-id-field(v-model="post.canComment" label="Post Comments")
+              ul.errors
+                li.error(v-for="error in errors") {{ error }}
+              v-btn(color="success" type="submit" large @click="publishPost") Publish
+              router-link(to="/blog")
+                v-btn(v-if="post.published === ''" color="primary" large) Save
+              v-btn(v-if="edit" color="error" large @click="revertPost") Discard
+        v-flex#post-preview(xs12 md6)
+          Post(v-bind="post")
 </template>
 
 <script>
 import Post from "@/components/blog/Post.vue";
+import Menu from "@/components/blog/Menu.vue";
+import Drawer from "@/components/blog/Drawer.vue";
 import _ from "lodash";
 import moment from "moment";
 
 export default {
   name: "create-post",
   components: {
-    Post
+    Post,
+    Menu,
+    Drawer
   },
   created() {
     this.axios
@@ -80,7 +89,6 @@ export default {
             body: this.post.body.slice(0),
             tags: this.post.tags.slice(0)
           });
-          console.log(this.post.tags);
         })
         .catch(() => {});
     } else {
@@ -96,8 +104,8 @@ export default {
     return {
       tags: [],
       post: {
-        title: "Post Title",
-        body: "Write post in Markdown here",
+        title: "",
+        body: "Write your post in Markdown here",
         edits: [],
         tags: [],
         edited: new Date().toISOString(),
@@ -170,9 +178,6 @@ export default {
       if (this.post.title === "") {
         valid = false;
         this.errors.push("Title May Not Be Empty!");
-      } else if (this.post.title === "Post Title") {
-        valid = false;
-        this.errors.push("Title Must Be Unique!");
       }
       if (this.post.body === "") {
         valid = false;
@@ -186,7 +191,6 @@ export default {
       var oldTags = preEdit.tags.filter(x => !this.post.tags.includes(x));
       var newTags = this.post.tags.filter(x => !preEdit.tags.includes(x));
       // decrement new tags and increent old tags
-      console.log({ oldTags, newTags, preEdit, post: this.post });
       for (let t in oldTags) this.updateTags(oldTags[t], true);
       for (let t in newTags) this.updateTags(newTags[t], false);
       this.post.edited = preEdit.edited;

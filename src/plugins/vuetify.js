@@ -35,6 +35,7 @@ import Vuetify, {
 } from "vuetify/lib";
 import "vuetify/src/stylus/app.styl";
 import { Ripple } from "vuetify/lib/directives";
+import colors from "vuetify/es5/util/colors";
 
 Vue.use(Vuetify, {
   components: {
@@ -73,5 +74,14 @@ Vue.use(Vuetify, {
   directives: {
     Ripple
   },
-  iconfont: "fa"
+  iconfont: "fa",
+  theme: {
+    primary: {
+      base: "#7627D0",
+      darken1: "#6608D2",
+      darken2: "#4D059E",
+      darken3: "#3E0480",
+      darken4: "#2E0260"
+    }
+  }
 });
