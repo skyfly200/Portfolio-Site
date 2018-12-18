@@ -7,10 +7,6 @@
       v-list-tile(to="/blog" title="Blog").blog-link
         svg.fas.fa-quote-right.fa-lg
         span &nbsp;Blog
-      v-list-tile(v-if="isLoggedIn" to="/user" title="Account").account
-        svg.fas.fa-lg.fa-user-astronaut(v-if="isAdmin")
-        svg.fas.fa-lg.fa-user(v-else)
-        span &nbsp;User
       v-list-tile(v-if="isAdmin" to="/blog/edit" title="New Post").new-post
         svg.fas.fa-plus.fa-lg
         span &nbsp;New Post
@@ -20,6 +16,10 @@
       v-list-tile(v-else title="Login" to="/auth").login
         svg.fas.fa-sign-in-alt.fa-lg
         span &nbsp;Login
+      v-list-tile(v-if="isLoggedIn" to="/user" title="Account").account
+        svg.fas.fa-lg.fa-user-astronaut(v-if="isAdmin")
+        svg.fas.fa-lg.fa-user(v-else)
+        span &nbsp;User
 </template>
 
 <script>

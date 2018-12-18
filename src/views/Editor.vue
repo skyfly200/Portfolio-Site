@@ -38,6 +38,36 @@
               #post-advanced(v-show="advanced")
                 v-text-field#id-field(label="Post ID" v-model="post.id" readonly)
                 v-text-field#created-field(label="Post Created" :value="formatDatetime(post.created)" readonly)
+                v-menu(:close-on-content-click="false"
+                  v-model="publishDateMenu"
+                  :nudge-right="40"
+                  :return-value.sync="publishDate"
+                  lazy
+                  transition="scale-transition"
+                  offset-y
+                  full-width
+                  min-width="290px")
+                  v-text-field(slot="activator"
+                    v-model="publishDate"
+                    label="Publish Date"
+                    readonly)
+                  v-date-picker(v-model="publishDate"  @input="publishDateMenu = false" no-title scrollable)
+                v-menu(ref="menu"
+                  :close-on-content-click="false"
+                  v-model="publishTimeMenu"
+                  :nudge-right="40"
+                  :return-value.sync="publishTime"
+                  lazy
+                  transition="scale-transition"
+                  offset-y
+                  full-width
+                  max-width="290px"
+                  min-width="290px")
+                  v-text-field(slot="activator"
+                    v-model="publishTime"
+                    label="Publish Time"
+                    readonly)
+                  v-time-picker(v-if="publishTimeMenu" v-model="publishTime" full-width @change="$refs.menu.save(publishTime)")
                 v-select#version-field(return-object
                   v-model="version"
                   label="Version History"
@@ -102,6 +132,10 @@ export default {
   },
   data: () => {
     return {
+      publishDateMenu: false,
+      publishTimeMenu: false,
+      publishDate: new Date().toISOString().substr(0, 10),
+      publishTime: null,
       tags: [],
       post: {
         title: "",

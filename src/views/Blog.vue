@@ -7,7 +7,7 @@
         v-flex.blog-posts
           Post(v-for="post in posts" :admin="isAdmin"
             v-on:refresh="refresh" v-bind="post" v-bind:key="post.id")
-        v-flex(v-if="showIndex")
+        v-flex(v-if="showIndex").blog-index
           Index(:tags="tags" :posts="posts")
     Footer
 </template>
@@ -139,6 +139,10 @@ export default {
       color: black
   .blog-body
     margin-top: 1em
+    .blog-index
+      flex: 0
+      @media(max-width: 768px)
+        display: none
   .blog-posts
     display: flex
     flex-direction: column
