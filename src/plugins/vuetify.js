@@ -35,7 +35,6 @@ import Vuetify, {
 } from "vuetify/lib";
 import "vuetify/src/stylus/app.styl";
 import { Ripple } from "vuetify/lib/directives";
-import colors from "vuetify/es5/util/colors";
 
 Vue.use(Vuetify, {
   components: {

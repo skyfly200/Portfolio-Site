@@ -69,7 +69,8 @@ export default {
     },
     loadPost: function() {
       let url =
-        "https://skylerflyserver.appspot.com/posts/post/" + this.$route.params.id;
+        "https://skylerflyserver.appspot.com/posts/post/" +
+        this.$route.params.id;
       this.axios
         .get(url)
         .then(response => {
@@ -125,9 +126,13 @@ export default {
   body
     margin: 0
     .blog
-      padding-bottom: 20px
+      display: flex
+      flex-flow: column
+      height: 100%
       background-color: $color-primary-4
       color: white
+    .container
+      flex-grow : 1
     footer
       background-color: $color-primary-4
       h4

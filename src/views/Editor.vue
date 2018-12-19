@@ -77,6 +77,7 @@
                 v-switch#post-id-field(v-model="post.canComment" label="Post Comments")
               ul.errors
                 li.error(v-for="error in errors") {{ error }}
+              p.saved-timestamp(v-if="saved") Saved: {{ formatDatetime(saved) }}
               v-btn(color="success" type="submit" large @click="publishPost") Publish
               router-link(to="/blog")
                 v-btn(v-if="post.published === ''" color="primary" large) Save
@@ -100,6 +101,7 @@ export default {
     Drawer
   },
   created() {
+    this.$store.commit("setDrawer", false);
     this.axios
       .get("https://skylerflyserver.appspot.com/tags")
       .then(response => {
@@ -273,15 +275,16 @@ export default {
 <style lang="sass">
   html
     margin: 0
-    body
-      background-color: $color-primary-4
-      color: white
   #editor
-    min-height: 100vh
     #editor-header
       text-align: center
     .v-autocomplete .v-chip
       border: none
       color: white
       background-color: $color-secondary-2-1
+    height: 100%
+    background-color: $color-primary-4
+    color: white
+  .container
+    flex-grow: 1
 </style>

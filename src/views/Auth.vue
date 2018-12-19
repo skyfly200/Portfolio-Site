@@ -72,6 +72,9 @@ export default {
       }
     };
   },
+  created() {
+    this.$store.commit("setDrawer", false);
+  },
   methods: {
     toggleShowPass() {
       this.show = !this.show;
@@ -130,5 +133,11 @@ export default {
 <style lang="sass" scoped>
   .auth
     text-align: center
-
+    display: flex
+    flex-flow: column
+    height: 100%
+    background-color: $color-primary-4
+    color: white
+  .container
+    flex-grow: 1
 </style>

@@ -18,7 +18,7 @@
               svg.fas.fa-lg.fa-clock
           router-link(:to="'/blog/edit/' + id")
             svg.fas.fa-lg.fa-edit
-          a(@click.prevent="deleteConfirm" href="#")
+          a(@click.stop="deleteConfirm = true" href="#")
             svg.fas.fa-lg.fa-trash
         v-menu#post-ctrls-col.m-md-2(variant="link" right no-caret)
           template(slot="activator")
@@ -67,6 +67,17 @@
       v-list.edits
         li(v-for="(item,index) in edits")
           router-link(:to="'/blog/post/' + id + '/' + index") {{ formatDatetime(item.edited) }}
+    v-dialog(v-model='deleteConfirm', max-width='290')
+      v-card
+        v-card-title.headline Are you sure you want to delete this post?
+        v-card-text
+          | This will permanently delete the post titled {{ title }}! Please confirm.
+        v-card-actions
+          v-spacer
+          v-btn(color='green darken-1', flat='flat', @click='deleteConfirm = false')
+            | Cancel
+          v-btn(color='red darken-1', flat='flat', @click='deletePost')
+            | Confirm
 </template>
 
 <script>
@@ -93,7 +104,8 @@ export default {
   },
   data() {
     return {
-      showEdits: false
+      showEdits: false,
+      deleteConfirm: false
     };
   },
   computed: {
@@ -143,20 +155,8 @@ export default {
       this.axios
         .delete("https://skylerflyserver.appspot.com/posts/post/" + this.id, {})
         .then(res => {
+          this.deleteConfirm = false;
           if (res.data.result.indexUpdates > 0) this.$emit("refresh");
-        })
-        .catch(() => {});
-    },
-    deleteConfirm() {
-      let message = {
-        title: "Confirm Delete Post",
-        body: "Are you sure you want to permanently delete this Post?"
-      };
-      var post = this;
-      this.$dialog
-        .confirm(message)
-        .then(function() {
-          post.deletePost();
         })
         .catch(() => {});
     }

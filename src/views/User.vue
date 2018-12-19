@@ -19,16 +19,27 @@ export default {
     Menu,
     Drawer
   },
+  created() {
+    this.$store.commit("setDrawer", false);
+  },
   computed: {
     name: function() {
       return this.$store.getters.name;
     },
     isAdmin: function() {
       return this.$store.getters.isAdmin;
-    },
+    }
   }
 };
 </script>
 
 <style lang="sass" scoped>
+  .user
+    display: flex
+    flex-flow: column
+    height: 100%
+    background-color: $color-primary-4
+    color: white
+  .container
+    flex-grow: 1
 </style>
