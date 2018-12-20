@@ -10,11 +10,7 @@ module.exports = {
         .use("sass-resources-loader")
         .loader("sass-resources-loader")
         .options({
-          resources: [
-            "./src/styles/vars.sass",
-            "./src/styles/mixins.sass",
-            "./src/styles/base.sass"
-          ]
+          resources: ["./src/styles/vars.sass",   "./src/styles/mixins.sass"]
         })
         .end();
     });
