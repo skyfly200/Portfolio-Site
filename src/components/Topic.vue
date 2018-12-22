@@ -48,6 +48,7 @@ export default {
       @extend .flex-box-center
       color: $grey-0
       .topic-icon
+        margin: 10px
         padding: 0px
         text-shadow: 2px 5px 15px rgba(0,0,0,1)
         transition: text-shadow
@@ -62,6 +63,7 @@ export default {
     .topic-title
       text-align: center
       text-shadow: 0px 2px 5px rgba(0,0,0,0.75)
+      margin: 10px
 
     .topic-list
       text-align: center
