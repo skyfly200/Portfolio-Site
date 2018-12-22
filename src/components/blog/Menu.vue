@@ -21,6 +21,7 @@ export default {
 
 <style lang="sass" scoped>
   .blog-menu
+    font-size: 1.5em
     .nav-link
       display: flex
       align-items: center

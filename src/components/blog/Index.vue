@@ -32,6 +32,7 @@ export default {
     flex-direction: column
     text-align: right
     padding: 1em
+    font-size: 1.2em
     .v-chip
       border: none
       color: white

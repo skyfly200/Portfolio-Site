@@ -180,7 +180,6 @@ export default {
     .post-header
       display: flex
       justify-content: space-between
-      margin: -10px 0 -16px 0
       .post-title
         margin-top: 5px
         font-size: 1.5rem
@@ -206,6 +205,8 @@ export default {
 
     .post-body
       width: 100%
+      margin: 15px
+      min-height: 25vh
       img
         width: 100%
         height: auto
