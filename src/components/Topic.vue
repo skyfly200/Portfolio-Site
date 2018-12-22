@@ -6,9 +6,8 @@
           svg.fas.fa-circle.fa-stack-2x
           svg.fa.fa-stack-1x.fa-inverse(:class="icon")
     .topic-title
-      h2 {{ name }}
-    .topic-cont
-      .topic-short
+      h1 {{ name }}
+    .topic-list
         p(v-for="line in summary") {{ line }}
 </template>
 
@@ -43,6 +42,7 @@ export default {
     flex-basis: 25%
     animation: 500ms ease-in-out 1 fadeIn
     transition: all 200ms
+    text-decoration: none
 
     .icon-box
       @extend .flex-box-center
@@ -54,34 +54,25 @@ export default {
         .fa-circle
           width: 1em
 
-    .fa-inverse
-      color: $color-primary-1
-      text-shadow: none
-      text-shadow: 0px 0px 1px rgba(255,255,255,0.75)
+      .fa-inverse
+        color: $color-primary-1
+        text-shadow: none
+        text-shadow: 0px 0px 1px rgba(255,255,255,0.75)
 
     .topic-title
       text-align: center
       text-shadow: 0px 2px 5px rgba(0,0,0,0.75)
 
-    .topic-short
+    .topic-list
       text-align: center
-      font-size: 135%
-
-    .topic-close
-      display: none
-      float: right
-      position: relative
-      top: -9.5vh
-      right: 3vh
-      a
-        color: #FFF
-      @media (max-width: 320px)
-        top: -12vh
-        right: 1vh
+      font-size: 125%
+      color: $grey-0
 
     &:hover
       background-color: $grey-0
       color: #FFF
+      .topic-list
+        color: #FFF
       .topic-icon
         color: $color-primary-4
         .fa-inverse
@@ -95,42 +86,4 @@ export default {
     @media (max-width: 570px)
       max-width: 100%
       flex: 100%
-
-    &.topic-expanded
-      order: -1
-      flex: 100%
-      max-width: 100%
-      //min-height: 100vh
-      color: #FFF
-      background-color: $grey-0
-      padding: 0px
-      .icon-box
-        float: left
-        z-index: 21
-      .topic-icon
-        color: $color-primary-4
-        .fa-inverse
-          color: #FFF
-          text-shadow: 0px 0px 5px rgba(255,255,255,0.75)
-      .topic-title
-        text-align: left
-        position: relative
-        padding: 0px
-        margin: 0px
-        top: 5px
-        left: 20px
-        @media (max-width: 400px)
-          h2
-            font-size: 1.8em
-        @media (max-width: 350px)
-          h2
-            font-size: 1.5em
-      .topic-short
-        display: none
-      .topic-close
-        display: block
-        margin-top: 10px
-      .topic-full
-        display: flex
-        justify-content: center
 </style>

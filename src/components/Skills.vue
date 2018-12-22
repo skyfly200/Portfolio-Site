@@ -159,17 +159,18 @@ export default {
 </script>
 
 <style lang="sass">
-  // Skills Styles
   .topics-container
     width: 100%
     min-height: 100vh
     @include card-depth(2)
 
     .topics-header
+      color: $grey-0
       width: 100%
       padding: 30px 20px
       text-align: center
       .topics-heading
+        color: black
         display: flex
         justify-content: center
         flex-wrap: wrap
