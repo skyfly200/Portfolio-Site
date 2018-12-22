@@ -6,13 +6,8 @@
         .welcome-heading.wow
           h2 Welcome
         .welcome-blurb.wow
-          p
-          | I'm Skyler and I dabble in a diverse range of fascinating interests.
-          | A core thread that ties these areas together is a desire to create seamless, intuitive and awe inspiring expierences.
-          p
-          | Learning new things is a top priority. I am a lifelong learner, finding new concepts and perspectives every day.
-          | Below I have distilled an array of projects and content showcasing my most potent passions and talents.
-          | I will be regularly updating this site, so be sure to check back to see what I am up to.
+          p I'm Skyler and I dabble in a diverse range of fascinating interests. A core thread that ties these areas together is a desire to create seamless, intuitive and awe inspiring expierences.
+          p Learning new things is a top priority. I am a lifelong learner, finding new concepts and perspectives every day. Below I have distilled an array of projects and content showcasing my most potent passions and talents. I will be regularly updating this site, so be sure to check back to see what I am up to.
         .welcome-social.wow
           a(href="https://github.com/skyfly200", target="_blank")
             svg.fab.fa-github.fa-2x
@@ -68,16 +63,10 @@ export default {
         color: white
         .welcome-heading h2
           font-size: 2em
-        .welcome-blurb
-          font-size: 1.1em
 
         @media (max-width: 600px)
           .welcome-heading h2
             font-size: 2.5em
-          .welcome-blurb
-            font-size: 1.3em
-
-
 
     .welcome-img
       margin: 10px 10px 25px 10px

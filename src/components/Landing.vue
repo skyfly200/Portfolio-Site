@@ -12,8 +12,8 @@
             svg.fa.fa-magic.fa-sm
 
         .landing-statement
-          h4 "Any sufficiently advanced technology is indistinguishable from magic"
-          h5 Arthur C. Clarke
+          h3 "Any sufficiently advanced technology is indistinguishable from magic"
+          h4 Arthur C. Clarke
 
     a.scroll-hint(href="#welcome")
       svg.fa.fa-angle-down.fa-3x
