@@ -1,5 +1,5 @@
 <template lang="pug">
-  .audio-eng.skill
+  v-card.audio-eng.skill
     .audio-info
       p
         | With an comprehensive understanding of signal flow and equipment, as well as a well refined ear,
@@ -37,8 +37,8 @@ export default {
     display: flex
     justify-content: center
     text-align: center
-    color: #000
-    background: rgba(255,255,255,0.75)
+    color: white
+    padding: 2em
     .audio-info
       width: 60%
       margin: 10px

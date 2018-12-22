@@ -1,5 +1,5 @@
 <template lang="pug">
-  .back-end.skill
+  v-card.back-end.skill
     .skills-list
       h2 Back End Skills
       ul
@@ -43,9 +43,9 @@ export default {
 
 <style lang="sass">
   .back-end
+    padding: 2em
     display: flex
-    background: rgba(255,255,255,0.75)
-    color: #000
+    color: white
     .skills-list
       margin: 0px auto
     .projects-list

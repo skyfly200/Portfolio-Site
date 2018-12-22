@@ -1,5 +1,5 @@
 <template lang="pug">
-  .dev-ops.skill
+  v-card.dev-ops.skill
     .skills-list
       h2 Experience and Skillset
       ul
@@ -36,10 +36,10 @@ export default {
 
 <style lang="sass">
   .dev-ops
+    padding: 2em
     display: flex
     justify-content: center
-    color: #000
-    background: rgba(255,255,255,0.75)
+    color: white
     .skills-list
       margin: 0px auto
       li

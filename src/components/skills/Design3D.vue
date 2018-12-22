@@ -1,5 +1,5 @@
 <template lang="pug">
-  ._3d.skill
+  v-card._3d.skill
     .info-3d
       h2 Exploring new dimensions of posibility
       p
@@ -39,10 +39,10 @@ export default {
 
 <style lang="sass">
   ._3d
+    padding: 2em
     display: flex
     justify-content: center
-    color: black
-    background: rgba(255,255,255,0.75)
+    color: white
     box-shadow: 2px 5px 5px black
     &.topic-expanded
       display: flex

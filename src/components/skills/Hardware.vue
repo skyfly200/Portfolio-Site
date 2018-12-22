@@ -1,5 +1,5 @@
 <template lang="pug">
-  .hardware.skill
+  v-card.hardware.skill
     .hardware-info
       .projects-list
         h2 Hardware Projects Firmware
@@ -38,9 +38,8 @@ export default {
     display: flex
     justify-content: center
     width: 100%
-    background: rgba(255,255,255,0.75)
-    color: #000
-    padding: 20px
+    color: white
+    padding: 2em
     .hardware-info
       text-align: center
       margin: auto
