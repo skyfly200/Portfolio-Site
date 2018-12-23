@@ -19,18 +19,18 @@
         li
           a(href="//github.com/skyfly200/PythonProcessBabysitter" target="_blank") Process BabySitter
 
-      .github-button
-        a(href="//github.com/skyfly200" target="_blank")
-          button
-            svg.fab.fa-github.fa-2x
-            .label &nbsp;More on GitHub
+      GitHubBtn
 
 </template>
 
 <script>
+import GitHubBtn from "@/components/GitHubBtn.vue";
+
 export default {
   name: "dev-ops",
-  components: {}
+  components: {
+    GitHubBtn
+  }
 };
 </script>
 
@@ -49,8 +49,6 @@ export default {
       padding: 0px 10px
       li
         font-size: 1.2em
-      .github-button button
-        min-width: 292px
 
     @media (max-width: 660px)
       flex-direction: column

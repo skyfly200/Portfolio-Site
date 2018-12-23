@@ -13,13 +13,7 @@
           li
             a(href="//github.com/skyfly200/HalloweenCostume2014" target="_blank") HalloweenCostume2014
 
-        .github-button
-          a(href="//github.com/skyfly200" target="_blank")
-            button
-              svg.fab.fa-github.fa-2x
-              .label &nbsp;More on GitHub
-
-
+      GitHubBtn
 
     .hardware-img
       img(src="/images/hardware/HW-p1.jpg" alt="Arduino music reactive lights")
@@ -27,9 +21,13 @@
 </template>
 
 <script>
+import GitHubBtn from "@/components/GitHubBtn.vue";
+
 export default {
   name: "hardware",
-  components: {}
+  components: {
+    GitHubBtn
+  }
 };
 </script>
 
@@ -43,9 +41,6 @@ export default {
     .hardware-info
       text-align: center
       margin: auto
-      .github-button
-        display: flex
-        justify-content: center
 
     .hardware-img
       float: right

@@ -26,18 +26,18 @@
         li
           a(href="//github.com/skyfly200/Radio-Network-Hub" target="_blank") Radio Network Control System
 
-        .github-button
-          a(href="//github.com/skyfly200" target="_blank")
-            button
-              svg.fab.fa-github.fa-2x
-              .label &nbsp;More on GitHub
+        GitHubBtn
 
 </template>
 
 <script>
+import GitHubBtn from "@/components/GitHubBtn.vue";
+
 export default {
   name: "back-end",
-  components: {}
+  components: {
+    GitHubBtn
+  }
 };
 </script>
 
