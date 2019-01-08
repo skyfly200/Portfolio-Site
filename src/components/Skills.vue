@@ -16,9 +16,8 @@
           v-btn(outline icon small color="primary" href="#skills" @click="clearTopic")
             v-icon fa-times
 
-        FrontEnd(v-if="feature == 'front-end'")
-        BackEnd(v-if="feature == 'back-end'")
-        DevOps(v-if="feature == 'dev-ops'")
+        Web(v-if="feature == 'web'")
+        Linux(v-if="feature == 'linux'")
         Hardware(v-if="feature == 'hardware'")
         AudioEng(v-if="feature == 'audios'")
         Design3D(v-if="feature == '_3d'")
@@ -34,9 +33,8 @@ export default {
   name: "skills",
   components: {
     Topic,
-    FrontEnd: () => import("@/components/skills/FrontEnd.vue"),
-    BackEnd: () => import("@/components/skills/BackEnd.vue"),
-    DevOps: () => import("@/components/skills/DevOps.vue"),
+    Web: () => import("@/components/skills/Web.vue"),
+    Linux: () => import("@/components/skills/Linux.vue"),
     Hardware: () => import("@/components/skills/Hardware.vue"),
     AudioEng: () => import("@/components/skills/AudioEng.vue"),
     Design3D: () => import("@/components/skills/Design3D.vue"),
@@ -73,9 +71,9 @@ export default {
     return {
       topics: {
         frontEnd: {
-          name: "Front End",
+          name: "Web",
           icon: "fa-code",
-          hash: "front-end",
+          hash: "web",
           summary: [
             "HTML5, CSS3, JS, jQuery",
             "SASS, Jade, Bootstrap",
@@ -83,23 +81,13 @@ export default {
           ]
         },
         backEnd: {
-          name: "Back End",
+          name: "Linux",
           icon: "fa-cogs",
-          hash: "back-end",
+          hash: "linux",
           summary: [
             "Python, PHP, JS, C",
-            "Node, Express, SQL",
-            "REST, Data Structures"
-          ]
-        },
-        devOps: {
-          name: "Dev Ops",
-          icon: "fa-terminal",
-          hash: "dev-ops",
-          summary: [
-            "Linux Admin, Terminal Skills",
-            "Apache, MySQL, FTP, SSH",
-            "Digital Ocean, Lets Encrypt"
+            "Apache, Express, Nginx",
+            "Icecast2, GCP, DO"
           ]
         },
         hardware: {

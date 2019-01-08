@@ -1,20 +1,19 @@
 <template lang="pug">
   v-card.back-end.skill
     .skills-list
-      h2 Back End Skills
+      h2 Linux Skills
       ul
-        li Node JS and NPM
-        li PHP
-        li MySql and SQLite
-        li Python Scripting
-        li C compiled with Clang
-        li SSH Access
-        li Bash, Shell Scripts and Cron
-        li Virtual Box VMs
-        li Digital Ocean VMs
-        li Lets Encrypt
-        li Mailgun
-        li DNS Configuration
+        li Apache, Nginx, Express
+        li MySql, MariaDB, SQLite, Mongo
+        li Python, C, PHP, Node
+        li SSH, SCP, SFTP
+        li Bash, Shell, Cron
+        li Networks
+        li Docker
+        li Virtual Box
+        li Digital Ocean Spaces
+        li Lets Encrypt Certbot
+        li Icecast2
 
     .projects-list
       h2 Some of My Projects
@@ -34,7 +33,7 @@
 import GitHubBtn from "@/components/GitHubBtn.vue";
 
 export default {
-  name: "back-end",
+  name: "linux",
   components: {
     GitHubBtn
   }
