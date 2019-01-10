@@ -1,13 +1,14 @@
 <template lang="pug">
   .web.skill
-    h1 This portfolio site is built with these modern tools
+    h1 This portfolio site is built on my favorite modern stack
     br
-    v-container(fluid grid-list)
-      v-layout(row wrap).logos
-        v-flex(v-for="logo in siteTools")
-          a(:href="logo.url" target="_blank").logo-card
-            v-img(:src="'/images/front-end/logos/' + logo.img" :id="logo.id" contain).logo
-            h4 {{ logo.caption }}
+    v-card.ma-2
+      v-container(fluid grid-list)
+        v-layout(row wrap).logos
+          v-flex(v-for="logo in siteTools").logo-flex
+            a(:href="logo.url" target="_blank").logo-card
+              v-img(:src="'/images/front-end/logos/' + logo.img" :id="logo.id" contain).logo
+              h4 {{ logo.caption }}
 
     br
     .site-github.github-button
@@ -16,15 +17,19 @@
         span &nbsp;View Source
 
     br
-    h1 Some other tools I use
+    h1 Some other tools I like to use
     br
-    v-container(fluid grid-list)
-      v-layout(row wrap).logos
-        v-flex(v-for="logo in allTools")
-          a(:href="logo.url" target="_blank").logo-card
-            v-img(:src="'/images/front-end/logos/' + logo.img" :id="logo.id" contain).logo
-            h4 {{ logo.caption }}
+    v-card.ma-2
+      v-container(fluid grid-list)
+        v-layout(row wrap).logos
+          v-flex(v-for="logo in allTools").logo-flex
+            a(:href="logo.url" target="_blank").logo-card
+              v-img(:src="'/images/front-end/logos/' + logo.img" :id="logo.id" contain).logo
+              h4 {{ logo.caption }}
+    p All product and company names and logos are trademarks™ or registered® trademarks of their respective holders.
+    p Use of them does not imply any affiliation with or endorsement by them.
     br
+    v-divider
     h1 Projects
     v-container(fluid grid-list-large)
       v-layout(row wrap)
@@ -78,6 +83,12 @@ export default {
           url: "https://pugjs.org"
         },
         {
+          caption: "GitHub",
+          id: "github-logo",
+          img: "github.png",
+          url: "https://github.com/"
+        },
+        {
           caption: "Netlify",
           id: "netlify-logo",
           img: "netlify.png",
@@ -90,19 +101,67 @@ export default {
           url: "https://cloud.google.com"
         }
       ],
-      sallTools: [
+      allTools: [
+        {
+          caption: "Python",
+          id: "python-logo",
+          img: "python.png",
+          url: "https://www.python.org/"
+        },
+        {
+          caption: "PHP",
+          id: "php-logo",
+          img: "php.png",
+          url: "http://php.net/"
+        },
         {
           caption: "JS",
           id: "js-logo",
           img: "js.png",
           url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+        },
+        {
+          caption: "React",
+          id: "react-logo",
+          img: "react.png",
+          url: "https://reactjs.org/"
+        },
+        {
+          caption: "Webpack",
+          id: "webpack-logo",
+          img: "webpack.png",
+          url: "https://webpack.js.org/"
+        },
+        {
+          caption: "Bootstrap",
+          id: "bootstrap-logo",
+          img: "bootstrap.svg",
+          url: "https://getbootstrap.com/"
+        },
+        {
+          caption: "VuePress",
+          id: "vuepress-logo",
+          img: "vuepress.png",
+          url: "https://vuepress.vuejs.org/"
+        },
+        {
+          caption: "Git",
+          id: "git-logo",
+          img: "git.png",
+          url: "https://git-scm.com/"
+        },
+        {
+          caption: "DigitalOcean",
+          id: "do-logo",
+          img: "do.png",
+          url: "https://www.digitalocean.com/"
         }
       ],
       sites: [
         {
           title: "Black Kettle Mountain Petition",
           img: "/images/front-end/black-kettle-mountain.png",
-          description: "Site Description",
+          description: "A petition to change the name of mount Evans to Black Kettle Mountain",
           tech: ["Vue", "Pug", "Sass", "Express", "Google Cloud"],
           url: "http://black-kettle-mountain.appspot.com/",
           repo: "https://github.com/skyfly200/black-kettle-mtn"
@@ -110,7 +169,7 @@ export default {
         {
           title: "Daniel Vega",
           img: "/images/front-end/daniel-vega.png",
-          description: "Site Description",
+          description: "Personal site, to share music compositions, events and blog about projects",
           tech: ["VuePress", "Vuetify", "NetlifyCMS"],
           url: "https://daniel-vega.netlify.com",
           repo: "https://github.com/skyfly200/Daniel-Vega-Site"
@@ -118,7 +177,7 @@ export default {
         {
           title: "Colorado Community Radio Network",
           img: "/images/front-end/coloradocommunityradio.png",
-          description: "Site Description",
+          description: "Official site to connect stations and share the purpose of our network",
           tech: ["PHP", "Bootstrap", "Digital Ocean"],
           url: "http://coloradocommunityradio.com",
           repo: "https://github.com/skyfly200/CCRN-Website"
@@ -126,7 +185,7 @@ export default {
         {
           title: "Polytope Solutions",
           img: "/images/front-end/PolytopeSolutions.png",
-          description: "Site Description",
+          description: "Modern tech solutions consulting brand",
           tech: ["Vue", "Vuetify", "Netlify Functions", "Mailgun"],
           url: "https://polytopesolutions.com/",
           repo: "https://github.com/skyfly200/Polytope-Solutions"
@@ -144,22 +203,31 @@ export default {
     text-align: center
     .logos
       display: flex
+      justify-content: flex-start
+      align-items: left
+    .logo-flex
       justify-content: center
-      align-items: center
+      width: 200px
+      @media (max-width: 700px)
+        width: 150px
     .logo-card
       display: flex
       flex-direction: column
       align-items: center
-      width: 150px
+        width: 200px
+      @media (max-width: 700px)
+        width: 150px
       h4
         text-align: center
         color: $color-secondary-2-0
     .logo
-      width: 150px
-      height: 150px
+      margin: 30px
+      width: 100px
+      height: 100px
       @media (max-width: 700px)
-        width: 100px
-        height: 100px
+        margin: 15px
+        width: 75px
+        height: 75px
     .github-button
       display: flex
       justify-content: center
