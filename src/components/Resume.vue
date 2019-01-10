@@ -42,7 +42,7 @@ export default {
       align-items: center
       margin-bottom: 40px
       button.resume-btn
-        width: 200px
+        min-width: 200px
         display: flex
         justify-content: center
         align-items: center

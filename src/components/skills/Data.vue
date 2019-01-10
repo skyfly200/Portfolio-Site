@@ -9,15 +9,16 @@
           li
             p Tuning an aftermarket Air to Fuel system on a Porshe 911
 
-
     .hardware-img
       img(src="/images/hardware/HW-p1.jpg" alt="Arduino music reactive lights")
 
 </template>
 
 <script>
+import GitHubBtn from "@/components/GitHubBtn.vue";
+
 export default {
-  name: "hardware",
+  name: "datas",
   components: {
     GitHubBtn
   }

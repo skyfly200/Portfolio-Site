@@ -23,7 +23,7 @@
         Design3D(v-if="feature == '_3d'")
         Videography(v-if="feature == 'videos'")
         Photo(v-if="feature == 'photos'")
-        Data(v-if="feature == 'data'")
+        Datas(v-if="feature == 'data'")
 
 </template>
 
@@ -40,7 +40,7 @@ export default {
     AudioEng: () => import("@/components/skills/AudioEng.vue"),
     Design3D: () => import("@/components/skills/Design3D.vue"),
     Photo: () => import("@/components/skills/Photo.vue"),
-    Data: () => import("@/components/skills/Data.vue"),
+    Datas: () => import("@/components/skills/Data.vue"),
     Videography: () => import("@/components/skills/Videography.vue")
   },
   computed: {

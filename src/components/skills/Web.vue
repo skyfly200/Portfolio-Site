@@ -163,7 +163,7 @@ export default {
         {
           title: "Daniel Vega",
           img: "/images/front-end/daniel-vega.png",
-          description: "Personal site, to share music compositions, events and blog about projects",
+          description: "Personal site, to share music compositions, events and blog about projects. Built with VuePress and NetlifyCMS to add data editing.",
           tech: ["VuePress", "Vuetify", "NetlifyCMS"],
           url: "https://daniel-vega.netlify.com",
           repo: "https://github.com/skyfly200/Daniel-Vega-Site"
