@@ -9,9 +9,6 @@
           li
             p Tuning an aftermarket Air to Fuel system on a Porshe 911
 
-    .hardware-img
-      img(src="/images/hardware/HW-p1.jpg" alt="Arduino music reactive lights")
-
 </template>
 
 <script>
@@ -26,15 +23,16 @@ export default {
 </script>
 
 <style lang="sass">
-  .hardware
+  .data
     display: flex
     justify-content: center
     width: 100%
     color: white
     padding: 2em
-    .hardware-info
+    .data-info
       text-align: center
       margin: auto
+      padding: 10px
 
     .hardware-img
       float: right
