@@ -83,12 +83,6 @@ export default {
           url: "https://pugjs.org"
         },
         {
-          caption: "GitHub",
-          id: "github-logo",
-          img: "github.png",
-          url: "https://github.com/"
-        },
-        {
           caption: "Netlify",
           id: "netlify-logo",
           img: "netlify.png",
