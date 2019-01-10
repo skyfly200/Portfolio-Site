@@ -11,12 +11,7 @@
               h4 {{ logo.caption }}
 
     br
-    GitHubBtn(text="View Source")
-    .site-github.github-button
-      v-btn(href="https://github.com/skyfly200/Portfolio-Site" target="_blank" color="primary")
-        svg.fab.fa-github.fa-lg
-        span &nbsp;View Source
-
+    GitHubBtn(text="View Source" repo="Portfolio-Site")
     br
     h1 Some other tools I like to use
     br
@@ -227,14 +222,4 @@ export default {
         margin: 15px
         width: 75px
         height: 75px
-    .github-button
-      display: flex
-      justify-content: center
-      button
-        min-width: 355px
-        font-size: 2em
-        align-items: center
-        @media (max-width: 380px)
-          min-width: 240px
-          font-size: 1.3em
 </style>
