@@ -23,6 +23,7 @@
         Design3D(v-if="feature == '_3d'")
         Videography(v-if="feature == 'videos'")
         Photo(v-if="feature == 'photos'")
+        Data(v-if="feature == 'data'")
 
 </template>
 
@@ -39,6 +40,7 @@ export default {
     AudioEng: () => import("@/components/skills/AudioEng.vue"),
     Design3D: () => import("@/components/skills/Design3D.vue"),
     Photo: () => import("@/components/skills/Photo.vue"),
+    Data: () => import("@/components/skills/Data.vue"),
     Videography: () => import("@/components/skills/Videography.vue")
   },
   computed: {
@@ -75,9 +77,9 @@ export default {
           icon: "fa-code",
           hash: "web",
           summary: [
-            "HTML5, CSS3, JS, jQuery",
-            "SASS, Jade, Bootstrap",
-            "Responsive Design"
+            "ReactJS, Vue, VanillaJS",
+            "SASS, Pug, HTML5, CSS3",
+            "Responsive Designs"
           ]
         },
         backEnd: {
@@ -138,6 +140,16 @@ export default {
             "Videography, Audio, Directing",
             "Editing, Effects, Animation",
             "Premiere, After Effects"
+          ]
+        },
+        data: {
+          name: "Data",
+          icon: "fa-database",
+          hash: "data",
+          summary: [
+            "ODK, GIS, Visualization",
+            "GPS, Sensors, APIs",
+            "CSV, JSON, SQL"
           ]
         }
       }

@@ -11,6 +11,7 @@
               h4 {{ logo.caption }}
 
     br
+    GitHubBtn(text="View Source")
     .site-github.github-button
       v-btn(href="https://github.com/skyfly200/Portfolio-Site" target="_blank" color="primary")
         svg.fab.fa-github.fa-lg
@@ -52,9 +53,13 @@
 </template>
 
 <script>
+import GitHubBtn from "@/components/GitHubBtn.vue";
+
 export default {
   name: "web",
-  components: {},
+  components: {
+    GitHubBtn
+  },
   data: function() {
     return {
       siteTools: [

@@ -2,12 +2,13 @@
   .github-button
     v-btn(href="//github.com/skyfly200" target="_blank")
       svg.fab.fa-github.fa-2x
-      span.label &nbsp;More on GitHub
+      span.label &nbsp;{{ text ? text : "More on GitHub" }}
 </template>
 
 <script>
 export default {
   name: "github-btn",
+  props: ["text"],
   components: {}
 };
 </script>
