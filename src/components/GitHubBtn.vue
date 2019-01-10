@@ -1,20 +1,22 @@
 <template lang="pug">
-  .github-button
-    v-btn(href="//github.com/skyfly200" target="_blank")
-      svg.fab.fa-github.fa-2x
-      span.label &nbsp;More on GitHub
+  Btn(:text="text ? text : 'More on GitHub'" :url="repo" icon="fa-github")
 </template>
 
 <script>
+import Btn from "@/components/Btn.vue";
+
 export default {
   name: "github-btn",
-  components: {}
+  props: ["text", "repo"],
+  data: function() {
+    return {
+      url: this.repo
+        ? "//github.com/skyfly200/" + this.repo
+        : "//github.com/skyfly200"
+    };
+  },
+  components: { Btn }
 };
 </script>
-
 <style lang="sass" scoped>
-  .github-button button
-    min-width: 292px
-    display: flex
-    justify-content: center
 </style>

@@ -41,6 +41,7 @@ export default {
     .hardware-info
       text-align: center
       margin: auto
+      padding: 10px
 
     .hardware-img
       float: right

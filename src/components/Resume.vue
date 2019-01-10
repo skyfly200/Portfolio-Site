@@ -6,12 +6,12 @@
     .resume-buttons.wow.fadeInUp
       a(href="https://docs.google.com/document/d/1LhEbXxxuoJ2cZf7JwBqwVxxfu7WX4ovKvswWQmyxmn0/edit?usp=sharing", target="_blank")
         button.resume-btn.btn.btn-default.wow.zoomIn
-          svg.fa.fa-cogs &nbsp;
-          .btn-text Software
+          svg.fa.fa-cogs
+          .btn-text &nbsp;Software
       a(href="https://docs.google.com/document/d/1SrNxaV6kmGSgyJfo2iXVY9L-e66pVPKJBvSu4CQSrsk/edit?usp=sharing", target="_blank")
         button.resume-btn.btn.btn-default.wow.zoomIn
-          svg.fa.fa-film &nbsp;
-          .btn-text Multimedia
+          svg.fa.fa-film
+          .btn-text &nbsp;Multimedia
 
 </template>
 
@@ -42,7 +42,7 @@ export default {
       align-items: center
       margin-bottom: 40px
       button.resume-btn
-        width: 200px
+        min-width: 200px
         display: flex
         justify-content: center
         align-items: center
