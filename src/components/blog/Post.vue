@@ -205,12 +205,13 @@ export default {
 
     .post-body
       width: 100%
-      margin: 15px
+      margin-top: 15px
       min-height: 25vh
       img
         width: 100%
         height: auto
     .post-footer
+      margin-top: 15px
       display: flex
       justify-content: space-between
       flex-wrap: wrap-reverse

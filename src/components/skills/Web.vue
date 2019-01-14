@@ -155,7 +155,8 @@ export default {
         {
           title: "Black Kettle Mountain Petition",
           img: "/images/front-end/black-kettle-mountain.png",
-          description: "A petition to change the name of mount Evans to Black Kettle Mountain",
+          description:
+            "A petition to change the name of mount Evans to Black Kettle Mountain",
           tech: ["Vue", "Pug", "Sass", "Express", "Google Cloud"],
           url: "http://black-kettle-mountain.appspot.com/",
           repo: "https://github.com/skyfly200/black-kettle-mtn"
@@ -163,7 +164,8 @@ export default {
         {
           title: "Daniel Vega",
           img: "/images/front-end/daniel-vega.png",
-          description: "Personal site, to share music compositions, events and blog about projects. Built with VuePress and NetlifyCMS to add data editing.",
+          description:
+            "Template for a VuePress and NetlifyCMS based portfolio with a blog.",
           tech: ["VuePress", "Vuetify", "NetlifyCMS"],
           url: "https://daniel-vega.netlify.com",
           repo: "https://github.com/skyfly200/Daniel-Vega-Site"
@@ -171,7 +173,8 @@ export default {
         {
           title: "Colorado Community Radio Network",
           img: "/images/front-end/coloradocommunityradio.png",
-          description: "Official site to connect stations and share the purpose of our network",
+          description:
+            "Official site to connect stations and share the purpose of our network",
           tech: ["PHP", "Bootstrap", "Digital Ocean"],
           url: "http://coloradocommunityradio.com",
           repo: "https://github.com/skyfly200/CCRN-Website"
@@ -179,7 +182,7 @@ export default {
         {
           title: "Polytope Solutions",
           img: "/images/front-end/PolytopeSolutions.png",
-          description: "Modern tech solutions consulting brand",
+          description: "Tech solutions consulting brand",
           tech: ["Vue", "Vuetify", "Netlify Functions", "Mailgun"],
           url: "https://polytopesolutions.com/",
           repo: "https://github.com/skyfly200/Polytope-Solutions"

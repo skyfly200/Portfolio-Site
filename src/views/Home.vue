@@ -3,6 +3,7 @@
     Landing
     Welcome
     Skills
+    BlogFeature
     Resume
     Contact
     Footer
@@ -13,6 +14,7 @@
 import Landing from "@/components/Landing.vue";
 import Welcome from "@/components/Welcome.vue";
 import Skills from "@/components/Skills.vue";
+import BlogFeature from "@/components/BlogFeature.vue";
 import Resume from "@/components/Resume.vue";
 import Contact from "@/components/Contact.vue";
 import Footer from "@/components/Footer.vue";
@@ -23,6 +25,7 @@ export default {
     Landing,
     Welcome,
     Skills,
+    BlogFeature,
     Resume,
     Contact,
     Footer
