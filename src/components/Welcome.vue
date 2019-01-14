@@ -3,12 +3,12 @@
   .welcome#welcome
     .welcome-block
       .welcome-content
-        .welcome-heading.wow
+        .welcome-heading(data-aos="fade" data-aos-delay="100")
           h2 Welcome
-        .welcome-blurb.wow
+        .welcome-blurb(data-aos="fade" data-aos-delay="100")
           p I dabble in a diverse range of fascinating interests. A core thread that ties these areas together is a desire to create seamless, intuitive and awe inspiring expierences.
           p Learning new things is a top priority. I am a lifelong learner, finding new concepts and perspectives every day. Below I have distilled an array of projects and content showcasing my most potent passions and talents. I will be regularly updating this site, so be sure to check back to see what I am up to.
-        .welcome-social.wow
+        .welcome-social
           a(href="https://github.com/skyfly200", target="_blank")
             svg.fab.fa-github.fa-2x
           a(href="http://codepen.io/skyfly200/", target="_blank")
@@ -18,7 +18,7 @@
           a(href="mailto:skyler@skylerfly.com", target="_blank")
             svg.fa.fa-envelope.fa-2x
 
-    .welcome-img.wow
+    .welcome-img(data-aos="fade-left" data-aos-delay="100")
       img(src="/images/bio-img.jpg" alt="A picture of me")
 </template>
 
@@ -43,14 +43,12 @@ export default {
       @extend .flex-box-center
       padding: 10px 20px
       text-shadow: 0px 0px 5px rgba(0,0,0,0.4)
-      animation: 200ms ease-out 1 forwards fadeIn
       h2
         text-shadow: 0px 0px 10px rgba(0,0,0,0.6)
       .welcome-social
         display: flex
         justify-content: space-around
         padding: 20px
-        animation: 300ms ease-out 1 forwards fadeInUp
         a
           transition: text-shadow 200ms
           &:hover, &:active
@@ -74,7 +72,6 @@ export default {
       border-radius: 50%
       background-color: $color-secondary-1-4
       box-shadow: 0px 8px 25px rgba(0,0,0,1)
-      animation: 500ms ease-out 1 forwards slideInRight
       img
         width: 40vw
         height: 40vw
