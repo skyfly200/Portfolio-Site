@@ -165,18 +165,18 @@ export default {
 </script>
 
 <style lang="sass">
-  body a
-    color: $color-secondary-2-1
-    &:visited, &:focus, &:active
-      color: $color-secondary-2-2
-    &:hover
-      color: $color-secondary-2-1
   .post
     width: 100%
     padding: 1em
     align-content: center
     color: white
     box-shadow: 0em 0em 1em 0.1em rgba(255,255,255,0.5)
+    a
+      color: $color-secondary-2-1
+      &:visited, &:focus, &:active
+        color: $color-secondary-2-2
+      &:hover
+        color: $color-secondary-2-1
     .post-header
       display: flex
       justify-content: space-between
