@@ -11,6 +11,10 @@ require("dotenv").config();
 import axios from "axios";
 import VueAxios from "vue-axios";
 
+// init AOS scroll animations library
+import AOS from "aos";
+AOS.init();
+
 // setup Vue plugins
 Vue.use(VueAxios, axios);
 

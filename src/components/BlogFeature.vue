@@ -1,13 +1,13 @@
 <template lang="pug">
   // Contact Info Section
   .blog-feature#blog-feature
-    .blog-feature-header
+    .blog-feature-header(data-aos="fade")
       h1 Latest from my Blog
     .blog-feature-body
       Post(v-for="post in posts" :admin="false"
-        v-bind="post" v-bind:key="post.id")
+        v-bind="post" v-bind:key="post.id" data-aos="zoom-in")
     .blog-feature-btn
-      v-btn(to="/blog") See All Posts
+      v-btn(to="/blog" large) See All Posts
 
 </template>
 

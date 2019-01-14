@@ -2,9 +2,9 @@
   // Contact Info Section
   .contact#contact
     .contact-block
-      .contact-header.wow.fadeIn
+      .contact-header(data-aos="fade" data-aos-delay="200")
         h1 Get in touch!
-      .contact-info.wow.fadeIn
+      .contact-info(data-aos="fade" data-aos-delay="400")
         a(href="mailto:skyler@skylerfly.com", target="_blank").contact-link.email
           h2 skyler@skylerfly.com
         a(href="tel:7203100607").contact-link.phone

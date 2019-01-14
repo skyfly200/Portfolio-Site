@@ -3,15 +3,15 @@
   .landing-wrapper
     .landing
       .landing-content
-        .landing-name
+        .landing-name(data-aos="fade" data-aos-delay="200")
           h1 Skyler
           h1 &nbsp;Fly-Wilson
 
-        .landing-caption
+        .landing-caption(data-aos="fade-up" data-aos-delay="400")
           h2 Multidisciplinary Magic&nbsp;
             svg.fa.fa-magic.fa-sm
 
-        .landing-statement
+        .landing-statement(data-aos="fade-up" data-aos-delay="600")
           h3 "Any sufficiently advanced technology is indistinguishable from magic"
           h4 Arthur C. Clarke
 
@@ -61,8 +61,6 @@ export default {
 
         .landing-name
           display: flex
-          opacity: 0
-          animation: 500ms ease-out 1 forwards 50ms fadeInDown
           h1
             padding: 0px
             margin: 0px
@@ -81,8 +79,6 @@ export default {
         .landing-caption
           margin-top: 10px
           text-shadow: 0px 1px 1px rgba(0,0,0,1)
-          opacity: 0
-          animation: 800ms ease-in-out 400ms 1 forwards fadeInUp
           h2
             margin: 0px
             padding: 0px
@@ -95,8 +91,6 @@ export default {
 
         .landing-statement
           margin: 50px
-          opacity: 0
-          animation: 300ms ease-in-out 1 forwards 800ms fadeInUp
 
           @media (max-width: 500px)
             flex-wrap: wrap
