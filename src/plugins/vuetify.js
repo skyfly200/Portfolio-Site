@@ -30,8 +30,7 @@ import Vuetify, {
   VTextField,
   VToolbar,
   VToolbarSideIcon,
-  VToolbarTitle,
-  transitions
+  VToolbarTitle
 } from "vuetify/lib";
 import "vuetify/src/stylus/app.styl";
 import { Ripple } from "vuetify/lib/directives";
@@ -67,8 +66,7 @@ Vue.use(Vuetify, {
     VTextField,
     VToolbar,
     VToolbarSideIcon,
-    VToolbarTitle,
-    transitions
+    VToolbarTitle
   },
   directives: {
     Ripple
