@@ -167,8 +167,8 @@ export default {
           description:
             "Template for a VuePress and NetlifyCMS based portfolio with a blog.",
           tech: ["VuePress", "Vuetify", "NetlifyCMS"],
-          url: "https://daniel-vega.netlify.com",
-          repo: "https://github.com/skyfly200/Daniel-Vega-Site"
+          url: "https://vuepress-theme.netlify.com/",
+          repo: "https://github.com/skyfly200/CMS-Template"
         },
         {
           title: "Colorado Community Radio Network",
