@@ -176,7 +176,6 @@ export default {
         justify-content: center
         flex-wrap: wrap
         h1
-          text-shadow: 0px 4px 15px #000
           margin: 0.5vh
           @media (max-width: 400px)
             font-size: 2em

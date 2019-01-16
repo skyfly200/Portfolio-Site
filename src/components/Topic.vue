@@ -62,7 +62,6 @@ export default {
 
     .topic-title
       text-align: center
-      text-shadow: 0px 2px 5px rgba(0,0,0,0.75)
       margin: 10px
 
     .topic-list

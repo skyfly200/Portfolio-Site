@@ -59,7 +59,7 @@ export default {
         box-shadow: 1px 2px 5px rgba(0,0,0,1)
         transition: all 150ms ease-in-out
         &:hover, &:active
-          box-shadow: 2px 5px 10px rgba(0,0,0,1)
+          box-shadow: 0px 5px 15px rgba(0,0,0,1)
           background-color: rgba(255,255,255,0.8)
           color: #000
 

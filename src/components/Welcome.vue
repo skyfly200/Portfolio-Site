@@ -42,17 +42,15 @@ export default {
     .welcome-block
       @extend .flex-box-center
       padding: 10px 20px
-      text-shadow: 0px 0px 5px rgba(0,0,0,0.4)
-      h2
-        text-shadow: 0px 0px 10px rgba(0,0,0,0.6)
       .welcome-social
         display: flex
         justify-content: space-around
         padding: 20px
-        a
-          transition: text-shadow 200ms
-          &:hover, &:active
-            text-shadow: 0px 10px 6px rgba(0,0,0,0.75)
+        a svg
+          transition: all 200ms
+          filter: drop-shadow( 0px 0px 0px rgba(0, 0, 0, .75))
+          &:hover
+            filter: drop-shadow( 0px 5px 2px rgba(0, 0, 0, .75))
 
       .welcome-content
         display: flex
