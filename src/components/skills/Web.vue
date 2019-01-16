@@ -162,7 +162,7 @@ export default {
           repo: "https://github.com/skyfly200/black-kettle-mtn"
         },
         {
-          title: "Daniel Vega",
+          title: "Custom VuePress Theme",
           img: "/images/front-end/daniel-vega.png",
           description:
             "Template for a VuePress and NetlifyCMS based portfolio with a blog.",
