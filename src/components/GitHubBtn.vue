@@ -1,5 +1,5 @@
 <template lang="pug">
-  Btn(:text="text ? text : 'More on GitHub'" :url="repo" icon="fa-github")
+  Btn(:text="text ? text : 'More on GitHub'" :url="url" icon="fa-github")
 </template>
 
 <script>
@@ -11,8 +11,8 @@ export default {
   data: function() {
     return {
       url: this.repo
-        ? "//github.com/skyfly200/" + this.repo
-        : "//github.com/skyfly200"
+        ? "https://github.com/skyfly200/" + this.repo
+        : "https://github.com/skyfly200"
     };
   },
   components: { Btn }
