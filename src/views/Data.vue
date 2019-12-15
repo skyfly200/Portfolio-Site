@@ -13,16 +13,6 @@
         li
           p Tuning an aftermarket Air to Fuel adjustment system on a Porshe 911
 
-    .data-embed
-      p.codepen(data-height='265', data-theme-id='0', data-slug-hash='aqemgp', data-default-tab='js,result', data-user='skyfly200', data-pen-title='5Ghz WiFi Channel Plan')
-        | See the Pen
-        a(href='https://codepen.io/skyfly200/pen/aqemgp/') 5Ghz WiFi Channel Plan
-        |  by Skyler Fly-Wilson (
-        a(href='https://codepen.io/skyfly200') @skyfly200
-        | ) on
-        a(href='https://codepen.io') CodePen
-        | .
-
 </template>
 
 <script>
@@ -54,8 +44,6 @@ export default {
       margin: auto
       padding: 10px
 
-    .data-embed
-      flex: 2
     @media (max-width: 940px)
       flex-direction: column
 </style>
