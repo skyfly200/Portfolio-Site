@@ -1,5 +1,8 @@
 <template lang="pug">
-  v-card.data.skill
+  .data.skill
+    v-toolbar(app)
+        v-toolbar-title
+          v-btn(to="/" flat) Skyler Fly-Wilson
     .data-info
       h2 Data
       ul.projects-list

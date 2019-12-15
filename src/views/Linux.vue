@@ -1,5 +1,8 @@
 <template lang="pug">
-  v-card.back-end.skill
+  .back-end.skill
+    v-toolbar(app)
+        v-toolbar-title
+          v-btn(to="/" flat) Skyler Fly-Wilson
     .skills-list
       h2 Linux Skills
       ul

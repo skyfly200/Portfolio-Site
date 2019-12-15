@@ -1,5 +1,8 @@
 <template lang="pug">
-  v-card.hardware.skill
+  .hardware.skill
+    v-toolbar(app)
+        v-toolbar-title
+          v-btn(to="/" flat) Skyler Fly-Wilson
     .hardware-info
       .projects-list
         h2 Hardware Projects Firmware

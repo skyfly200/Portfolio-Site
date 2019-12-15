@@ -1,5 +1,8 @@
 <template lang="pug">
   .blog
+    v-toolbar(app)
+        v-toolbar-title
+          v-btn(to="/" flat) Skyler Fly-Wilson
     Menu
     Drawer
     v-container(fluid grid-list-md)

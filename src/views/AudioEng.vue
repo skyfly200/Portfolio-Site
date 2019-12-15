@@ -1,5 +1,8 @@
 <template lang="pug">
-  v-card.audio-eng.skill
+  .audio-eng.skill
+    v-toolbar(app)
+        v-toolbar-title
+          v-btn(to="/" flat) Skyler Fly-Wilson
     .audio-info
       p
         | With an comprehensive understanding of signal flow and equipment, as well as a well refined ear,

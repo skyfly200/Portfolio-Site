@@ -1,6 +1,6 @@
 <template lang="pug">
   v-app(dark)#app
-    v-content
+    v-content(fluid)
       router-view
 </template>
 

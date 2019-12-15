@@ -1,5 +1,5 @@
 <template lang="pug">
-  a.topic.wow(:href="'#'+hash" :id="hash" @click.prevent="showTopic")
+  router-link.topic.wow(:to="link")
     .icon-box
       .topic-icon
         span.fa-stack.fa-3x
@@ -15,19 +15,10 @@
 export default {
   name: "topic",
   props: {
-    hash: String,
+    link: String,
     icon: String,
     name: String,
     summary: Array
-  },
-  methods: {
-    showTopic() {
-      this.$store.commit("showTopic", this.hash);
-      // Set url Hash
-      window.location.hash = "#" + this.hash;
-      // scroll element into view
-      document.querySelector("#skills").scrollIntoView();
-    }
   }
 };
 </script>

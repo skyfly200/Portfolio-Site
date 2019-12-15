@@ -1,5 +1,8 @@
 <template lang="pug">
-  v-card._3d.skill
+  ._3d.skill
+    v-toolbar(app)
+      v-toolbar-title
+        v-btn(to="/" flat) Skyler Fly-Wilson
     .info-3d
       h2 Exploring new dimensions of posibility
       p
@@ -27,7 +30,6 @@
             iframe(frameborder="0" allowfullscreen allowtransparency src="//www.shapeways.com/fragments/product?spin=XZUVGYF37&buy=0")
           li
             iframe(frameborder="0" allowfullscreen allowtransparency src="//www.shapeways.com/fragments/product?spin=K4RR93EKR&buy=0")
-
 </template>
 
 <script>

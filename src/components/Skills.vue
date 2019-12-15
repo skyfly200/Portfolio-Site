@@ -1,7 +1,7 @@
 <template lang="pug">
   .skills#skills
     .topics-container
-      .topics-list(v-if="!feature")
+      .topics-list
         .topics-header(data-aos="fade" data-aos-offset="120")
           .topics-heading
             h1 Explore my diverse range of skills
@@ -9,22 +9,8 @@
             h3 Select&nbsp;a&nbsp;topic to&nbsp;find&nbsp;out&nbsp;more!
 
         .topics#topics
-          Topic(v-for="topic in topics" v-bind="topic" v-bind:key="topic.hash"
+          Topic(v-for="topic in topics" v-bind="topic" v-bind:key="topic.name"
             data-aos="fade" data-aos-delay="200" data-aos-offset="120")
-
-      .topic-feature(v-if="feature")#feature
-        .topic-close
-          v-btn(outline icon small color="primary" href="#skills" @click="clearTopic")
-            v-icon fa-times
-
-        Web(v-if="feature == 'web'")
-        Linux(v-if="feature == 'linux'")
-        Hardware(v-if="feature == 'hardware'")
-        AudioEng(v-if="feature == 'audios'")
-        Design3D(v-if="feature == '_3d'")
-        Videography(v-if="feature == 'videos'")
-        Photo(v-if="feature == 'photos'")
-        Datas(v-if="feature == 'data'")
 
 </template>
 
@@ -34,41 +20,7 @@ import Topic from "@/components/Topic.vue";
 export default {
   name: "skills",
   components: {
-    Topic,
-    Web: () => import("@/components/skills/Web.vue"),
-    Linux: () => import("@/components/skills/Linux.vue"),
-    Hardware: () => import("@/components/skills/Hardware.vue"),
-    AudioEng: () => import("@/components/skills/AudioEng.vue"),
-    Design3D: () => import("@/components/skills/Design3D.vue"),
-    Photo: () => import("@/components/skills/Photo.vue"),
-    Datas: () => import("@/components/skills/Data.vue"),
-    Videography: () => import("@/components/skills/Videography.vue")
-  },
-  computed: {
-    feature() {
-      return this.$store.state.feature;
-    }
-  },
-  methods: {
-    clearTopic() {
-      this.$store.commit("clearTopic");
-    },
-    loadHash() {
-      // get hash from url
-      var section = window.location.hash.substring(1);
-      // if set hash is a skill then open that skill section
-      for (var t in this.topics) {
-        if (this.topics[t].hash === section) {
-          // set skill page display
-          this.$store.commit("showTopic", section);
-          // scroll to top of skills
-          document.querySelector("#skills").scrollIntoView();
-        }
-      }
-    }
-  },
-  mounted: function() {
-    this.loadHash();
+    Topic
   },
   data: () => {
     return {
@@ -76,7 +28,7 @@ export default {
         frontEnd: {
           name: "Web",
           icon: "fa-code",
-          hash: "web",
+          link: "web",
           summary: [
             "ReactJS, Vue, VanillaJS",
             "SASS, Pug, HTML5, CSS3",
@@ -86,7 +38,7 @@ export default {
         backEnd: {
           name: "Linux",
           icon: "fa-cogs",
-          hash: "linux",
+          link: "linux",
           summary: [
             "Python, PHP, JS, C",
             "Apache, Express, Nginx",
@@ -96,7 +48,7 @@ export default {
         hardware: {
           name: "Hardware",
           icon: "fa-bolt",
-          hash: "hardware",
+          link: "hardware",
           summary: [
             "Sensing, Control, Automation",
             "Arduino, RaspberryPi, WiFi, BT",
@@ -106,7 +58,7 @@ export default {
         audio: {
           name: "Audio",
           icon: "fa-microphone",
-          hash: "audios",
+          link: "audio",
           summary: [
             "Live, Tracking, Mixing",
             "FM and Online Broadcasting",
@@ -116,7 +68,7 @@ export default {
         _3d: {
           name: "3D Design",
           icon: "fa-cube",
-          hash: "_3d",
+          link: "_3d",
           summary: [
             "Art, Design, Invention",
             "Prototyping, Printing",
@@ -126,7 +78,7 @@ export default {
         photo: {
           name: "Photography",
           icon: "fa-camera",
-          hash: "photos",
+          link: "photos",
           summary: [
             "Perspective, Macro, Landscape",
             "Lighting, Lenses, Techniques",
@@ -136,7 +88,7 @@ export default {
         video: {
           name: "Videography",
           icon: "fa-film",
-          hash: "videos",
+          link: "videos",
           summary: [
             "Videography, Audio, Directing",
             "Editing, Effects, Animation",
@@ -146,7 +98,7 @@ export default {
         data: {
           name: "Data",
           icon: "fa-database",
-          hash: "data",
+          link: "data",
           summary: [
             "ODK, GIS, Visualization",
             "GPS, Sensors, APIs",
