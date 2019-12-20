@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: skylerfly.com
+Token: 6206f825b92a311cb67e11d49c7ddddb74ed06a97f6d675fea24bbbdc0550133
