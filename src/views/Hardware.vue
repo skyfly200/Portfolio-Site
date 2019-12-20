@@ -33,13 +33,15 @@ export default {
         title: "Touch n Glow PCB",
         text:
           "Touch control pads, WS2812 addressable LED & 3.5mm TRRS connector for more LEDs",
-        img: "/images/hardware/TnG.jpg"
+        img: "/images/hardware/TnG.jpg",
+        repo: "https://github.com/skyfly200/touch-n-glow"
       },
       {
         date: new Date("Aug, 25 2019"),
         title: "Ill'uminator PCB",
         text: "RGB LED strip controller",
-        img: "/images/hardware/illumin.jpg"
+        img: "/images/hardware/illumin.jpg",
+        repo: "https://github.com/skyfly200/illuminate-pcb"
       },
       {
         date: new Date("Aug, 12 2019"),
@@ -71,14 +73,16 @@ export default {
         title: "Modular IOT LED Controler",
         text:
           "ESP32 Wi-Fi/BT LED controller, connects to light fixtures via TRS jack",
-        img: "/images/hardware/esp32-pack.jpg"
+        img: "/images/hardware/esp32-pack.jpg",
+        repo: "https://github.com/skyfly200/ESP32-BlynkBT"
       },
       {
         date: new Date("Dec, 25 2017"),
         title: "LED Origami Rose",
         text:
           "Origami Rose with embeded Addresable LEDs, selectable animation modes and micro USB recharging",
-        img: "/images/hardware/LED-Rose.jpg"
+        img: "/images/hardware/LED-Rose.jpg",
+        repo: "https://github.com/skyfly200/origami-rose"
       },
       {
         date: new Date("Oct, 27 2017"),
@@ -93,7 +97,8 @@ export default {
         title: "TMP/RH PID Controller",
         text:
           "Arduino PID controller for temperature and humidity, with LCD. Plus light level sensor.",
-        img: "/images/hardware/PID.jpg"
+        img: "/images/hardware/PID.jpg",
+        repo: "https://github.com/skyfly200/PID-TMP-RH"
       },
       {
         date: new Date("Aug, 26 2016"),
@@ -115,6 +120,13 @@ export default {
         text: "Audio reactive RGB LED strip with arduino",
         img: "",
         repo: "https://github.com/skyfly200/MusicReactiveRGBStrip"
+      },
+      {
+        date: new Date("October, 31 2014"),
+        title: "Rainbow Music Note",
+        text: "Neopixel quarter note light",
+        img: "",
+        repo: "https://github.com/skyfly200/note-rainbow"
       },
       {
         date: new Date("October, 2014"),
