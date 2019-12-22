@@ -1,6 +1,6 @@
 // Vue core
 import Vue from "vue";
-import "./plugins/vuetify";
+import vuetify from "./plugins/vuetify";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
@@ -26,6 +26,7 @@ if (token) {
 Vue.config.productionTip = false;
 
 new Vue({
+  vuetify,
   router,
   store,
   render: h => h(App)

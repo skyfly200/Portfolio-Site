@@ -8,9 +8,9 @@
 </template>
 
 <style scoped lang="sass">
-  .404-msg
-    color: #FFFFFF
-    background-color: #aa0000
-    width: 50%
-    margin: 0 25%
+.404-msg
+  color: #FFFFFF
+  background-color: #aa0000
+  width: 50%
+  margin: 0 25%
 </style>
