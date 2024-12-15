@@ -27,4 +27,4 @@ if (token) {
   Vue.prototype.$http.defaults.headers.common["Authorization"] = token;
 }
 
-// Vue.config.productionTip = false;
+app.config.devtools = true;
