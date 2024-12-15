@@ -6,7 +6,7 @@ import axios from "axios";
 import VueAxios from "vue-axios";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import dotenv from "dotenv";
+// import dotenv from "dotenv";
 
 // dotenv.config();
 

@@ -1,74 +1,65 @@
 // vuetify.js
 /*eslint no-unused-vars: ["error", { "args": "none" }]*/
 import { createVuetify } from "vuetify";
-// import {
-//   VApp, // required
-//   VBtn,
-//   VCard,
-//   VCardTitle,
-//   VCardText,
-//   VCardActions,
-//   VChip,
-//   VCombobox,
-//   VContainer,
-//   VContent,
-//   VDivider,
-//   VFlex,
-//   VFooter,
-//   VForm,
-//   VIcon,
-//   VLayout,
-//   VList,
-//   VListTile,
-//   VListTileContent,
-//   VListTileTitle,
-//   VMenu,
-//   VNavigationDrawer,
-//   VSelect,
-//   VSwitch,
-//   VTextarea,
-//   VTextField,
-//   VToolbar,
-//   VToolbarSideIcon,
-//   VToolbarTitle
-// } from "vuetify/components";
+import {
+  VApp, // required
+  VBtn,
+  VCard,
+  VCardTitle,
+  VCardText,
+  VCardActions,
+  VChip,
+  VCombobox,
+  VContainer,
+  VMain,
+  VDivider,
+  VFooter,
+  VForm,
+  VIcon,
+  VLayout,
+  VList,
+  VMenu,
+  VNavigationDrawer,
+  VSelect,
+  VSwitch,
+  VTextarea,
+  VTextField,
+  VToolbar,
+  VToolbarTitle
+} from "vuetify/components";
 //import "vuetify/src/stylus/app.styl";
 import { Ripple } from "vuetify/directives";
 import { aliases, fa } from "vuetify/iconsets/fa";
-
-// components: {
-//   VApp,
-//   VBtn,
-//   VCard,
-//   VCardTitle,
-//   VCardText,
-//   VCardActions,
-//   VChip,
-//   VCombobox,
-//   VContainer,
-//   VContent,
-//   VDivider,
-//   VFlex,
-//   VFooter,
-//   VForm,
-//   VIcon,
-//   VLayout,
-//   VList,
-//   VListTile,
-//   VListTileContent,
-//   VListTileTitle,
-//   VMenu,
-//   VNavigationDrawer,
-//   VSelect,
-//   VSwitch,
-//   VTextarea,
-//   VTextField,
-//   VToolbar,
-//   VToolbarSideIcon,
-//   VToolbarTitle
-// },
+import 'vuetify/styles'; // Include Vuetify styles
+// import * as components from 'vuetify/components';
 
 const vuetify = createVuetify({
+  components: {
+    VApp,
+    VBtn,
+    VCard,
+    VCardTitle,
+    VCardText,
+    VCardActions,
+    VChip,
+    VCombobox,
+    VContainer,
+    VMain,
+    VDivider,
+    VFooter,
+    VForm,
+    VIcon,
+    VLayout,
+    VList,
+    VMenu,
+    VNavigationDrawer,
+    VSelect,
+    VSwitch,
+    VTextarea,
+    VTextField,
+    VToolbar,
+    VToolbarTitle
+  },
   directives: {
     Ripple
   },
