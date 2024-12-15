@@ -3,7 +3,9 @@
 import { createVuetify } from "vuetify";
 import {
   VApp, // required
+  VMain,
   VBtn,
+  VCol,
   VCard,
   VCardTitle,
   VCardText,
@@ -11,13 +13,14 @@ import {
   VChip,
   VCombobox,
   VContainer,
-  VMain,
   VDivider,
   VFooter,
   VForm,
   VIcon,
   VLayout,
   VList,
+  VListItem,
+  VListItemTitle,
   VMenu,
   VNavigationDrawer,
   VSelect,
@@ -36,7 +39,9 @@ import 'vuetify/styles'; // Include Vuetify styles
 const vuetify = createVuetify({
   components: {
     VApp,
+    VMain,
     VBtn,
+    VCol,
     VCard,
     VCardTitle,
     VCardText,
@@ -44,7 +49,8 @@ const vuetify = createVuetify({
     VChip,
     VCombobox,
     VContainer,
-    VMain,
+    VListItem,
+    VListItemTitle,
     VDivider,
     VFooter,
     VForm,
