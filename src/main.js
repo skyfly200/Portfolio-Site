@@ -12,8 +12,6 @@ import dotenv from "dotenv";
 
 AOS.init();
 
-console.log("Vue Started");
-
 // create the vue app
 const app = createApp(App);
 
