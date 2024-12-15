@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import { shallowMount } from "@vue/test-utils";
 import sinon from "sinon";
-import Post from "@/components/blog/Post.vue";
+import Post from "../components/blog/Post.vue";
 import marked from "marked";
 import moment from "moment";
 

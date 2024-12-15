@@ -1,95 +1,95 @@
 <template lang="pug">
-  #editor
-    Menu
-    Drawer
-    v-container(fluid grid-list-md)
-      v-layout#editor-header
-        v-flex
-          h1(v-if="edit") Edit Post
-          h1(v-else) New Post
-      v-layout(align-center row fill-height)#editor-body
-        v-flex(xs12 md6)
-          v-card.pa-3
-            v-form#editor-form(@submit.prevent="publishPost")
-              v-text-field#title-field( label="Post Title" v-model="post.title" @input="updateTitle" solo required)
-              v-textarea#body-input-group(label="Post Body" v-model="post.body" @input="updateBody" solo :rows="rows")
-              v-combobox(small-chips solo multiple
-                :search-input.sync="search"
-                :hide-no-data="!search"
-                hide-selected
-                @change="addTag"
-                label="Search for tags"
-                v-model="post.tags"
-                item-text="title" item-value="id" :items="tags")
-                  template(slot="no-data")
-                    v-list-tile
-                      v-list-tile-content
-                        v-list-tile-title
-                          | No tags matching "
-                          strong {{ search }}
-                          | ". Press&nbsp;
-                          kbd enter
-                          | &nbsp;to create a new one
-                  template(slot="selection" slot-scope="{ item, parent }")
-                    v-chip(small close @input="removeTag(item)")
-                      span.pr-2 {{ item.title }}
+#editor
+  Menu
+  Drawer
+  v-container(fluid grid-list-md)
+    v-layout#editor-header
+      v-flex
+        h1(v-if="edit") Edit Post
+        h1(v-else) New Post
+    v-layout(align-center row fill-height)#editor-body
+      v-flex(xs12 md6)
+        v-card.pa-3
+          v-form#editor-form(@submit.prevent="publishPost")
+            v-text-field#title-field( label="Post Title" v-model="post.title" @input="updateTitle" solo required)
+            v-textarea#body-input-group(label="Post Body" v-model="post.body" @input="updateBody" solo :rows="rows")
+            v-combobox(small-chips solo multiple
+              :search-input.sync="search"
+              :hide-no-data="!search"
+              hide-selected
+              @change="addTag"
+              label="Search for tags"
+              v-model="post.tags"
+              item-text="title" item-value="id" :items="tags")
+                template(slot="no-data")
+                  v-list-tile
+                    v-list-tile-content
+                      v-list-tile-title
+                        | No tags matching "
+                        strong {{ search }}
+                        | ". Press&nbsp;
+                        kbd enter
+                        | &nbsp;to create a new one
+                template(slot="selection" slot-scope="{ item, parent }")
+                  v-chip(small close @input="removeTag(item)")
+                    span.pr-2 {{ item.title }}
 
-              v-btn#advanced-link(@click="advanced = !advanced" flat small) Show Advanced
-              #post-advanced(v-show="advanced")
-                v-text-field#id-field(label="Post ID" v-model="post.id" readonly)
-                v-text-field#created-field(label="Post Created" :value="formatDatetime(post.created)" readonly)
-                v-menu(:close-on-content-click="false"
-                  v-model="publishDateMenu"
-                  :nudge-right="40"
-                  :return-value.sync="publishDate"
-                  lazy
-                  transition="scale-transition"
-                  offset-y
-                  full-width
-                  min-width="290px")
-                  v-text-field(slot="activator"
-                    v-model="publishDate"
-                    label="Publish Date"
-                    readonly)
-                  v-date-picker(v-model="publishDate"  @input="publishDateMenu = false" no-title scrollable)
-                v-menu(ref="menu"
-                  :close-on-content-click="false"
-                  v-model="publishTimeMenu"
-                  :nudge-right="40"
-                  :return-value.sync="publishTime"
-                  lazy
-                  transition="scale-transition"
-                  offset-y
-                  full-width
-                  max-width="290px"
-                  min-width="290px")
-                  v-text-field(slot="activator"
-                    v-model="publishTime"
-                    label="Publish Time"
-                    readonly)
-                  v-time-picker(v-if="publishTimeMenu" v-model="publishTime" full-width @change="$refs.menu.save(publishTime)")
-                v-select#version-field(return-object
-                  v-model="version"
-                  label="Version History"
-                  v-if="post.edits && post.edits.length > 0"
-                  :items="post.edits"
-                  item-text="edited")
-                v-switch#post-id-field(v-model="post.canComment" label="Post Comments")
-              ul.errors
-                li.error(v-for="error in errors") {{ error }}
-              p.saved-timestamp(v-if="saved") Saved: {{ formatDatetime(saved) }}
-              v-btn(color="success" type="submit" large @click="publishPost") Publish
-              router-link(to="/blog")
-                v-btn(v-if="post.published === ''" color="primary" large) Save
-              v-btn(v-if="edit" color="error" large @click="revertPost") Discard
-        v-flex#post-preview(xs12 md6)
-          Post(v-bind="post")
+            v-btn#advanced-link(@click="advanced = !advanced" flat small) Show Advanced
+            #post-advanced(v-show="advanced")
+              v-text-field#id-field(label="Post ID" v-model="post.id" readonly)
+              v-text-field#created-field(label="Post Created" :value="formatDatetime(post.created)" readonly)
+              v-menu(:close-on-content-click="false"
+                v-model="publishDateMenu"
+                :nudge-right="40"
+                :return-value.sync="publishDate"
+                lazy
+                transition="scale-transition"
+                offset-y
+                full-width
+                min-width="290px")
+                v-text-field(slot="activator"
+                  v-model="publishDate"
+                  label="Publish Date"
+                  readonly)
+                v-date-picker(v-model="publishDate"  @input="publishDateMenu = false" no-title scrollable)
+              v-menu(ref="menu"
+                :close-on-content-click="false"
+                v-model="publishTimeMenu"
+                :nudge-right="40"
+                :return-value.sync="publishTime"
+                lazy
+                transition="scale-transition"
+                offset-y
+                full-width
+                max-width="290px"
+                min-width="290px")
+                v-text-field(slot="activator"
+                  v-model="publishTime"
+                  label="Publish Time"
+                  readonly)
+                v-time-picker(v-if="publishTimeMenu" v-model="publishTime" full-width @change="$refs.menu.save(publishTime)")
+              v-select#version-field(return-object
+                v-model="version"
+                label="Version History"
+                v-if="post.edits && post.edits.length > 0"
+                :items="post.edits"
+                item-text="edited")
+              v-switch#post-id-field(v-model="post.canComment" label="Post Comments")
+            ul.errors
+              li.error(v-for="error in errors") {{ error }}
+            p.saved-timestamp(v-if="saved") Saved: {{ formatDatetime(saved) }}
+            v-btn(color="success" type="submit" large @click="publishPost") Publish
+            router-link(to="/blog")
+              v-btn(v-if="post.published === ''" color="primary" large) Save
+            v-btn(v-if="edit" color="error" large @click="revertPost") Discard
+      v-flex#post-preview(xs12 md6)
+        Post(v-bind="post")
 </template>
 
 <script>
-import Post from "@/components/blog/Post.vue";
-import Menu from "@/components/blog/Menu.vue";
-import Drawer from "@/components/blog/Drawer.vue";
+import Post from "../components/blog/Post.vue";
+import Menu from "../components/blog/Menu.vue";
+import Drawer from "../components/blog/Drawer.vue";
 import _ from "lodash";
 import moment from "moment";
 
@@ -273,18 +273,18 @@ export default {
 </script>
 
 <style lang="sass">
-  html
-    margin: 0
-  #editor
-    #editor-header
-      text-align: center
-    .v-autocomplete .v-chip
-      border: none
-      color: white
-      background-color: $color-secondary-2-1
-    height: 100%
-    background-color: $color-primary-4
+html
+  margin: 0
+#editor
+  #editor-header
+    text-align: center
+  .v-autocomplete .v-chip
+    border: none
     color: white
-  .container
-    flex-grow: 1
+    background-color: $color-secondary-2-1
+  height: 100%
+  background-color: $color-primary-4
+  color: white
+.container
+  flex-grow: 1
 </style>

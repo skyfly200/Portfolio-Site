@@ -1,7 +1,7 @@
 <template lang="pug">
-  v-app(dark)#app
-    v-content(fluid)
-      router-view
+v-app(dark)#app
+  v-content(fluid)
+    router-view
 </template>
 
 <script>

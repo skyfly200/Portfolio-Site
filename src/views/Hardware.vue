@@ -1,23 +1,23 @@
 <template lang="pug">
-  .hardware.skill
-    v-toolbar(app)
-        v-toolbar-title
-          v-btn(to="/" flat) Skyler Fly-Wilson
-    //- (v-resize="onResize")
-    .projects-timeline
-      h1 Harware Projects
-      h3 A history of some hardware projects I have worked on
-      v-divider
-      v-timeline(:dense="width < 650")
-        v-timeline-item(v-for="project in projects" :key="project.title" width="40vw")
-          span(slot="opposite") {{ formatDatetime(project.date) }}
-          v-card(class="elevation-2").project-card
-            v-img(:v-if="!!project.img" :src="project.img" max-height="40vh")
-            v-card-title(class="headline") {{ project.title }}
-            v-card-text {{ project.text }}
-            v-card-actions
-              v-btn(v-if="!!project.repo" :href="project.repo" target="_blank") Code
-              v-btn(v-if="!!project.link" :href="project.link" target="_blank") Link
+.hardware.skill
+  v-toolbar(app)
+      v-toolbar-title
+        v-btn(to="/" flat) Skyler Fly-Wilson
+  //- (v-resize="onResize")
+  .projects-timeline
+    h1 Harware Projects
+    h3 A history of some hardware projects I have worked on
+    v-divider
+    v-timeline(:dense="width < 650")
+      v-timeline-item(v-for="project in projects" :key="project.title" width="40vw")
+        span(slot="opposite") {{ formatDatetime(project.date) }}
+        v-card(class="elevation-2").project-card
+          v-img(:v-if="!!project.img" :src="project.img" max-height="40vh")
+          v-card-title(class="headline") {{ project.title }}
+          v-card-text {{ project.text }}
+          v-card-actions
+            v-btn(v-if="!!project.repo" :href="project.repo" target="_blank") Code
+            v-btn(v-if="!!project.link" :href="project.link" target="_blank") Link
 </template>
 
 <script>
@@ -153,13 +153,13 @@ export default {
 </script>
 
 <style lang="sass">
-  .hardware
-    display: flex
-    justify-content: center
+.hardware
+  display: flex
+  justify-content: center
+  width: 100%
+  color: white
+  padding: 2em
+  .projects-timeline
     width: 100%
-    color: white
-    padding: 2em
-    .projects-timeline
-      width: 100%
 
 </style>

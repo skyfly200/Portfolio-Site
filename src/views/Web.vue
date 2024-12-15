@@ -1,57 +1,57 @@
 <template lang="pug">
-  .web.skill
-    v-toolbar(app)
-        v-toolbar-title
-          v-btn(to="/" flat) Skyler Fly-Wilson
-    h1 This portfolio site is built on my favorite modern stack
-    br
-    v-card.ma-2
-      v-container(fluid grid-list)
-        v-layout(row wrap).logos
-          v-flex(v-for="logo in siteTools").logo-flex
-            a(:href="logo.url" target="_blank").logo-card
-              v-img(:src="'/images/front-end/logos/' + logo.img" :id="logo.id" contain).logo
-              h4 {{ logo.caption }}
+.web.skill
+  v-toolbar(app)
+      v-toolbar-title
+        v-btn(to="/" flat) Skyler Fly-Wilson
+  h1 This portfolio site is built on my favorite modern stack
+  br
+  v-card.ma-2
+    v-container(fluid grid-list)
+      v-layout(row wrap).logos
+        v-flex(v-for="logo in siteTools").logo-flex
+          a(:href="logo.url" target="_blank").logo-card
+            v-img(:src="'/images/front-end/logos/' + logo.img" :id="logo.id" contain).logo
+            h4 {{ logo.caption }}
 
-    br
-    GitHubBtn(text="View Source" repo="Portfolio-Site")
-    br
-    h1 Some other tools I like to use
-    br
-    v-card.ma-2
-      v-container(fluid grid-list)
-        v-layout(row wrap).logos
-          v-flex(v-for="logo in allTools").logo-flex
-            a(:href="logo.url" target="_blank").logo-card
-              v-img(:src="'/images/front-end/logos/' + logo.img" :id="logo.id" contain).logo
-              h4 {{ logo.caption }}
-    p All product and company names and logos are trademarks™ or registered® trademarks of their respective holders.
-    p Use of them does not imply any affiliation with or endorsement by them.
-    br
-    v-divider
-    h1 Projects
-    v-container(fluid grid-list-large)
-      v-layout(row wrap)
-        v-flex(v-for="site in sites" md6)
-          v-card.ma-2
-            a(:href="site.url" target="_blank")
-              v-img(:src="site.img")
-            v-card-title(primary-title)
-              .headline {{ site.title }}
-            v-card-text
-              p {{ site.description }}
-              h3 Technologies
-              span
-                v-chip(v-for="t in site.tech" outline color="white") {{ t }}
-            v-divider
-            v-card-actions
-              v-btn(:href="site.url" target="_blank" flat) Explore
-              v-btn(:href="site.repo" target="_blank" flat) View Source
+  br
+  GitHubBtn(text="View Source" repo="Portfolio-Site")
+  br
+  h1 Some other tools I like to use
+  br
+  v-card.ma-2
+    v-container(fluid grid-list)
+      v-layout(row wrap).logos
+        v-flex(v-for="logo in allTools").logo-flex
+          a(:href="logo.url" target="_blank").logo-card
+            v-img(:src="'/images/front-end/logos/' + logo.img" :id="logo.id" contain).logo
+            h4 {{ logo.caption }}
+  p All product and company names and logos are trademarks™ or registered® trademarks of their respective holders.
+  p Use of them does not imply any affiliation with or endorsement by them.
+  br
+  v-divider
+  h1 Projects
+  v-container(fluid grid-list-large)
+    v-layout(row wrap)
+      v-flex(v-for="site in sites" md6)
+        v-card.ma-2
+          a(:href="site.url" target="_blank")
+            v-img(:src="site.img")
+          v-card-title(primary-title)
+            .headline {{ site.title }}
+          v-card-text
+            p {{ site.description }}
+            h3 Technologies
+            span
+              v-chip(v-for="t in site.tech" outline color="white") {{ t }}
+          v-divider
+          v-card-actions
+            v-btn(:href="site.url" target="_blank" flat) Explore
+            v-btn(:href="site.repo" target="_blank" flat) View Source
 
 </template>
 
 <script>
-import GitHubBtn from "@/components/GitHubBtn.vue";
+import GitHubBtn from "../components/GitHubBtn.vue";
 
 export default {
   name: "web",
@@ -197,35 +197,35 @@ export default {
 </script>
 
 <style lang="sass">
-  .web
-    align-items: center
+.web
+  align-items: center
+  flex-direction: column
+  text-align: center
+  .logos
+    display: flex
+    justify-content: flex-start
+    align-items: left
+  .logo-flex
+    justify-content: center
+    width: 200px
+    @media (max-width: 700px)
+      width: 150px
+  .logo-card
+    display: flex
     flex-direction: column
-    text-align: center
-    .logos
-      display: flex
-      justify-content: flex-start
-      align-items: left
-    .logo-flex
-      justify-content: center
+    align-items: center
       width: 200px
-      @media (max-width: 700px)
-        width: 150px
-    .logo-card
-      display: flex
-      flex-direction: column
-      align-items: center
-        width: 200px
-      @media (max-width: 700px)
-        width: 150px
-      h4
-        text-align: center
-        color: $color-secondary-2-0
-    .logo
-      margin: 30px
-      width: 100px
-      height: 100px
-      @media (max-width: 700px)
-        margin: 15px
-        width: 75px
-        height: 75px
+    @media (max-width: 700px)
+      width: 150px
+    h4
+      text-align: center
+      color: $color-secondary-2-0
+  .logo
+    margin: 30px
+    width: 100px
+    height: 100px
+    @media (max-width: 700px)
+      margin: 15px
+      width: 75px
+      height: 75px
 </style>

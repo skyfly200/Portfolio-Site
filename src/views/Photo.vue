@@ -1,16 +1,16 @@
 <template lang="pug">
-  .gallery.skill
-    v-toolbar(app)
-        v-toolbar-title
-          v-btn(to="/" flat) Skyler Fly-Wilson
-    vue-flux(
-      :options="fluxOptions"
-      :images="fluxImages"
-      :transitions="fluxTransitions"
-      ref="slider")
-    .gallery-nav
-      button(@click="$refs.slider.showImage('previous')") &#10094;
-      button(@click="$refs.slider.showImage('next')") &#10095;
+.gallery.skill
+  v-toolbar(app)
+      v-toolbar-title
+        v-btn(to="/" flat) Skyler Fly-Wilson
+  vue-flux(
+    :options="fluxOptions"
+    :images="fluxImages"
+    :transitions="fluxTransitions"
+    ref="slider")
+  .gallery-nav
+    button(@click="$refs.slider.showImage('previous')") &#10094;
+    button(@click="$refs.slider.showImage('next')") &#10095;
 </template>
 
 <script>
@@ -63,15 +63,15 @@ export default {
 </script>
 
 <style lang="sass">
-  .gallery
-    display: flex
-    flex-direction: column
-    text-align: center
-    height: 80vh
-    @media(min-width: 1000px)
-      max-width: 943px
-      margin: auto
-    .gallery-nav
-      button
-        color: black
+.gallery
+  display: flex
+  flex-direction: column
+  text-align: center
+  height: 80vh
+  @media(min-width: 1000px)
+    max-width: 943px
+    margin: auto
+  .gallery-nav
+    button
+      color: black
 </style>

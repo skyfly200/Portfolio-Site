@@ -1,32 +1,32 @@
-// Vue core
-import Vue from "vue";
-import "./plugins/vuetify";
+import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
-import store from "./store";
-
-require("dotenv").config();
-
-// 3rd party libraries
+import vuetify from "./plugins/vuetify"; // Vuetify 3 setup
 import axios from "axios";
 import VueAxios from "vue-axios";
-
-// init AOS scroll animations library
 import AOS from "aos";
+import "aos/dist/aos.css";
+import dotenv from "dotenv";
+
+// dotenv.config();
+
 AOS.init();
 
+console.log("Vue Started");
+
+// create the vue app
+const app = createApp(App);
+
 // setup Vue plugins
-Vue.use(VueAxios, axios);
+app.use(VueAxios, axios);
+app.use(router);
+app.use(vuetify);
+
+app.mount("#app");
 
 const token = localStorage.getItem("token");
 if (token) {
   Vue.prototype.$http.defaults.headers.common["Authorization"] = token;
 }
 
-Vue.config.productionTip = false;
-
-new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount("#app");
+// Vue.config.productionTip = false;

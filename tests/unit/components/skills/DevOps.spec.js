@@ -1,6 +1,6 @@
 import { expect } from "chai";
 import { shallowMount } from "@vue/test-utils";
-import DevOps from "@/components/skills/DevOps.vue";
+import DevOps from "../components/skills/DevOps.vue";
 
 describe("DevOps.vue", () => {
   it("Renders Title", () => {

@@ -1,9 +1,9 @@
 <template lang="pug">
-  Btn(:text="text ? text : 'More on GitHub'" :url="url" icon="fa-github")
+Btn(:text="text ? text : 'More on GitHub'" :url="url" icon="fa-github")
 </template>
 
 <script>
-import Btn from "@/components/Btn.vue";
+import Btn from "../components/Btn.vue";
 
 export default {
   name: "github-btn",
