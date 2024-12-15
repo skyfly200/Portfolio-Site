@@ -152,7 +152,7 @@ export default {
       align-items: baseline
       min-width: 240px
       .fa
-        float:left
+        float: left
       .label
         font-size: 1.4em
         line-height: 50%
