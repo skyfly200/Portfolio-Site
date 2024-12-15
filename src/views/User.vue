@@ -4,7 +4,7 @@
   Drawer
   v-container(fluid)
     v-layout
-      v-flex
+      v-col
         h1 Welcome {{ name }}
         h3(v-if="isAdmin") This account has admin abilities
 </template>

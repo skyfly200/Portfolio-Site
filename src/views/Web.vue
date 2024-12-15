@@ -8,7 +8,7 @@
   v-card.ma-2
     v-container(fluid grid-list)
       v-layout(row wrap).logos
-        v-flex(v-for="logo in siteTools").logo-flex
+        v-col(v-for="logo in siteTools").logo-flex
           a(:href="logo.url" target="_blank").logo-card
             v-img(:src="'/images/front-end/logos/' + logo.img" :id="logo.id" contain).logo
             h4 {{ logo.caption }}
@@ -21,7 +21,7 @@
   v-card.ma-2
     v-container(fluid grid-list)
       v-layout(row wrap).logos
-        v-flex(v-for="logo in allTools").logo-flex
+        v-col(v-for="logo in allTools").logo-flex
           a(:href="logo.url" target="_blank").logo-card
             v-img(:src="'/images/front-end/logos/' + logo.img" :id="logo.id" contain).logo
             h4 {{ logo.caption }}
@@ -32,7 +32,7 @@
   h1 Projects
   v-container(fluid grid-list-large)
     v-layout(row wrap)
-      v-flex(v-for="site in sites" md6)
+      v-col(v-for="site in sites" md6)
         v-card.ma-2
           a(:href="site.url" target="_blank")
             v-img(:src="site.img")

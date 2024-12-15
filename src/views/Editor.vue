@@ -4,11 +4,11 @@
   Drawer
   v-container(fluid grid-list-md)
     v-layout#editor-header
-      v-flex
+      v-col
         h1(v-if="edit") Edit Post
         h1(v-else) New Post
     v-layout(align-center row fill-height)#editor-body
-      v-flex(xs12 md6)
+      v-col(xs12 md6)
         v-card.pa-3
           v-form#editor-form(@submit.prevent="publishPost")
             v-text-field#title-field( label="Post Title" v-model="post.title" @input="updateTitle" solo required)
@@ -22,9 +22,9 @@
               v-model="post.tags"
               item-text="title" item-value="id" :items="tags")
                 template(slot="no-data")
-                  v-list-tile
-                    v-list-tile-content
-                      v-list-tile-title
+                  v-list-item
+                    v-list-item-content
+                      v-list-item-title
                         | No tags matching "
                         strong {{ search }}
                         | ". Press&nbsp;
@@ -82,7 +82,7 @@
             router-link(to="/blog")
               v-btn(v-if="post.published === ''" color="primary" large) Save
             v-btn(v-if="edit" color="error" large @click="revertPost") Discard
-      v-flex#post-preview(xs12 md6)
+      v-col#post-preview(xs12 md6)
         Post(v-bind="post")
 </template>
 
