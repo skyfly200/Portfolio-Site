@@ -35,7 +35,7 @@ export default {
   @extend .flex-box-center
   width: 100%
   min-height: 105vh
-  diplay: flex
+  display: flex
   background-color: $color-secondary-2-2
   @include card-depth(1)
 
