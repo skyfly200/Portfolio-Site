@@ -3,6 +3,7 @@
   "version": "3.1.0",
   "description": "Portfolio Website for Skyler Fly-Wilson",
   "author": "Skyler Fly-Wilson",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
