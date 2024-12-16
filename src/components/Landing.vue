@@ -62,6 +62,7 @@ export default {
       .landing-name
         display: flex
         h1
+          line-height: normal
           padding: 0px
           margin: 0px
           font-size: 60px
