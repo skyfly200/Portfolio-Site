@@ -1,5 +1,5 @@
 <template lang="pug">
-.404-msg
+.msg-404
   v-toolbar(app)
         v-toolbar-title
           v-btn(to="/" flat) Skyler Fly-Wilson
@@ -8,7 +8,7 @@
 </template>
 
 <style scoped lang="sass">
-.404-msg
+.msg-404
   color: #FFFFFF
   background-color: #aa0000
   width: 50%
