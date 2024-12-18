@@ -1,5 +1,5 @@
 <template lang="pug">
-v-app(dark)#app
+v-app(theme="dark")#app
   v-main(fluid)
     router-view
 </template>
