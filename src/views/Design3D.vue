@@ -12,24 +12,12 @@
       br
       | Rapidly distiling new ideas into to reality, to help realize a better future.
     h3 Software Proficencies
-    p Blender, Maya, Sketch-Up, OpenSCAD
+    p Blender, Fusion360, Maya, Sketch-Up, OpenSCAD
     p Unity-3D, Slic3r, Netfab Basic
     br
-    h3 Explore my designs on Shapeways
-    a(href='https://www.shapeways.com/shops/skyflydesign' target="_blank")
-      button Shapeways Store
-
-  .slider-wrapper
-    .flexslider#_3d-slider
-      ul.slides
-        li
-          iframe(frameborder="0" allowfullscreen allowtransparency src="//www.shapeways.com/fragments/product?spin=NY6QEX65P&buy=0")
-        li
-          iframe(frameborder="0" allowfullscreen allowtransparency src="//www.shapeways.com/fragments/product?spin=4AN8ZLYPX&buy=0")
-        li
-          iframe(frameborder="0" allowfullscreen allowtransparency src="//www.shapeways.com/fragments/product?spin=XZUVGYF37&buy=0")
-        li
-          iframe(frameborder="0" allowfullscreen allowtransparency src="//www.shapeways.com/fragments/product?spin=K4RR93EKR&buy=0")
+    h3 Explore my designs on Printables
+    a(href='https://www.printables.com/@SkyFly_136025/models' target="_blank")
+      button Printables
 </template>
 
 <script>
