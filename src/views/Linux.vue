@@ -1,8 +1,7 @@
 <template lang="pug">
 .back-end.skill
-  v-toolbar(app)
-      v-toolbar-title
-        v-btn(to="/" flat) Skyler Fly-Wilson
+  v-toolbar(title="Skyler Fly-Wilson")
+    v-btn(to="/" flat) Home
   .skills-list
     h2 Linux Skills
     ul

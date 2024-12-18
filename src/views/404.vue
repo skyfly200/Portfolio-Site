@@ -1,8 +1,7 @@
 <template lang="pug">
 .msg-404
-  v-toolbar(app)
-        v-toolbar-title
-          v-btn(to="/" flat) Skyler Fly-Wilson
+  v-toolbar(title="Skyler Fly-Wilson")
+    v-btn(to="/" flat) Home
   h1 404 Error
   h2 The requested page could not be found.
 </template>

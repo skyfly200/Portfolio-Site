@@ -1,8 +1,7 @@
 <template lang="pug">
 .web.skill
-  v-toolbar(app)
-      v-toolbar-title
-        v-btn(to="/" flat) Skyler Fly-Wilson
+  v-toolbar(title="Skyler Fly-Wilson")
+    v-btn(to="/" flat) Home
   h1 This portfolio site is built on my favorite modern stack
   br
   v-card.ma-2

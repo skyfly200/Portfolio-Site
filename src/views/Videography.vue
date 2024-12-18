@@ -1,8 +1,7 @@
 <template lang="pug">
 .video.skill
-  v-toolbar(app)
-      v-toolbar-title
-        v-btn(to="/" flat) Skyler Fly-Wilson
+  v-toolbar(title="Skyler Fly-Wilson")
+    v-btn(to="/" flat) Home
   .video-info
     h2 As a picture is worth a thousand words, video is indescribable
     p Video is a powerful medium, useful for conveyong complex messages, in an easily digestable form.

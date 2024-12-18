@@ -1,8 +1,7 @@
 <template lang="pug">
 .audio-eng.skill
-  v-toolbar(app)
-      v-toolbar-title
-        v-btn(to="/" flat) Skyler Fly-Wilson
+  v-toolbar(title="Skyler Fly-Wilson")
+    v-btn(to="/" flat) Home
   .audio-info
     p
       | With an comprehensive understanding of signal flow and equipment, as well as a well refined ear,

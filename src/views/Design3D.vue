@@ -1,8 +1,7 @@
 <template lang="pug">
 ._3d.skill
-  v-toolbar(app)
-    v-toolbar-title
-      v-btn(to="/" flat) Skyler Fly-Wilson
+  v-toolbar(title="Skyler Fly-Wilson")
+    v-btn(to="/" flat) Home
   .info-3d
     h2 Exploring new dimensions of posibility
     p
@@ -29,8 +28,6 @@ export default {
 
 <style lang="sass">
 ._3d
-  padding: 2em
-  display: flex
   justify-content: center
   color: white
   box-shadow: 2px 5px 5px black

@@ -1,8 +1,7 @@
 <template lang="pug">
 .hardware.skill
-  v-toolbar(app)
-      v-toolbar-title
-        v-btn(to="/" flat) Skyler Fly-Wilson
+  v-toolbar(title="Skyler Fly-Wilson")
+    v-btn(to="/" flat) Home
   //- (v-resize="onResize")
   .projects-timeline
     h1 Harware Projects

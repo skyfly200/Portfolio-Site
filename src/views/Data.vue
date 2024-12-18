@@ -1,8 +1,7 @@
 <template lang="pug">
 .data.skill
-  v-toolbar(app)
-      v-toolbar-title
-        v-btn(to="/" flat) Skyler Fly-Wilson
+  v-toolbar(title="Skyler Fly-Wilson")
+    v-btn(to="/" flat) Home
   .data-info
     h2 Data
     ul.projects-list
@@ -10,8 +9,6 @@
         a(href="https://github.com/skyfly200/mapping-scripts" target="_blank") Water System Mapping for the Town of Ward
       li
         a(href="https://github.com/skyfly200/SwissArmyKnife" target="_blank") 5Ghz WiFi Frequency Plotter
-      li
-        p Tuning an aftermarket Air to Fuel adjustment system on a Porshe 911
 
 </template>
 
