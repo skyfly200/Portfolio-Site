@@ -19,7 +19,7 @@
           svg.fa.fa-envelope.fa-2x
 
   .welcome-img(data-aos="fade-left" data-aos-delay="100")
-    img(src="/images/bio-img.jpg" alt="A picture of me")
+    img(src="/images/bio-img2.jpg" alt="A picture of me")
 </template>
 
 <script>
