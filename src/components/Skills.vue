@@ -55,6 +55,16 @@ export default {
             "LEDs, Solar, Circuit Boards"
           ]
         },
+        web3: {
+          name: "Web3",
+          icon: "fa-database",
+          link: "web3",
+          summary: [
+            "On-Chain Genrative Art NFTS",
+            "Solidity, HardHat, Truffle",
+            "ArtBlocks, TinyBoxes, Solids"
+          ]
+        },
         audio: {
           name: "Audio",
           icon: "fa-microphone",
@@ -95,16 +105,6 @@ export default {
             "Premiere, After Effects"
           ]
         },
-        data: {
-          name: "Data",
-          icon: "fa-database",
-          link: "data",
-          summary: [
-            "ODK, GIS, Visualization",
-            "GPS, Sensors, APIs",
-            "CSV, JSON, SQL"
-          ]
-        }
       }
     };
   }
