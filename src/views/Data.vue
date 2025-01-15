@@ -30,12 +30,10 @@ export default {
 
 <style lang="sass">
 .data
-  display: flex
   flex-direction: row
   justify-content: center
   width: 100%
   color: white
-  padding: 2em
   .data-info
     text-align: center
     margin: auto

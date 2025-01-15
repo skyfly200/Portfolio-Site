@@ -36,8 +36,6 @@ export default {
 
 <style lang="sass">
 .dev-ops
-  padding: 2em
-  display: flex
   justify-content: center
   color: white
   .skills-list

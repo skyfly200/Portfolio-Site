@@ -63,7 +63,6 @@ export default {
 
 <style lang="sass">
 .gallery
-  display: flex
   flex-direction: column
   text-align: center
   height: 80vh

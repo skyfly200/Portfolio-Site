@@ -21,10 +21,8 @@ export default {
 
 <style lang="sass">
 .video
-  display: flex
   text-align: center
   color: white
-  padding: 10px
   &.topic-expanded
     display: flex
     align-items: center

@@ -44,8 +44,6 @@ export default {
 
 <style lang="sass">
 .back-end
-  padding: 2em
-  display: flex
   color: white
   .skills-list
     margin: 0px auto

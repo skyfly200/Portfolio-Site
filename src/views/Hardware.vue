@@ -153,11 +153,9 @@ export default {
 
 <style lang="sass">
 .hardware
-  display: flex
   justify-content: center
   width: 100%
   color: white
-  padding: 2em
   .projects-timeline
     width: 100%
 

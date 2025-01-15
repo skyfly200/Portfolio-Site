@@ -36,11 +36,9 @@ export default {
 
 <style lang="sass">
 .audio-eng
-  display: flex
   justify-content: center
   text-align: center
   color: white
-  padding: 2em
   .audio-info
     width: 60%
     margin: 10px
