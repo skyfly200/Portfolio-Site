@@ -33,9 +33,9 @@ const routes = [
     component: () => import(/* webpackChunkName: "web" */ "./views/Web.vue"),
   },
   {
-    path: "/data",
-    name: "data",
-    component: () => import(/* webpackChunkName: "data" */ "./views/Data.vue"),
+    path: "/web3",
+    name: "web3",
+    component: () => import(/* webpackChunkName: "web3" */ "./views/Web3.vue"),
   },
   {
     path: "/photos",
