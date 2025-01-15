@@ -19,7 +19,7 @@
           svg.fa.fa-envelope.fa-2x
 
   .welcome-img(data-aos="fade-left" data-aos-delay="100")
-    img(src="/images/bio-img2.jpg" alt="A picture of me")
+    img(src="/images/bio-img2.jpg" alt="A picture of me" cover)
 </template>
 
 <script>
@@ -59,6 +59,7 @@ export default {
       color: white
       .welcome-heading h2
         font-size: 2em
+        padding: 1em
 
       @media (max-width: 600px)
         .welcome-heading h2
