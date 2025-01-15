@@ -2,29 +2,15 @@
 .gallery.skill
   v-toolbar(title="Skyler Fly-Wilson")
     v-btn(to="/" flat) Home
-  vue-flux(
-    :options="fluxOptions"
-    :images="fluxImages"
-    :transitions="fluxTransitions"
-    ref="slider")
-  .gallery-nav
-    button(@click="$refs.slider.showImage('previous')") &#10094;
-    button(@click="$refs.slider.showImage('next')") &#10095;
+  v-carousel(:cycle="true" height="70vh")
+    v-carousel-item(v-for="image in images" :key="image" :src="image")
 </template>
 
 <script>
-import { VueFlux, Transitions } from "vue-flux";
-
 export default {
   name: "photo",
-  components: {
-    VueFlux
-  },
   data: () => ({
-    fluxOptions: {
-      autoplay: true
-    },
-    fluxImages: [
+    images: [
       "/images/features/light/1.jpg",
       "/images/features/light/2.jpg",
       "/images/features/light/3.jpg",
@@ -54,9 +40,6 @@ export default {
       "/images/features/fungi/6.jpg",
       "/images/features/fungi/7.jpg"
     ],
-    fluxTransitions: {
-      transitionBook: Transitions.transitionCamera
-    }
   })
 };
 </script>

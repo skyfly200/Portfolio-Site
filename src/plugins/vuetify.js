@@ -31,7 +31,9 @@ import {
   VTextarea,
   VTextField,
   VToolbar,
-  VToolbarTitle
+  VToolbarTitle,
+  VCarousel,
+  VCarouselItem
 } from "vuetify/components";
 //import "vuetify/src/stylus/app.styl";
 import { Ripple } from "vuetify/directives";
@@ -54,6 +56,8 @@ const vuetify = createVuetify({
     VCombobox,
     VTimeline,
     VTimelineItem,
+    VCarousel,
+    VCarouselItem,
     VContainer,
     VListItem,
     VListItemTitle,
