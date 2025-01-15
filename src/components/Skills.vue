@@ -26,13 +26,13 @@ export default {
     return {
       topics: {
         frontEnd: {
-          name: "Web",
+          name: "Full Stack",
           icon: "fa-code",
           link: "web",
           summary: [
-            "ReactJS, Vue, VanillaJS",
-            "SASS, Pug, HTML5, CSS3",
-            "Responsive Designs"
+            "ReactJS, Vue, Nuxt",
+            "Node, Express, MongoDB",
+            "Responsive Design"
           ]
         },
         backEnd: {
@@ -42,7 +42,7 @@ export default {
           summary: [
             "Python, PHP, JS, C",
             "Apache, Express, Nginx",
-            "Icecast2, GCP, DO"
+            "Icecast2, GCP, Netlify"
           ]
         },
         hardware: {
