@@ -26,23 +26,13 @@ export default {
     return {
       topics: {
         frontEnd: {
-          name: "Full Stack",
+          name: "Software",
           icon: "fa-code",
-          link: "web",
+          link: "software",
           summary: [
-            "ReactJS, Vue, Nuxt",
-            "Node, Express, MongoDB",
-            "Responsive Design"
-          ]
-        },
-        backEnd: {
-          name: "Linux",
-          icon: "fa-cogs",
-          link: "linux",
-          summary: [
-            "Python, PHP, JS, C",
-            "Apache, Express, Nginx",
-            "Icecast2, GCP, Netlify"
+            "Full Stack Web Development",
+            "On-Chain Genrative Art NFTS",
+            "Servers, Scripting, Open-Source"
           ]
         },
         hardware: {
@@ -50,59 +40,19 @@ export default {
           icon: "fa-bolt",
           link: "hardware",
           summary: [
-            "Sensing, Control, Automation",
-            "Arduino, RaspberryPi, WiFi, BT",
-            "LEDs, Solar, Circuit Boards"
-          ]
-        },
-        web3: {
-          name: "Web3",
-          icon: "fa-database",
-          link: "web3",
-          summary: [
-            "On-Chain Genrative Art NFTS",
-            "Solidity, HardHat, Truffle",
-            "ArtBlocks, TinyBoxes, Solids"
+            "Sensing, Control, Automation, Networks",
+            "Arduino, RaspberryPi, Atmel, Espresif",
+            "LEDs, Solar, Circuit Boards, RF, Audio"
           ]
         },
         audio: {
-          name: "Audio",
-          icon: "fa-microphone",
-          link: "audio",
-          summary: [
-            "Live, Tracking, Mixing",
-            "FM and Online Broadcasting",
-            "Pro Tools, Audition, Ableton"
-          ]
-        },
-        _3d: {
-          name: "3D Design",
-          icon: "fa-cube",
-          link: "_3d",
-          summary: [
-            "Art, Design, Invention",
-            "Prototyping, Printing",
-            "Blender, SketchUp, Maya"
-          ]
-        },
-        photo: {
-          name: "Photography",
+          name: "Multimedia",
           icon: "fa-camera",
-          link: "photos",
+          link: "multimedia",
           summary: [
-            "Perspective, Macro, Landscape",
-            "Lighting, Lenses, Techniques",
-            "Photoshop, Lightroom"
-          ]
-        },
-        video: {
-          name: "Videography",
-          icon: "fa-film",
-          link: "videos",
-          summary: [
-            "Videography, Audio, Directing",
-            "Editing, Effects, Animation",
-            "Premiere, After Effects"
+            "Photo, Video, Audio, 3D Design",
+            "3D Printing, Prototyping, Invention",
+            "Design for Web, Print and Fabrication"
           ]
         },
       }
