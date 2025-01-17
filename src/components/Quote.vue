@@ -3,7 +3,8 @@
 .quote#quote
   .quote-block
     .quote-header(data-aos="fade" data-aos-delay="200")
-      h1 "...Love of nature makes him whole
+      h1 "...A gentleman. A gentle soul
+      h1 Love of nature makes him whole
       h1 Seen the world from every angle
       h1 Tried everything new fandangled..."
       h3 - The Poet Louise M
@@ -20,13 +21,16 @@ export default {
 <style lang="sass">
 // quote Styles
 .quote
-  height: 30vh
+  height: 44vh
   background-image: url('/images/Dewscape-2-01.jpg')
-  background-size: repeat
+  background-repeat: repeat
+  background-size: 20em
   padding: 50px 10px
   @include card-depth(5)
   background-color: $color-primary-3
   color: #FFF
+  line-height: 2.5em
+  text-shadow: 3px 3px 5px #000
 
   .quote-info
     padding: 1em
