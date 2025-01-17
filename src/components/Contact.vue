@@ -27,6 +27,9 @@ export default {
   background-color: $color-primary-3
   color: #FFF
 
+  .contact-info
+    padding: 1em
+
   .contact-block
     text-align: center
     @extend .flex-box-center
