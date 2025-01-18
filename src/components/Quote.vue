@@ -22,7 +22,7 @@ export default {
 <style lang="sass">
 // quote Styles
 .quote
-  height: 44vh
+  min-height: 44vh
   background-image: url('/images/Dewscape-2-01.jpg')
   background-repeat: repeat
   background-size: 33vw
@@ -30,11 +30,14 @@ export default {
   @include card-depth(5)
   background-color: $color-primary-3
   line-height: 2.5em
-  a
-    text-shadow: 3px 3px 5px #000
-  a:hover, a:active, a:visited, a:focus
+  a, a:active, a:visited, a:focus
     color: #FFF
+    text-shadow: 3px 3px 5px #000
+  a:hover
     text-shadow: 3px 5px 7px #000
+    @media (max-width: 1124px)
+      line-height: 2em
+      font-size: 1.5em
 
   .quote-info
     padding: 1em
