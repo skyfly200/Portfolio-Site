@@ -29,9 +29,12 @@ export default {
   padding: 50px 10px
   @include card-depth(5)
   background-color: $color-primary-3
-  color: #FFF
   line-height: 2.5em
-  text-shadow: 3px 3px 5px #000
+  a
+    text-shadow: 3px 3px 5px #000
+  a:hover, a:active, a:visited, a:focus
+    color: #FFF
+    text-shadow: 3px 5px 7px #000
 
   .quote-info
     padding: 1em
