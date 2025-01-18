@@ -42,7 +42,7 @@ export default {
       h2
         margin: 2vh
       .email
-        @media (max-width: 299px)
+        @media (max-width: 320px)
           font-size: 0.8em
 
     @media (max-width: 600px)
