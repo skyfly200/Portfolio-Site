@@ -3,11 +3,12 @@
 .quote#quote
   .quote-block
     .quote-header(data-aos="fade" data-aos-delay="200")
-      h1 "...A gentleman. A gentle soul
-      h1 Love of nature makes him whole
-      h1 Seen the world from every angle
-      h1 Tried everything new fandangled..."
-      h3 - The Poet Louise M
+      a(href="https://ia800800.us.archive.org/30/items/KWHR_FDGD_2015/Louise%20M%20DJ%20Poems.mp3")
+        h1 "...A gentleman. A gentle soul
+        h1 Love of nature makes him whole
+        h1 Seen the world from every angle
+        h1 Tried everything new fandangled..."
+        h3 - The Poet Louise M
 
 </template>
 
@@ -24,7 +25,7 @@ export default {
   height: 44vh
   background-image: url('/images/Dewscape-2-01.jpg')
   background-repeat: repeat
-  background-size: 20em
+  background-size: 33vw
   padding: 50px 10px
   @include card-depth(5)
   background-color: $color-primary-3
