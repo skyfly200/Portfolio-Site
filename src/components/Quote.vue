@@ -37,7 +37,7 @@ export default {
     text-shadow: 3px 5px 7px #000
     @media (max-width: 1124px)
       line-height: 2em
-      font-size: 1.5em
+      font-size: 1em
 
   .quote-info
     padding: 1em
