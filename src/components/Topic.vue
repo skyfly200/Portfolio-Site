@@ -29,8 +29,8 @@ export default {
   margin: 0px
   height: auto
   min-height: 250px
-  max-width: 25%
-  flex-basis: 25%
+  max-width: 33%
+  flex-basis: 33%
   animation: 500ms ease-in-out 1 fadeIn
   transition: all 200ms
   text-decoration: none
@@ -72,8 +72,8 @@ export default {
         text-shadow: 0px 0px 5px rgba(255,255,255,0.75)
 
   @media (max-width: 1124px)
-    max-width: 50%
-    flex: 50%
+    max-width: 33%
+    flex: 33%
 
   @media (max-width: 570px)
     max-width: 100%

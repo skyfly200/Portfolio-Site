@@ -64,7 +64,7 @@ export default {
 <style lang="sass">
 .topics-container
   width: 100%
-  min-height: 100vh
+  min-height: 60vh
   @include card-depth(2)
 
   .topics-header
@@ -91,7 +91,7 @@ export default {
 
   .topics
     padding: 0px
-    padding-bottom: 30px
+    padding-bottom: 40px
     display: flex
     flex-wrap: wrap
     justify-content: start
