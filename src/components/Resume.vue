@@ -10,10 +10,16 @@
           svg.fa.fa-cogs
           .btn-text &nbsp;Software
     .resume-button(data-aos="flip-down" data-aos-delay="200" data-aos-duration="750")
+      a(href="https://docs.google.com/document/d/1zUutU1to6t_TuzwV2zGfHN0kTeCDZ00fRqHvL5A_n-Y/edit?usp=sharing", target="_blank")
+        button.resume-btn.btn.btn-default.wow.zoomIn
+          svg.fa.fa-ethereum
+          .btn-text &nbsp;Web3
+    .resume-button(data-aos="flip-down" data-aos-delay="200" data-aos-duration="750")
       a(href="https://docs.google.com/document/d/1SrNxaV6kmGSgyJfo2iXVY9L-e66pVPKJBvSu4CQSrsk/edit?usp=sharing", target="_blank")
         button.resume-btn.btn.btn-default.wow.zoomIn
           svg.fa.fa-film
           .btn-text &nbsp;Multimedia
+    
 
 </template>
 
