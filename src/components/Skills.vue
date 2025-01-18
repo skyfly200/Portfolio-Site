@@ -31,7 +31,7 @@ export default {
           link: "software",
           summary: [
             "Full Stack Web Development",
-            "On-Chain Genrative Art NFTS",
+            "On-Chain Generative Art NFTS",
             "Servers, Scripting, Open-Source"
           ]
         },
