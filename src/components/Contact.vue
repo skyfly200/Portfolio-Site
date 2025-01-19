@@ -4,7 +4,7 @@
   .contact-block
     .contact-header(data-aos="fade" data-aos-delay="200" data-aos-anchor-placement="top-bottom")
       h1 Get in touch!
-    .contact-info
+    .contact-info(data-aos="fade" data-aos-delay="200" data-aos-anchor-placement="top-bottom")
       a(href="mailto:contact@skylerfly.com", target="_blank").contact-link.email
         h2 contact@skylerfly.com
       a(href="tel:7203100607").contact-link.phone
