@@ -4,11 +4,11 @@
   .quote-block
     .quote-header(data-aos="fade" data-aos-delay="200")
       a(href="https://ia800800.us.archive.org/30/items/KWHR_FDGD_2015/Louise%20M%20DJ%20Poems.mp3")
-        h1 "...A gentleman. A gentle soul
-        h1 Love of nature makes him whole
-        h1 Seen the world from every angle
-        h1 Tried everything new fandangled..."
-        h3 - The Poet Louise M
+        h1 "...A&nbsp;gentleman. A&nbsp;gentle&nbsp;soul
+        h1 Love&nbsp;of&nbsp;nature makes&nbsp;him&nbsp;whole
+        h1 Seen&nbsp;the&nbsp;world from&nbsp;every&nbsp;angle
+        h1 Tried&nbsp;everything new&nbsp;fandangled..."
+        h3 -&nbsp;The&nbsp;Poet&nbsp;Louise&nbsp;M
 
 </template>
 
@@ -33,11 +33,14 @@ export default {
   a, a:active, a:visited, a:focus
     color: #FFF
     text-shadow: 3px 3px 5px #000
-  a:hover
-    text-shadow: 3px 5px 7px #000
-    @media (max-width: 1124px)
+    @media (max-width: 1000px)
       line-height: 2em
       font-size: 1em
+    @media (max-width: 425px)
+      line-height: 2em
+      font-size: 0.75em
+  a:hover
+    text-shadow: 3px 5px 7px #000
 
   .quote-info
     padding: 1em
@@ -51,8 +54,10 @@ export default {
       flex-direction: column
       a
         color: #FFF
-      h2
+      h1
         margin: 2vh
+      h3
+        margin: 3vh
       .email
         @media (max-width: 299px)
           font-size: 0.8em
