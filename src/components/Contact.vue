@@ -2,7 +2,7 @@
 // Contact Info Section
 .contact#contact
   .contact-block
-    .contact-header(data-aos="fade" data-aos-delay="200")
+    .contact-header(data-aos="fade" data-aos-delay="200" data-aos-anchor-placement="top-bottom")
       h1 Get in touch!
     .contact-info
       a(href="mailto:contact@skylerfly.com", target="_blank").contact-link.email
