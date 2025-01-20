@@ -1,6 +1,6 @@
 <template lang="pug">
 .gallery.skill
-  v-carousel(:cycle="true" height="100%" hide-delimiters)
+  v-carousel(:cycle="true" interval="10000" height="100%" hide-delimiters)
     v-carousel-item(v-for="image in images" :key="image" :src="image")
   v-fab(to="/" flat location="top start" absolute app icon="mdi-plus")
 </template>
