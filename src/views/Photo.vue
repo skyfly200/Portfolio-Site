@@ -1,9 +1,8 @@
 <template lang="pug">
 .gallery.skill
-  v-toolbar(title="Skyler Fly-Wilson")
-    v-btn(to="/" flat) Home
-  v-carousel(:cycle="true" height="70vh")
+  v-carousel(:cycle="true" height="100%" hide-delimiters)
     v-carousel-item(v-for="image in images" :key="image" :src="image")
+  v-fab(to="/" flat location="top start" absolute app icon="mdi-plus")
 </template>
 
 <script>
@@ -67,7 +66,7 @@ export default {
 .gallery
   flex-direction: column
   text-align: center
-  height: 80vh
+  height: 100vh
   @media(min-width: 1000px)
     max-width: 943px
     margin: auto
