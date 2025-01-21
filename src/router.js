@@ -8,6 +8,16 @@ const routes = [
     component: Home,
   },
   {
+    path: "/multimedia",
+    name: "multimedia",
+    component: () => import(/* webpackChunkName: "multimedia" */ "./views/Multimedia.vue"),
+  },
+  {
+    path: "/Software",
+    name: "Software",
+    component: () => import(/* webpackChunkName: "Software" */ "./views/Software.vue"),
+  },
+  {
     path: "/audio",
     name: "audio",
     component: () => import(/* webpackChunkName: "audio" */ "./views/AudioEng.vue"),
