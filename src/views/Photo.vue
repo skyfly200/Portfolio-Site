@@ -1,14 +1,17 @@
 <template lang="pug">
 .gallery.skill
-  v-carousel(:cycle="true" interval="10000" height="100%" hide-delimiters)
+  v-carousel(:cycle="cycle" interval="10000" height="100%" hide-delimiters)
     v-carousel-item(v-for="image in images" :key="image" :src="image")
-  v-fab(to="/" flat location="top start" absolute app icon="mdi-plus")
+  v-fab(to="/" flat location="top start" app).home-btn Home
+  v-fab(v-if="cycle" flat location="bottom end" app icon="fa:fas fa-pause" @click="cycle = false")
+  v-fab(v-else flat location="bottom end" app icon="fa:fas fa-play" @click="cycle = true")
 </template>
 
 <script>
 export default {
   name: "photo",
   data: () => ({
+    cycle: true,
     images: [
       "/images/photography/best/img (1).jpg",
       "/images/photography/best/img (2).jpg",
@@ -73,4 +76,11 @@ export default {
   .gallery-nav
     button
       color: black
+  
+  .home-btn
+    a
+      color: white
+
+
+
 </style>
