@@ -2,7 +2,7 @@
 .gallery.skill
   v-carousel(:cycle="cycle" interval="10000" height="100%" hide-delimiters)
     v-carousel-item(v-for="image in images" :key="image" :src="image")
-  v-fab(to="/" flat location="top start" app).home-btn Home
+  v-fab(to="/multimedia" flat location="top start" app).home-btn Back
   v-fab(v-if="cycle" flat location="bottom end" app icon="fa:fas fa-pause" @click="cycle = false")
   v-fab(v-else flat location="bottom end" app icon="fa:fas fa-play" @click="cycle = true")
 </template>
