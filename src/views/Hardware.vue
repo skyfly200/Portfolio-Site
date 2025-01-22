@@ -1,8 +1,6 @@
 <template lang="pug">
 .hardware.skill
-  v-toolbar(title="Skyler Fly-Wilson")
-    v-btn(to="/" flat) Home
-  //- (v-resize="onResize")
+  v-fab(to="/" flat location="top start" app).home-btn Home
   .projects-timeline
     h1 Harware Projects
     h3 A history of some hardware projects I have worked on
@@ -158,5 +156,9 @@ export default {
   color: white
   .projects-timeline
     width: 100%
+
+  .home-btn
+    a
+      color: white
 
 </style>

@@ -28,6 +28,11 @@ const routes = [
     component: () => import(/* webpackChunkName: "hardware" */ "./views/Hardware.vue"),
   },
   {
+    path: "/gen-art",
+    name: "gen-art",
+    component: () => import(/* webpackChunkName: "gen-art" */ "./views/GenArt.vue"),
+  },
+  {
     path: "/_3d",
     name: "_3d",
     component: () => import(/* webpackChunkName: "design3d" */ "./views/Design3D.vue"),

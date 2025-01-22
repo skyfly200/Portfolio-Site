@@ -1,5 +1,6 @@
 <template lang="pug">
 v-card.dev-ops.skill
+  v-fab(to="/" flat location="top start" app).home-btn Home
   .skills-list
     h2 Experience and Skillset
     ul
@@ -53,4 +54,9 @@ export default {
     .projects-list .github-button button
       min-width: 200px
       font-size: 1.2em
+
+  .home-btn
+    a
+      color: white
+
 </style>

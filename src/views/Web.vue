@@ -1,7 +1,6 @@
 <template lang="pug">
 .web.skill
-  v-toolbar(title="Skyler Fly-Wilson")
-    v-btn(to="/" flat) Home
+  v-fab(to="/software" flat location="top start" app).home-btn Back
   h1 This portfolio site is built on my favorite modern stack
   br
   v-card.ma-2
@@ -227,4 +226,9 @@ export default {
       margin: 15px
       width: 75px
       height: 75px
+  
+  .home-btn
+    a
+      color: white
+
 </style>

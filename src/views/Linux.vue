@@ -1,9 +1,8 @@
 <template lang="pug">
 .back-end.skill
-  v-toolbar(title="Skyler Fly-Wilson")
-    v-btn(to="/" flat) Home
+  v-fab(to="/software" flat location="top start" app).home-btn Back
   .skills-list
-    h2 Linux Skills
+    h2 Linux Skills (Dev Ops)
     ul
       li Apache, Nginx, Express
       li MySql, MariaDB, SQLite, Mongo
@@ -51,4 +50,8 @@ export default {
     margin: 0px auto
   @media (max-width: 660px)
     flex-direction: column
+  
+  .home-btn
+    a
+      color: white
 </style>

@@ -1,7 +1,6 @@
 <template lang="pug">
 .video.skill
-  v-toolbar(title="Skyler Fly-Wilson")
-    v-btn(to="/" flat) Home
+  v-fab(to="/multimedia" flat location="top start" app).home-btn Back
   .video-info
     h2 As a picture is worth a thousand words, video is indescribable
     p Video is a powerful medium, useful for conveyong complex messages, in an easily digestable form.
@@ -46,4 +45,9 @@ export default {
       iframe
         width: 480px
         height: 360px
+
+  .home-btn
+    a
+      color: white
+
 </style>

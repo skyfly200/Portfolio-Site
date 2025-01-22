@@ -80,7 +80,5 @@ export default {
   .home-btn
     a
       color: white
-
-
-
+      
 </style>

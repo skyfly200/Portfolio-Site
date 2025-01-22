@@ -1,7 +1,6 @@
 <template lang="pug">
 ._3d.skill
-  v-toolbar(title="Skyler Fly-Wilson")
-    v-btn(to="/" flat) Home
+  v-fab(to="/multimedia" flat location="top start" app).home-btn Back
   .info-3d
     h2 Exploring new dimensions of posibility
     p
@@ -84,4 +83,9 @@ export default {
       li iframe
         width: 400px
         height: 468px
+
+  .home-btn
+    a
+      color: white
+
 </style>

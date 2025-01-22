@@ -1,7 +1,6 @@
 <template lang="pug">
 .audio-eng.skill
-  v-toolbar(title="Skyler Fly-Wilson")
-    v-btn(to="/" flat) Home
+  v-fab(to="/multimedia" flat location="top start" app).home-btn Back
   .audio-info
     p
       | With an comprehensive understanding of signal flow and equipment, as well as a well refined ear,
@@ -76,4 +75,9 @@ export default {
       width: 100%
       .archive-player
         width: 80%
+
+  .home-btn
+    a
+      color: white
+
 </style>

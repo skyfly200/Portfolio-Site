@@ -1,30 +1,27 @@
 <template lang="pug">
 .software.skill
-  v-toolbar(title="Skyler Fly-Wilson")
-    v-btn(to="/" flat) Home
-  .software-info
-    h2 Software Projects
-    h3 PLACE LINKS TO OTHER SOFTWARE AREAS HERE
-    ul.projects-list
-      li
-        a(href="https://github.com/skyfly200/mapping-scripts" target="_blank") Water System Mapping for the Town of Ward
-      li
-        a(href="https://github.com/skyfly200/SwissArmyKnife" target="_blank") 5Ghz WiFi Frequency Plotter
+  v-fab(to="/" flat location="top start" app).home-btn Home
+  .topics-container
+    .topics-list
+      .topics-header(data-aos="fade" data-aos-offset="120")
+        .topics-heading
+          h1 Software
+
+      .topics#topics
+        Topic(v-for="topic in topics" v-bind="topic" v-bind:key="topic.name"
+          data-aos="fade" data-aos-delay="200" data-aos-offset="120")
 
 </template>
 
 <script>
 import GitHubBtn from "../components/GitHubBtn.vue";
+import Topic from "../components/Topic.vue";
 
 export default {
   name: "software",
   components: {
-    GitHubBtn
-  },
-  created() {
-    let codepen = document.createElement("script");
-    codepen.setAttribute("src", "https://static.codepen.io/assets/embed/ei.js");
-    document.head.appendChild(codepen);
+    GitHubBtn,
+    Topic
   },
   data: () => {
     return {
@@ -54,7 +51,7 @@ export default {
           icon: "fa-database",
           link: "web3",
           summary: [
-            "On-Chain Genrative Art NFTS",
+            "Ethereum, Polygon, IPFS",
             "Solidity, HardHat, Truffle",
             "ArtBlocks, TinyBoxes, Solids"
           ]
@@ -78,4 +75,12 @@ export default {
 
   @media (max-width: 940px)
     flex-direction: column
+  
+  h1
+    color: white
+
+  .home-btn
+    a
+      color: white
+
 </style>

@@ -1,27 +1,25 @@
 <template lang="pug">
 .multimedia.skill
-  v-toolbar(title="Skyler Fly-Wilson")
-    v-btn(to="/" flat) Home
-  .multimedia-info
-    h2 Multimedia Projects
-    ul.projects-list
-      li
-        a(href="https://github.com/skyfly200/mapping-scripts" target="_blank") Water System Mapping for the Town of Ward
+  v-fab(to="/" flat location="top start" app).home-btn Home
+  .topics-container
+    .topics-list
+      .topics-header(data-aos="fade" data-aos-offset="120")
+        h1 Multimedia
 
+      .topics#topics
+        Topic(v-for="topic in topics" v-bind="topic" v-bind:key="topic.name"
+          data-aos="fade" data-aos-delay="200" data-aos-offset="120")
 </template>
 
 <script>
 import GitHubBtn from "../components/GitHubBtn.vue";
+import Topic from "../components/Topic.vue";
 
 export default {
   name: "multimedia",
   components: {
-    GitHubBtn
-  },
-  created() {
-    let codepen = document.createElement("script");
-    codepen.setAttribute("src", "https://static.codepen.io/assets/embed/ei.js");
-    document.head.appendChild(codepen);
+    GitHubBtn,
+    Topic
   },
   data: () => {
     return {
@@ -66,6 +64,16 @@ export default {
             "Premiere, After Effects"
           ]
         },
+        gen_art: {
+          name: "Generative Art",
+          icon: "fa-paint-brush",
+          link: "gen-art",
+          summary: [
+            "On-Chain Generative Art NFTs",
+            "Generative 3D Design",
+            "Python, SVG, Three.js, WebGL"
+          ]
+        },
       }
     };
   }
@@ -83,6 +91,13 @@ export default {
     margin: auto
     padding: 10px
 
+  h1
+    color: white
+
   @media (max-width: 940px)
     flex-direction: column
+  
+  .home-btn
+    a
+      color: white
 </style>
