@@ -32,7 +32,7 @@ export default {
           link: "web",
           summary: [
             "ReactJS, Vue, Nuxt",
-            "Node, Express, MongoDB",
+            "Express, SQL, MongoDB",
             "Responsive Design"
           ]
         },
