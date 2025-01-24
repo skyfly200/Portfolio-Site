@@ -38,6 +38,11 @@ const routes = [
     component: () => import(/* webpackChunkName: "design3d" */ "./views/Design3D.vue"),
   },
   {
+    path: "/lighting",
+    name: "lighting",
+    component: () => import(/* webpackChunkName: "lighting" */ "./views/Lighting.vue"),
+  },
+  {
     path: "/linux",
     name: "linux",
     component: () => import(/* webpackChunkName: "linux" */ "./views/Linux.vue"),

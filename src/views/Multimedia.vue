@@ -34,16 +34,6 @@ export default {
             "Pro Tools, Audition, Ableton"
           ]
         },
-        _3d: {
-          name: "3D Design",
-          icon: "fa-cube",
-          link: "_3d",
-          summary: [
-            "Art, Design, Invention",
-            "Prototyping, Printing",
-            "Blender, SketchUp, Maya"
-          ]
-        },
         photo: {
           name: "Photography",
           icon: "fa-camera",
@@ -62,6 +52,26 @@ export default {
             "Videography, Audio, Directing",
             "Editing, Effects, Animation",
             "Premiere, After Effects"
+          ]
+        },
+        _3d: {
+          name: "3D Design",
+          icon: "fa-cube",
+          link: "_3d",
+          summary: [
+            "Art, Design, Invention",
+            "Prototyping, Printing",
+            "Blender, SketchUp, Maya"
+          ]
+        },
+        lighting: {
+          name: "Lighting Design",
+          icon: "fa-lightbulb",
+          link: "lighting",
+          summary: [
+            "MadMapper, Resolume, AfterEffects",
+            "ArtNet, DMX, BT and WiFi (WLED)",
+            "Addressable LEDs, Projection Mapping"
           ]
         },
         gen_art: {
