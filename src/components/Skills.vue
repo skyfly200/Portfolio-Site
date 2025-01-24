@@ -4,7 +4,7 @@
     .topics-list
       .topics-header(data-aos="fade" data-aos-offset="120")
         .topics-heading
-          h1 Explore my diverse range of skills
+          h1 Explore my Various Areas of Expertise
         .topics-hint
           h3 Select&nbsp;a&nbsp;topic to&nbsp;find&nbsp;out&nbsp;more!
 
