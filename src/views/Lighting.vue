@@ -1,9 +1,10 @@
 <template lang="pug">
-.Lighting.skill
+.lighting.skill
   v-fab(to="/" flat location="top start" app).home-btn Home
   .projects-timeline
-    h1 Harware Projects
-    h3 A history of some lighting projects I have worked on
+    .header
+      h1 Lighting Design
+      h3 A history of some lighting projects I have worked on
     v-divider
     v-timeline(:dense="width < 650")
       v-timeline-item(v-for="project in projects" :key="project.title" width="40vw")
@@ -106,6 +107,10 @@ export default {
   justify-content: center
   width: 100%
   color: white
+  .header
+    text-align: center
+    margin: auto
+    padding: 10px
   .projects-timeline
     width: 100%
 
