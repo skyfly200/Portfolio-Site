@@ -1,5 +1,5 @@
 <template lang="pug">
-Btn(:text="text ? text : 'More on GitHub'" :url="url" icon="fa-github")
+Btn(:text="text ? text : 'More on GitHub'" :url="url" icon="fa-github").btn
 </template>
 
 <script>

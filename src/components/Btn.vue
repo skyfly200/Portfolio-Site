@@ -19,4 +19,5 @@ export default {
   justify-content: center
   margin: 30px auto
   width: auto
+  color: #fff
 </style>

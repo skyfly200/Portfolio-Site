@@ -24,8 +24,9 @@
           a(:href="logo.url" target="_blank").logo-card
             v-img(:src="'/images/front-end/logos/' + logo.img" :id="logo.id" contain).logo
             h4 {{ logo.caption }}
-  p All product and company names and logos are trademarks™ or registered® trademarks of their respective holders.
-  p Use of them does not imply any affiliation with or endorsement by them.
+  .disclaimer
+    p All product and company names and logos are trademarks™ or registered® trademarks of their respective holders.
+    p Use of them does not imply any affiliation with or endorsement by them.
   br
   v-divider
   h1 Projects
@@ -200,6 +201,10 @@ export default {
   align-items: center
   flex-direction: column
   text-align: center
+  h1
+    padding: 2rem
+  .disclaimer p
+    font-size: 0.8rem
   .logos
     display: flex
     justify-content: flex-start
