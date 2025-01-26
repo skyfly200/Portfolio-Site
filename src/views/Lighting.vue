@@ -53,12 +53,6 @@ export default {
         img: "/images/hardware/hexy.jpg"
       },
       {
-        date: new Date("July, 2019"),
-        title: "PTC2399 Delay IC",
-        text: "Old School Bucket Brigade Delay modeled IC, in an echo circuit",
-        img: ""
-      },
-      {
         date: new Date("October, 27 2018"),
         title: "Animated LED Tower of Power",
         text:
