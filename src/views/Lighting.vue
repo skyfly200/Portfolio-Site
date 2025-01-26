@@ -34,6 +34,27 @@ export default {
         img: "/images/hardware/phi-lamp.jpg"
       },
       {
+        date: new Date("Oct, 22 2024"),
+        title: "Geometric Shape LED Building Kit",
+        text:
+          "Diffuser tubes and connectors to build geometric shapes with WS2812 LEDs",
+        img: "/images/hardware/tube-cube.jpg"
+      },
+      {
+        date: new Date("Aug, 27 2024"),
+        title: "Flower Pot LED Lamp",
+        text:
+          "A lamp designed to look like a flower pot, with four origami flowers that light up",
+        img: "/images/hardware/flower-pot.jpg"
+      },
+      {
+        date: new Date("Wed, 7 2020"),
+        title: "Pyramid LED Controller",
+        text:
+          "A lamp designed with the golden ratio in mind, using Python and Blender",
+        img: "/images/hardware/pyramid-board.jpeg"
+      },
+      {
         date: new Date("Oct, 20 2019"),
         title: "Touch n Glow PCB",
         text:
@@ -86,6 +107,14 @@ export default {
           "Chasing EL wire vest, with Addressable LED belt pack. RJ45 expansion port for LEDs, buttons and sensors.",
         img: "",
         repo: "https://github.com/skyfly200/EL-Vest"
+      },
+      {
+        date: new Date("May, 2 2013"),
+        title: "7 Band Music Reativity Circuit",
+        text:
+          "Using a MSGEQ7 and a shift register to control 7 LEDs representing 7 bands of frequency",
+        img: "/images/hardware/msgeq7.JPG",
+        repo: ""
       },
     ]
   }),
