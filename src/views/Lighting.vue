@@ -109,6 +109,12 @@ export default {
         repo: "https://github.com/skyfly200/EL-Vest"
       },
       {
+        date: new Date("October, 2014"),
+        title: "Halloween Costume 2014",
+        text: "Origami Flower with Addresable LEDs power from a Li-Po Battery",
+        img: ""
+      },
+      {
         date: new Date("May, 2 2013"),
         title: "7 Band Music Reativity Circuit",
         text:
