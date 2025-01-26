@@ -2,13 +2,19 @@
 .video.skill
   v-fab(to="/multimedia" flat location="top start" app).home-btn Back
   .video-info
+    h1 Videography
     h2 As a picture is worth a thousand words, video is indescribable
     p Video is a powerful medium, useful for conveyong complex messages, in an easily digestable form.
       | I apreciate this power and harness it to educate, inspire and prevoke new perspectives.
-    h3 Now check out this American Ninja Warrior entry video I produced for my friend Critter .
 
-  .video-player
-    iframe(src="https://www.youtube.com/embed/9o6mhFOJO5c?rel=0" frameborder="0" allowfullscreen)
+  .v-container
+    .v-row(sm="12")
+      .v-card(style="width: 100%")
+        .v-card-title
+          h3.primary-title American Ninja Warrior Entry Video
+          h4.subtitle-1 Produced for my friend Critter in 2015
+        .v-card-text.video-player
+          iframe(src="https://www.youtube.com/embed/9o6mhFOJO5c?rel=0" frameborder="0" allowfullscreen)
 </template>
 
 <script>
