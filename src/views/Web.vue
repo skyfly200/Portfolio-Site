@@ -44,7 +44,7 @@
             span
               v-chip(v-for="t in site.tech" outline color="white") {{ t }}
           v-divider
-          v-card-actions
+          v-card-actions.action-btns
             v-btn(:href="site.url" target="_blank" flat) Explore
             v-btn(:href="site.repo" target="_blank" flat) View Source
 
@@ -224,6 +224,9 @@ export default {
     h4
       text-align: center
       color: $color-secondary-2-0
+  .action-btns a:visited
+    color: white
+
   .logo
     margin: 30px
     width: 100px
