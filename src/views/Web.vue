@@ -157,7 +157,7 @@ export default {
       sites: [
         {
           title: "TinyBoxes DAPP",
-          img: "/images/front-end/black-kettle-mountain.png",
+          img: "/images/front-end/tinybox.shop.png",
           description:
             "Site for minting and viewing NFTs stored on the Ethereum blockchain",
           tech: ["Solidity", "Hardhat", "Node", "Vue", "Netlify"],
