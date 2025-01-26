@@ -32,7 +32,7 @@
   h1 Projects
   v-container(fluid grid-list-large)
     v-layout(row wrap)
-      v-col(v-for="site in sites" md6)
+      v-col(v-for="site in sites" lg="3" md="4" sm="6" xs="12")
         v-card.ma-2
           a(:href="site.url" target="_blank")
             v-img(:src="site.img")
@@ -42,7 +42,7 @@
             p {{ site.description }}
             h3 Technologies
             span
-              v-chip(v-for="t in site.tech" outline color="white") {{ t }}
+              v-chip(v-for="t in site.tech" outline color="white").tech {{ t }}
           v-divider
           v-card-actions.action-btns
             v-btn(:href="site.url" target="_blank" flat) Explore
@@ -209,6 +209,8 @@ export default {
     display: flex
     justify-content: flex-start
     align-items: left
+  .tech 
+    margin: 5px
   .logo-flex
     justify-content: center
     width: 200px
