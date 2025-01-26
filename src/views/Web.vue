@@ -182,13 +182,13 @@ export default {
           repo: "https://github.com/skyfly200/Polytope-Solutions"
         },
         {
-          title: "Custom VuePress Theme",
+          title: "Landscaping Website",
           img: "/images/front-end/daniel-vega.png",
           description:
-            "Template for a VuePress and NetlifyCMS based portfolio with a blog.",
-          tech: ["VuePress", "Vuetify", "NetlifyCMS"],
-          url: "https://vuepress-theme.netlify.com/",
-          repo: "https://github.com/skyfly200/CMS-Template"
+            "Site for a local landscaping company to showcase their work",
+          tech: ["Vue", "Nuxt", "Vuetify", "Netlify"],
+          url: "https://earthaccents.netlify.app/",
+          repo: "https://github.com/skyfly200/earth-accents-site"
         },
       ]
     };
