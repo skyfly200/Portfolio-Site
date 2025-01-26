@@ -2,10 +2,8 @@
 .video.skill
   v-fab(to="/multimedia" flat location="top start" app).home-btn Back
   .video-info
-    h1 Videography
-    h2 As a picture is worth a thousand words, video is indescribable
-    p Video is a powerful medium, useful for conveyong complex messages, in an easily digestable form.
-      | I apreciate this power and harness it to educate, inspire and prevoke new perspectives.
+    h1.ma-2 Videography
+    p Video is a powerful medium, useful for conveyong complex messages, in an easily digestable form. I apreciate this power and harness it to educate, inspire and prevoke new perspectives.
 
   .v-container
     .v-row(sm="12")
