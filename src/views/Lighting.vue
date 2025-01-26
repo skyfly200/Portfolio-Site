@@ -27,6 +27,13 @@ export default {
     width: 0,
     projects: [
       {
+        date: new Date("Jan, 10 2025"),
+        title: "Phi Cylinder Lamp",
+        text:
+          "",
+        img: "/images/hardware/phi-lamp.jpg"
+      },
+      {
         date: new Date("Oct, 20 2019"),
         title: "Touch n Glow PCB",
         text:
