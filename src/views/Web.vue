@@ -156,22 +156,13 @@ export default {
       ],
       sites: [
         {
-          title: "Black Kettle Mountain Petition",
+          title: "TinyBoxes DAPP",
           img: "/images/front-end/black-kettle-mountain.png",
           description:
-            "A petition to change the name of mount Evans to Black Kettle Mountain",
-          tech: ["Vue", "Pug", "Sass", "Express", "Google Cloud"],
-          url: "http://black-kettle-mountain.appspot.com/",
-          repo: "https://github.com/skyfly200/black-kettle-mtn"
-        },
-        {
-          title: "Custom VuePress Theme",
-          img: "/images/front-end/daniel-vega.png",
-          description:
-            "Template for a VuePress and NetlifyCMS based portfolio with a blog.",
-          tech: ["VuePress", "Vuetify", "NetlifyCMS"],
-          url: "https://vuepress-theme.netlify.com/",
-          repo: "https://github.com/skyfly200/CMS-Template"
+            "Site for minting and viewing NFTs stored on the Ethereum blockchain",
+          tech: ["Solidity", "Hardhat", "Node", "Vue", "Netlify"],
+          url: "http://tinybox.shop/",
+          repo: "https://github.com/skyfly200/tiny-boxes"
         },
         {
           title: "Colorado Community Radio Network",
@@ -189,7 +180,16 @@ export default {
           tech: ["Vue", "Vuetify", "Netlify Functions", "Mailgun"],
           url: "https://polytopesolutions.com/",
           repo: "https://github.com/skyfly200/Polytope-Solutions"
-        }
+        },
+        {
+          title: "Custom VuePress Theme",
+          img: "/images/front-end/daniel-vega.png",
+          description:
+            "Template for a VuePress and NetlifyCMS based portfolio with a blog.",
+          tech: ["VuePress", "Vuetify", "NetlifyCMS"],
+          url: "https://vuepress-theme.netlify.com/",
+          repo: "https://github.com/skyfly200/CMS-Template"
+        },
       ]
     };
   }
