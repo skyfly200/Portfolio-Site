@@ -1,6 +1,7 @@
 <template lang="pug">
 .web.skill
-  v-fab(to="/software" flat location="top start" app).home-btn Back
+  v-fab(to="/software" flat location="top start" app).home-btn Back'
+  br
   h1 This portfolio site is built on my favorite modern stack
   br
   v-card.ma-2
@@ -112,7 +113,7 @@ export default {
         {
           caption: "JS",
           id: "js-logo",
-          img: "js.png",
+          img: "JS.png",
           url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript"
         },
         {
