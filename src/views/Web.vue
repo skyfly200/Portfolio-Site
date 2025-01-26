@@ -183,7 +183,7 @@ export default {
         },
         {
           title: "Landscaping Website",
-          img: "/images/front-end/daniel-vega.png",
+          img: "/images/front-end/earth-accents.png",
           description:
             "Site for a local landscaping company to showcase their work",
           tech: ["Vue", "Nuxt", "Vuetify", "Netlify"],
