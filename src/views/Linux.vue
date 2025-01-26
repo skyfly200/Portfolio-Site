@@ -4,36 +4,44 @@
   v-container
     v-row.skills-list
       v-col(cols="12")
-          h2 Dev Ops Skills
-          v-chip-group
-            v-chip Apache
-            v-chip Nginx
-            v-chip Express
-            v-chip Node
-            v-chip MySql
-            v-chip MariaDB
-            v-chip SQLite
-            v-chip Mongo
-            v-chip Python
-            v-chip Ruby
-            v-chip PHP
-            v-chip SSH
-            v-chip CodeCov
-            v-chip Pupeteer
-            v-chip Bash/Shell
-            v-chip Cron
-            v-chip TensorFlow
-            v-chip Ansible
-            v-chip Docker
-            v-chip Virtual Box
-            v-chip Digital Ocean
-            v-chip AWS
-            v-chip Google Cloud Platform
-            v-chip Firebase
-            v-chip Netlify
-            v-chip GitHub
-            v-chip Lets Encrypt Certbot
-            v-chip Icecast2
+        h2 Tools
+        v-chip-group
+          v-chip Apache
+          v-chip Nginx
+          v-chip Express
+          v-chip Node
+          v-chip MySql
+          v-chip MariaDB
+          v-chip SQLite
+          v-chip Mongo
+          v-chip Python
+          v-chip Ruby
+          v-chip PHP
+          v-chip SSH
+          v-chip CodeCov
+          v-chip Pupeteer
+          v-chip Bash/Shell
+          v-chip Cron
+          v-chip TensorFlow
+          v-chip Ansible
+          v-chip Docker
+          v-chip Virtual Box
+          v-chip Digital Ocean
+          v-chip AWS
+          v-chip Google Cloud Platform
+          v-chip Firebase
+          v-chip Netlify
+          v-chip GitHub
+          v-chip Lets Encrypt Certbot
+          v-chip Icecast2
+        h2 Experience and Skillset
+        ul
+          li Install and Configure Linux Servers
+          li Linux Command Line, Cron Tab, Permissions, Shell Scripts
+          li Create and Configure Digital Ocean Droplets
+          li HTTPS with Lets Encrypt
+          li Icecast Configuration and Broadcasting
+          li GitHub Project Managment Habits
     v-row.projects-list
       v-col(cols="12")
         h2 Some of Dev Ops / Linux Projects
