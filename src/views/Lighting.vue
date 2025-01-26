@@ -1,6 +1,6 @@
 <template lang="pug">
 .lighting.skill
-  v-fab(to="/" flat location="top start" app).home-btn Home
+  v-fab(to="/multimedia" flat location="top start" app).home-btn Back
   .projects-timeline
     .header
       h1 Lighting Design
