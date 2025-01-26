@@ -1,6 +1,6 @@
 <template lang="pug">
 .web.skill
-  v-fab(to="/software" flat location="top start" app).home-btn Back'
+  v-fab(to="/software" flat location="top start" app).home-btn Back
   br
   h1 This portfolio site is built on my favorite modern stack
   br
