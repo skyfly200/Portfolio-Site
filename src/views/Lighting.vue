@@ -30,7 +30,7 @@ export default {
         date: new Date("Jan, 10 2025"),
         title: "Phi Cylinder Lamp",
         text:
-          "",
+          "A lamp designed with the golden ratio in mind, using Python and Blender",
         img: "/images/hardware/phi-lamp.jpg"
       },
       {
