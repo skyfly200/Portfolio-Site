@@ -27,36 +27,10 @@ export default {
     width: 0,
     projects: [
       {
-        date: new Date("Oct, 20 2019"),
-        title: "Touch n Glow PCB",
-        text:
-          "Touch control pads, WS2812 addressable LED & 3.5mm TRRS connector for more LEDs",
-        img: "/images/hardware/TnG.jpg"
-      },
-      {
-        date: new Date("Aug, 25 2019"),
-        title: "Ill'uminator PCB",
-        text: "RGB LED strip controller",
-        img: "/images/hardware/illumin.jpg"
-      },
-      {
-        date: new Date("Aug, 12 2019"),
-        title: "Hexy Pix PCB",
-        text: "SMD WS2812 LED breakout board",
-        img: "/images/hardware/hexy.jpg"
-      },
-      {
         date: new Date("July, 2019"),
         title: "PTC2399 Delay IC",
         text: "Old School Bucket Brigade Delay modeled IC, in an echo circuit",
         img: ""
-      },
-      {
-        date: new Date("October, 27 2018"),
-        title: "Animated LED Tower of Power",
-        text:
-          "Animated WS2812 LEDs behind a laser cut acrylic outline of a radio tower",
-        img: "/images/hardware/tower.jpg"
       },
       {
         date: new Date("March, 3 2018"),
@@ -92,33 +66,6 @@ export default {
         text:
           "Arduino PID controller for temperature and humidity, with LCD. Plus light level sensor.",
         img: "/images/hardware/PID.jpg"
-      },
-      {
-        date: new Date("Aug, 26 2016"),
-        title: "DMX LED Light",
-        text: "2 DMX channels control LED brighness and servo position",
-        img: "/images/hardware/DMX.jpg",
-        repo: "//github.com/skyfly200/DMX-LED-Light"
-      },
-      {
-        date: new Date("Sep, 3 2016"),
-        title: "Music Reactive Neopixel Strip",
-        text: "Audio reactive addressable RGB LED strip with arduino",
-        img: "",
-        repo: "//github.com/skyfly200/MusicReactiveNeopixels"
-      },
-      {
-        date: new Date("January, 16 2016"),
-        title: "Music Reactive LED Strip",
-        text: "Audio reactive RGB LED strip with arduino",
-        img: "",
-        repo: "https://github.com/skyfly200/MusicReactiveRGBStrip"
-      },
-      {
-        date: new Date("October, 2014"),
-        title: "Halloween Costume 2014",
-        text: "Origami Flower with Addresable LEDs power from a Li-Po Battery",
-        img: ""
       },
       {
         date: new Date("Mar, 8 2014"),
