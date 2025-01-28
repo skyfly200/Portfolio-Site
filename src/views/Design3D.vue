@@ -2,20 +2,21 @@
 ._3d.skill
   v-fab(to="/multimedia" flat location="top start" app).home-btn Back
   .info-3d
-    h2 Exploring new dimensions of posibility
-    p
-      | 3D modeling is one of the most powerful tools available to inovators today.
-      br
-      | Now 3D printing brings this digital realm, with its new forms, into the physical world.
-      br
-      | Rapidly distiling new ideas into to reality, to help realize a better future.
-    h3 Software Proficencies
-    p Blender, Fusion360, Maya, Sketch-Up, OpenSCAD
-    p Unity-3D, Slic3r, Netfab Basic
-    br
-    h3 Explore my designs on Printables
-    a(href='https://www.printables.com/@SkyFly_136025/models' target="_blank")
-      button Printables
+    .description.pa-5
+      h2.ma-3 Exploring new dimensions of posibility
+      p
+        | 3D modeling is one of the most powerful tools available to inovators today.
+        br
+        | Now 3D printing brings this digital realm, with its new forms, into the physical world.
+        br
+        | Rapidly distiling new ideas into to reality, to help realize a better future.
+    .software-proficencies.pa-5
+      h2.ma-3 Software Proficencies
+      p Blender, Fusion360, Maya, Sketch-Up, OpenSCAD
+      p Unity-3D, Slic3r, Netfab Basic
+    .printables-link.pa-5
+      h3 Explore my designs on Printables
+      v-btn.ma-7(href='https://www.printables.com/@SkyFly_136025/models' target="_blank") Printables
 </template>
 
 <script>
@@ -62,13 +63,11 @@ export default {
         width: 300px
         height: 372px
   .info-3d
+    width: 100%
     display: flex
     align-items: center
     flex-direction: column
     text-align: center
-    width: calc(100% - 400px)
-    margin: 5px
-    padding: 10px
 
   @media (max-width: 800px)
     flex-direction: column
