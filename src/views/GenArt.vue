@@ -1,10 +1,10 @@
 <template lang="pug">
 .gen-art.skill
   v-fab(to="/multimedia" flat location="top start" app).home-btn Back
-  .web3-info
+  .gen-art-info
     .headline
       h1 Generative Art
-    v-container
+    v-container.projects
       v-row
         v-col(cols="12" md="6" lg="4")
           v-card
@@ -52,7 +52,7 @@ export default {
 </script>
 
 <style lang="sass">
-.web3
+.gen-art
   flex-direction: row
   justify-content: center
   width: 100%
@@ -60,7 +60,7 @@ export default {
   .headline
     width: 100%
     text-align: center
-  .web3-info
+  .gen-art-info
     text-align: center
     margin: auto
     padding: 10px
