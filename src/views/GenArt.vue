@@ -2,18 +2,41 @@
 .gen-art.skill
   v-fab(to="/multimedia" flat location="top start" app).home-btn Back
   .web3-info
-    h2 Web3 Projects
-    ul.projects-list
-      li
-        a(href="https://github.com/skyfly200/mapping-scripts" target="_blank") Water System Mapping for the Town of Ward
-      li
-        a(href="https://github.com/skyfly200/SwissArmyKnife" target="_blank") 5Ghz WiFi Frequency Plotter
-      li
-        a(href="https://tinybox.shop" target="_blank") TinyBoxes NFT - Animated On-Chain Generative Art
-      li
-        a(href="https://wayhighradio.com" target="_blank") Way High Radio - Pirate Radio for the Town of Ward
-      li
-        a(href="https://coloradocommunityradio.com" target="_blank") Colorado Community Radio Network - FM and Online Broadcasting in Communities Across Colorado
+    .headline
+      h1 Generative Art
+    v-container
+      v-row
+        v-col(cols="12" md="6" lg="4")
+          v-card
+            v-card-title TinyBoxes NFT
+            v-img(cover src="/images/TB-logo.svg" alt="phi art" height="400px")
+            v-card-text
+              | Animated On-Chain Generative Art NFTs.
+              | A collection of 2222 unique tokens.
+              | Each TinyBox is a unique piece of generative art.
+              | Built with Solidity, Hardhat, Ethers.js, and Vue.js.
+            v-card-actions
+              v-btn(text href="https://tinybox.shop" target="_blank") Visit
+        v-col(cols="12" md="6" lg="4")
+          v-card
+            v-card-title Caustics Container
+            v-img(cover src="/images/caustics.png" alt="phi art" height="400px")
+            v-card-text
+              | A container for caustics, a generative art project.
+              | Water simulation thats music responsive and interactive.
+              | Built with WebGL, Three.js and WebAudio API.
+            v-card-actions
+              v-btn(text href="https://github.com/skyfly200/caustics-art" target="_blank") View on GitHub
+        v-col(cols="12" md="6" lg="4")
+          v-card
+            v-card-title Phi Inspired Series
+            v-img(cover src="/images/hardware/phi-lamp.jpg" alt="phi art" height="400px")
+            v-card-text
+              | Shapes inspired by the golden ratio.
+              | Generative 3d models made with Pyhton scripts in Blender
+              | Jewelry and light art pieces created with 3d printing.
+            v-card-actions
+              v-btn(text href="" target="_blank") View on GitHub
 
 </template>
 
@@ -34,6 +57,9 @@ export default {
   justify-content: center
   width: 100%
   color: white
+  .headline
+    width: 100%
+    text-align: center
   .web3-info
     text-align: center
     margin: auto
