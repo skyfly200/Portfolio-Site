@@ -1,22 +1,28 @@
 <template lang="pug">
 ._3d.skill
   v-fab(to="/multimedia" flat location="top start" app).home-btn Back
-  .info-3d
-    .description.pa-5
-      h2.ma-3 Exploring new dimensions of posibility
-      p
-        | 3D modeling is one of the most powerful tools available to inovators today.
-        br
-        | Now 3D printing brings this digital realm, with its new forms, into the physical world.
-        br
-        | Rapidly distiling new ideas into to reality, to help realize a better future.
-    .software-proficencies.pa-5
-      h2.ma-3 Software Proficencies
-      p Blender, Fusion360, Maya, Sketch-Up, OpenSCAD
-      p Unity-3D, Slic3r, Netfab Basic
-    .printables-link.pa-5
-      h3 Explore my designs on Printables
-      v-btn.ma-7(href='https://www.printables.com/@SkyFly_136025/models' target="_blank") Printables
+  v-container
+    v-row
+      v-col.info-3d(cols="12" md="6")
+        .description.pa-5
+          h2.ma-3 Exploring new dimensions of posibility
+          p
+            | 3D modeling is one of the most powerful tools available to inovators today.
+            br
+            | Now 3D printing brings this digital realm, with its new forms, into the physical world.
+            br
+            | Rapidly distiling new ideas into to reality, to help realize a better future.
+        .software-proficencies.pa-5
+          h2.ma-3 Software Proficencies
+          p Blender, Fusion360, Sketch-Up, OpenSCAD, Tinkercad
+          p Meshmixer, Unity-3D, Three.js
+          p Orca Slicer, PrusaSlicer, BambuStudio, Cura, Simplify3D
+        .printables-link.pa-5
+          h3 Explore my designs on Printables
+          v-btn.ma-7(href='https://www.printables.com/@SkyFly_136025/models' target="_blank") Printables
+      v-col.image-wrapper(cols="12" md="6")
+        v-img(src="/images/hardware/flower-pot.jpg" alt="3D Printer")
+
 </template>
 
 <script>
