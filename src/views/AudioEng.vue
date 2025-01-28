@@ -1,8 +1,8 @@
 <template lang="pug">
 .audio-eng.skill
   v-fab(to="/multimedia" flat location="top start" app).home-btn Back
-  .audio-info
-    h1.ma-5 Sound Engineering
+  .audio-info.pa-5
+    h1.ma-5.audio-title Sound Engineering
     p
       | With a comprehensive understanding of signal flow and equipment, as well as a well refined ear,
       | I'm confident in my ability to create clear and powerful sounding experiences.
@@ -16,17 +16,12 @@
       | A founder of Colorado Community Radio Network (CCRN) and Technical Director Way High Radio.
       | I manage a large swath of infrastructure, coordinate syndication and create content, to keep our community radio network running smoothly and keep our community up to speed.
     br
-    v-btn(href="http://coloradocommunityradio.com/" target="_blank") Learn More About CCRN
-    br
-    br
-    v-btn(href="http://wayhighradio.com/" target="_blank") Learn More About KWHR
-    br
-    br
-    hr
-    br
+    .radio-buttons
+      v-btn.ma-2(href="http://coloradocommunityradio.com/" target="_blank") Learn More About CCRN
+      v-btn.ma-2(href="http://wayhighradio.com/" target="_blank") Learn More About KWHR
 
   v-container.archives
-    v-row.archives-title
+    v-row.archives-title.ma-5
       h1 Some examples of my work
     v-row.archive-players
       v-col(cols="12" md="6")
@@ -58,13 +53,12 @@ export default {
 
 <style lang="sass">
 .audio-eng
-  justify-content: center
-  text-align: center
   color: white
+  .audio-title, .archives-title
+    justify-content: center
+    text-align: center
   .audio-info
     margin: 10px
-    text-align: center
-    margin: auto
 
   .archives
     align-items: center
