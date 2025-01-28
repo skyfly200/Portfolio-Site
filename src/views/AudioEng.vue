@@ -2,6 +2,7 @@
 .audio-eng.skill
   v-fab(to="/multimedia" flat location="top start" app).home-btn Back
   .audio-info
+    h1.ma-5 Sound Engineering
     p
       | With a comprehensive understanding of signal flow and equipment, as well as a well refined ear,
       | I'm confident in my ability to create clear and powerful sounding experiences.
@@ -32,14 +33,14 @@
         v-card
           v-card-title Telluride Brews and Blues 2015
           v-card-text
-            iframe(src="https://archive.org/embed/CCRN-TBB2015&playlist=1&list_height=200" width="100%" height="200" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen)
+            iframe(src="https://archive.org/embed/CCRN-TBB2015&playlist=1&list_height=190" width="100%" height="190" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen)
           v-card-actions
             v-btn(href="https://archive.org/details/CCRN-TBB2015" target="_blank") View on Archive.org
       v-col(cols="12" md="6")
         v-card
           v-card-title William Padilla Brown Interview
           v-card-text
-            iframe(src="https://archive.org/embed/WilliamPadillaBrownInterview&playlist=1&list_height=200" width="100%" height="200" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen)
+            iframe(src="https://archive.org/embed/WilliamPadillaBrownInterview&playlist=1&list_height=70" width="100%" height="70" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen)
           v-card-actions
             v-btn(href="https://archive.org/details/WilliamPadillaBrownInterview" target="_blank") View on Archive.org
 
