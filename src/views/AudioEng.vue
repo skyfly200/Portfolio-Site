@@ -3,26 +3,48 @@
   v-fab(to="/multimedia" flat location="top start" app).home-btn Back
   .audio-info
     p
-      | With an comprehensive understanding of signal flow and equipment, as well as a well refined ear,
-      | I'm confident in my ability to create powerful sounding experiences.
+      | With a comprehensive understanding of signal flow and equipment, as well as a well refined ear,
+      | I'm confident in my ability to create clear and powerful sounding experiences.
+    br
     p
       | I have run sound at venues in the Boulder area, including Shine, The Laughing Goat and The Caribou Room.
-      | I worked as a Stage Manager at Frozen Dead Guy Days 2017 and 2018. Comfortable in a studio environment as well,
-      | I have tracked, mixed and mastered content at Kodiak Lake Studios.
+      | I worked as a Stage Manager at Frozen Dead Guy Days 2017 and 2018. 
+      | Comfortable in a studio environment as well, I've tracked, mixed and mastered content at Kodiak Lake Studios.
+    br
     p
       | A founder of Colorado Community Radio Network (CCRN) and Technical Director Way High Radio.
-      | I manage a wide degree of projects, to keep our community radio network running smoothly.
-    a(href="http://coloradocommunityradio.com/" target="_blank")
-      button Learn More About CCRN
+      | I manage a large swath of infrastructure, coordinate syndication and create content, to keep our community radio network running smoothly and keep our community up to speed.
+    br
+    v-btn(href="http://coloradocommunityradio.com/" target="_blank") Learn More About CCRN
+    br
+    br
+    v-btn(href="http://wayhighradio.com/" target="_blank") Learn More About KWHR
+    br
+    br
+    hr
+    br
 
-  .archives
-    .archive-player
-      h3 Some examples of my work
-      iframe(src="https://archive.org/embed/CCRN-TBB2015&playlist=1&list_height=200" width="100%" height="200" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen)
+  v-container.archives
+    v-row.archives-title
+      h1 Some examples of my work
+    v-row.archive-players
+      v-col(cols="12" md="6")
+        v-card
+          v-card-title Telluride Brews and Blues 2015
+          v-card-text
+            iframe(src="https://archive.org/embed/CCRN-TBB2015&playlist=1&list_height=200" width="100%" height="200" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen)
+          v-card-actions
+            v-btn(href="https://archive.org/details/CCRN-TBB2015" target="_blank") View on Archive.org
+      v-col(cols="12" md="6")
+        v-card
+          v-card-title William Padilla Brown Interview
+          v-card-text
+            iframe(src="https://archive.org/embed/WilliamPadillaBrownInterview&playlist=1&list_height=200" width="100%" height="200" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen)
+          v-card-actions
+            v-btn(href="https://archive.org/details/WilliamPadillaBrownInterview" target="_blank") View on Archive.org
 
-    .button
-      a(href='https://archive.org/details/@skybfly' target="_blank")
-        button More Recordings
+    v-row.more-button
+      v-btn(href='https://archive.org/details/@skybfly' target="_blank") More Recordings
 
 </template>
 
@@ -39,19 +61,12 @@ export default {
   text-align: center
   color: white
   .audio-info
-    width: 60%
     margin: 10px
     text-align: center
     margin: auto
-    h1
-      margin-top: 0px
 
   .archives
-    display: flex
-    flex-direction: column
     align-items: center
-    width: 40%
-    min-width: 320px
     .archive-player
       padding: 10px 20px
       width: 100%
@@ -73,8 +88,6 @@ export default {
       padding: 20px 0px
     .archives
       width: 100%
-      .archive-player
-        width: 80%
 
   .home-btn
     a
