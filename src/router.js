@@ -77,6 +77,13 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(), // Use history mode
   routes,
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition; // Restore saved scroll position when using browser navigation
+    } else {
+      return { top: 0, behavior: "smooth" }; // Always scroll to the top on route change
+    }
+  }
 });
 
 export default router;
