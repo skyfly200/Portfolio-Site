@@ -1,9 +1,9 @@
 <template lang="pug">
 .msg-404
-  v-container(height="100%")
-    v-row(height="100%")
+  v-container
+    v-row
       v-col(cols="12" class="d-flex justify-center")
-        v-card
+        v-card(height="fit-content")
           v-card-title Error 404
           v-divider
           v-card-text The requested page could not be found
@@ -14,6 +14,9 @@
 <style scoped lang="sass">
 .msg-404
   height: 100%
+  .v-col
+    height:100vh
+    align-items: center
   .v-card
     text-align: center
     border-radius: 10px
