@@ -1,17 +1,32 @@
 <template lang="pug">
 .msg-404
-  v-fab(to="/" flat location="top start" app).home-btn Home
-  h1 404 Error
-  h2 The requested page could not be found.
+  v-container(height="100%")
+    v-row(height="100%")
+      v-col(cols="12" class="d-flex justify-center")
+        v-card
+          v-card-title Error 404
+          v-divider
+          v-card-text The requested page could not be found
+          v-card-actions
+            v-btn(text to="/" color="primary") Return To Home
 </template>
 
 <style scoped lang="sass">
 .msg-404
-  color: #FFFFFF
-  background-color: #aa0000
-  width: 50%
-  margin: 0 25%
-  .home-btn
-    a
-      color: white
+  height: 100%
+  .v-card
+    text-align: center
+    border-radius: 10px
+    .v-card-title
+      font-size: 1.5rem
+      font-weight: 500
+      margin: 10px 0
+    .v-card-text
+      font-size: 1.2rem
+      margin: 10px
+    .v-card-actions
+      justify-content: center
+      margin: 10px 0
+      .v-btn
+        color: $color-secondary-2-1
 </style>
