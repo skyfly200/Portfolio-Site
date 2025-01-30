@@ -58,9 +58,14 @@ const routes = [
     component: () => import(/* webpackChunkName: "web3" */ "./views/Web3.vue"),
   },
   {
+    path: "/photo",
+    name: "photo",
+    component: () => import(/* webpackChunkName: "photo" */ "./views/Photo.vue"),
+  },
+  {
     path: "/photos",
     name: "photos",
-    component: () => import(/* webpackChunkName: "photo" */ "./views/Photo.vue"),
+    component: () => import(/* webpackChunkName: "photos" */ "./views/Photos.vue"),
   },
   {
     path: "/videos",

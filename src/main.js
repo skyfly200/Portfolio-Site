@@ -4,6 +4,7 @@ import router from "./router";
 import vuetify from "./plugins/vuetify"; // Vuetify 3 setup
 import axios from "axios";
 import VueAxios from "vue-axios";
+import MasonryWall from '@yeger/vue-masonry-wall'
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -16,6 +17,7 @@ const app = createApp(App);
 app.use(VueAxios, axios);
 app.use(router);
 app.use(vuetify);
+app.use(MasonryWall);
 
 app.mount("#app");
 
