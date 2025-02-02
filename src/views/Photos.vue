@@ -1,27 +1,36 @@
 <template lang="pug">
 .gallery.skill
+  v-fab(to="/multimedia" flat location="top start" app).home-btn Back
   masonry-wall(:items="items" :ssr-columns="1" :column-width="300" :gap="16")
     template(#default="{ item, index }")
-      div(:style="{ height: `${(index + 1) * 100}px` }")
-        v-img(:src="item.src")
-        h1 {{ item.title }}
-        span {{ item.description }}
-  //- v-carousel(:cycle="cycle" interval="10000" height="100%" hide-delimiters)
-  //-   v-carousel-item(v-for="image in images" :key="image" :src="image")
-  //- v-fab(to="/multimedia" flat location="top start" app).home-btn Back
-  //- v-fab(v-if="cycle" flat location="bottom end" app icon="fa:fas fa-pause" @click="cycle = false")
-  //- v-fab(v-else flat location="bottom end" app icon="fa:fas fa-play" @click="cycle = true")
+      div
+        v-hover(v-slot="{ isHovering, props }")
+          v-card(:class="{ 'on-hover': isHovering }" :elevation="isHovering ? 12 : 2" v-bind="props" @click="selected = index; focus = true")
+            v-img(:src="item.src" cover class="elevation-2")
+              .overlay(v-if="isHovering")
+                v-card-title.text-h6.text-white.d-flex.flex-column
+                  h2 {{ item.title }}
+                v-card-text.text-h6.text-white.d-flex.flex-column
+                  p {{ item.description }}
+  v-overlay(v-model="focus" width="100vw" height="100vh" dark)
+    v-carousel(v-modal="selected" :cycle="cycle" interval="10000" height="100%" hide-delimiters)
+      v-carousel-item(v-for="item in items" :key="item.title" :src="item.src")
+    v-fab(v-if="cycle" flat location="bottom end" app icon="fa:fas fa-pause" @click="cycle = false")
+    v-fab(v-else flat location="bottom end" app icon="fa:fas fa-play" @click="cycle = true")
+    v-fab(flat location="top end" app icon="fa:fas fa-x" @click="focus = false")
 </template>
 
 <script>
 export default {
   name: "photos",
   data: () => ({
-    cycle: true,
+    cycle: false,
+    focus: false,
+    selected: 0,
     items: [
-      { src: "/images/photography/best/img (1).jpg", title: "Image 1", description: "" },
-      { src: "/images/photography/best/img (2).jpg", title: "Image 2", description: "" },
-      { src: "/images/photography/best/img (3).jpg", title: "Image 3", description: "" },
+      { src: "/images/photography/best/img (1).jpg", title: "Water Lilly", description: "In the japaneese garden in budapest hungary" },
+      { src: "/images/photography/best/img (2).jpg", title: "Balloon Over Budapest", description: "Hot Air Balloon Over Budapest" },
+      { src: "/images/photography/best/img (3).jpg", title: "Budapest Skyline", description: "Skyline of budapest with faris wheel" },
       { src: "/images/photography/best/img (4).jpg", title: "Image 4", description: "" },
       { src: "/images/photography/best/img (5).jpg", title: "Image 5", description: "" },
       { src: "/images/photography/best/img (6).jpg", title: "Image 6", description: "" },
@@ -75,14 +84,30 @@ export default {
 .gallery
   flex-direction: column
   text-align: center
-  height: 100vh
-  @media(min-width: 1000px)
-    max-width: 943px
-    margin: auto
   .gallery-nav
     button
       color: black
   
+  .on-hover
+    box-shadow: 0px 0px 12px rgba(255, 255, 255, 0.5) !important
+
+  .overlay
+    background: rgba(0, 0, 0, 0.5)
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    padding: 16px
+    h2
+      margin: 0
+    p
+      margin: 0
+      
   .home-btn
     a
       color: white
