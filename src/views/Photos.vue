@@ -12,12 +12,12 @@
                   h2 {{ item.title }}
                 v-card-text.text-h6.text-white.d-flex.flex-column
                   p {{ item.description }}
-  v-overlay(v-model="focus" width="100vw" height="100vh" dark)
-    v-carousel(v-modal="selected" :cycle="cycle" interval="10000" height="100%" hide-delimiters)
+  v-overlay(v-model="focus" width="100vw" height="100vh")
+    v-carousel(v-model="selected" :cycle="cycle" interval="10000" height="100%" hide-delimiters)
       v-carousel-item(v-for="item in items" :key="item.title" :src="item.src")
     v-fab(v-if="cycle" flat location="bottom end" app icon="fa:fas fa-pause" @click="cycle = false")
     v-fab(v-else flat location="bottom end" app icon="fa:fas fa-play" @click="cycle = true")
-    v-fab(flat location="top end" app icon="fa:fas fa-x" @click="focus = false")
+    v-fab(flat location="top end" app icon="fa:fas fa-xmark" @click="focus = false")
 </template>
 
 <script>
