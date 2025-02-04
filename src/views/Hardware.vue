@@ -27,10 +27,52 @@ export default {
     width: 0,
     projects: [
       {
+        date: new Date("Nov 28, 2023"),
+        title: "Air Quality Monitor",
+        text: "A unit of sensors to monitor air quality",
+        img: "/images/hardware/air-quality-monitor.jpg"
+      },
+      {
+        date: new Date("Oct 7, 2020"),
+        title: "Led Lily Pyramid Base",
+        text: "A base to house the LED Lily Controller and battery",
+        img: "/images/hardware/pyramid-board.jpg"
+      },
+      {
+        date: new Date("October 26, 2019"),
+        title: "Touch n' Glow",
+        text: "A PCB with touch pads and a 3.5 mm port to connect RGB LEDs",
+        img: "/images/hardware/touchnglow.jpg"
+      },
+      {
+        date: new Date("Oct 18, 2019"),
+        title: "Hexy Pix PCB",
+        text: "A breakout board for 5050 Addressable LEDs",
+        img: "/images/hardware/hexypix.jpg"
+      },
+      {
+        date: new Date("August 26, 2019"),
+        title: "Ill'uminator PCB",
+        text: "A basic RGB LED strip controller with some sweet PCB art on the back",
+        img: "/images/hardware/illuminator.jpg"
+      },
+      {
         date: new Date("July, 2019"),
         title: "PTC2399 Delay IC",
         text: "Old School Bucket Brigade Delay modeled IC, in an echo circuit",
         img: ""
+      },
+      {
+        date: new Date("March 15, 2019"),
+        title: "ArtNet LED Strip Controller",
+        text: "ArtNet Ws2812b Strip controller, with ESP32 Thing from Sparkfun",
+        img: ""
+      },
+      {
+        date: new Date("November 1, 2018"),
+        title: "Sparky - 150W FM TX",
+        text: "A 150W stereo FM transmitter, with laser cut plates",
+        img: "/images/hardware/sparky.jpg"
       },
       {
         date: new Date("March, 3 2018"),
