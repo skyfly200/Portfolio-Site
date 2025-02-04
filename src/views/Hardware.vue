@@ -36,7 +36,7 @@ export default {
         date: new Date("Oct 7, 2020"),
         title: "Led Lily Pyramid Base",
         text: "A base to house the LED Lily Controller and battery",
-        img: "/images/hardware/pyramid-board.jpg"
+        img: "/images/hardware/pyramid-board.jpeg"
       },
       {
         date: new Date("October 26, 2019"),
