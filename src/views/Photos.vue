@@ -9,7 +9,7 @@
             v-img(:src="item.src" cover class="elevation-2")
               .overlay(v-if="isHovering")
                 v-card-title.text-h6.text-white.d-flex.flex-column
-                  h2 {{ item.title }}
+                  h3 {{ item.title }}
                 v-card-text.text-h6.text-white.d-flex.flex-column
                   p {{ item.description }}
   v-overlay(v-model="focus" width="100vw" height="100vh")
@@ -103,8 +103,9 @@ export default {
     justify-content: center
     align-items: center
     padding: 16px
-    h2
+    h3
       margin: 0
+      flex-wrap: wrap
     p
       margin: 0
       
