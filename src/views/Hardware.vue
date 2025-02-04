@@ -75,6 +75,12 @@ export default {
         img: "/images/hardware/sparky.jpg"
       },
       {
+        date: new Date("March, 8 2018"),
+        title: "ESP32 LED Controller",
+        text: "Addressable LED fixture contorller, with ESP32 Thing from Sparkfun running off a battery",
+        img: "/images/hardware/esp-pack.jpg"
+      },
+      {
         date: new Date("March, 3 2018"),
         title: "LED Lily",
         text: "Origami Flower LED fixture",
