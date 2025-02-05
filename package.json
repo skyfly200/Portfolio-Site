@@ -39,8 +39,10 @@
     "eslint": "^9.17.0",
     "eslint-plugin-vue": "^9.32.0",
     "sass-embedded": "^1.83.0",
+    "sharp": "^0.33.5",
     "sinon": "^19.0.2",
-    "stylus": "^0.64.0"
+    "stylus": "^0.64.0",
+    "vite-plugin-image-optimizer": "^1.1.8"
   },
   "eslintConfig": {
     "root": true,
