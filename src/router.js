@@ -8,6 +8,11 @@ const routes = [
     component: Home,
   },
   {
+    path: "/bio",
+    name: "bio",
+    component: () => import(/* webpackChunkName: "bio" */ "./views/Bio.vue"),
+  },
+  {
     path: "/multimedia",
     name: "multimedia",
     component: () => import(/* webpackChunkName: "multimedia" */ "./views/Multimedia.vue"),
@@ -56,11 +61,6 @@ const routes = [
     path: "/web3",
     name: "web3",
     component: () => import(/* webpackChunkName: "web3" */ "./views/Web3.vue"),
-  },
-  {
-    path: "/photo",
-    name: "photo",
-    component: () => import(/* webpackChunkName: "photo" */ "./views/Photo.vue"),
   },
   {
     path: "/photos",
