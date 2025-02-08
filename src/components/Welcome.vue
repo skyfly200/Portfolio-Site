@@ -69,11 +69,11 @@ export default {
           font-size: 2.5em
 
   .welcome-img
-    margin: 10px 10px 25px 10px
+    margin: 10px 10px 15px 10px
     padding: 1vw
     border-radius: 50%
     background-color: $color-secondary-1-4
-    box-shadow: 0px 8px 25px rgba(0,0,0,1)
+    box-shadow: 0px 3px 30px rgba(0,0,0,1)
     img
       width: 40vw
       height: 40vw
