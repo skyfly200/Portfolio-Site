@@ -6,33 +6,39 @@
     .v-row(sm=12)
       h1.ma-2 Bio
     .v-row
-      .v-col(sm="12")
+      .v-col(sm="6")
         .bio-info
-          p Grew up in ward
-          p Lived in NC
-          p Flash Games
-          p PC Games (seaworld tycoon, pokemon, spore, rachet and clank, Skyrim, Oblivion, Fallout NMS, Cities Skylines)
-          p Got my first computer around 1st or second grade
-          p Started programming in 6th or 7th grade
-          p Started learning electronics in 8th or 9th grade
-          p Gradutaed high school in 2013
-          p Way High Radio
-          p Coloradoo Community Radio Network
-          p Other things I've done:
+          .v-timeline
+            .v-timeline-item
+              .v-card
+                .v-card-title Playing Flash Games on my Moms Mac
+            .v-timeline-item
+              .v-card
+                .v-card-title Got my first computer around 1st or second grade
+            .v-timeline-item
+              .v-card
+                .v-card-title Started programming in 6th or 7th grade
+            .v-timeline-item
+              .v-card
+                .v-card-title Started learning electronics in 8th or 9th grade
+            .v-timeline-item
+              .v-card
+                .v-card-title Way High Radio
+            .v-timeline-item
+              .v-card
+                .v-card-title Colorado Community Radio Network
+
+        .bio-skills
+          h3 My areas of focus
           p Audio Engineering
           p Video Production
           p Mycology
           p Photography
           p 3D Printing
-          P Guitar (youtube Video)
+          p Guitar (youtube Video)
 
-      .v-col(sm="12")
-        .v-card(style="width: 100%")
-          .v-card-title
-            h3.primary-title 
-            h4.subtitle-1 Produced for my friend Critter in 2015
-          .v-card-text.video-player
-            iframe(src="https://www.youtube.com/embed/9o6mhFOJO5c?rel=0" frameborder="0" allowfullscreen)
+      .v-col(sm="6")
+        img(src="/images/bio-img2.jpg" alt="A picture of me" width="100%")
 </template>
 
 <script>
