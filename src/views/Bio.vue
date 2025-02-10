@@ -9,112 +9,11 @@
       .v-col(sm="6")
         .bio-info
           v-timeline(:dense="width < 650")
-            v-timeline-item
-              span(slot="opposite") {{ formatDatetime("2000") }}
+            v-timeline-item(v-for="entry in timelineEntries" :key="entry.title")
+              span(slot="opposite") {{ formatDatetime(entry.date) }}
               v-card
-                v-card-title Playing Flash Games on my Moms iMac
-            v-timeline-item
-              span(slot="opposite") {{ formatDatetime("2001") }}
-              v-card
-                v-card-title Got my first computer in 1st grade
-            v-timeline-item
-              span(slot="opposite") {{ formatDatetime("2002") }}
-              v-card
-                v-card-title Got my first camera
-                v-cart-text A smol polaroid
-            v-timeline-item
-              span(slot="opposite") {{ formatDatetime("2005") }}
-              v-card
-                v-card-title Edited my first video in 5th grade for a school project
-            v-timeline-item
-              span(slot="opposite") {{ formatDatetime("2006") }}
-              v-card
-                v-card-title Started learning Guitar
-                v-card-text (add a youtube Video)
-            v-timeline-item
-              span(slot="opposite") {{ formatDatetime("2007") }}
-              v-card
-                v-card-title Started actionscript programming in 6th grade
-                v-card-text Inspired by flash animators on YouTube
-            v-timeline-item
-              span(slot="opposite") {{ formatDatetime("2007") }}
-              v-card
-                v-card-title Started web design in 7th grade
-                v-card-text Tinkernut video
-            v-timeline-item
-              span(slot="opposite") {{ formatDatetime("2009") }}
-              v-card
-                v-card-title Started learning electronics in 9th grade
-            v-timeline-item
-              span(slot="opposite") {{ formatDatetime("2010") }}
-              v-card
-                v-card-title Started DJing on Way High Radio
-            v-timeline-item
-              span(slot="opposite") {{ formatDatetime("2012") }}
-              v-card
-                v-card-title Studio Audio Engineering
-                v-card-text Kodiak Lake Sessions 2012?
-            v-timeline-item
-              span(slot="opposite") {{ formatDatetime("2013") }}
-              v-card
-                v-card-title Revived Way High Radio
-            v-timeline-item
-              span(slot="opposite") {{ formatDatetime("2014") }}
-              v-card
-                v-card-title Began my journey of 3D Printing
-            v-timeline-item
-              span(slot="opposite") {{ formatDatetime("2015") }}
-              v-card
-                v-card-title Took Videography and VFX classes at Community College
-            v-timeline-item
-              span(slot="opposite") {{ formatDatetime("2015") }}
-              v-card
-                v-card-title Mushroom Foraging
-            v-timeline-item
-              span(slot="opposite") {{ formatDatetime("2016") }}
-              v-card
-                v-card-title Helped Found the Colorado Community Radio Network
-            v-timeline-item
-              span(slot="opposite") {{ formatDatetime("2018") }}
-              v-card
-                v-card-title First Try at Mushroom Cultivation
-                v-card-text img of some cordyceps I grew
-            v-timeline-item
-              span(slot="opposite") {{ formatDatetime("2018") }}
-              v-card
-                v-card-title WIFI and networks with Nedernet
-            v-timeline-item
-              span(slot="opposite") {{ formatDatetime("2018") }}
-              v-card
-                v-card-title Stage Managed for Frozen Dead Guy Days
-            v-timeline-item
-              span(slot="opposite") {{ formatDatetime("2018") }}
-              v-card
-                v-card-title Video Production at Stream Learn
-            v-timeline-item
-              span(slot="opposite") {{ formatDatetime("2020") }}
-              v-card
-                v-card-title Competed in ETH Denver's Hackathon
-            v-timeline-item
-              span(slot="opposite") {{ formatDatetime("2021") }}
-              v-card
-                v-card-title Built and Launched TinyBoxes NFT
-            v-timeline-item
-              span(slot="opposite") {{ formatDatetime("2021") }}
-              v-card
-                v-card-title Worked on Smart Contracts for ArtBlocks NFT Platform
-            v-timeline-item
-              span(slot="opposite") {{ formatDatetime("2022") }}
-              v-card
-                v-card-title Helped Build SOLIDS NFT
-            v-timeline-item
-              span(slot="opposite") {{ formatDatetime("2023") }}
-              v-card
-                v-card-title Caustics Generative Art Code
-            v-timeline-item
-              span(slot="opposite") {{ formatDatetime("2024") }}
-              v-card
-                v-card-title LED Art Design
+                v-card-title {{ entry.title }}
+                v-card-text(v-if="entry.text") {{ entry.text }}
 </template>
 
 <script>
@@ -124,6 +23,33 @@ export default {
   name: "bio",
   data: () => ({
     width: 0,
+    timelineEntries: [
+      { date: "2000", title: "Playing Flash Games on my Mom's iMac" },
+      { date: "2001", title: "Got my first computer in 1st grade" },
+      { date: "2002", title: "Got my first camera", text: "A small polaroid" },
+      { date: "2005", title: "Edited my first video in 5th grade for a school project" },
+      { date: "2006", title: "Started learning Guitar", text: "(add a YouTube Video)" },
+      { date: "2007", title: "Started ActionScript programming in 6th grade", text: "Inspired by flash animators on YouTube" },
+      { date: "2007", title: "Started web design in 7th grade", text: "Tinkernut video" },
+      { date: "2009", title: "Started learning electronics in 9th grade" },
+      { date: "2010", title: "Started DJing on Way High Radio" },
+      { date: "2012", title: "Studio Audio Engineering", text: "Kodiak Lake Sessions 2012?" },
+      { date: "2013", title: "Revived Way High Radio" },
+      { date: "2014", title: "Began my journey of 3D Printing" },
+      { date: "2015", title: "Took Videography and VFX classes at Community College" },
+      { date: "2015", title: "Mushroom Foraging" },
+      { date: "2016", title: "Helped Found the Colorado Community Radio Network" },
+      { date: "2018", title: "First Try at Mushroom Cultivation", text: "img of some cordyceps I grew" },
+      { date: "2018", title: "WIFI and networks with Nedernet" },
+      { date: "2018", title: "Stage Managed for Frozen Dead Guy Days" },
+      { date: "2018", title: "Video Production at Stream Learn" },
+      { date: "2020", title: "Competed in ETH Denver's Hackathon" },
+      { date: "2021", title: "Built and Launched TinyBoxes NFT" },
+      { date: "2021", title: "Worked on Smart Contracts for ArtBlocks NFT Platform" },
+      { date: "2022", title: "Helped Build SOLIDS NFT" },
+      { date: "2023", title: "Caustics Generative Art Code" },
+      { date: "2024", title: "LED Art Design" }
+    ]
   }),
   mounted() {
     this.onResize();
