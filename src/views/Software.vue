@@ -82,5 +82,7 @@ export default {
   .home-btn
     a
       color: white
+  .topic-list
+    color: #fff !important
 
 </style>

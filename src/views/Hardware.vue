@@ -161,4 +161,7 @@ export default {
     a
       color: white
 
+  .topic-list
+    color: #fff
+
 </style>
