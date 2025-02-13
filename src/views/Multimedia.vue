@@ -1,6 +1,6 @@
 <template lang="pug">
 .multimedia.skill
-  v-fab(to="/" flat location="top start" app).home-btn Home
+  v-fab(href="/#skills" flat location="top start" app).home-btn Home
   .topics-container
     .topics-list
       .topics-header(data-aos="fade" data-aos-offset="120")
@@ -110,4 +110,6 @@ export default {
   .home-btn
     a
       color: white
+  .topic-list
+    color: #fff !important
 </style>

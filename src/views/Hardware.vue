@@ -1,6 +1,6 @@
 <template lang="pug">
 .hardware.skill
-  v-fab(to="/" flat location="top start" app).home-btn Home
+  v-fab(href="/#skills" flat location="top start" app).home-btn Home
   .projects-timeline
     .header
       h1 Harware Projects
