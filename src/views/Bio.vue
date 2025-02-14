@@ -15,7 +15,7 @@
                 v-card-title {{ entry.title }}
                 v-card-text(v-if="entry.text") {{ entry.text }}
                 .image(v-if="entry.image")
-                  img(:src="entry.image")
+                  img(:src="entry.image" cover)
                 .video-player(v-if="entry.video")
                   iframe(:src="entry.video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen)
 </template>
@@ -29,8 +29,8 @@ export default {
     width: 0,
     timelineEntries: [
       { date: "2000", title: "Playing Flash Games on my Mom's iMac" },
-      { date: "2001", title: "Got my first computer in 1st grade" },
-      { date: "2002", title: "Got my first camera", text: "A small polaroid" },
+      { date: "2001", title: "Got my first computer in 1st grade", text: "My best friends Dad gifted me my first computer. A desktop PC running Windows 95 built from spare parts." },
+      { date: "2002", title: "Got my first camera", text: "A small polaroid", image: "/images/izone.webp" },
       { date: "2005", title: "Edited my first video in 5th grade for a school project" },
       { date: "2006", title: "Started learning Guitar", text: "(add a YouTube Video)" },
       { date: "2007", title: "Started ActionScript programming in 6th grade", text: "Inspired by flash animators on YouTube" },
