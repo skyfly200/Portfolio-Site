@@ -14,6 +14,10 @@
               v-card
                 v-card-title {{ entry.title }}
                 v-card-text(v-if="entry.text") {{ entry.text }}
+                .image(v-if="entry.image")
+                  img(:src="entry.image")
+                .video-player(v-if="entry.video")
+                  iframe(:src="entry.video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen)
 </template>
 
 <script>
@@ -30,7 +34,7 @@ export default {
       { date: "2005", title: "Edited my first video in 5th grade for a school project" },
       { date: "2006", title: "Started learning Guitar", text: "(add a YouTube Video)" },
       { date: "2007", title: "Started ActionScript programming in 6th grade", text: "Inspired by flash animators on YouTube" },
-      { date: "2007", title: "Started web design in 7th grade", text: "Tinkernut video" },
+      { date: "2007", title: "Started web design in 7th grade", text: "Thanks to this Tinkernut video", video: "https://www.youtube.com/embed/6Ct6emxVR9w?si=s0KuCt5yFSyFKcJl" },
       { date: "2009", title: "Started learning electronics in 9th grade" },
       { date: "2010", title: "Started DJing on Way High Radio" },
       { date: "2012", title: "Studio Audio Engineering", text: "Kodiak Lake Sessions 2012?" },
