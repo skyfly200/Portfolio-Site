@@ -6,18 +6,15 @@
     .v-row(sm=12)
       h1.ma-2 Bio
     .v-row
-      .v-col(sm="6")
-        .bio-info
-          v-timeline(:dense="width < 650")
-            v-timeline-item(v-for="entry in timelineEntries" :key="entry.title")
-              span(slot="opposite") {{ formatDatetime(entry.date) }}
-              v-card
-                v-card-title {{ entry.title }}
-                v-card-text(v-if="entry.text") {{ entry.text }}
-                .image(v-if="entry.image")
-                  img(:src="entry.image" cover)
-                .video-player(v-if="entry.video")
-                  iframe(:src="entry.video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen)
+      .v-col(sm=12)
+        v-timeline.bio-info(:density="width < 650 ? 'compact' : 'default'" align="start")
+          v-timeline-item(v-for="entry in timelineEntries" :key="entry.title")
+            span(slot="opposite") {{ formatDatetime(entry.date) }}
+            v-card(max-width="45vw")
+              v-card-title {{ entry.title }}
+              v-card-text(v-if="entry.text") {{ entry.text }}
+              img.image(:src="entry.image" v-if="entry.image" width="100%")
+              iframe.video-player(v-if="entry.video" width="100%" style="aspect-ratio: 16 / 9" :src="entry.video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen)
 </template>
 
 <script>
@@ -57,6 +54,10 @@ export default {
   }),
   mounted() {
     this.onResize();
+    window.addEventListener('resize', this.onResize);
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.onResize);
   },
   methods: {
     onResize() {
@@ -82,6 +83,9 @@ export default {
     margin: auto
     p
       font-size: 1.2em
+  .v-container
+    width: 100% !important
+    max-width: 100% !important
   @media (max-width: 1050px)
     flex-direction: column
     .video-info
