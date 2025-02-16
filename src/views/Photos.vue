@@ -75,7 +75,16 @@ export default {
       { src: "/images/photography/best/img (45).jpg", title: "Tropical Canopy", description: "Palm and various other trees canopies at the Lisbon Botanical gardens in Portugal" },
       { src: "/images/photography/best/img (46).jpg", title: "Staircase to the Light", description: "A vibrant stairway at the Lisbon Botanical gardens in Portugal" },
       { src: "/images/photography/best/img (47).jpg", title: "Gothic Galore", description: "A chapel in Vienna, Austria" },
-      { src: "/images/photography/best/img (48).jpg", title: "Astoria Sunset", description: "A sunset in the hills of Astoria, OR nearby the house from the Goonies" }
+      { src: "/images/photography/best/img (48).jpg", title: "Astoria Sunset", description: "A sunset in the hills of Astoria, OR nearby the house from the Goonies" },
+      { src: "/images/photography/best/img (49).jpg", title: "", description: "" },
+      { src: "/images/photography/best/img (50).jpg", title: "", description: "" },
+      { src: "/images/photography/best/img (51).jpg", title: "", description: "" },
+      { src: "/images/photography/best/img (52).jpg", title: "", description: "" },
+      { src: "/images/photography/best/img (53).jpg", title: "", description: "" },
+      { src: "/images/photography/best/img (54).jpg", title: "", description: "" },
+      { src: "/images/photography/best/img (55).jpg", title: "", description: "" },
+      { src: "/images/photography/best/img (56).jpg", title: "", description: "" },
+      { src: "/images/photography/best/img (57).jpg", title: "", description: "" }
     ]
   })
 };
