@@ -9,7 +9,7 @@
         p I dabble in a diverse range of fascinating interests. A core thread that ties these areas together is a desire to create seamless, intuitive and awe inspiring expierences.
         p Learning new things is a top priority. I am a lifelong learner, finding new concepts and perspectives every day. Below I have distilled an array of projects and content showcasing my most potent passions and talents. I will be regularly updating this site, so be sure to check back to see what I am up to.
       .bio-link.pa-7
-        v-btn(to="/bio" :color="$color-secondary-1-0" rounded="lg" size="large" variant="text") More About Me
+        v-btn(v-if="false" to="/bio" :color="$color-secondary-1-0" rounded="lg" size="large" variant="text") More About Me
       hr
       .welcome-social
         a(href="https://github.com/skyfly200", target="_blank")
