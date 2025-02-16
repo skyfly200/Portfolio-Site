@@ -25,8 +25,8 @@ export default {
   data: () => ({
     width: 0,
     timelineEntries: [
-    { date: "1995", title: "Born in Ward, CO", text: "Born in a cabin with no runing water or electricity" },
-      { date: "2000", title: "Playing Flash Games on my Mom's iMac" },
+      { date: "1995", title: "Born in Ward, CO", text: "Born in a cabin with no runing water or electricity" },
+      { date: "2000", title: "Playing Flash Games" },
       { date: "2001", title: "Got my first computer in 1st grade", text: "My best friends Dad gifted me my first computer. A desktop PC running Windows 95 built from spare parts." },
       { date: "2002", title: "Got my first camera", text: "A small polaroid", image: "/images/izone.webp" },
       { date: "2005", title: "Edited my first video in 5th grade for a school project" },
