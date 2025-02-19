@@ -78,13 +78,13 @@ export default {
       { src: "/images/photography/best/img (48).jpg", title: "Astoria Sunset", description: "A sunset in the hills of Astoria, OR nearby the house from the Goonies" },
       { src: "/images/photography/best/img (49).jpg", title: "Ecola State Park", description: "Gorgeous state park on the Oregon coast" },
       { src: "/images/photography/best/img (50).jpg", title: "Cannon Beach", description: "Where the film The Goonies was filmed" },
-      { src: "/images/photography/best/img (51).jpg", title: "Triglav Viaduct", description: "Log Pod Martom Slovenia" },
+      { src: "/images/photography/best/img (51).jpg", title: "Mangartski Potok Viaduct", description: "Right by the road up to Mangart Peak in Slovenia" },
       { src: "/images/photography/best/img (52).jpg", title: "Frosty Flagstaff", description: "A frosty view of the back of the flatirons in Boulder, CO with the moon shining up above" },
-      { src: "/images/photography/best/img (53).jpg", title: "Totality 2024", description: "Total solar eclipse of 2024 viewed nearby Austin Texas" },
+      { src: "/images/photography/best/img (53).jpg", title: "Totality 2024", description: "Total solar eclipse of 2024 viewed from the hills nearby Austin Texas" },
       { src: "/images/photography/best/img (54).jpg", title: "Texas Eclipse Fest", description: "Ligths over the 2024 Texas Eclipse Fest" },
-      { src: "/images/photography/best/img (55).jpg", title: "Gulf Sunrise", description: "Swimming in the sunrise" },
+      { src: "/images/photography/best/img (55).jpg", title: "Gulf Sunrise", description: "Swimming in the sunrise glow of the Gulf" },
       { src: "/images/photography/best/img (56).jpg", title: "Two Chapels", description: "View from the main bridge in Basel Switzerland" },
-      { src: "/images/photography/best/img (57).jpg", title: "Night Lights", description: "Cannon Beach in Oregon at night" }
+      { src: "/images/photography/best/img (57).jpg", title: "Night Scape", description: "Cannon Beach in Oregon at night" }
     ]
   })
 };
