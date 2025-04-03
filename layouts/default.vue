@@ -4,4 +4,4 @@
             slot
 </template>
 
-<style src="./base.sass" lang="sass"></style>
+<style src="~/assets/sass/base.sass" lang="sass"></style>

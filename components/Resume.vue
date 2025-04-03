@@ -32,6 +32,9 @@ export default {
 </script>
 
 <style lang="sass">
+@import "~/assets/sass/vars.sass" // Adjust the path to your global SASS file
+@import "~/assets/sass/mixins.sass" // Adjust the path to your global SASS file
+
 // Resume Download Styles
 .resume-download
   width: 100%

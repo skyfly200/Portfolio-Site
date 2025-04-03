@@ -225,7 +225,8 @@ export default {
       width: 150px
     h4
       text-align: center
-      color: $color-secondary-2-0
+      color: #EA4F00
+      // color: $color-secondary-2-0
   .action-btns a:visited
     color: white
 

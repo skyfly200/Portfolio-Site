@@ -8,7 +8,6 @@ export default defineNuxtConfig({
   modules: [
     'vuetify-nuxt-module',
   ],
-  css: ['@/assets/sass/mixins.sass', '@/assets/sass/vars.sass'],
   vuetify: {
     moduleOptions: {
       /* module specific options */

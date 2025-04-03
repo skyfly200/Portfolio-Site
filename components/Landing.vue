@@ -26,6 +26,9 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+@import "~/assets/sass/vars.sass" // Adjust the path to your global SASS file
+@import "~/assets/sass/mixins.sass" // Adjust the path to your global SASS file
+
 // style an arrow bouncing to hint at scrolling to view more content
 .scroll-hint
   @extend .flex-box-center
