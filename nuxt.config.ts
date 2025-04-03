@@ -3,8 +3,11 @@
 
 import { defineNuxtConfig } from 'nuxt/config';
 import { aliases, fa } from "vuetify/iconsets/fa";
+import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
+import path from 'path';
 
 export default defineNuxtConfig({
+  components: true, // ← add this line
   modules: [
     'vuetify-nuxt-module',
   ],
@@ -30,6 +33,28 @@ export default defineNuxtConfig({
         aliases,
       }
     }
+  },
+  vite: {
+    plugins: [
+      ViteImageOptimizer({
+        test: /\.(jpe?g|png|gif|tiff|webp|avif)$/i,
+      }),
+    ],
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname, './'),
+      },
+    },
+    css: {
+      preprocessorOptions: {
+        sass: {
+          additionalData: `
+            @use "@/styles/mixins.sass" as *
+            @use "@/styles/vars.sass" as *
+          `,
+        },
+      },
+    },
   },
   devtools: { enabled: true },
   compatibilityDate: "2025-02-21"
