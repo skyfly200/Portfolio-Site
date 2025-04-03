@@ -45,16 +45,6 @@ export default defineNuxtConfig({
         '@': path.resolve(__dirname, './'),
       },
     },
-    css: {
-      preprocessorOptions: {
-        sass: {
-          additionalData: `
-            @use "@/styles/mixins.sass" as *
-            @use "@/styles/vars.sass" as *
-          `,
-        },
-      },
-    },
   },
   devtools: { enabled: true },
   compatibilityDate: "2025-02-21"
