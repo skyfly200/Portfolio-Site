@@ -35,6 +35,16 @@ export default defineNuxtConfig({
     }
   },
   vite: {
+    css: {
+      preprocessorOptions: {
+        sass: {
+          additionalData: `
+            @use "@/assets/sass/mixins.sass" as *
+            @use "@/assets/sass/vars.sass" as *
+          `,
+        },
+      },
+    },
     plugins: [
       ViteImageOptimizer({
         test: /\.(jpe?g|png|gif|tiff|webp|avif)$/i,
