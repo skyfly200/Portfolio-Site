@@ -81,6 +81,7 @@ export default defineNuxtConfig({
       }
     }
   },
+  css: ["leaflet/dist/leaflet.css"],
   vite: {
     css: {
       preprocessorOptions: {
