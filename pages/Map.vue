@@ -8,15 +8,11 @@
 
 <script setup>
 import { onMounted, ref } from "vue";
-import { useFetch } from "#app";
 
 // Dynamically import Leaflet on client-side only
 const L = process.client ? await import("leaflet") : null;
 
 const mapContainer = ref(null);
-
-// Fetch marker data from Nuxt backend API
-const markersResponse = await useFetch("/api/markers");
 
 // --- Define Base Layers ---
 const baseLayers = {
