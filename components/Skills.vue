@@ -2,15 +2,16 @@
 .skills#skills
   .topics-container
     .topics-list
-      .topics-header(data-aos="fade" data-aos-offset="120")
-        .topics-heading
-          h1 Explore my Various Areas of Expertise
-        .topics-hint
-          h3 Select&nbsp;a&nbsp;topic to&nbsp;find&nbsp;out&nbsp;more!
+      ClientOnly
+        .topics-header(data-aos="fade" data-aos-offset="120")
+          .topics-heading
+            h1 Explore my Various Areas of Expertise
+          .topics-hint
+            h3 Select&nbsp;a&nbsp;topic to&nbsp;find&nbsp;out&nbsp;more!
 
-      .topics#topics
-        Topic(v-for="topic in topics" v-bind="topic" v-bind:key="topic.name"
-          data-aos="fade" data-aos-delay="200" data-aos-offset="120")
+        .topics#topics
+          Topic(v-for="topic in topics" v-bind="topic" v-bind:key="topic.name"
+            data-aos="fade" data-aos-delay="200" data-aos-offset="120")
 
 </template>
 

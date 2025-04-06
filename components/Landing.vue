@@ -3,17 +3,18 @@
 .landing-wrapper
   .landing
     .landing-content
-      .landing-name(data-aos="fade" data-aos-delay="200")
-        h1 Skyler
-        h1 &nbsp;Fly-Wilson
+      ClientOnly
+        .landing-name(data-aos="fade" data-aos-delay="200")
+          h1 Skyler
+          h1 &nbsp;Fly-Wilson
 
-      .landing-caption(data-aos="fade-up" data-aos-delay="400")
-        h2 Multidisciplinary Magic&nbsp;
-          svg.fa.fa-magic.fa-sm
+        .landing-caption(data-aos="fade-up" data-aos-delay="400")
+          h2 Multidisciplinary Magic&nbsp;
+            svg.fa.fa-magic.fa-sm
 
-      .landing-statement(data-aos="fade-up" data-aos-delay="600")
-        h3 "Any sufficiently advanced technology is indistinguishable from magic"
-        h4 Arthur C. Clarke
+        .landing-statement(data-aos="fade-up" data-aos-delay="600")
+          h3 "Any sufficiently advanced technology is indistinguishable from magic"
+          h4 Arthur C. Clarke
 
   a.scroll-hint(href="#welcome")
     svg.fa.fa-angle-down.fa-3x
@@ -26,9 +27,6 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-@import "~/assets/sass/vars.sass" // Adjust the path to your global SASS file
-@import "~/assets/sass/mixins.sass" // Adjust the path to your global SASS file
-
 // style an arrow bouncing to hint at scrolling to view more content
 .scroll-hint
   @extend .flex-box-center

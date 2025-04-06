@@ -1,25 +1,26 @@
 <template lang="pug">
 // Resume Download Section
 .resume-download#resume
-  .resume-header(data-aos="fade" data-aos-delay="200")
-    h1 Download my resume
-  .resume-buttons
-    .resume-button(data-aos="flip-down" data-aos-delay="200" data-aos-duration="750")
-      a(href="https://docs.google.com/document/d/1LhEbXxxuoJ2cZf7JwBqwVxxfu7WX4ovKvswWQmyxmn0/edit?usp=sharing", target="_blank")
-        button.resume-btn.btn.btn-default.wow.zoomIn
-          svg.fa.fa-cogs
-          .btn-text &nbsp;Software
-    .resume-button(data-aos="flip-down" data-aos-delay="200" data-aos-duration="750")
-      a(href="https://docs.google.com/document/d/1zUutU1to6t_TuzwV2zGfHN0kTeCDZ00fRqHvL5A_n-Y/edit?usp=sharing", target="_blank")
-        button.resume-btn.btn.btn-default.wow.zoomIn
-          svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24").ethereum-icon.svg-inline--fa.fa-w-16
-            path(fill="currentColor" d="m12 1.75l-6.25 10.5L12 16l6.25-3.75zM5.75 13.5L12 22.25l6.25-8.75L12 17.25z")
-          .btn-text &nbsp;Web3
-    .resume-button(data-aos="flip-down" data-aos-delay="200" data-aos-duration="750")
-      a(href="https://docs.google.com/document/d/1SrNxaV6kmGSgyJfo2iXVY9L-e66pVPKJBvSu4CQSrsk/edit?usp=sharing", target="_blank")
-        button.resume-btn.btn.btn-default.wow.zoomIn
-          svg.fa.fa-film
-          .btn-text &nbsp;Multimedia
+  ClientOnly
+    .resume-header(data-aos="fade" data-aos-delay="200")
+      h1 Download my resume
+    .resume-buttons
+      .resume-button(data-aos="flip-down" data-aos-delay="200" data-aos-duration="750")
+        a(href="https://docs.google.com/document/d/1LhEbXxxuoJ2cZf7JwBqwVxxfu7WX4ovKvswWQmyxmn0/edit?usp=sharing", target="_blank")
+          button.resume-btn.btn.btn-default.wow.zoomIn
+            svg.fa.fa-cogs
+            .btn-text &nbsp;Software
+      .resume-button(data-aos="flip-down" data-aos-delay="200" data-aos-duration="750")
+        a(href="https://docs.google.com/document/d/1zUutU1to6t_TuzwV2zGfHN0kTeCDZ00fRqHvL5A_n-Y/edit?usp=sharing", target="_blank")
+          button.resume-btn.btn.btn-default.wow.zoomIn
+            svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24").ethereum-icon.svg-inline--fa.fa-w-16
+              path(fill="currentColor" d="m12 1.75l-6.25 10.5L12 16l6.25-3.75zM5.75 13.5L12 22.25l6.25-8.75L12 17.25z")
+            .btn-text &nbsp;Web3
+      .resume-button(data-aos="flip-down" data-aos-delay="200" data-aos-duration="750")
+        a(href="https://docs.google.com/document/d/1SrNxaV6kmGSgyJfo2iXVY9L-e66pVPKJBvSu4CQSrsk/edit?usp=sharing", target="_blank")
+          button.resume-btn.btn.btn-default.wow.zoomIn
+            svg.fa.fa-film
+            .btn-text &nbsp;Multimedia
     
 
 </template>
@@ -32,9 +33,6 @@ export default {
 </script>
 
 <style lang="sass">
-@import "~/assets/sass/vars.sass" // Adjust the path to your global SASS file
-@import "~/assets/sass/mixins.sass" // Adjust the path to your global SASS file
-
 // Resume Download Styles
 .resume-download
   width: 100%

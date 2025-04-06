@@ -2,13 +2,14 @@
 // Contact Info Section
 .contact#contact
   .contact-block
-    .contact-header(data-aos="fade" data-aos-delay="200" data-aos-anchor-placement="top-bottom")
-      h1 Get in touch!
-    .contact-info(data-aos="fade" data-aos-delay="200" data-aos-anchor-placement="top-bottom")
-      a(href="mailto:contact@skylerfly.com", target="_blank").contact-link.email
-        h2 contact@skylerfly.com
-      a(href="tel:7203100607").contact-link.phone
-        h2 (720) 310-0607
+    ClientOnly
+      .contact-header(data-aos="fade" data-aos-delay="200" data-aos-anchor-placement="top-bottom")
+        h1 Get in touch!
+      .contact-info(data-aos="fade" data-aos-delay="200" data-aos-anchor-placement="top-bottom")
+        a(href="mailto:contact@skylerfly.com", target="_blank").contact-link.email
+          h2 contact@skylerfly.com
+        a(href="tel:7203100607").contact-link.phone
+          h2 (720) 310-0607
 
 </template>
 
@@ -20,9 +21,6 @@ export default {
 </script>
 
 <style lang="sass">
-@import "~/assets/sass/vars.sass" // Adjust the path to your global SASS file
-@import "~/assets/sass/mixins.sass" // Adjust the path to your global SASS file
-
 // Contact Styles
 .contact
   padding: 50px 10px
