@@ -4,9 +4,10 @@
 </template>
 
 <script setup>
+import { useTravelStore } from '@/stores/travelStore'
 import { onMounted, ref, nextTick } from "vue";
-// Import Leaflet CSS (if not already globally loaded)
-// import "leaflet/dist/leaflet.css";
+
+const travelStore = useTravelStore()
 
 // Dynamically import Leaflet on client-side only
 const L = !import.meta.env.SSR ? await import("leaflet") : null;

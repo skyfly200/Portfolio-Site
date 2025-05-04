@@ -1,0 +1,96 @@
+[
+    {
+      "event_id": "sunset-oregon-2023",
+      "title": "Sunset on the Oregon Coast",
+      "description": "Watched the sunset with friends after a long hike on the cliffs.",
+      "location_title": "Cape Kiwanda, Oregon",
+      "latitude": 45.2161,
+      "longitude": -123.9718,
+      "time": "2023-08-14T20:15:00Z",
+      "full_story": "The cliffs were golden in the evening light. I remember the wind whipping up the sand as we climbed the dunes barefoot. We stayed out until the stars came out.",
+      "tags": ["sunset", "hike", "coast", "Oregon", "friends"],
+      "images": [
+        "https://yourcdn.com/media/sunset-oregon-2023/img1.jpg"
+      ],
+      "videos": [],
+      "custom_icon": "sunset-icon.svg",
+      "trip_hierarchy": {
+        "chapter": "West Coast Wanderings",
+        "trip": "Oregon 2023 Roadtrip",
+        "country_or_state": "Oregon",
+        "city_or_town": "Pacific City",
+        "event": "Sunset on the Oregon Coast"
+      },
+      "time_hierarchy": {
+        "decade": "2020s",
+        "year": 2023,
+        "month": 8,
+        "day": 14,
+        "event": "Sunset on the Oregon Coast"
+      }
+    },
+    {
+      "event_id": "tokyo-nightmarket-2022",
+      "title": "Tokyo Night Market",
+      "description": "Explored the bustling streets of a summer night market in Tokyo, sampling food and capturing neon-lit moments.",
+      "location_title": "Shinjuku, Tokyo",
+      "latitude": 35.6938,
+      "longitude": 139.7034,
+      "time": "2022-07-09T19:30:00+09:00",
+      "full_story": "I wandered through the glowing alleys, trying yakitori and watching teens in yukata play carnival games. The humid night buzzed with life, laughter, and music.",
+      "tags": ["Tokyo", "Japan", "market", "nightlife", "street food"],
+      "images": [
+        "https://yourcdn.com/media/tokyo-nightmarket-2022/img1.jpg",
+        "https://yourcdn.com/media/tokyo-nightmarket-2022/img2.jpg"
+      ],
+      "videos": [
+        "https://yourcdn.com/media/tokyo-nightmarket-2022/clip1.mp4"
+      ],
+      "custom_icon": "lantern-icon.svg",
+      "trip_hierarchy": {
+        "chapter": "Across Asia",
+        "trip": "Japan Summer 2022",
+        "country_or_state": "Japan",
+        "city_or_town": "Tokyo",
+        "event": "Tokyo Night Market"
+      },
+      "time_hierarchy": {
+        "decade": "2020s",
+        "year": 2022,
+        "month": 7,
+        "day": 9,
+        "event": "Tokyo Night Market"
+      }
+    },
+    {
+      "event_id": "colorado-stars-2021",
+      "title": "Camping Under the Stars",
+      "description": "Slept in a hammock deep in the Rockies, saw the Milky Way clear and unfiltered.",
+      "location_title": "Switzerland Trail, Colorado",
+      "latitude": 40.0433,
+      "longitude": -105.4637,
+      "time": "2021-09-20T23:00:00-06:00",
+      "full_story": "The trees swayed gently above me, and every sound felt sharp and sacred. I didn’t sleep much, but I felt so alive. The sky that night reminded me of why I seek solitude in nature.",
+      "tags": ["Colorado", "camping", "stars", "Milky Way", "hammock"],
+      "images": [
+        "https://yourcdn.com/media/colorado-stars-2021/img1.jpg"
+      ],
+      "videos": [],
+      "custom_icon": "stars-icon.svg",
+      "trip_hierarchy": {
+        "chapter": "Rocky Mountain Time",
+        "trip": "Fall Solo Camp 2021",
+        "country_or_state": "Colorado",
+        "city_or_town": "Boulder County",
+        "event": "Camping Under the Stars"
+      },
+      "time_hierarchy": {
+        "decade": "2020s",
+        "year": 2021,
+        "month": 9,
+        "day": 20,
+        "event": "Camping Under the Stars"
+      }
+    }
+  ]
+  

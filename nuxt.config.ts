@@ -8,9 +8,7 @@ import path from 'path';
 
 export default defineNuxtConfig({
   components: true, // ← add this line
-  modules: [
-    'vuetify-nuxt-module',
-  ],
+  modules: ['vuetify-nuxt-module', '@pinia/nuxt'],
   app: {
     head: {
       title: 'Skyler Fly',

@@ -1,26 +1,22 @@
-<template lang="pug">
+  <template lang="pug">
     .travels
-      v-fab(to="/" flat location="top start" app).home-btn Back
-    
-      .v-container
-        .v-row(sm=12)
-          h1.ma-2 Travels
-        .v-row
-            .v-col(md=6)
-                v-timeline.bio-info(:density="width < 650 ? 'compact' : 'default'" align="start")
-                v-timeline-item(v-for="entry in timelineEntries" :key="entry.title")
-                    span(slot="opposite") {{ formatDatetime(entry.date) }}
-                    v-card(max-width="45vw")
-                    v-card-title {{ entry.title }}
-                    v-card-text(v-if="entry.text") {{ entry.text }}
-                    img.image(:src="entry.image" v-if="entry.image" width="100%")
-                    iframe.video-player(v-if="entry.video" width="100%" style="aspect-ratio: 16 / 9" :src="entry.video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen)
-            .v-col(md=6)
-                Map
+      v-fab(to="/" flat location="bottom start" app).home-btn Back
+      v-fab(flat location="bottom end" app)
+      Map
+      v-navigation-drawer
+      v-timeline.bio-info(:density="width < 650 ? 'compact' : 'default'" align="start")
+      v-timeline-item(v-for="entry in travelStore.filteredEvents" :key="entry.title")
+        span(slot="opposite") {{ formatDatetime(entry.date) }}
+        v-card(max-width="45vw")
+        v-card-title {{ entry.title }}
+        v-card-text(v-if="entry.text") {{ entry.text }}
+        iframe.video-player(v-if="entry.video" width="100%" style="aspect-ratio: 16 / 9" :src="entry.video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen)
     </template>
     
     <script>
     import moment from "moment";
+    
+    const travelStore = useTravelStore()
     
     export default {
       name: "travels",
