@@ -4,10 +4,8 @@
 </template>
 
 <script setup>
-import { useTravelStore } from '@/stores/travelStore'
+import { useTravelStore } from '~/stores/travelStore'
 import { onMounted, ref, nextTick } from "vue";
-
-const travelStore = useTravelStore()
 
 // Dynamically import Leaflet on client-side only
 const L = !import.meta.env.SSR ? await import("leaflet") : null;
@@ -15,6 +13,7 @@ const L = !import.meta.env.SSR ? await import("leaflet") : null;
 const mapContainer = ref(null);
 
 onMounted(async () => {
+    const travelStore = useTravelStore(); // Initialize the store
     await nextTick(); // Ensure DOM is fully rendered
 
     if (!mapContainer.value) {
@@ -90,31 +89,27 @@ onMounted(async () => {
     L.control.layers(baseLayers).addTo(map);
 
     // Use the events from the travelStore
-    travelStore.events.forEach((event) => {
+    travelStore.filteredEvents.forEach((event) => {
         if (event.latitude && event.longitude && event.title && event.description) {
-        const markerObj = L.marker([event.latitude, event.longitude]).addTo(map);
-        markerObj.bindPopup(`<b>${event.title}</b><br><p>${event.description}</p>`);
-        }
-    });
-
-    // Set the initial view of the map
-    if (travelStore.events.length > 0) {
-        // Try to center on the first event, or a reasonable default
-        map.setView([travelStore.events[0].latitude || 39.7392, travelStore.events[0].longitude || -104.9903], 5);
-    } else {
-        // Default view if no events are available
-        map.setView([39.7392, -104.9903], 5);
-    }
-
-    // markers.forEach((marker) => {
+            const markerObj = L.marker([event.latitude, event.longitude]).addTo(map);
+            markerObj.bindPopup(`<b>${event.title}</b><br><p>${event.description}</p>`);
     //     // TODO - add custom marker icons
     //     // const customIcon = L.icon({ iconUrl: '/custom-marker.png', iconSize: [30, 30], });
     //     // const marker = L.marker([loc.lat, loc.lng], { icon: customIcon }).addTo(map);
     //     const markerObj = L.marker([marker.lat, marker.lng]).addTo(map);
     //     // TODO - add custom popup content and open on click handler
     //     // marker.bindPopup(`<b>${loc.title}</b><br><img src="/custom-image.png" alt="Custom Image" />`).openPopup();
-    //     markerObj.bindPopup(`<b>${marker.title}</b><br><p>${marker.description}</p>`);
-    // });
+        }
+    });
+
+    // Set the initial view of the map
+    if (travelStore.filteredEvents.length > 0) {
+        // Try to center on the first event, or a reasonable default
+        map.setView([travelStore.events[0].latitude || 39.7392, travelStore.events[0].longitude || -104.9903], 5);
+    } else {
+        // Default view if no events are available
+        map.setView([39.7392, -104.9903], 5);
+    }
 });
 </script>
 
