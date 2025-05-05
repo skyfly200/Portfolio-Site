@@ -89,24 +89,32 @@ onMounted(async () => {
     // --- Add Layer Control ---
     L.control.layers(baseLayers).addTo(map);
 
-    const markers = [
-        {lat: 39.7392, lng: -104.9903, title: "Denver", description: "The capital of Colorado."},
-        {lat: 40.015, lng: -105.2705, title: "Boulder", description: "A city at the foothills of the Rocky Mountains."},
-        {lat: 39.5501, lng: -105.7821, title: "Colorado", description: "A state in the western United States."},
-        {lat: 38.8339, lng: -104.8214, title: "Colorado Springs", description: "A city located at the foot of Pikes Peak."},
-    ];
-
-    markers.forEach((marker) => {
-        // TODO - add custom marker icons
-        // const customIcon = L.icon({ iconUrl: '/custom-marker.png', iconSize: [30, 30], });
-        // const marker = L.marker([loc.lat, loc.lng], { icon: customIcon }).addTo(map);
-        const markerObj = L.marker([marker.lat, marker.lng]).addTo(map);
-        // TODO - add custom popup content and open on click handler
-        // marker.bindPopup(`<b>${loc.title}</b><br><img src="/custom-image.png" alt="Custom Image" />`).openPopup();
-        markerObj.bindPopup(`<b>${marker.title}</b><br><p>${marker.description}</p>`);
+    // Use the events from the travelStore
+    travelStore.events.forEach((event) => {
+        if (event.latitude && event.longitude && event.title && event.description) {
+        const markerObj = L.marker([event.latitude, event.longitude]).addTo(map);
+        markerObj.bindPopup(`<b>${event.title}</b><br><p>${event.description}</p>`);
+        }
     });
 
-    map.setView([39.7392, -104.9903], 7);
+    // Set the initial view of the map
+    if (travelStore.events.length > 0) {
+        // Try to center on the first event, or a reasonable default
+        map.setView([travelStore.events[0].latitude || 39.7392, travelStore.events[0].longitude || -104.9903], 5);
+    } else {
+        // Default view if no events are available
+        map.setView([39.7392, -104.9903], 5);
+    }
+
+    // markers.forEach((marker) => {
+    //     // TODO - add custom marker icons
+    //     // const customIcon = L.icon({ iconUrl: '/custom-marker.png', iconSize: [30, 30], });
+    //     // const marker = L.marker([loc.lat, loc.lng], { icon: customIcon }).addTo(map);
+    //     const markerObj = L.marker([marker.lat, marker.lng]).addTo(map);
+    //     // TODO - add custom popup content and open on click handler
+    //     // marker.bindPopup(`<b>${loc.title}</b><br><img src="/custom-image.png" alt="Custom Image" />`).openPopup();
+    //     markerObj.bindPopup(`<b>${marker.title}</b><br><p>${marker.description}</p>`);
+    // });
 });
 </script>
 

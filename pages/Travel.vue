@@ -4,13 +4,13 @@
     v-fab(flat location="bottom end" app)
     Map
     v-navigation-drawer
-    v-timeline.bio-info(:density="width < 650 ? 'compact' : 'default'" align="start")
-    v-timeline-item(v-for="entry in travelStore.filteredEvents" :key="entry.title")
-      span(slot="opposite") {{ formatDatetime(entry.date) }}
-      v-card(max-width="45vw")
-      v-card-title {{ entry.title }}
-      v-card-text(v-if="entry.text") {{ entry.text }}
-      iframe.video-player(v-if="entry.video" width="100%" style="aspect-ratio: 16 / 9" :src="entry.video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen)
+      v-timeline.bio-info(:density="width < 650 ? 'compact' : 'default'" align="start")
+        v-timeline-item(v-for="entry in travelStore.filteredEvents" :key="entry.title")
+          span(slot="opposite") {{ formatDatetime(entry.date) }}
+          v-card(max-width="45vw")
+            v-card-title {{ entry.title }}
+            v-card-text(v-if="entry.text") {{ entry.text }}
+          iframe.video-player(v-if="entry.video" width="100%" style="aspect-ratio: 16 / 9" :src="entry.video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen)
 </template>
     
 <script setup lang="ts">

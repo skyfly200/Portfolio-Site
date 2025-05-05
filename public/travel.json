@@ -479,33 +479,32 @@
         "event": "Exploring France"
       }
     },
-  },
-  {
-    "event_id": "antwerp-2024",
-    "title": "Exploring Antwerp",
-    "description": "Visited the vibrant city of Antwerp in Belgium during a trip to Europe.",
-    "location_title": "Antwerp, Belgium",
-    "latitude": 51.2194,
-    "longitude": 4.4025,
-    "time": "2024-XX-XXTXX:XX:XXZ",
-    "full_story": "",
-    "tags": ["europe-2024"],
-    "images": [],
-    "videos": [],
-    "custom_icon": null,
-    "trip_hierarchy": {
-      "chapter": "2024",
-      "trip": "Europe 2024",
-      "country_or_state": "Belgium",
-      "city_or_town": "Antwerp",
-      "event": "Exploring Antwerp"
-    },
-    "time_hierarchy": {
-      "decade": "2020s",
-      "year": 2024,
-      "month": null,
-      "day": null,
-      "event": "Exploring Antwerp"
+    {
+      "event_id": "antwerp-2024",
+      "title": "Exploring Antwerp",
+      "description": "Visited the vibrant city of Antwerp in Belgium during a trip to Europe.",
+      "location_title": "Antwerp, Belgium",
+      "latitude": 51.2194,
+      "longitude": 4.4025,
+      "time": "2024-XX-XXTXX:XX:XXZ",
+      "full_story": "",
+      "tags": ["europe-2024"],
+      "images": [],
+      "videos": [],
+      "custom_icon": null,
+      "trip_hierarchy": {
+        "chapter": "2024",
+        "trip": "Europe 2024",
+        "country_or_state": "Belgium",
+        "city_or_town": "Antwerp",
+        "event": "Exploring Antwerp"
+      },
+      "time_hierarchy": {
+        "decade": "2020s",
+        "year": 2024,
+        "month": null,
+        "day": null,
+        "event": "Exploring Antwerp"
+      }
     }
-  }
 ]
