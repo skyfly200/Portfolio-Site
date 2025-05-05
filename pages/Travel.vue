@@ -44,18 +44,6 @@
   // The 'data' function is replaced by using 'ref' for reactive variables.
   // The 'methods' object is replaced by defining functions directly in the setup scope.
 </script>
-
-<!-- 
-      data: () => ({
-        width: 0,
-        timelineEntries: [
-          { date: "2022", title: "First Time to Europe", text: "Lisbon, Amsterdam, Paris" },
-          { date: "2023", title: "Moab" },
-          { date: "2024", title: "Texas", text: "Dallas, Austin, Eclipse Fest, Big Bend" },
-          { date: "2024", title: "Europe", text: "Netherlands, Germany, Austria, Hungary, Italy, Slovenia, Switzerland, France, Belgium", image: "/images/izone.webp" },
-        ]
-      }),
--->
     
 <style lang="sass" scoped>
   .travels

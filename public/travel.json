@@ -58,6 +58,454 @@
         "day": 27,
         "event": "Moab Adventures"
       }
+    },
+    {
+      "event_id": "lisbon-2022",
+      "title": "Exploring Lisbon",
+      "description": "First time in Europe, exploring the vibrant city of Lisbon.",
+      "location_title": "Lisbon, Portugal",
+      "latitude": 38.7223,
+      "longitude": -9.1393,
+      "time": "2022-XX-XXTXX:XX:XXZ",
+      "full_story": "",
+      "tags": ["first-time-europe"],
+      "images": [],
+      "videos": [],
+      "custom_icon": null,
+      "trip_hierarchy": {
+        "chapter": "2022",
+        "trip": "First Time to Europe",
+        "country_or_state": "Portugal",
+        "city_or_town": "Lisbon",
+        "event": "Exploring Lisbon"
+      },
+      "time_hierarchy": {
+        "decade": "2020s",
+        "year": 2022,
+        "month": null,
+        "day": null,
+        "event": "Exploring Lisbon"
+      }
+    },
+    {
+      "event_id": "amsterdam-2022",
+      "title": "Exploring Amsterdam",
+      "description": "First time in Europe, exploring the canals and culture of Amsterdam.",
+      "location_title": "Amsterdam, Netherlands",
+      "latitude": 52.3676,
+      "longitude": 4.9041,
+      "time": "2022-XX-XXTXX:XX:XXZ",
+      "full_story": "",
+      "tags": ["first-time-europe"],
+      "images": [],
+      "videos": [],
+      "custom_icon": null,
+      "trip_hierarchy": {
+        "chapter": "2022",
+        "trip": "First Time to Europe",
+        "country_or_state": "Netherlands",
+        "city_or_town": "Amsterdam",
+        "event": "Exploring Amsterdam"
+      },
+      "time_hierarchy": {
+        "decade": "2020s",
+        "year": 2022,
+        "month": null,
+        "day": null,
+        "event": "Exploring Amsterdam"
+      }
+    },
+    {
+      "event_id": "paris-2022",
+      "title": "Exploring Paris",
+      "description": "First time in Europe, experiencing the iconic sights of Paris.",
+      "location_title": "Paris, France",
+      "latitude": 48.8566,
+      "longitude": 2.3522,
+      "time": "2022-XX-XXTXX:XX:XXZ",
+      "full_story": "",
+      "tags": ["first-time-europe"],
+      "images": [],
+      "videos": [],
+      "custom_icon": null,
+      "trip_hierarchy": {
+        "chapter": "2022",
+        "trip": "First Time to Europe",
+        "country_or_state": "France",
+        "city_or_town": "Paris",
+        "event": "Exploring Paris"
+      },
+      "time_hierarchy": {
+        "decade": "2020s",
+        "year": 2022,
+        "month": null,
+        "day": null,
+        "event": "Exploring Paris"
+      }
+    },
+    {
+      "event_id": "dallas-2024",
+      "title": "Exploring Dallas",
+      "description": "Visited Dallas during a trip to Texas.",
+      "location_title": "Dallas, Texas, USA",
+      "latitude": 32.7767,
+      "longitude": -96.7970,
+      "time": "2024-XX-XXTXX:XX:XX-05:00",
+      "full_story": "",
+      "tags": ["texas"],
+      "images": [],
+      "videos": [],
+      "custom_icon": null,
+      "trip_hierarchy": {
+        "chapter": "2024",
+        "trip": "Texas",
+        "country_or_state": "USA",
+        "city_or_town": "Dallas",
+        "event": "Exploring Dallas"
+      },
+      "time_hierarchy": {
+        "decade": "2020s",
+        "year": 2024,
+        "month": null,
+        "day": null,
+        "event": "Exploring Dallas"
+      }
+    },
+    {
+      "event_id": "austin-2024",
+      "title": "Exploring Austin",
+      "description": "Visited Austin during a trip to Texas.",
+      "location_title": "Austin, Texas, USA",
+      "latitude": 30.2672,
+      "longitude": -97.7431,
+      "time": "2024-XX-XXTXX:XX:XX-05:00",
+      "full_story": "",
+      "tags": ["texas"],
+      "images": [],
+      "videos": [],
+      "custom_icon": null,
+      "trip_hierarchy": {
+        "chapter": "2024",
+        "trip": "Texas",
+        "country_or_state": "USA",
+        "city_or_town": "Austin",
+        "event": "Exploring Austin"
+      },
+      "time_hierarchy": {
+        "decade": "2020s",
+        "year": 2024,
+        "month": null,
+        "day": null,
+        "event": "Exploring Austin"
+      }
+    },
+    {
+      "event_id": "eclipse-fest-2024",
+      "title": "Eclipse Fest",
+      "description": "Attended the Eclipse Fest during a trip to Texas.",
+      "location_title": "Texas, USA",
+      "latitude": 31.0000,
+      "longitude": -100.0000,
+      "time": "2024-04-08TXX:XX:XX-05:00",
+      "full_story": "",
+      "tags": ["texas", "eclipse"],
+      "images": [],
+      "videos": [],
+      "custom_icon": null,
+      "trip_hierarchy": {
+        "chapter": "2024",
+        "trip": "Texas",
+        "country_or_state": "USA",
+        "city_or_town": "Texas",
+        "event": "Eclipse Fest"
+      },
+      "time_hierarchy": {
+        "decade": "2020s",
+        "year": 2024,
+        "month": 4,
+        "day": 8,
+        "event": "Eclipse Fest"
+      }
+    },
+    {
+      "event_id": "big-bend-2024",
+      "title": "Exploring Big Bend",
+      "description": "Visited Big Bend National Park during a trip to Texas.",
+      "location_title": "Big Bend National Park, Texas, USA",
+      "latitude": 29.2500,
+      "longitude": -103.2500,
+      "time": "2024-XX-XXTXX:XX:XX-06:00",
+      "full_story": "",
+      "tags": ["texas", "national-park"],
+      "images": [],
+      "videos": [],
+      "custom_icon": null,
+      "trip_hierarchy": {
+        "chapter": "2024",
+        "trip": "Texas",
+        "country_or_state": "USA",
+        "city_or_town": "Big Bend National Park",
+        "event": "Exploring Big Bend"
+      },
+      "time_hierarchy": {
+        "decade": "2020s",
+        "year": 2024,
+        "month": null,
+        "day": null,
+        "event": "Exploring Big Bend"
+      }
+    },
+    {
+      "event_id": "netherlands-2024",
+      "title": "Exploring Netherlands",
+      "description": "Visited the Netherlands during a trip to Europe.",
+      "location_title": "Netherlands",
+      "latitude": 52.1326,
+      "longitude": 5.2913,
+      "time": "2024-XX-XXTXX:XX:XXZ",
+      "full_story": "",
+      "tags": ["europe-2024"],
+      "images": [],
+      "videos": [],
+      "custom_icon": null,
+      "trip_hierarchy": {
+        "chapter": "2024",
+        "trip": "Europe 2024",
+        "country_or_state": "Netherlands",
+        "city_or_town": "Netherlands",
+        "event": "Exploring Netherlands"
+      },
+      "time_hierarchy": {
+        "decade": "2020s",
+        "year": 2024,
+        "month": null,
+        "day": null,
+        "event": "Exploring Netherlands"
+      }
+    },
+    {
+      "event_id": "germany-2024",
+      "title": "Exploring Germany",
+      "description": "Visited Germany during a trip to Europe.",
+      "location_title": "Germany",
+      "latitude": 51.1657,
+      "longitude": 10.4515,
+      "time": "2024-XX-XXTXX:XX:XXZ",
+      "full_story": "",
+      "tags": ["europe-2024"],
+      "images": [],
+      "videos": [],
+      "custom_icon": null,
+      "trip_hierarchy": {
+        "chapter": "2024",
+        "trip": "Europe 2024",
+        "country_or_state": "Germany",
+        "city_or_town": "Germany",
+        "event": "Exploring Germany"
+      },
+      "time_hierarchy": {
+        "decade": "2020s",
+        "year": 2024,
+        "month": null,
+        "day": null,
+        "event": "Exploring Germany"
+      }
+    },
+    {
+      "event_id": "austria-2024",
+      "title": "Exploring Austria",
+      "description": "Visited Austria during a trip to Europe.",
+      "location_title": "Austria",
+      "latitude": 47.5162,
+      "longitude": 14.5501,
+      "time": "2024-XX-XXTXX:XX:XXZ",
+      "full_story": "",
+      "tags": ["europe-2024"],
+      "images": [],
+      "videos": [],
+      "custom_icon": null,
+      "trip_hierarchy": {
+        "chapter": "2024",
+        "trip": "Europe 2024",
+        "country_or_state": "Austria",
+        "city_or_town": "Austria",
+        "event": "Exploring Austria"
+      },
+      "time_hierarchy": {
+        "decade": "2020s",
+        "year": 2024,
+        "month": null,
+        "day": null,
+        "event": "Exploring Austria"
+      }
+    },
+    {
+      "event_id": "hungary-2024",
+      "title": "Exploring Hungary",
+      "description": "Visited Hungary during a trip to Europe.",
+      "location_title": "Hungary",
+      "latitude": 47.1625,
+      "longitude": 19.5033,
+      "time": "2024-XX-XXTXX:XX:XXZ",
+      "full_story": "",
+      "tags": ["europe-2024"],
+      "images": [],
+      "videos": [],
+      "custom_icon": null,
+      "trip_hierarchy": {
+        "chapter": "2024",
+        "trip": "Europe 2024",
+        "country_or_state": "Hungary",
+        "city_or_town": "Hungary",
+        "event": "Exploring Hungary"
+      },
+      "time_hierarchy": {
+        "decade": "2020s",
+        "year": 2024,
+        "month": null,
+        "day": null,
+        "event": "Exploring Hungary"
+      }
+    },
+    {
+      "event_id": "italy-2024",
+      "title": "Exploring Italy",
+      "description": "Visited Italy during a trip to Europe.",
+      "location_title": "Italy",
+      "latitude": 41.8719,
+      "longitude": 12.5674,
+      "time": "2024-XX-XXTXX:XX:XXZ",
+      "full_story": "",
+      "tags": ["europe-2024"],
+      "images": [],
+      "videos": [],
+      "custom_icon": null,
+      "trip_hierarchy": {
+        "chapter": "2024",
+        "trip": "Europe 2024",
+        "country_or_state": "Italy",
+        "city_or_town": "Italy",
+        "event": "Exploring Italy"
+      },
+      "time_hierarchy": {
+        "decade": "2020s",
+        "year": 2024,
+        "month": null,
+        "day": null,
+        "event": "Exploring Italy"
+      }
+    },
+    {
+      "event_id": "slovenia-2024",
+      "title": "Exploring Slovenia",
+      "description": "Visited Slovenia during a trip to Europe.",
+      "location_title": "Slovenia",
+      "latitude": 46.1512,
+      "longitude": 14.9955,
+      "time": "2024-XX-XXTXX:XX:XXZ",
+      "full_story": "",
+      "tags": ["europe-2024"],
+      "images": [],
+      "videos": [],
+      "custom_icon": null,
+      "trip_hierarchy": {
+        "chapter": "2024",
+        "trip": "Europe 2024",
+        "country_or_state": "Slovenia",
+        "city_or_town": "Slovenia",
+        "event": "Exploring Slovenia"
+      },
+      "time_hierarchy": {
+        "decade": "2020s",
+        "year": 2024,
+        "month": null,
+        "day": null,
+        "event": "Exploring Slovenia"
+      }
+    },
+    {
+      "event_id": "switzerland-2024",
+      "title": "Exploring Switzerland",
+      "description": "Visited Switzerland during a trip to Europe.",
+      "location_title": "Switzerland",
+      "latitude": 46.8182,
+      "longitude": 8.2275,
+      "time": "2024-XX-XXTXX:XX:XXZ",
+      "full_story": "",
+      "tags": ["europe-2024"],
+      "images": [],
+      "videos": [],
+      "custom_icon": null,
+      "trip_hierarchy": {
+        "chapter": "2024",
+        "trip": "Europe 2024",
+        "country_or_state": "Switzerland",
+        "city_or_town": "Switzerland",
+        "event": "Exploring Switzerland"
+      },
+      "time_hierarchy": {
+        "decade": "2020s",
+        "year": 2024,
+        "month": null,
+        "day": null,
+        "event": "Exploring Switzerland"
+      }
+    },
+    {
+      "event_id": "france-europe-2024",
+      "title": "Exploring France",
+      "description": "Visited France during a trip to Europe.",
+      "location_title": "France",
+      "latitude": 46.2276,
+      "longitude": 2.2137,
+      "time": "2024-XX-XXTXX:XX:XXZ",
+      "full_story": "",
+      "tags": ["europe-2024"],
+      "images": [],
+      "videos": [],
+      "custom_icon": null,
+      "trip_hierarchy": {
+        "chapter": "2024",
+        "trip": "Europe 2024",
+        "country_or_state": "France",
+        "city_or_town": "France",
+        "event": "Exploring France"
+      },
+      "time_hierarchy": {
+        "decade": "2020s",
+        "year": 2024,
+        "month": null,
+        "day": null,
+        "event": "Exploring France"
+      }
+    },
+  },
+  {
+    "event_id": "antwerp-2024",
+    "title": "Exploring Antwerp",
+    "description": "Visited the vibrant city of Antwerp in Belgium during a trip to Europe.",
+    "location_title": "Antwerp, Belgium",
+    "latitude": 51.2194,
+    "longitude": 4.4025,
+    "time": "2024-XX-XXTXX:XX:XXZ",
+    "full_story": "",
+    "tags": ["europe-2024"],
+    "images": [],
+    "videos": [],
+    "custom_icon": null,
+    "trip_hierarchy": {
+      "chapter": "2024",
+      "trip": "Europe 2024",
+      "country_or_state": "Belgium",
+      "city_or_town": "Antwerp",
+      "event": "Exploring Antwerp"
+    },
+    "time_hierarchy": {
+      "decade": "2020s",
+      "year": 2024,
+      "month": null,
+      "day": null,
+      "event": "Exploring Antwerp"
     }
-  ]
-  
+  }
+]
