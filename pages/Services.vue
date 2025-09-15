@@ -1,6 +1,6 @@
 <template lang="pug">
 .services.skill
-  v-fab(to="/software" flat location="top start" app).home-btn Back
+  //- v-fab(to="/" flat location="top start" app).home-btn Home
   .services-info
     h2 IT Solutions, Tutoring and Consulting
     v-container
