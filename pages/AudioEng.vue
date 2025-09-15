@@ -22,7 +22,7 @@
 
   v-container.archives
     v-row.archives-title.ma-5
-      h1 Some examples of my work
+      h1 Recordings
     v-row.archive-players
       v-col(cols="12" md="6")
         v-card

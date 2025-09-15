@@ -6,7 +6,7 @@
     v-navigation-drawer
       v-timeline.bio-info(:density="width < 650 ? 'compact' : 'default'" align="start")
         v-timeline-item(v-for="entry in travelStore.filteredEvents" :key="entry.title")
-          span(slot="opposite") {{ formatDatetime(entry.date) }}
+          span(slot="opposite") {{ formatDatetime(entry.time) }}
           v-card(max-width="45vw")
             v-card-title {{ entry.title }}
             v-card-text(v-if="entry.text") {{ entry.text }}

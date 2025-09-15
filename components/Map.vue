@@ -14,6 +14,7 @@ const mapContainer = ref(null);
 
 onMounted(async () => {
     const travelStore = useTravelStore(); // Initialize the store
+    if (travelStore.allEvents === undefined) travelStore.loadEvents();
     await nextTick(); // Ensure DOM is fully rendered
 
     if (!mapContainer.value) {
@@ -89,14 +90,15 @@ onMounted(async () => {
     L.control.layers(baseLayers).addTo(map);
 
     // Use the events from the travelStore
+    console.log("Filtered events:", travelStore.filteredEvents);
     travelStore.filteredEvents.forEach((event) => {
+        console.log("Adding event to map:", event);
         if (event.latitude && event.longitude && event.title && event.description) {
             const markerObj = L.marker([event.latitude, event.longitude]).addTo(map);
             markerObj.bindPopup(`<b>${event.title}</b><br><p>${event.description}</p>`);
     //     // TODO - add custom marker icons
     //     // const customIcon = L.icon({ iconUrl: '/custom-marker.png', iconSize: [30, 30], });
     //     // const marker = L.marker([loc.lat, loc.lng], { icon: customIcon }).addTo(map);
-    //     const markerObj = L.marker([marker.lat, marker.lng]).addTo(map);
     //     // TODO - add custom popup content and open on click handler
     //     // marker.bindPopup(`<b>${loc.title}</b><br><img src="/custom-image.png" alt="Custom Image" />`).openPopup();
         }
