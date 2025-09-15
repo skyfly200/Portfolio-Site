@@ -22,7 +22,7 @@
             v-card-text 
               | I offer in-home and remote IT support services for individuals and families, helping with computer setup, troubleshooting, software installation, virus removal, and general tech support. My goal is to make technology accessible and easy to use for everyone.
             v-card-actions.card-actions
-              v-btn.card-btn(variant="outlined" color="accent" block to="/hime-it") See More
+              v-btn.card-btn(variant="outlined" color="accent" block to="/home-it") See More
       v-row
         v-col(cols="12" md="6")
           v-card
