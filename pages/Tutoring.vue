@@ -6,7 +6,7 @@
       h1 Tutoring
     v-container
       v-row
-        v-col(cols="12" md="6" lg="4")
+        v-col(cols="12")
           v-card
             v-card-title Tutoring
             v-card-text

@@ -6,7 +6,7 @@
       h1 Home IT Support
     v-container
       v-row
-        v-col(cols="12" md="6" lg="4")
+        v-col(cols="12")
           v-card
             v-card-title Home IT Support
             v-card-text
