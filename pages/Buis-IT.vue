@@ -3,41 +3,16 @@
   v-fab(to="/services" flat location="top start" app).home-btn Back
   .buis-it-info
     .headline
-      h1 Generative Art
-    v-container.projects
+      h1 Buisness IT Solutions
+    v-container
       v-row
         v-col(cols="12" md="6" lg="4")
           v-card
-            v-card-title TinyBoxes NFT
-            v-img(cover src="/images/TB-logo.svg" alt="phi art" height="400px")
+            v-card-title Buisness IT Solutions
             v-card-text
-              | Animated On-Chain Generative Art NFTs.
-              | A collection of 2222 unique tokens.
-              | Each TinyBox is a unique piece of generative art.
-              | Built with Solidity, Hardhat, Ethers.js, and Vue.js.
+              | I provide comprehensive IT solutions for small to medium-sized businesses, including network setup and management, cybersecurity, cloud services, and hardware/software procurement. My goal is to help businesses streamline their operations and enhance productivity through effective technology solutions.
             v-card-actions
-              v-btn(text href="https://tinybox.shop" target="_blank") Visit
-        v-col(cols="12" md="6" lg="4")
-          v-card
-            v-card-title Caustics Container
-            v-img(cover src="/images/caustics.png" alt="phi art" height="400px")
-            v-card-text
-              | A container for caustics, a generative art project.
-              | Water simulation thats music responsive and interactive.
-              | Built with WebGL, Three.js and WebAudio API.
-            v-card-actions
-              v-btn(text href="https://github.com/skyfly200/caustics-art" target="_blank") View on GitHub
-        v-col(cols="12" md="6" lg="4")
-          v-card
-            v-card-title Phi Inspired Series
-            v-img(cover src="/images/hardware/phi-lamp.jpg" alt="phi art" height="400px")
-            v-card-text
-              | Shapes inspired by the golden ratio.
-              | Generative 3d models made with Pyhton scripts in Blender
-              | Jewelry and light art pieces created with 3d printing.
-            v-card-actions
-              v-btn(text href="" target="_blank") View on GitHub
-
+              v-btn(text href="mailto:buisness-it@skylerfly.com" target="_blank") Contact Me
 </template>
 
 <script>
