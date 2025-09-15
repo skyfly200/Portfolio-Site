@@ -20,9 +20,6 @@ import GitHubBtn from "../components/GitHubBtn.vue";
 
 export default {
   name: "home-it",
-  components: {
-    GitHubBtn
-  },
 };
 </script>
 

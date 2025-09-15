@@ -19,9 +19,6 @@
 <script>
 export default {
   name: "tutoring",
-  components: {
-    GitHubBtn
-  },
 };
 </script>
 

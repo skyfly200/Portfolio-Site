@@ -19,9 +19,6 @@
 
 export default {
   name: "consulting",
-  components: {
-    GitHubBtn
-  },
 };
 </script>
 

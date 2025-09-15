@@ -19,9 +19,6 @@
 
 export default {
   name: "buis-it",
-  components: {
-    GitHubBtn
-  },
 };
 </script>
 
