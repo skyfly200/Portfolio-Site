@@ -7,7 +7,7 @@
       v-row
         v-col(cols="12" md="6")
           v-card
-            //- v-img(src="/images/TB-logo.svg" alt="TinyBoxes NFT Logo").card-img
+            v-img(cover src="https://picsum.photos/id/1078/600/300" alt="Buisnees IT Image").card-img
             v-card-title Buisness IT Solutions
             v-card-subtitle All your IT needs in one place
             v-card-text
@@ -16,7 +16,7 @@
               v-btn.card-btn(variant="outlined" color="accent" block to="/buis-it") See More
         v-col(cols="12" md="6")
           v-card
-            //- v-img(src="/images/artblocks-logo.svg" alt="ArtBlocks Platform Logo").card-img
+            v-img(cover src="https://picsum.photos/id/225/600/300" alt="Home IT Image").card-img
             v-card-title  Home IT Support
             v-card-subtitle In Home and Remote IT Support for all your devices
             v-card-text 
@@ -26,6 +26,7 @@
       v-row
         v-col(cols="12" md="6")
           v-card
+            v-img(cover src="https://picsum.photos/id/1073/600/300" alt="Tutoring Image").card-img
             v-card-title  Tutoring
             v-card-subtitle Personalized IT and Software Development Tutoring
             v-card-text 
@@ -34,6 +35,7 @@
               v-btn.card-btn(variant="outlined" color="accent" block to="/tutoring") See More
         v-col(cols="12" md="6")
           v-card
+            v-img(cover src="https://picsum.photos/id/306/600/300" alt="Consulting Image").card-img
             v-card-title Emerging Technologies Consulting
             v-card-subtitle Expert IT Consulting for Businesses and Individuals
             v-card-text
@@ -66,8 +68,7 @@ export default {
     padding: 10px
 
   .card-img
-    height: 200px
-    margin: 1rem
+    height: 300px
   .card-actions a:visited
     color: white
 

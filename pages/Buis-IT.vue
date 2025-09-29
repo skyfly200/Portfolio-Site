@@ -1,6 +1,6 @@
 <template lang="pug">
 .buis-it.skill
-  v-fab(to="/services" flat location="top start" app).home-btn Back
+  v-fab(to="/services" flat location="top start" app).home-btn Services
   .buis-it-info
     .headline
       h1 Buisness IT Solutions
@@ -12,12 +12,11 @@
             v-card-text
               | I provide comprehensive IT solutions for small to medium-sized businesses, including network setup and management, cybersecurity, cloud services, and hardware/software procurement. My goal is to help businesses streamline their operations and enhance productivity through effective technology solutions.
             v-card-actions
-              v-btn(text href="https://calendar.app.google/fC29F1wtDQP5TjYE8" target="_blank") Book Now
+              v-btn(text href="https://calendar.app.google/QVUTpTm14n72mHPw9" target="_blank") Book Now
               v-btn(text href="mailto:buisness-it@skylerfly.com" target="_blank") Contact Me
 </template>
 
 <script>
-
 export default {
   name: "buis-it",
 };

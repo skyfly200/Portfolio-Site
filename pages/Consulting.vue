@@ -1,6 +1,6 @@
 <template lang="pug">
 .consulting.skill
-  v-fab(to="/services" flat location="top start" app).home-btn Back
+  v-fab(to="/services" flat location="top start" app).home-btn Services
   .consulting-info
     .headline
       h1 Consulting
@@ -12,12 +12,11 @@
             v-card-text
               | I provide expert consulting services on emerging technologies such as blockchain, artificial intelligence, automation, EVs, renewable energy and cloud computing. I help businesses and individuals understand the potential applications of these technologies and how they can be leveraged to achieve their goals.
             v-card-actions
-              v-btn(text href="https://calendar.app.google/fC29F1wtDQP5TjYE8" target="_blank") Book Now
+              v-btn(text href="https://calendar.app.google/dVP9wvqD9Hv6RtfT7" target="_blank") Book Now
               v-btn(text href="mailto:consulting@skylerfly.com" target="_blank") Contact Me
 </template>
 
 <script>
-
 export default {
   name: "consulting",
 };

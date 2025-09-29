@@ -1,6 +1,6 @@
 <template lang="pug">
 .tutoring.skill
-  v-fab(to="/services" flat location="top start" app).home-btn Back
+  v-fab(to="/services" flat location="top start" app).home-btn Services
   .tutoring-info
     .headline
       h1 Tutoring
@@ -12,7 +12,7 @@
             v-card-text
               | I offer personalized tutoring services in various IT and software development topics, including programming languages (Python, JavaScript, etc.), web development, database management, and cloud computing. My tutoring sessions are tailored to meet the individual needs of each student, whether they are beginners or looking to advance their skills.
             v-card-actions
-              v-btn(text href="https://calendar.app.google/fC29F1wtDQP5TjYE8" target="_blank") Book Now
+              v-btn(text href="https://calendar.app.google/Q5RwJpk7RyLoiF796" target="_blank") Book Now
               v-btn(text href="mailto:tutoring@skylerfly.com" target="_blank") Contact Me
 
 </template>
