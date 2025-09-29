@@ -44,7 +44,7 @@
               v-btn.card-btn(variant="outlined" color="accent" block to="/consulting") See More
       v-row
         v-col(cols="12").pt-7
-          v-btn(to="/").ma-5 Back to Home
+          v-btn(flat to="/").ma-5 Go Home
 
 </template>
 
