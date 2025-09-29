@@ -42,6 +42,9 @@
               | I provide expert consulting services on emerging technologies such as blockchain, artificial intelligence, automation, EVs, renewable energy and cloud computing. I help businesses and individuals understand the potential applications of these technologies and how they can be leveraged to achieve their goals.
             v-card-actions.card-actions
               v-btn.card-btn(variant="outlined" color="accent" block to="/consulting") See More
+      v-row
+        v-col(cols="12").pt-7
+          v-btn(to="/").ma-5 Back to Home
 
 </template>
 
