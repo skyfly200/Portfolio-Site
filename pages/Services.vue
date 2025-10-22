@@ -20,7 +20,7 @@
             v-card-title  Home IT Support
             v-card-subtitle In Home and Remote IT Support for all your devices
             v-card-text(height="10em")
-              | I offer in-home and remote IT support services, helping with computer setup, troubleshooting, and general tech support.
+              | I offer in-home and remote IT support services, helping with computers, phones, IOT, security systems, audio/video gear, and general tech support.
             v-card-actions.card-actions
               v-btn.card-btn(variant="outlined" color="accent" block to="/home-it") See More
       v-row
