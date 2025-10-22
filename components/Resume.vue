@@ -3,13 +3,13 @@
 .resume-download#resume
   ClientOnly
     .resume-header(data-aos="fade" data-aos-delay="200")
-      h1 Download my resume
+      h1 View my resume
     .resume-buttons
       .resume-button(data-aos="flip-down" data-aos-delay="200" data-aos-duration="750")
-        a(href="https://docs.google.com/document/d/1LhEbXxxuoJ2cZf7JwBqwVxxfu7WX4ovKvswWQmyxmn0/edit?usp=sharing", target="_blank")
+        a(href="https://docs.google.com/document/d/1eOP-9JIYIdzsZDjC8GpUtUooQatW6zjNYp13QWB6wqc/edit?usp=sharing", target="_blank")
           button.resume-btn.btn.btn-default.wow.zoomIn
             svg.fa.fa-cogs
-            .btn-text &nbsp;Software
+            .btn-text &nbsp;Software and IT
       .resume-button(data-aos="flip-down" data-aos-delay="200" data-aos-duration="750")
         a(href="https://docs.google.com/document/d/1zUutU1to6t_TuzwV2zGfHN0kTeCDZ00fRqHvL5A_n-Y/edit?usp=sharing", target="_blank")
           button.resume-btn.btn.btn-default.wow.zoomIn
