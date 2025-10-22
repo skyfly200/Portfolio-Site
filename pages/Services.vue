@@ -11,7 +11,7 @@
             v-card-title Buisness IT Solutions
             v-card-subtitle All your IT needs in one place
             v-card-text(height="10em")
-              | I provide comprehensive IT solutions for small to medium-sized businesses, including network setup and management, point of sale systems, security systems, automation and hardware/software procurement. My goal is to help businesses streamline their operations and enhance productivity through effective technology solutions.
+              | I provide comprehensive IT solutions for small to medium-sized businesses, including networks, point of sale systems, google listings, security systems, automation and hardware/software procurement. My goal is to help businesses streamline their operations and enhance productivity through effective technology solutions.
             v-card-actions.card-actions
               v-btn.card-btn(variant="outlined" color="accent" block to="/buis-it") See More
         v-col(cols="12" md="6")
