@@ -4,12 +4,12 @@
   .quote-block
     ClientOnly
       .quote-header(data-aos="fade" data-aos-delay="200")
-        a(href="https://ia800800.us.archive.org/30/items/KWHR_FDGD_2015/Louise%20M%20DJ%20Poems.mp3")
+        a(href="https://ia800800.us.archive.org/30/items/KWHR_FDGD_2015/Louise%20M%20DJ%20Poems.mp3" target="_blank")
           h1 "...A&nbsp;gentleman. A&nbsp;gentle&nbsp;soul
           h1 Love&nbsp;of&nbsp;nature makes&nbsp;him&nbsp;whole
           h1 Seen&nbsp;the&nbsp;world from&nbsp;every&nbsp;angle
           h1 Tried&nbsp;everything new&nbsp;fandangled..."
-          h3 -&nbsp;The&nbsp;Poet&nbsp;Louise&nbsp;M
+          h3 -&nbsp;The&nbsp;Poet&nbsp;Louise&nbsp;M.
 
 </template>
 
