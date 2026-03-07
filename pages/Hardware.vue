@@ -28,9 +28,9 @@
 
   v-divider.my-4
 
-  //- Timeline — no side prop means Vuetify alternates cards left/right automatically
+  //- Timeline — alternates on desktop, collapses to one side on mobile
   .projects-timeline
-    v-timeline(:truncate-line="'both'" align="start")
+    v-timeline(:truncate-line="'both'" align="start" :side="isMobile ? 'end' : undefined")
       v-timeline-item(
         v-for="project in filteredProjects"
         :key="project.title"
@@ -296,9 +296,17 @@ export default {
       if (this.activeFilter === "all") return this.projects;
       return this.projects.filter(p => p.category === this.activeFilter);
     },
+    isMobile() {
+      return this.width < 600;
+    },
   },
   mounted() {
     this.width = window.innerWidth;
+    this._onResize = () => { this.width = window.innerWidth; };
+    window.addEventListener('resize', this._onResize);
+  },
+  beforeUnmount() {
+    window.removeEventListener('resize', this._onResize);
   },
   methods: {
     setFilter(val) {
@@ -405,12 +413,19 @@ export default {
     max-width: 900px
     margin: 0 auto
 
+    @media (max-width: 600px)
+      padding: 0 8px
+
     .timeline-date
       font-family: 'Nixie One', sans-serif
       font-size: 0.85rem
       opacity: 0.6
       text-align: right
       padding-right: 8px
+
+      @media (max-width: 600px)
+        text-align: left
+        padding-right: 0
 
     .project-card
       border-radius: 8px
