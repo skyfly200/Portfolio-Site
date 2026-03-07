@@ -143,6 +143,22 @@ export default {
     ],
     projects: [
       {
+        date: new Date("Aug 5, 2025"),
+        title: "Glow Flora Clip",
+        text: "An origami Lily with  flexible LED filament powered from a coin cell.",
+        img: "",
+        category: "led",
+        tech: ["LED", "Coin Cell"],
+      },
+      {
+        date: new Date("March 15, 2025"),
+        title: "Glow Flora Handheld V1",
+        text: "An origami Lily with addresable LEDs driven by a XIOA ESP32-C6. USB C rechargeable Li-Po battery. The first in a line of handheld LED art pieces.",
+        img: "",
+        category: "led",
+        tech: ["LED", "WS2812B", "ESP32-C6", "Li-Po", "USB C"],
+      },
+      {
         date: new Date("Nov 28, 2023"),
         title: "Air Quality Monitor",
         text: "A unit of sensors to monitor air quality including particulate matter, CO₂, VOC, temperature and humidity. Built with an Artemis Redboard Nano. Read data over Bluetooth.",
@@ -285,8 +301,8 @@ export default {
       },
     ],
     stats: [
-      { num: "16", label: "Finished Hardware Projects" },
       { num: "14+", label: "Years Building" },
+      { num: "16", label: "Finished Hardware Projects" },
       { num: "7",   label: "Custom PCBs Completed" },
       { num: "∞",   label: "LEDs Driven" },
     ],
