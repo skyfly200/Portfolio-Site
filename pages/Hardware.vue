@@ -1,21 +1,128 @@
 <template lang="pug">
 .hardware.skill
-  v-fab(href="/#skills" flat location="top start" app).home-btn Home
+  //- Back button
+  v-btn(href="/#skills" variant="text" prepend-icon="fa-arrow-left" color="primary").home-btn Back to Skills
+
+  .page-header(data-aos="fade-down")
+    .header-eyebrow Hardware Engineering
+    h1.header-title Projects &amp; Builds
+    p.header-sub A decade of embedded systems, PCB design, wireless devices, and LED everything.
+    .header-chips
+      v-chip(
+        v-for="cat in categories"
+        :key="cat.value"
+        :color="activeFilter === cat.value ? 'primary' : 'default'"
+        :variant="activeFilter === cat.value ? 'elevated' : 'outlined'"
+        class="mr-2 mb-2"
+        @click="setFilter(cat.value)"
+        size="small"
+      ) {{ cat.label }}
+
+  v-divider.my-4
+
+  //- Stats row
+  .stats-row(data-aos="fade-up")
+    .stat(v-for="s in stats" :key="s.label")
+      .stat-num {{ s.num }}
+      .stat-label {{ s.label }}
+
+  v-divider.my-4
+
+  //- Timeline — no side prop means Vuetify alternates cards left/right automatically
   .projects-timeline
-    .header
-      h1 Harware Projects
-      h3 A history of some hardware projects I have worked on
-    v-divider
-    v-timeline(:dense="width < 650")
-      v-timeline-item(v-for="project in projects" :key="project.title" width="40vw")
-        span(slot="opposite") {{ formatDatetime(project.date) }}
-        v-card(class="elevation-2").project-card
-          v-img(:v-if="!!project.img" :src="project.img" max-height="40vh")
-          v-card-title(class="headline") {{ project.title }}
-          v-card-text {{ project.text }}
+    v-timeline(:truncate-line="'both'" align="start")
+      v-timeline-item(
+        v-for="project in filteredProjects"
+        :key="project.title"
+        :dot-color="categoryColor(project.category)"
+        size="small"
+        data-aos="fade-left"
+        data-aos-offset="80"
+      )
+        template(#opposite)
+          .timeline-date {{ formatDatetime(project.date) }}
+
+        v-card.project-card(:class="{ 'has-image': !!project.img }" elevation="3")
+          v-img(
+            v-if="project.img"
+            :src="project.img"
+            height="200"
+            cover
+            class="project-img"
+          )
+            .img-overlay
+              v-chip(size="x-small" :color="categoryColor(project.category)" label).category-chip
+                v-icon(start size="10") {{ categoryIcon(project.category) }}
+                | {{ categoryLabel(project.category) }}
+
+          .no-img-header(v-else)
+            v-chip(size="x-small" :color="categoryColor(project.category)" label).category-chip
+              v-icon(start size="10") {{ categoryIcon(project.category) }}
+              | {{ categoryLabel(project.category) }}
+
+          v-card-title.project-title {{ project.title }}
+          v-card-subtitle.project-date(v-if="!project.img") {{ formatDatetime(project.date) }}
+          v-card-text.project-text {{ project.text }}
+
+          .tech-chips(v-if="project.tech && project.tech.length")
+            v-chip(
+              v-for="t in project.tech"
+              :key="t"
+              size="x-small"
+              variant="tonal"
+              color="primary"
+              class="mr-1 mb-1"
+            ) {{ t }}
+
           v-card-actions
-            v-btn(v-if="!!project.repo" :href="project.repo" target="_blank") Code
-            v-btn(v-if="!!project.link" :href="project.link" target="_blank") Link
+            v-btn(
+              v-if="project.repo"
+              :href="project.repo"
+              target="_blank"
+              variant="text"
+              color="primary"
+              prepend-icon="fa-github"
+              size="small"
+            ) Code
+            v-btn(
+              v-if="project.link"
+              :href="project.link"
+              target="_blank"
+              variant="text"
+              color="primary"
+              prepend-icon="fa-external-link-alt"
+              size="small"
+            ) Link
+            v-btn(
+              v-if="project.gerbers"
+              :href="project.gerbers"
+              target="_blank"
+              variant="tonal"
+              color="success"
+              prepend-icon="fa-download"
+              size="small"
+            ) Gerbers
+            v-btn(
+              v-if="project.bom"
+              :href="project.bom"
+              target="_blank"
+              variant="tonal"
+              color="success"
+              prepend-icon="fa-download"
+              size="small"
+            ) BOM
+
+  v-divider.my-8
+
+  //- CTA for SparkFun / recruiters
+  .contact-cta(data-aos="fade-up")
+    v-card(color="primary" variant="tonal" class="pa-6 text-center").cta-card
+      v-icon(size="36" class="mb-3") fa-bolt
+      h2.cta-title Interested in my hardware work?
+      p.cta-text All PCB source files, firmware, and BOMs are available on GitHub. I'm currently looking for Embedded Hardware Engineer roles where I can design, build, and ship real products.
+      .cta-actions
+        v-btn(href="https://github.com/skyfly200" target="_blank" color="primary" variant="elevated" prepend-icon="fa-github" class="mr-3") GitHub
+        v-btn(href="/#contact" color="default" variant="outlined") Contact Me
 </template>
 
 <script>
@@ -25,143 +132,347 @@ export default {
   name: "hardware",
   data: () => ({
     width: 0,
+    activeFilter: "all",
+    categories: [
+      { value: "all",      label: "All Projects" },
+      { value: "embedded", label: "Embedded / MCU" },
+      { value: "iot",      label: "IoT / Wireless" },
+      { value: "led",      label: "LED / Lighting" },
+      { value: "audio",    label: "Audio / Synthesis" },
+      { value: "radio",    label: "Radio / RF" },
+    ],
     projects: [
       {
         date: new Date("Nov 28, 2023"),
         title: "Air Quality Monitor",
-        text: "A unit of sensors to monitor air quality",
-        img: "/images/hardware/air-quality-monitor.jpg"
+        text: "A unit of sensors to monitor air quality including particulate matter, CO₂, VOC, temperature and humidity. Built with an Artemis Redboard Nano. Read data over Bluetooth.",
+        img: "/images/hardware/air-quality-monitor.jpg",
+        category: "iot",
+        tech: ["Artemis", "Bluetooth", "BME680", "PMS5003", "SGP30"],
       },
       {
         date: new Date("Oct 7, 2020"),
-        title: "Led Lily Pyramid Base",
-        text: "A base to house the LED Lily Controller and battery",
-        img: "/images/hardware/pyramid-board.jpeg"
+        title: "LED Lily Pyramid Base",
+        text: "A custom 3D printed base to house the LED Lily Controller and LiPo battery, with integrated charging and power management.",
+        img: "/images/hardware/pyramid-board.jpeg",
+        category: "led",
+        tech: ["Eagle", "LiPo", "TP4056"],
+      },
+      {
+        date: new Date("October 26, 2019"),
+        title: "Flex Lily PCB",
+        text: "A Flex PCB to fit WS2812B-mini LEDs inside of an origami lily.",
+        img: "",
+        category: "led",
+        tech: ["Origami", "RGB LEDs"],
       },
       {
         date: new Date("October 26, 2019"),
         title: "Touch n' Glow",
-        text: "A PCB with touch pads and a 3.5 mm port to connect RGB LEDs",
-        img: "/images/hardware/touchnglow.jpg"
+        text: "A PCB with capacitive touch pads, one WS2812B, and a 3.5mm port to connect RGB LEDs.",
+        img: "/images/hardware/touchnglow.jpg",
+        category: "led",
+        tech: ["Capacitive Touch", "KiCad", "RGB LEDs"],
+        repo: "https://github.com/skyfly200/touch-n-glow",
       },
       {
         date: new Date("Oct 18, 2019"),
         title: "Hexy Pix PCB",
-        text: "A breakout board for 5050 Addressable LEDs",
-        img: "/images/hardware/hexypix.jpg"
+        text: "A breakout board for WS2812B 5050 addressable LEDs in a hexagonal layout.",
+        img: "/images/hardware/hexypix.jpg",
+        category: "led",
+        tech: ["WS2812B", "Eagle", "PCB"],
       },
       {
         date: new Date("August 26, 2019"),
         title: "Ill'uminator PCB",
-        text: "A basic RGB LED strip controller with some sweet PCB art on the back",
-        img: "/images/hardware/illuminator.jpg"
+        text: "My first designed and manufactured PCB! A basic RGB LED strip controller with sweet PCB art on the back. MOSFET-switched RGB channels, 12V input.",
+        img: "/images/hardware/illuminator.jpg",
+        category: "led",
+        tech: ["MOSFET", "Eagle", "RGB", "12V"],
       },
       {
-        date: new Date("July, 2019"),
-        title: "PTC2399 Delay IC",
-        text: "Old School Bucket Brigade Delay modeled IC, in an echo circuit",
-        img: ""
+        date: new Date("July 2019"),
+        title: "PT2399 Delay IC Echo Circuit",
+        text: "Old-school bucket brigade delay IC circuit built around the PT2399, with adjustable delay time and feedback for guitar effects.",
+        img: "",
+        category: "audio",
+        tech: ["PT2399", "Analog", "Guitar FX", "Through-hole"],
       },
       {
         date: new Date("March 15, 2019"),
         title: "ArtNet LED Strip Controller",
-        text: "ArtNet Ws2812b Strip controller, with ESP32 Thing from Sparkfun",
-        img: ""
+        text: "ArtNet WS2812b strip controller running on ESP32 Thing from SparkFun. Receives DMX-over-IP for professional lighting control.",
+        img: "/images/hardware/ARTNET.png",
+        category: "led",
+        tech: ["ESP32", "ArtNet", "WS2812B", "DMX", "Wi-Fi"],
+        repo: "https://github.com/skyfly200/Radio-Net-Hub",
+      },
+      {
+        date: new Date("November 16, 2018"),
+        title: "Tower of Power",
+        text: "An animated LED artpiece made with a laser-cut logo for our station backed with some addressable LEDs. Running off a QT PY board from Adafruit.",
+        img: "",
+        category: "radio",
+        tech: ["CircuitPython", "WS2812B", "Laser Cut", "Li-Po"],
       },
       {
         date: new Date("November 1, 2018"),
-        title: "Sparky - 150W FM TX",
-        text: "A 150W stereo FM transmitter, with laser cut plates",
-        img: "/images/hardware/sparky.jpg"
+        title: "Sparky — 150W FM Transmitter",
+        text: "A 150W stereo FM transmitter with laser-cut front and rear panels to mount all the hardware in an spare PC case.",
+        img: "/images/hardware/sparky.jpg",
+        category: "radio",
+        tech: ["RF", "FM", "150W PA", "Laser Cut"],
       },
       {
-        date: new Date("March, 8 2018"),
-        title: "ESP32 LED Controller",
-        text: "Addressable LED fixture contorller, with ESP32 Thing from Sparkfun running off a battery",
-        img: "/images/hardware/esp-pack.jpg"
+        date: new Date("March 3, 2018"),
+        title: "LED Lily Origami Fixture",
+        text: "Origami flower modular LED fixture with embedded addressable LEDs, connects to a controller with a 3.5mm TRRS jack.",
+        img: "/images/hardware/origami-lily.jpg",
+        category: "led",
+        tech: ["WS2812B", "Modular", "Origami"],
       },
       {
-        date: new Date("March, 3 2018"),
-        title: "LED Lily",
-        text: "Origami Flower LED fixture",
-        img: "/images/hardware/origami-lily.jpg"
+        date: new Date("March 2, 2018"),
+        title: "Modular LED Controller",
+        text: "ESP32 LED controller that connects to light fixtures via TRS jack. Bluetooth control with custom PWA app. Fully modular — one controller drives multiple fixtures.",
+        img: "/images/hardware/esp32-pack.jpg",
+        category: "led",
+        tech: ["ESP32", "Bluetooth", "Modular", "Li-Po"],
       },
       {
-        date: new Date("March, 2 2018"),
-        title: "Modular IOT LED Controler",
-        text:
-          "ESP32 Wi-Fi/BT LED controller, connects to light fixtures via TRS jack",
-        img: "/images/hardware/esp32-pack.jpg"
-      },
-      {
-        date: new Date("Dec, 25 2017"),
+        date: new Date("Dec 25, 2017"),
         title: "LED Origami Rose",
-        text:
-          "Origami Rose with embeded Addresable LEDs, selectable animation modes and micro USB recharging",
-        img: "/images/hardware/LED-Rose.jpg"
+        text: "Origami rose with embedded addressable LEDs, selectable animation modes, and micro-USB recharging. Built with an Arduino pro mini, a Li-Po battery and a sparkfun charge controller / 5V boost module. A gift that blinks.",
+        img: "/images/hardware/LED-Rose.jpg",
+        category: "led",
+        tech: ["WS2812B", "Arduino", "LiPo", "USB Charging"],
       },
       {
-        date: new Date("Oct, 27 2017"),
+        date: new Date("Oct 27, 2017"),
         title: "Chasing EL Wire Vest",
-        text:
-          "Chasing EL wire vest, with Addressable LED belt pack. RJ45 expansion port for LEDs, buttons and sensors.",
+        text: "Chasing EL wire vest with addressable LED belt pack. RJ45 expansion port for LEDs, buttons, and sensors.",
         img: "",
-        repo: "https://github.com/skyfly200/EL-Vest"
+        category: "led",
+        tech: ["EL Wire", "WS2812B", "Arduino", "RJ45"],
+        repo: "https://github.com/skyfly200/EL-Vest",
       },
       {
-        date: new Date("Jan, 29 2017"),
+        date: new Date("Jan 29, 2017"),
         title: "TMP/RH PID Controller",
-        text:
-          "Arduino PID controller for temperature and humidity, with LCD. Plus light level sensor.",
-        img: "/images/hardware/PID.jpg"
+        text: "Arduino PID controller for temperature and humidity with LCD readout and light level sensor. Used for environmental control.",
+        img: "/images/hardware/PID.jpg",
+        category: "embedded",
+        tech: ["Arduino", "PID", "DHT22", "LCD", "I2C"],
       },
       {
-        date: new Date("Mar, 8 2014"),
-        title: "80's Text to Speach Chip",
-        text: "Arduino Sketch for the SP0256A-AL2 IC manufactured in 1981",
+        date: new Date("Mar 8, 2014"),
+        title: "80s Text-to-Speech Chip",
+        text: "Arduino sketch for the SP0256A-AL2 IC manufactured in 1981, a vintage speech synthesis chip.",
         img: "/images/hardware/TTS-IC.jpg",
-        repo: "https://github.com/skyfly200/SP0256_AL2"
+        category: "audio",
+        tech: ["Arduino", "SP0256", "Vintage IC"],
+        repo: "https://github.com/skyfly200/SP0256_AL2",
       },
       {
-        date: new Date("May, 2 2013"),
+        date: new Date("May 2, 2013"),
         title: "Audio Spectrum Visualizer",
-        text:
-          "7 band grphic EQ chip interfaced to Arduino, driving a shift register to PWM LEDs",
-        img: "/images/hardware/HW-p1.jpg"
-      }
-    ]
+        text: "7-band graphic EQ chip hooked up to an Arduino, driving a shift register to PWM-control a row of LEDs to display the audio spectrum.",
+        img: "/images/hardware/HW-p1.jpg",
+        category: "audio",
+        tech: ["Arduino", "MSGEQ7", "Shift Register", "PWM", "LED Matrix"],
+        repo: "https://github.com/skyfly200/MusicReactiveRGBStrip",
+      },
+    ],
+    stats: [
+      { num: "16", label: "Finished Hardware Projects" },
+      { num: "14+", label: "Years Building" },
+      { num: "7",   label: "Custom PCBs Completed" },
+      { num: "∞",   label: "LEDs Driven" },
+    ],
   }),
+  computed: {
+    filteredProjects() {
+      if (this.activeFilter === "all") return this.projects;
+      return this.projects.filter(p => p.category === this.activeFilter);
+    },
+  },
   mounted() {
-    this.onResize();
+    this.width = window.innerWidth;
   },
   methods: {
-    onResize() {
-      this.width = window.innerWidth;
+    setFilter(val) {
+      this.activeFilter = val;
     },
     formatDatetime(datetime) {
       return moment(datetime).format("MMM YYYY");
-    }
-  }
+    },
+    categoryColor(cat) {
+      return {
+        pcb:      "success",
+        embedded: "primary",
+        iot:      "info",
+        led:      "warning",
+        audio:    "error",
+      }[cat] || "default";
+    },
+    categoryIcon(cat) {
+      return {
+        pcb:      "fa-microchip",
+        embedded: "fa-code",
+        iot:      "fa-wifi",
+        led:      "fa-lightbulb",
+        audio:    "fa-volume-up",
+      }[cat] || "fa-bolt";
+    },
+    categoryLabel(cat) {
+      return this.categories.find(c => c.value === cat)?.label || cat;
+    },
+  },
 };
 </script>
 
 <style lang="sass">
 .hardware
-  justify-content: center
   width: 100%
   color: white
-  .header
-    text-align: center
-    margin: auto
-    padding: 10px
-  .projects-timeline
-    width: 100%
+  padding-bottom: 80px
 
   .home-btn
-    a
-      color: white
+    margin: 16px 0 0 16px
 
-  .topic-list
-    color: #fff
+  // ── Page Header ──────────────────────────────────────────
+  .page-header
+    text-align: center
+    padding: 48px 24px 24px
+    max-width: 760px
+    margin: 0 auto
 
+    .header-eyebrow
+      font-family: 'Nixie One', sans-serif
+      font-size: 0.85rem
+      letter-spacing: 0.25em
+      text-transform: uppercase
+      color: #7627D0
+      margin-bottom: 12px
+
+    h1.header-title
+      font-family: 'Nixie One', sans-serif
+      font-size: clamp(2.2rem, 5vw, 3.5rem)
+      font-weight: 700
+      line-height: 1.1
+      margin-bottom: 16px
+
+    .header-sub
+      font-family: 'Raleway', sans-serif
+      font-size: 1.05rem
+      opacity: 0.7
+      margin-bottom: 24px
+
+    .header-chips
+      display: flex
+      flex-wrap: wrap
+      justify-content: center
+      gap: 6px
+
+  // ── Stats ─────────────────────────────────────────────────
+  .stats-row
+    display: flex
+    justify-content: center
+    gap: 48px
+    flex-wrap: wrap
+    padding: 16px 24px
+
+    .stat
+      text-align: center
+      .stat-num
+        font-family: 'Nixie One', sans-serif
+        font-size: 2.4rem
+        font-weight: 700
+        color: #7627D0
+        line-height: 1
+      .stat-label
+        font-family: 'Raleway', sans-serif
+        font-size: 0.75rem
+        opacity: 0.6
+        text-transform: uppercase
+        letter-spacing: 0.1em
+        margin-top: 4px
+
+  // ── Timeline ─────────────────────────────────────────────
+  .projects-timeline
+    padding: 0 16px
+    max-width: 900px
+    margin: 0 auto
+
+    .timeline-date
+      font-family: 'Nixie One', sans-serif
+      font-size: 0.85rem
+      opacity: 0.6
+      text-align: right
+      padding-right: 8px
+
+    .project-card
+      border-radius: 8px
+      overflow: hidden
+      margin-bottom: 8px
+      background: rgba(255,255,255,0.04) !important
+      border: 1px solid rgba(255,255,255,0.08)
+      transition: border-color 0.2s, transform 0.2s
+
+      &:hover
+        border-color: rgba(118, 39, 208, 0.5)
+        transform: translateY(-2px)
+
+      .project-img
+        position: relative
+        .img-overlay
+          position: absolute
+          bottom: 8px
+          left: 8px
+
+      .no-img-header
+        padding: 12px 16px 0
+
+      .category-chip
+        font-size: 0.65rem !important
+
+      .project-title
+        font-family: 'Nixie One', sans-serif
+        font-size: 1.1rem
+        padding-bottom: 4px
+
+      .project-text
+        font-family: 'Raleway', sans-serif
+        font-size: 0.9rem
+        opacity: 0.8
+        padding-bottom: 4px
+
+      .tech-chips
+        padding: 0 16px 8px
+
+  // ── CTA ───────────────────────────────────────────────────
+  .contact-cta
+    max-width: 680px
+    margin: 0 auto
+    padding: 0 24px
+
+    .cta-card
+      border-radius: 12px !important
+
+    .cta-title
+      font-family: 'Nixie One', sans-serif
+      font-size: 1.6rem
+      margin-bottom: 12px
+
+    .cta-text
+      font-family: 'Raleway', sans-serif
+      opacity: 0.8
+      margin-bottom: 24px
+
+    .cta-actions
+      display: flex
+      justify-content: center
+      flex-wrap: wrap
+      gap: 12px
 </style>
