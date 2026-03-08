@@ -35,10 +35,11 @@
   .projects-timeline
     v-timeline(:truncate-line="'both'" align="start" :side="isMobile ? 'end' : undefined")
       v-timeline-item(
-        v-for="project in filteredProjects"
+        v-for="(project, index) in filteredProjects"
         :key="project.title"
         :dot-color="categoryColor(project.category)"
         size="small"
+        :class="index % 2 === 0 ? 'item-odd' : 'item-even'"
         data-aos="fade-left"
         data-aos-offset="80"
       )
@@ -50,7 +51,7 @@
           @click="openProject(project)"
         ).clickable
           //- Thumbnail: carousel if multiple, single img, video, or placeholder
-          template(v-if="projectImgs(project).length > 1")
+          .media-wrap(v-if="projectImgs(project).length > 1")
             v-carousel(
               height="200"
               hide-delimiter-background
@@ -62,26 +63,24 @@
                 :key="i"
               )
                 v-img(:src="src" height="200" cover)
-            .chip-over-carousel
+            .chip-overlay
               v-chip(size="x-small" :color="categoryColor(project.category)" label).category-chip
                 i.fas.mr-1(:class="categoryIcon(project.category)")
                 | {{ categoryLabel(project.category) }}
 
-          template(v-else-if="projectImgs(project).length === 1")
-            template(v-if="isVideo(projectImgs(project)[0])")
-              video.card-video(autoplay loop muted playsinline)
-                source(:src="projectImgs(project)[0]")
-            v-img(v-else :src="projectImgs(project)[0]" height="200" cover class="project-img")
-            .chip-over-img
+          .media-wrap(v-else-if="projectImgs(project).length === 1")
+            video.card-video(v-if="isVideo(projectImgs(project)[0])" autoplay loop muted playsinline)
+              source(:src="projectImgs(project)[0]")
+            v-img(v-else :src="projectImgs(project)[0]" height="200" cover)
+            .chip-overlay
               v-chip(size="x-small" :color="categoryColor(project.category)" label).category-chip
                 i.fas.mr-1(:class="categoryIcon(project.category)")
                 | {{ categoryLabel(project.category) }}
 
-          template(v-else)
-            .no-img-header
-              v-chip(size="x-small" :color="categoryColor(project.category)" label).category-chip
-                i.fas.mr-1(:class="categoryIcon(project.category)")
-                | {{ categoryLabel(project.category) }}
+          .no-img-header(v-else)
+            v-chip(size="x-small" :color="categoryColor(project.category)" label).category-chip
+              i.fas.mr-1(:class="categoryIcon(project.category)")
+              | {{ categoryLabel(project.category) }}
 
           v-card-title.project-title {{ project.title }}
           v-card-subtitle.project-date {{ formatDatetime(project.date) }}
@@ -613,6 +612,13 @@ export default {
     @media (max-width: 600px)
       padding: 0 8px
 
+    // Even-indexed items: card is on LEFT, date slot is on RIGHT → left-align date
+    .item-even
+      .timeline-date
+        text-align: left
+        padding-right: 0
+        padding-left: 8px
+
     .timeline-date
       font-family: 'Nixie One', sans-serif
       font-size: 0.85rem
@@ -623,6 +629,17 @@ export default {
       @media (max-width: 600px)
         text-align: left
         padding-right: 0
+        padding-left: 0
+
+    // Media wrapper — makes chip overlay work
+    .media-wrap
+      position: relative
+
+      .chip-overlay
+        position: absolute
+        bottom: 8px
+        left: 8px
+        z-index: 2
 
     .project-card
       border-radius: 8px
@@ -677,17 +694,6 @@ export default {
     display: flex
     align-items: center
 
-  // ── Category chip overlays on media ───────────────────────
-  .chip-over-img,
-  .chip-over-carousel
-    position: absolute
-    bottom: 8px
-    left: 8px
-    z-index: 2
-
-  .v-carousel
-    position: relative
-
   // ── Card video thumbnail ──────────────────────────────────
   .card-video
     width: 100%
@@ -700,6 +706,7 @@ export default {
     font-size: 2.2rem
     color: #7627D0
     display: block
+    text-align: center
 
   // ── Modal ─────────────────────────────────────────────────
   .modal-card
