@@ -44,7 +44,7 @@
         data-aos-offset="80"
       )
         template(#opposite)
-          .timeline-date {{ formatDatetime(project.date) }}
+          .timeline-date(:class="index % 2 === 0 ? 'date-right' : 'date-left'") {{ formatDatetime(project.date) }}
 
         v-card.project-card(
           elevation="3"
@@ -69,7 +69,11 @@
                 | {{ categoryLabel(project.category) }}
 
           .media-wrap(v-else-if="projectImgs(project).length === 1")
-            video.card-video(v-if="isVideo(projectImgs(project)[0])" autoplay loop muted playsinline)
+            video.card-video(
+              v-if="isVideo(projectImgs(project)[0])"
+              loop muted playsinline
+              v-intersect="onVideoIntersect"
+            )
               source(:src="projectImgs(project)[0]")
             v-img(v-else :src="projectImgs(project)[0]" height="200" cover)
             .chip-overlay
@@ -105,7 +109,8 @@
   //- CTA
   .contact-cta(data-aos="fade-up")
     v-card(color="primary" variant="tonal" class="pa-6 text-center").cta-card
-      i.fas.fa-bolt.cta-icon.mb-3
+      .cta-icon-wrap
+        i.fas.fa-bolt.cta-icon
       h2.cta-title Interested in my hardware work?
       p.cta-text All PCB source files, firmware, and BOMs are available on GitHub. I'm currently looking for Embedded Hardware Engineer roles where I can design, build, and ship real products.
       .cta-actions
@@ -344,7 +349,7 @@ export default {
         date: new Date("October 26, 2019"),
         title: "Touch n' Glow",
         text: "A PCB with capacitive touch pads, one WS2812B, and a 3.5mm port to connect RGB LEDs.",
-        img: "/images/hardware/touchnglow.jpg",
+        img: ["/images/hardware/TnG.jpg", "/images/hardware/touchnglow.jpg"],
         category: "led",
         tech: ["Capacitive Touch", "KiCad", "RGB LEDs"],
         repo: "https://github.com/skyfly200/touch-n-glow",
@@ -353,7 +358,7 @@ export default {
         date: new Date("Oct 18, 2019"),
         title: "Hexy Pix PCB",
         text: "A breakout board for WS2812B 5050 addressable LEDs in a hexagonal layout.",
-        img: "/images/hardware/hexypix.jpg",
+        img: ["/images/hardware/hexypix.jpg", "/images/hardware/hexy.jpg", "/images/hardware/hexy3.jpg", "/images/hardware/hexy2.jpg"],
         category: "led",
         tech: ["WS2812B", "Eagle", "PCB"],
       },
@@ -413,6 +418,7 @@ export default {
         img: "/images/hardware/esp32-pack.jpg",
         category: "led",
         tech: ["ESP32", "Bluetooth", "Modular", "Li-Po"],
+        repo: "https://github.com/skyfly200/BLE-LED-PWA",
       },
       {
         date: new Date("Feb 4, 2018"),
@@ -431,6 +437,15 @@ export default {
         tech: ["WS2812B", "Arduino", "LiPo", "USB Charging"],
       },
       {
+        date: new Date("November 16, 2017"),
+        title: "Animated Musical Note Light",
+        text: "A musical note-shaped LED matrix",
+        img: "",
+        category: "led",
+        tech: ["Arduino", "WS2812B", "LED"],
+        repo: "https://github.com/skyfly200/note-rainbow",
+      },
+      {
         date: new Date("Oct 27, 2017"),
         title: "Chasing EL Wire Vest",
         text: "Chasing EL wire vest with addressable LED belt pack. RJ45 expansion port for LEDs, buttons, and sensors.",
@@ -443,7 +458,7 @@ export default {
         date: new Date("Jan 29, 2017"),
         title: "TMP/RH PID Controller",
         text: "Arduino PID controller for temperature and humidity with LCD readout and light level sensor. Used for environmental control.",
-        img: "/images/hardware/PID.jpg",
+        img: ["/images/hardware/PID.jpg", "/images/hardware/pid-controller.jpg"],
         category: "embedded",
         tech: ["Arduino", "PID", "DHT22", "LCD", "I2C"],
       },
@@ -457,13 +472,38 @@ export default {
         repo: "https://github.com/skyfly200/SP0256_AL2",
       },
       {
+        date: new Date("June 2, 2013"),
+        title: "Music Reactive LED Strip",
+        text: "",
+        img: "",
+        category: "led",
+        tech: ["Arduino", "LED"],
+        repo: "https://github.com/skyfly200/MusicReactiveRGBStrip",
+      },
+      {
+        date: new Date("May 2, 2013"),
+        title: "Animated Musical Note",
+        text: "A musical note-shaped LED matrix",
+        img: "",
+        category: "led",
+        tech: ["Arduino", "WS2812B", "LED"],
+        repo: "https://github.com/skyfly200/note-rainbow",
+      },
+      {
         date: new Date("May 2, 2013"),
         title: "Audio Spectrum Visualizer",
         text: "7-band graphic EQ chip hooked up to an Arduino, driving a shift register to PWM-control a row of LEDs to display the audio spectrum.",
         img: "/images/hardware/HW-p1.jpg",
         category: "audio",
         tech: ["Arduino", "MSGEQ7", "Shift Register", "PWM", "LED Matrix"],
-        repo: "https://github.com/skyfly200/MusicReactiveRGBStrip",
+      },
+      {
+        date: new Date("May 2, 2013"),
+        title: "Wireless Weather Station",
+        text: "",
+        img: "/images/hardware/weather-station.jpg",
+        category: "iot",
+        tech: ["Arduino", "DHT22", "BMP180"],
       },
     ],
     stats: [
@@ -491,6 +531,14 @@ export default {
     window.removeEventListener('resize', this._onResize);
   },
   methods: {
+    onVideoIntersect(isIntersecting, entries) {
+      const video = entries[0].target;
+      if (isIntersecting) {
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+      }
+    },
     setFilter(val) {
       this.activeFilter = val;
     },
@@ -612,23 +660,22 @@ export default {
     @media (max-width: 600px)
       padding: 0 8px
 
-    // Even-indexed items: card is on LEFT, date slot is on RIGHT → left-align date
-    .item-even
-      .timeline-date
-        text-align: left
-        padding-right: 0
-        padding-left: 8px
-
+    // Date alignment — controlled directly from template via index
     .timeline-date
       font-family: 'Nixie One', sans-serif
       font-size: 0.85rem
       opacity: 0.6
-      text-align: right
-      padding-right: 8px
+      padding: 4px 8px
 
-      @media (max-width: 600px)
+    .date-right
+      text-align: right
+
+    .date-left
+      text-align: left
+
+    @media (max-width: 600px)
+      .date-right, .date-left
         text-align: left
-        padding-right: 0
         padding-left: 0
 
     // Media wrapper — makes chip overlay work
@@ -702,11 +749,14 @@ export default {
     display: block
 
   // ── CTA icon ─────────────────────────────────────────────
+  .cta-icon-wrap
+    display: flex
+    justify-content: center
+    margin-bottom: 12px
+
   .cta-icon
     font-size: 2.2rem
     color: #7627D0
-    display: block
-    text-align: center
 
   // ── Modal ─────────────────────────────────────────────────
   .modal-card
