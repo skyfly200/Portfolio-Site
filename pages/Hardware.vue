@@ -130,37 +130,38 @@
     :fullscreen="isMobile"
     scrollable
   )
-    v-card.modal-card(v-if="selected")
-
-      //- Media
-      .media-wrap(v-if="projectImgs(selected).length > 1")
-        v-carousel.square-media(
-          hide-delimiter-background
-          show-arrows="hover"
-        )
-          v-carousel-item(
-            v-for="(src, i) in projectImgs(selected)"
-            :key="i"
-            :src="isVideo(src) ? undefined : src"
-            cover
-          )
-            video.modal-video(v-if="isVideo(src)" autoplay loop muted playsinline)
-              source(:src="src")
-
-      .media-wrap(v-else-if="projectImgs(selected).length === 1")
-        video.modal-video(v-if="isVideo(projectImgs(selected)[0])" autoplay loop muted playsinline)
-          source(:src="projectImgs(selected)[0]")
-        v-img.square-media(v-else :src="projectImgs(selected)[0]" cover)
-
-      //- Close button
+    .modal-wrapper(v-if="selected")
+      //- Close button floats above the card, top-right
       v-btn.modal-close(
         icon
-        variant="tonal"
+        variant="elevated"
         color="default"
         size="small"
         @click="dialog = false"
       )
         i.fas.fa-times
+
+      v-card.modal-card
+
+        //- Media
+        .media-wrap(v-if="projectImgs(selected).length > 1")
+          v-carousel.modal-media(
+            hide-delimiter-background
+            show-arrows="hover"
+          )
+            v-carousel-item(
+              v-for="(src, i) in projectImgs(selected)"
+              :key="i"
+              :src="isVideo(src) ? undefined : src"
+              cover
+            )
+              video.modal-video(v-if="isVideo(src)" autoplay loop muted playsinline)
+                source(:src="src")
+
+        .media-wrap(v-else-if="projectImgs(selected).length === 1")
+          video.modal-video(v-if="isVideo(projectImgs(selected)[0])" autoplay loop muted playsinline)
+            source(:src="projectImgs(selected)[0]")
+          v-img.modal-media(v-else :src="projectImgs(selected)[0]" cover)
 
       v-card-text.modal-body
         .modal-meta
@@ -768,9 +769,16 @@ export default {
     object-fit: cover
     display: block
 
+  // Modal media — square but capped so it doesn't swamp the dialog
+  .modal-media
+    width: 100%
+    aspect-ratio: 1 / 1
+    max-height: min(45vh, 380px)
+
   .modal-video
     width: 100%
     aspect-ratio: 1 / 1
+    max-height: min(45vh, 380px)
     object-fit: cover
     display: block
 
@@ -809,17 +817,23 @@ export default {
       gap: 12px
 
   // ── Modal ─────────────────────────────────────────────────
-  .modal-card
-    background: #1a1a2e !important
-    color: #e0e0e0 !important
+  .modal-wrapper
     position: relative
+
+  .modal-close
+    position: absolute
+    top: -16px
+    right: -16px
+    z-index: 20
+
+  .modal-card
+    background: #1e1230 !important
+    color: #e0e0e0 !important
     overflow: hidden
 
-    .modal-close
-      position: absolute
-      top: 12px
-      right: 12px
-      z-index: 10
+  // Dim the dialog scrim so the page shows through more
+  .v-overlay__scrim
+    opacity: 0.55 !important
 
     .modal-body
       padding: 20px 24px 28px
