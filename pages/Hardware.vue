@@ -300,7 +300,7 @@ export default {
         date: new Date("November 16, 2018"),
         title: "Tower of Power",
         text: "An animated LED artpiece made with a laser-cut logo for our station backed with some addressable LEDs. Running off a QT PY board from Adafruit.",
-        img: "",
+        img: "/images/hardware/tower.jpg",
         category: "radio",
         tech: ["CircuitPython", "WS2812B", "Laser Cut", "Li-Po"],
       },
