@@ -527,7 +527,7 @@ export default {
     ],
     stats: [
       { num: "14+", label: "Years Building" },
-      { num: "28+", label: "Hardware Projects" },
+      { num: "34+", label: "Hardware Projects" },
       { num: "7",   label: "Custom PCBs Made" },
       { num: "∞",   label: "LEDs Driven" },
     ],
