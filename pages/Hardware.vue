@@ -522,6 +522,7 @@ export default {
         img: "/images/hardware/weather-station.jpg",
         category: "iot",
         tech: ["Arduino", "DHT22", "BMP180"],
+        repo: "https://github.com/skyfly200/Wireless-Arduino-Weather-Station",
       },
     ],
     stats: [
