@@ -39,7 +39,6 @@
         :key="project.title"
         :dot-color="categoryColor(project.category)"
         size="small"
-        :class="index % 2 === 0 ? 'item-odd' : 'item-even'"
         data-aos="fade-left"
         data-aos-offset="80"
       )
@@ -50,10 +49,10 @@
           elevation="3"
           @click="openProject(project)"
         ).clickable
-          //- Thumbnail: carousel if multiple, single img, video, or placeholder
+
+          //- Multiple images → carousel
           .media-wrap(v-if="projectImgs(project).length > 1")
-            v-carousel(
-              height="200"
+            v-carousel.square-media(
               hide-delimiter-background
               show-arrows="hover"
               @click.stop
@@ -61,26 +60,31 @@
               v-carousel-item(
                 v-for="(src, i) in projectImgs(project)"
                 :key="i"
+                :src="isVideo(src) ? undefined : src"
+                cover
               )
-                v-img(:src="src" height="200" cover)
+                video.card-video(v-if="isVideo(src)" loop muted playsinline v-intersect="onVideoIntersect")
+                  source(:src="src")
             .chip-overlay
               v-chip(size="x-small" :color="categoryColor(project.category)" label).category-chip
                 i.fas.mr-1(:class="categoryIcon(project.category)")
                 | {{ categoryLabel(project.category) }}
 
+          //- Single image or video
           .media-wrap(v-else-if="projectImgs(project).length === 1")
-            video.card-video(
+            video.card-video.square-media(
               v-if="isVideo(projectImgs(project)[0])"
               loop muted playsinline
               v-intersect="onVideoIntersect"
             )
               source(:src="projectImgs(project)[0]")
-            v-img(v-else :src="projectImgs(project)[0]" height="200" cover)
+            v-img.square-media(v-else :src="projectImgs(project)[0]" cover)
             .chip-overlay
               v-chip(size="x-small" :color="categoryColor(project.category)" label).category-chip
                 i.fas.mr-1(:class="categoryIcon(project.category)")
                 | {{ categoryLabel(project.category) }}
 
+          //- No media
           .no-img-header(v-else)
             v-chip(size="x-small" :color="categoryColor(project.category)" label).category-chip
               i.fas.mr-1(:class="categoryIcon(project.category)")
@@ -119,7 +123,7 @@
           | GitHub
         v-btn(href="/#contact" color="default" variant="outlined") Contact Me
 
-  //- ── Full-screen project modal ──────────────────────────
+  //- ── Full-screen project modal ──────────────────────────────
   v-dialog(
     v-model="dialog"
     :max-width="isMobile ? '100vw' : '860px'"
@@ -127,29 +131,28 @@
     scrollable
   )
     v-card.modal-card(v-if="selected")
-      //- Media: carousel, video, or single image
-      template(v-if="projectImgs(selected).length > 1")
-        v-carousel(
-          height="360"
+
+      //- Media
+      .media-wrap(v-if="projectImgs(selected).length > 1")
+        v-carousel.square-media(
           hide-delimiter-background
           show-arrows="hover"
         )
           v-carousel-item(
             v-for="(src, i) in projectImgs(selected)"
             :key="i"
+            :src="isVideo(src) ? undefined : src"
+            cover
           )
-            template(v-if="isVideo(src)")
-              video.modal-video(autoplay loop muted playsinline)
-                source(:src="src")
-            v-img(v-else :src="src" height="360" cover)
+            video.modal-video(v-if="isVideo(src)" autoplay loop muted playsinline)
+              source(:src="src")
 
-      template(v-else-if="projectImgs(selected).length === 1")
-        template(v-if="isVideo(projectImgs(selected)[0])")
-          video.modal-video-single(autoplay loop muted playsinline)
-            source(:src="projectImgs(selected)[0]")
-        v-img(v-else :src="projectImgs(selected)[0]" height="360" cover)
+      .media-wrap(v-else-if="projectImgs(selected).length === 1")
+        video.modal-video(v-if="isVideo(projectImgs(selected)[0])" autoplay loop muted playsinline)
+          source(:src="projectImgs(selected)[0]")
+        v-img.square-media(v-else :src="projectImgs(selected)[0]" cover)
 
-      //- Close button overlaid on media
+      //- Close button
       v-btn.modal-close(
         icon
         variant="tonal"
@@ -292,7 +295,7 @@ export default {
       {
         date: new Date("Aug 5, 2025"),
         title: "Glow Flora Clip",
-        text: "An origami Lily with  flexible LED filament powered from a coin cell.",
+        text: "An origami Lily with flexible LED filament powered from a coin cell.",
         img: "/images/hardware/Glow_Flora_Clip.jpg",
         category: "led",
         tech: ["LED", "Coin Cell"],
@@ -300,7 +303,7 @@ export default {
       {
         date: new Date("March 15, 2025"),
         title: "Glow Flora Handheld V1",
-        text: "An origami Lily with addresable LEDs driven by a XIAO ESP32-C6. USB C rechargeable Li-Po battery. The first in a line of handheld LED art pieces.",
+        text: "An origami Lily with addressable LEDs driven by a XIAO ESP32-C6. USB C rechargeable Li-Po battery. The first in a line of handheld LED art pieces.",
         img: "/images/hardware/Glow_Flora_Handheld-V1.jpg",
         category: "led",
         tech: ["LED", "WS2812B", "ESP32-C6", "Li-Po", "USB C"],
@@ -447,7 +450,7 @@ export default {
       {
         date: new Date("Dec 25, 2017"),
         title: "Light Painting Wand",
-        text: "A string of addressable LEDs to light paint with, powered by an Arduino Pro Mini and a USB a cable for power.",
+        text: "A string of addressable LEDs to light paint with, powered by an Arduino Pro Mini and a USB cable for power.",
         img: "",
         category: "led",
         tech: ["WS2812B", "Arduino", "USB Powered"],
@@ -456,7 +459,7 @@ export default {
       {
         date: new Date("November 16, 2017"),
         title: "Animated Musical Note Light",
-        text: "A musical note-shaped LED matrix",
+        text: "A musical note-shaped LED matrix.",
         img: "",
         category: "led",
         tech: ["Arduino", "WS2812B", "LED"],
@@ -492,7 +495,7 @@ export default {
       {
         date: new Date("June 2, 2013"),
         title: "Music Reactive LED Strip",
-        text: "",
+        text: "7-band audio reactive RGB LED strip controller driven by an Arduino.",
         img: "",
         category: "led",
         tech: ["Arduino", "LED"],
@@ -501,7 +504,7 @@ export default {
       {
         date: new Date("May 2, 2013"),
         title: "Animated Musical Note",
-        text: "A musical note-shaped LED matrix",
+        text: "A musical note-shaped LED matrix.",
         img: "",
         category: "led",
         tech: ["Arduino", "WS2812B", "LED"],
@@ -518,7 +521,7 @@ export default {
       {
         date: new Date("May 2, 2013"),
         title: "Wireless Weather Station",
-        text: "",
+        text: "Wireless Arduino weather station with temperature, humidity, and pressure sensors.",
         img: "/images/hardware/weather-station.jpg",
         category: "iot",
         tech: ["Arduino", "DHT22", "BMP180"],
@@ -565,9 +568,10 @@ export default {
       this.selected = project;
       this.dialog = true;
     },
-    // Normalise img / imgs into a consistent array, filtering empty strings
+    // Normalise img (string or array) / imgs into a consistent flat array
     projectImgs(project) {
-      const raw = project.imgs ?? (project.img ? [project.img] : []);
+      const raw = project.imgs
+        ?? (Array.isArray(project.img) ? project.img : (project.img ? [project.img] : []));
       return raw.filter(Boolean);
     },
     isVideo(src) {
@@ -679,7 +683,6 @@ export default {
     @media (max-width: 600px)
       padding: 0 8px
 
-    // Date alignment — controlled directly from template via index
     .timeline-date
       font-family: 'Nixie One', sans-serif
       font-size: 0.85rem
@@ -697,7 +700,7 @@ export default {
         text-align: left
         padding-left: 0
 
-    // Media wrapper — makes chip overlay work
+    // Media wrapper — position:relative anchors the chip overlay
     .media-wrap
       position: relative
 
@@ -718,13 +721,6 @@ export default {
       &:hover
         border-color: rgba(118, 39, 208, 0.5)
         transform: translateY(-2px)
-
-      .project-img
-        position: relative
-        .img-overlay
-          position: absolute
-          bottom: 8px
-          left: 8px
 
       .no-img-header
         padding: 12px 16px 0
@@ -760,22 +756,57 @@ export default {
     display: flex
     align-items: center
 
-  // ── Card video thumbnail ──────────────────────────────────
+  // ── Square aspect ratio — cards + modal ───────────────────
+  .square-media
+    aspect-ratio: 1 / 1
+    width: 100%
+
+  // ── Video elements ────────────────────────────────────────
   .card-video
     width: 100%
-    height: 200px
+    aspect-ratio: 1 / 1
     object-fit: cover
     display: block
 
-  // ── CTA icon ─────────────────────────────────────────────
-  .cta-icon-wrap
-    display: flex
-    justify-content: center
-    margin-bottom: 12px
+  .modal-video
+    width: 100%
+    aspect-ratio: 1 / 1
+    object-fit: cover
+    display: block
 
-  .cta-icon
-    font-size: 2.2rem
-    color: #7627D0
+  // ── CTA ───────────────────────────────────────────────────
+  .contact-cta
+    max-width: 680px
+    margin: 0 auto
+    padding: 0 24px
+
+    .cta-card
+      border-radius: 12px !important
+
+    .cta-icon-wrap
+      display: flex
+      justify-content: center
+      margin-bottom: 12px
+
+    .cta-icon
+      font-size: 2.2rem
+      color: #7627D0
+
+    .cta-title
+      font-family: 'Nixie One', sans-serif
+      font-size: 1.6rem
+      margin-bottom: 12px
+
+    .cta-text
+      font-family: 'Raleway', sans-serif
+      opacity: 0.8
+      margin-bottom: 24px
+
+    .cta-actions
+      display: flex
+      justify-content: center
+      flex-wrap: wrap
+      gap: 12px
 
   // ── Modal ─────────────────────────────────────────────────
   .modal-card
@@ -789,13 +820,6 @@ export default {
       top: 12px
       right: 12px
       z-index: 10
-
-    .modal-video,
-    .modal-video-single
-      width: 100%
-      height: 360px
-      object-fit: cover
-      display: block
 
     .modal-body
       padding: 20px 24px 28px
@@ -826,27 +850,4 @@ export default {
     .modal-actions
       display: flex
       flex-wrap: wrap
-  .contact-cta
-    max-width: 680px
-    margin: 0 auto
-    padding: 0 24px
-
-    .cta-card
-      border-radius: 12px !important
-
-    .cta-title
-      font-family: 'Nixie One', sans-serif
-      font-size: 1.6rem
-      margin-bottom: 12px
-
-    .cta-text
-      font-family: 'Raleway', sans-serif
-      opacity: 0.8
-      margin-bottom: 24px
-
-    .cta-actions
-      display: flex
-      justify-content: center
-      flex-wrap: wrap
-      gap: 12px
 </style>
