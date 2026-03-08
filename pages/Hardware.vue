@@ -478,6 +478,7 @@ export default {
         img: ["/images/hardware/PID.jpg", "/images/hardware/pid-controller.jpg"],
         category: "embedded",
         tech: ["Arduino", "PID", "DHT22", "LCD", "I2C"],
+        repo: "https://github.com/skyfly200/PID-TMP-RH",
       },
       {
         date: new Date("Mar 8, 2014"),
