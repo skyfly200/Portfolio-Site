@@ -1,7 +1,9 @@
 <template lang="pug">
 .hardware.skill
   //- Back button
-  v-btn(href="/#skills" variant="text" prepend-icon="fa-arrow-left" color="primary").home-btn Back to Skills
+  v-btn(href="/#skills" variant="text" color="primary").home-btn
+    i.fas.fa-arrow-left.mr-2
+    | Back to Skills
 
   .page-header(data-aos="fade-down")
     .header-eyebrow Hardware Engineering
@@ -52,12 +54,12 @@
           )
             .img-overlay
               v-chip(size="x-small" :color="categoryColor(project.category)" label).category-chip
-                v-icon(start size="10") {{ categoryIcon(project.category) }}
+                i.fas.mr-1(:class="categoryIcon(project.category)")
                 | {{ categoryLabel(project.category) }}
 
           .no-img-header(v-else)
             v-chip(size="x-small" :color="categoryColor(project.category)" label).category-chip
-              v-icon(start size="10") {{ categoryIcon(project.category) }}
+              i.fas.mr-1(:class="categoryIcon(project.category)")
               | {{ categoryLabel(project.category) }}
 
           v-card-title.project-title {{ project.title }}
@@ -81,47 +83,53 @@
               target="_blank"
               variant="text"
               color="primary"
-              prepend-icon="fa-github"
               size="small"
-            ) Code
+            )
+              i.fab.fa-github.mr-1
+              | Code
             v-btn(
               v-if="project.link"
               :href="project.link"
               target="_blank"
               variant="text"
               color="primary"
-              prepend-icon="fa-external-link-alt"
               size="small"
-            ) Link
+            )
+              i.fas.fa-external-link-alt.mr-1
+              | Link
             v-btn(
               v-if="project.gerbers"
               :href="project.gerbers"
               target="_blank"
               variant="tonal"
               color="success"
-              prepend-icon="fa-download"
               size="small"
-            ) Gerbers
+            )
+              i.fas.fa-download.mr-1
+              | Gerbers
             v-btn(
               v-if="project.bom"
               :href="project.bom"
               target="_blank"
               variant="tonal"
               color="success"
-              prepend-icon="fa-download"
               size="small"
-            ) BOM
+            )
+              i.fas.fa-download.mr-1
+              | BOM
 
   v-divider.my-8
 
   //- CTA for SparkFun / recruiters
   .contact-cta(data-aos="fade-up")
     v-card(color="primary" variant="tonal" class="pa-6 text-center").cta-card
-      v-icon(size="36" class="mb-3") fa-bolt
+      i.fas.fa-bolt.cta-icon.mb-3
       h2.cta-title Interested in my hardware work?
       p.cta-text All PCB source files, firmware, and BOMs are available on GitHub. I'm currently looking for Embedded Hardware Engineer roles where I can design, build, and ship real products.
       .cta-actions
-        v-btn(href="https://github.com/skyfly200" target="_blank" color="primary" variant="elevated" prepend-icon="fa-github" class="mr-3") GitHub
+        v-btn(href="https://github.com/skyfly200" target="_blank" color="primary" variant="elevated" class="mr-3")
+          i.fab.fa-github.mr-2
+          | GitHub
         v-btn(href="/#contact" color="default" variant="outlined") Contact Me
 </template>
 
@@ -419,6 +427,7 @@ export default {
         iot:      "fa-wifi",
         led:      "fa-lightbulb",
         audio:    "fa-volume-up",
+        radio:    "fa-broadcast-tower",
       }[cat] || "fa-bolt";
     },
     categoryLabel(cat) {
@@ -562,6 +571,11 @@ export default {
 
     .cta-card
       border-radius: 12px !important
+
+    .cta-icon
+      font-size: 2.2rem
+      color: #7627D0
+      display: block
 
     .cta-title
       font-family: 'Nixie One', sans-serif
