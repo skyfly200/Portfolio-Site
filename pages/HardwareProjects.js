@@ -36,7 +36,7 @@ export const projects = [
     title: "Smart Sprout V1",
     text: "A sprout clip with a tetrahedral LED array on top, powered by an Artemis Redboard Nano and a recovered vape battery. Bluetooth controls.",
     details: "",
-    img: ["smart-sprout_v1.mp4", "/images/hardware/smart_sprout-V1.jpg", "/images/hardware/artemis_vape_batt.mp4"],
+    img: ["/images/hardware/smart-sprout_v1.mp4", "/images/hardware/smart_sprout-V1.jpg", "/images/hardware/artemis_vape_batt.mp4"],
     category: "led",
     tech: ["LED", "Artemis", "Bluetooth", "Vape Battery"],
   },
