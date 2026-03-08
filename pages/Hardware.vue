@@ -1,5 +1,6 @@
 <template lang="pug">
 .hardware.skill
+
   //- Back button
   v-btn(href="/#skills" variant="text" color="primary").home-btn
     i.fas.fa-arrow-left.mr-2
@@ -30,7 +31,7 @@
 
   v-divider.my-4
 
-  //- Timeline — alternates on desktop, collapses to one side on mobile
+  //- Timeline — alternates on desktop, single side on mobile
   .projects-timeline
     v-timeline(:truncate-line="'both'" align="start" :side="isMobile ? 'end' : undefined")
       v-timeline-item(
@@ -44,26 +45,46 @@
         template(#opposite)
           .timeline-date {{ formatDatetime(project.date) }}
 
-        v-card.project-card(:class="{ 'has-image': !!project.img }" elevation="3")
-          v-img(
-            v-if="project.img"
-            :src="project.img"
-            height="200"
-            cover
-            class="project-img"
-          )
-            .img-overlay
+        v-card.project-card(
+          elevation="3"
+          @click="openProject(project)"
+        ).clickable
+          //- Thumbnail: carousel if multiple, single img, video, or placeholder
+          template(v-if="projectImgs(project).length > 1")
+            v-carousel(
+              height="200"
+              hide-delimiter-background
+              show-arrows="hover"
+              @click.stop
+            )
+              v-carousel-item(
+                v-for="(src, i) in projectImgs(project)"
+                :key="i"
+              )
+                v-img(:src="src" height="200" cover)
+            .chip-over-carousel
               v-chip(size="x-small" :color="categoryColor(project.category)" label).category-chip
                 i.fas.mr-1(:class="categoryIcon(project.category)")
                 | {{ categoryLabel(project.category) }}
 
-          .no-img-header(v-else)
-            v-chip(size="x-small" :color="categoryColor(project.category)" label).category-chip
-              i.fas.mr-1(:class="categoryIcon(project.category)")
-              | {{ categoryLabel(project.category) }}
+          template(v-else-if="projectImgs(project).length === 1")
+            template(v-if="isVideo(projectImgs(project)[0])")
+              video.card-video(autoplay loop muted playsinline)
+                source(:src="projectImgs(project)[0]")
+            v-img(v-else :src="projectImgs(project)[0]" height="200" cover class="project-img")
+            .chip-over-img
+              v-chip(size="x-small" :color="categoryColor(project.category)" label).category-chip
+                i.fas.mr-1(:class="categoryIcon(project.category)")
+                | {{ categoryLabel(project.category) }}
+
+          template(v-else)
+            .no-img-header
+              v-chip(size="x-small" :color="categoryColor(project.category)" label).category-chip
+                i.fas.mr-1(:class="categoryIcon(project.category)")
+                | {{ categoryLabel(project.category) }}
 
           v-card-title.project-title {{ project.title }}
-          v-card-subtitle.project-date(v-if="!project.img") {{ formatDatetime(project.date) }}
+          v-card-subtitle.project-date {{ formatDatetime(project.date) }}
           v-card-text.project-text {{ project.text }}
 
           .tech-chips(v-if="project.tech && project.tech.length")
@@ -76,51 +97,13 @@
               class="mr-1 mb-1"
             ) {{ t }}
 
-          v-card-actions
-            v-btn(
-              v-if="project.repo"
-              :href="project.repo"
-              target="_blank"
-              variant="text"
-              color="primary"
-              size="small"
-            )
-              i.fab.fa-github.mr-1
-              | Code
-            v-btn(
-              v-if="project.link"
-              :href="project.link"
-              target="_blank"
-              variant="text"
-              color="primary"
-              size="small"
-            )
-              i.fas.fa-external-link-alt.mr-1
-              | Link
-            v-btn(
-              v-if="project.gerbers"
-              :href="project.gerbers"
-              target="_blank"
-              variant="tonal"
-              color="success"
-              size="small"
-            )
-              i.fas.fa-download.mr-1
-              | Gerbers
-            v-btn(
-              v-if="project.bom"
-              :href="project.bom"
-              target="_blank"
-              variant="tonal"
-              color="success"
-              size="small"
-            )
-              i.fas.fa-download.mr-1
-              | BOM
+          .card-hint
+            i.fas.fa-expand-alt.mr-1
+            | Click to expand
 
   v-divider.my-8
 
-  //- CTA for SparkFun / recruiters
+  //- CTA
   .contact-cta(data-aos="fade-up")
     v-card(color="primary" variant="tonal" class="pa-6 text-center").cta-card
       i.fas.fa-bolt.cta-icon.mb-3
@@ -131,6 +114,108 @@
           i.fab.fa-github.mr-2
           | GitHub
         v-btn(href="/#contact" color="default" variant="outlined") Contact Me
+
+  //- ── Full-screen project modal ──────────────────────────
+  v-dialog(
+    v-model="dialog"
+    :max-width="isMobile ? '100vw' : '860px'"
+    :fullscreen="isMobile"
+    scrollable
+  )
+    v-card.modal-card(v-if="selected")
+      //- Media: carousel, video, or single image
+      template(v-if="projectImgs(selected).length > 1")
+        v-carousel(
+          height="360"
+          hide-delimiter-background
+          show-arrows="hover"
+        )
+          v-carousel-item(
+            v-for="(src, i) in projectImgs(selected)"
+            :key="i"
+          )
+            template(v-if="isVideo(src)")
+              video.modal-video(autoplay loop muted playsinline)
+                source(:src="src")
+            v-img(v-else :src="src" height="360" cover)
+
+      template(v-else-if="projectImgs(selected).length === 1")
+        template(v-if="isVideo(projectImgs(selected)[0])")
+          video.modal-video-single(autoplay loop muted playsinline)
+            source(:src="projectImgs(selected)[0]")
+        v-img(v-else :src="projectImgs(selected)[0]" height="360" cover)
+
+      //- Close button overlaid on media
+      v-btn.modal-close(
+        icon
+        variant="tonal"
+        color="default"
+        size="small"
+        @click="dialog = false"
+      )
+        i.fas.fa-times
+
+      v-card-text.modal-body
+        .modal-meta
+          v-chip(size="small" :color="categoryColor(selected.category)" label class="mr-2")
+            i.fas.mr-1(:class="categoryIcon(selected.category)")
+            | {{ categoryLabel(selected.category) }}
+          span.modal-date {{ formatDatetime(selected.date) }}
+
+        h2.modal-title {{ selected.title }}
+        p.modal-text {{ selected.text }}
+
+        .tech-chips.mt-3(v-if="selected.tech && selected.tech.length")
+          v-chip(
+            v-for="t in selected.tech"
+            :key="t"
+            size="small"
+            variant="tonal"
+            color="primary"
+            class="mr-2 mb-2"
+          ) {{ t }}
+
+        .modal-actions.mt-4
+          v-btn(
+            v-if="selected.repo"
+            :href="selected.repo"
+            target="_blank"
+            variant="elevated"
+            color="primary"
+            class="mr-2 mb-2"
+          )
+            i.fab.fa-github.mr-2
+            | View Code
+          v-btn(
+            v-if="selected.link"
+            :href="selected.link"
+            target="_blank"
+            variant="tonal"
+            color="primary"
+            class="mr-2 mb-2"
+          )
+            i.fas.fa-external-link-alt.mr-2
+            | Open Link
+          v-btn(
+            v-if="selected.gerbers"
+            :href="selected.gerbers"
+            target="_blank"
+            variant="tonal"
+            color="success"
+            class="mr-2 mb-2"
+          )
+            i.fas.fa-download.mr-2
+            | Gerbers
+          v-btn(
+            v-if="selected.bom"
+            :href="selected.bom"
+            target="_blank"
+            variant="tonal"
+            color="success"
+            class="mr-2 mb-2"
+          )
+            i.fas.fa-download.mr-2
+            | BOM
 </template>
 
 <script>
@@ -140,6 +225,8 @@ export default {
   name: "hardware",
   data: () => ({
     width: 0,
+    dialog: false,
+    selected: null,
     activeFilter: "all",
     categories: [
       { value: "all",      label: "All Projects" },
@@ -154,7 +241,7 @@ export default {
         date: new Date("Feb 20, 2026"),
         title: "Hyphea Duo PCB",
         text: "Dual LED strip driver and battery charger hat for XIAO. I2C broken out to add an IMU later for motion-reactive effects.",
-        img: "/images/hardware/Hyphae-Duo.jpg",
+        img: "/images/hardware/Hyphea-Duo.jpg",
         category: "led",
         tech: ["LED", "XIAO"],
       },
@@ -300,7 +387,7 @@ export default {
         date: new Date("November 16, 2018"),
         title: "Tower of Power",
         text: "An animated LED artpiece made with a laser-cut logo for our station backed with some addressable LEDs. Running off a QT PY board from Adafruit.",
-        img: "/images/hardware/tower.jpg",
+        img: "",
         category: "radio",
         tech: ["CircuitPython", "WS2812B", "Laser Cut", "Li-Po"],
       },
@@ -408,6 +495,18 @@ export default {
     setFilter(val) {
       this.activeFilter = val;
     },
+    openProject(project) {
+      this.selected = project;
+      this.dialog = true;
+    },
+    // Normalise img / imgs into a consistent array, filtering empty strings
+    projectImgs(project) {
+      const raw = project.imgs ?? (project.img ? [project.img] : []);
+      return raw.filter(Boolean);
+    },
+    isVideo(src) {
+      return /\.(mp4|webm|ogg)$/i.test(src);
+    },
     formatDatetime(datetime) {
       return moment(datetime).format("MMM YYYY");
     },
@@ -418,6 +517,7 @@ export default {
         iot:      "info",
         led:      "warning",
         audio:    "error",
+        radio:    "secondary",
       }[cat] || "default";
     },
     categoryIcon(cat) {
@@ -563,7 +663,93 @@ export default {
       .tech-chips
         padding: 0 16px 8px
 
-  // ── CTA ───────────────────────────────────────────────────
+  // ── Clickable cards ───────────────────────────────────────
+  .clickable
+    cursor: pointer
+    &:hover
+      border-color: rgba(118, 39, 208, 0.6) !important
+      transform: translateY(-3px)
+
+  .card-hint
+    font-size: 0.7rem
+    opacity: 0.35
+    padding: 4px 16px 12px
+    display: flex
+    align-items: center
+
+  // ── Category chip overlays on media ───────────────────────
+  .chip-over-img,
+  .chip-over-carousel
+    position: absolute
+    bottom: 8px
+    left: 8px
+    z-index: 2
+
+  .v-carousel
+    position: relative
+
+  // ── Card video thumbnail ──────────────────────────────────
+  .card-video
+    width: 100%
+    height: 200px
+    object-fit: cover
+    display: block
+
+  // ── CTA icon ─────────────────────────────────────────────
+  .cta-icon
+    font-size: 2.2rem
+    color: #7627D0
+    display: block
+
+  // ── Modal ─────────────────────────────────────────────────
+  .modal-card
+    background: #1a1a2e !important
+    color: #e0e0e0 !important
+    position: relative
+    overflow: hidden
+
+    .modal-close
+      position: absolute
+      top: 12px
+      right: 12px
+      z-index: 10
+
+    .modal-video,
+    .modal-video-single
+      width: 100%
+      height: 360px
+      object-fit: cover
+      display: block
+
+    .modal-body
+      padding: 20px 24px 28px
+
+    .modal-meta
+      display: flex
+      align-items: center
+      gap: 8px
+      margin-bottom: 12px
+
+    .modal-date
+      font-family: 'Nixie One', sans-serif
+      font-size: 0.85rem
+      opacity: 0.5
+
+    .modal-title
+      font-family: 'Nixie One', sans-serif
+      font-size: 1.6rem
+      font-weight: 400
+      margin-bottom: 12px
+
+    .modal-text
+      font-family: 'Raleway', sans-serif
+      font-size: 0.95rem
+      line-height: 1.75
+      opacity: 0.85
+
+    .modal-actions
+      display: flex
+      flex-wrap: wrap
   .contact-cta
     max-width: 680px
     margin: 0 auto
@@ -571,11 +757,6 @@ export default {
 
     .cta-card
       border-radius: 12px !important
-
-    .cta-icon
-      font-size: 2.2rem
-      color: #7627D0
-      display: block
 
     .cta-title
       font-family: 'Nixie One', sans-serif
