@@ -245,7 +245,7 @@ export default {
         date: new Date("Feb 20, 2026"),
         title: "Hyphea Duo PCB",
         text: "Dual LED strip driver and battery charger hat for XIAO. I2C broken out to add an IMU later for motion-reactive effects.",
-        img: "/images/hardware/Hyphea-Duo.jpg",
+        img: "/images/hardware/Hyphae-Duo.jpg",
         category: "led",
         tech: ["LED", "XIAO"],
       },
