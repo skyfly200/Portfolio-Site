@@ -445,6 +445,15 @@ export default {
         tech: ["WS2812B", "Arduino", "LiPo", "USB Charging"],
       },
       {
+        date: new Date("Dec 25, 2017"),
+        title: "Light Painting Wand",
+        text: "A string of addressable LEDs to light paint with, powered by an Arduino Pro Mini and a USB a cable for power.",
+        img: "",
+        category: "led",
+        tech: ["WS2812B", "Arduino", "USB Powered"],
+        repo: "https://github.com/skyfly200/light-painting-wand",
+      },
+      {
         date: new Date("November 16, 2017"),
         title: "Animated Musical Note Light",
         text: "A musical note-shaped LED matrix",
