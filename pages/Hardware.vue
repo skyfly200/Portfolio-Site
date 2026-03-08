@@ -306,6 +306,14 @@ export default {
         tech: ["LED", "WS2812B", "ESP32-C6", "Li-Po", "USB C"],
       },
       {
+        date: new Date("Oct 15, 2024"),
+        title: "Phi Lamp",
+        text: "A lamp designed with the golden spiral.",
+        img: "/images/hardware/phi-lamp.jpg",
+        category: "led",
+        tech: ["LED", "USB"],
+      },
+      {
         date: new Date("Nov 28, 2023"),
         title: "Air Quality Monitor",
         text: "A unit of sensors to monitor air quality including particulate matter, CO₂, VOC, temperature and humidity. Built with an Artemis Redboard Nano. Read data over Bluetooth.",
@@ -432,7 +440,7 @@ export default {
         date: new Date("Dec 25, 2017"),
         title: "LED Origami Rose",
         text: "Origami rose with embedded addressable LEDs, selectable animation modes, and micro-USB recharging. Built with an Arduino pro mini, a Li-Po battery and a sparkfun charge controller / 5V boost module. A gift that blinks.",
-        img: "/images/hardware/LED-Rose.jpg",
+        img: ["/images/hardware/rose.mp4", "/images/hardware/LED-Rose.jpg"],
         category: "led",
         tech: ["WS2812B", "Arduino", "LiPo", "USB Charging"],
       },
