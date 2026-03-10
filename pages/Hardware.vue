@@ -31,61 +31,61 @@
 
   v-divider.my-4
 
-  //- Timeline
-  v-container.timeline-container
-    .projects-timeline
-      v-timeline(:truncate-line="'both'" align="start" :side="isMobile ? 'end' : undefined")
-        v-timeline-item(
-          v-for="(project, index) in filteredProjects"
-          :key="project.title"
-          :dot-color="categoryColor(project.category)"
-          size="small"
-          data-aos="fade-left"
-          data-aos-offset="80"
-        )
-          template(#opposite)
-            .timeline-date(:class="index % 2 === 0 ? 'date-right' : 'date-left'") {{ formatDatetime(project.date) }}
+  //- Timeline — plain div, not v-container, so it never swallows siblings
+  .timeline-container
+    v-timeline(:truncate-line="'both'" align="start" :side="isMobile ? 'end' : undefined")
+      v-timeline-item(
+        v-for="(project, index) in filteredProjects"
+        :key="project.title"
+        :dot-color="categoryColor(project.category)"
+        size="small"
+        data-aos="fade-left"
+        data-aos-offset="80"
+      )
+        template(#opposite)
+          .timeline-date(:class="index % 2 === 0 ? 'date-right' : 'date-left'") {{ formatDatetime(project.date) }}
 
-          v-card.project-card(elevation="3" @click="openProject(project)").clickable
+        v-card.project-card(elevation="3" @click="openProject(project)").clickable
 
-            .media-wrap(v-if="projectImgs(project).length > 1")
-              v-carousel.square-media(hide-delimiter-background show-arrows="hover" @click.stop)
-                v-carousel-item(
-                  v-for="(src, i) in projectImgs(project)"
-                  :key="i"
-                  :src="isVideo(src) ? undefined : src"
-                  cover
-                )
-                  video.card-video(v-if="isVideo(src)" loop muted playsinline v-intersect="onVideoIntersect")
-                    source(:src="src")
-              .chip-overlay
-                v-chip(size="small" :color="categoryColor(project.category)" variant="elevated").category-chip
-                  i.fas.mr-1(:class="categoryIcon(project.category)")
-                  | {{ categoryLabel(project.category) }}
-
-            .media-wrap(v-else-if="projectImgs(project).length === 1")
-              video.card-video.square-media(v-if="isVideo(projectImgs(project)[0])" loop muted playsinline v-intersect="onVideoIntersect")
-                source(:src="projectImgs(project)[0]")
-              v-img.square-media(v-else :src="projectImgs(project)[0]" cover)
-              .chip-overlay
-                v-chip(size="small" :color="categoryColor(project.category)" variant="elevated").category-chip
-                  i.fas.mr-1(:class="categoryIcon(project.category)")
-                  | {{ categoryLabel(project.category) }}
-
-            .no-img-header(v-else)
+          .media-wrap(v-if="projectImgs(project).length > 1")
+            v-carousel.square-media(hide-delimiter-background show-arrows="hover" @click.stop)
+              v-carousel-item(
+                v-for="(src, i) in projectImgs(project)"
+                :key="i"
+                :src="isVideo(src) ? undefined : src"
+                cover
+              )
+                video.card-video(v-if="isVideo(src)" loop muted playsinline v-intersect="onVideoIntersect")
+                  source(:src="src")
+            .chip-overlay
               v-chip(size="small" :color="categoryColor(project.category)" variant="elevated").category-chip
                 i.fas.mr-1(:class="categoryIcon(project.category)")
                 | {{ categoryLabel(project.category) }}
 
-            v-card-title.project-title {{ project.title }}
-            v-card-subtitle.project-date {{ formatDatetime(project.date) }}
-            v-card-text.project-text {{ project.text }}
+          .media-wrap(v-else-if="projectImgs(project).length === 1")
+            video.card-video.square-media(v-if="isVideo(projectImgs(project)[0])" loop muted playsinline v-intersect="onVideoIntersect")
+              source(:src="projectImgs(project)[0]")
+            v-img.square-media(v-else :src="projectImgs(project)[0]" cover)
+            .chip-overlay
+              v-chip(size="small" :color="categoryColor(project.category)" variant="elevated").category-chip
+                i.fas.mr-1(:class="categoryIcon(project.category)")
+                | {{ categoryLabel(project.category) }}
 
-            .tech-chips(v-if="project.tech && project.tech.length")
-              v-chip(v-for="t in project.tech" :key="t" size="x-small" variant="tonal" color="primary" class="mr-1 mb-1") {{ t }}
+          .no-img-header(v-else)
+            v-chip(size="small" :color="categoryColor(project.category)" variant="elevated").category-chip
+              i.fas.mr-1(:class="categoryIcon(project.category)")
+              | {{ categoryLabel(project.category) }}
+
+          v-card-title.project-title {{ project.title }}
+          v-card-subtitle.project-date {{ formatDatetime(project.date) }}
+          v-card-text.project-text {{ project.text }}
+
+          .tech-chips(v-if="project.tech && project.tech.length")
+            v-chip(v-for="t in project.tech" :key="t" size="x-small" variant="tonal" color="primary" class="mr-1 mb-1") {{ t }}
 
   v-divider.my-8
 
+  //- CTA
   .contact-cta(data-aos="fade-up")
     v-card(variant="elevated" class="pa-6 text-center").cta-card
       .cta-icon-wrap
@@ -98,8 +98,14 @@
           | GitHub
         v-btn(href="/#contact" color="primary" variant="outlined") Contact Me
 
-  v-dialog(v-model="dialog" :max-width="isMobile ? '100vw' : '920px'" :fullscreen="isMobile" scrollable)
-    .modal-wrapper(v-if="selected")
+  //- ── Project modal ──────────────────────────────────────────
+  v-dialog(
+    v-model="dialog"
+    :max-width="isMobile ? '100vw' : 'calc(100vw - 64px)'"
+    :fullscreen="isMobile"
+    scrollable
+  )
+    .modal-outer(v-if="selected")
       v-btn.modal-close(icon variant="elevated" color="default" size="small" @click="dialog = false")
         i.fas.fa-times
 
@@ -107,8 +113,8 @@
         .modal-layout
 
           .modal-media-col(v-if="projectImgs(selected).length > 0")
-            .media-wrap(v-if="projectImgs(selected).length > 1")
-              v-carousel.modal-media(hide-delimiter-background show-arrows="hover")
+            .modal-media-wrap(v-if="projectImgs(selected).length > 1")
+              v-carousel.modal-carousel(hide-delimiter-background show-arrows="hover")
                 v-carousel-item(
                   v-for="(src, i) in projectImgs(selected)"
                   :key="i"
@@ -117,27 +123,39 @@
                 )
                   video.modal-video(v-if="isVideo(src)" autoplay loop muted playsinline)
                     source(:src="src")
-
-            .media-wrap(v-else)
+            .modal-media-wrap(v-else)
               video.modal-video(v-if="isVideo(projectImgs(selected)[0])" autoplay loop muted playsinline)
                 source(:src="projectImgs(selected)[0]")
-              v-img.modal-media(v-else :src="projectImgs(selected)[0]" cover)
+              v-img.modal-img(v-else :src="projectImgs(selected)[0]" cover)
 
           .modal-info-col
             .modal-meta
-              v-chip(size="small" :color="categoryColor(selected.category)" label class="mr-2")
+              v-chip(size="small" :color="categoryColor(selected.category)" variant="elevated")
                 i.fas.mr-1(:class="categoryIcon(selected.category)")
                 | {{ categoryLabel(selected.category) }}
               span.modal-date {{ formatDatetime(selected.date) }}
 
             h2.modal-title {{ selected.title }}
-            p.modal-text {{ selected.text }}
-            p.modal-details(v-if="selected.details") {{ selected.details }}
 
-            .tech-chips.mt-3(v-if="selected.tech && selected.tech.length")
-              v-chip(v-for="t in selected.tech" :key="t" size="small" variant="tonal" color="primary" class="mr-2 mb-2") {{ t }}
+            v-divider.modal-divider
 
-            .modal-actions.mt-4
+            div.modal-body(v-if="selected.markdown" v-html="parsedMarkdown")
+            template(v-else)
+              p.modal-text {{ selected.text }}
+              p.modal-details(v-if="selected.details") {{ selected.details }}
+
+            .modal-tech(v-if="selected.tech && selected.tech.length")
+              v-chip(
+                v-for="t in selected.tech"
+                :key="t"
+                size="small"
+                variant="tonal"
+                color="primary"
+                class="mr-2 mb-2"
+              ) {{ t }}
+
+            .modal-actions(v-if="selected.repo || selected.link || selected.gerbers || selected.bom")
+              v-divider.modal-divider
               v-btn(v-if="selected.repo" :href="selected.repo" target="_blank" variant="elevated" color="primary" class="mr-2 mb-2")
                 i.fab.fa-github.mr-2
                 | View Code
@@ -154,7 +172,8 @@
 
 <script>
 import moment from "moment";
-import { projects, stats } from "./hardwareProjects.js";
+import { marked } from "marked";
+import { projects, stats } from "./HardwareProjects.js";
 
 export default {
   name: "hardware",
@@ -182,6 +201,10 @@ export default {
     isMobile() {
       return this.width < 600;
     },
+    parsedMarkdown() {
+      if (!this.selected?.markdown) return "";
+      return marked.parse(this.selected.markdown);
+    },
   },
   mounted() {
     this.width = window.innerWidth;
@@ -207,7 +230,6 @@ export default {
       this.selected = project;
       this.dialog = true;
     },
-    // Normalise img (string or array) / imgs into a consistent flat array
     projectImgs(project) {
       const raw = project.imgs
         ?? (Array.isArray(project.img) ? project.img : (project.img ? [project.img] : []));
@@ -314,15 +336,15 @@ export default {
         margin-top: 4px
 
   // ── Timeline ─────────────────────────────────────────────
+  // Plain div — no Vuetify slot magic, just centers and constrains
   .timeline-container
-    max-width: 960px !important
+    max-width: 960px
+    margin: 0 auto
     padding: 0 16px
+    box-sizing: border-box
 
     @media (max-width: 600px)
       padding: 0 8px
-
-  .projects-timeline
-    width: 100%
 
     .timeline-date
       font-family: 'Nixie One', sans-serif
@@ -341,7 +363,6 @@ export default {
         text-align: left
         padding-left: 0
 
-    // Media wrapper — position:relative anchors the chip overlay
     .media-wrap
       position: relative
 
@@ -360,7 +381,6 @@ export default {
       transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s
       cursor: pointer
 
-      // Subtle animated bottom bar as interaction cue
       &::after
         content: ''
         display: block
@@ -400,12 +420,11 @@ export default {
         padding: 0 16px 16px
         margin-top: 12px
 
-  // ── Square aspect ratio — cards + modal ───────────────────
+  // ── Square aspect ratio — timeline cards ──────────────────
   .square-media
     aspect-ratio: 1 / 1
     width: 100%
 
-  // ── Video elements ────────────────────────────────────────
   .card-video
     width: 100%
     aspect-ratio: 1 / 1
@@ -449,109 +468,150 @@ export default {
       gap: 12px
 
   // ── Modal ─────────────────────────────────────────────────
-  .modal-wrapper
+  .modal-outer
     position: relative
+    // Pad top so the floating close btn has room above the card
+    padding-top: 24px
 
   .modal-close
     position: absolute
-    top: -16px
-    right: -16px
-    z-index: 20
+    top: 0
+    right: 0
+    z-index: 30
 
   .modal-card
     background: #1e1230 !important
     color: #e0e0e0 !important
+    // Card scrolls internally — never causes page scroll
+    max-height: calc(100vh - 80px)
     overflow: hidden
+    display: flex
+    flex-direction: column
 
-  // Dim the dialog scrim so the page shows through more
   .v-overlay__scrim
-    opacity: 0.55 !important
+    opacity: 0.6 !important
 
   .modal-layout
     display: flex
     flex-direction: row
+    flex: 1
     min-height: 0
+    overflow: hidden
 
     @media (max-width: 700px)
       flex-direction: column
 
+  // ── Media col — fixed size, does not grow to fill screen ──
   .modal-media-col
-    flex: 0 0 42%
-    max-width: 42%
-    display: flex
-    flex-direction: column
+    flex: 0 0 36%
+    max-width: 36%
+    max-height: 420px
+    overflow: hidden
+    align-self: flex-start
 
     @media (max-width: 700px)
       flex: none
       max-width: 100%
+      max-height: 240px
 
-    .media-wrap
-      position: relative
+    .modal-media-wrap
+      width: 100%
       height: 100%
 
-      .modal-media,
+      .modal-img,
       .modal-video
         width: 100%
         height: 100%
         object-fit: cover
         display: block
-        aspect-ratio: unset
 
-      // Carousel fills the full column height
-      .v-carousel
-        height: 100% !important
+      .modal-carousel
+        height: 420px !important
 
+        @media (max-width: 700px)
+          height: 240px !important
+
+  // ── Info col — owns the scroll ────────────────────────────
   .modal-info-col
     flex: 1
-    padding: 28px 28px 28px 28px
+    min-width: 0
     overflow-y: auto
+    padding: 32px 36px 36px 32px
     display: flex
     flex-direction: column
-    gap: 4px
 
     @media (max-width: 700px)
-      padding: 20px 20px 28px
+      padding: 24px 20px 28px
 
     .modal-meta
       display: flex
       align-items: center
-      gap: 8px
-      margin-bottom: 8px
+      gap: 10px
 
     .modal-date
       font-family: 'Nixie One', sans-serif
       font-size: 0.85rem
-      opacity: 0.5
+      opacity: 0.45
 
     .modal-title
       font-family: 'Nixie One', sans-serif
-      font-size: 1.5rem
+      font-size: clamp(1.4rem, 2.2vw, 1.9rem)
       font-weight: 400
-      margin-bottom: 10px
       line-height: 1.2
+      margin: 16px 0 0
+
+    .modal-divider
+      margin: 16px 0 !important
+      opacity: 0.12 !important
 
     .modal-text
       font-family: 'Raleway', sans-serif
-      font-size: 0.95rem
-      line-height: 1.75
+      font-size: 0.98rem
+      line-height: 1.8
       opacity: 0.85
-      margin-bottom: 4px
+      margin: 0 0 8px
 
     .modal-details
       font-family: 'Raleway', sans-serif
       font-size: 0.88rem
-      line-height: 1.75
-      opacity: 0.65
-      margin-top: 8px
-      padding-top: 8px
+      line-height: 1.8
+      opacity: 0.6
+      margin-top: 12px
+      padding-top: 12px
       border-top: 1px solid rgba(255,255,255,0.08)
 
-    .tech-chips
-      margin-top: 8px
+    // Rendered markdown
+    .modal-body
+      font-family: 'Raleway', sans-serif
+      font-size: 0.98rem
+      line-height: 1.8
+      opacity: 0.85
+      h1, h2, h3
+        font-family: 'Nixie One', sans-serif
+        font-weight: 400
+        margin: 20px 0 8px
+      p
+        margin-bottom: 12px
+      ul, ol
+        padding-left: 20px
+        margin-bottom: 12px
+      code
+        background: rgba(255,255,255,0.08)
+        padding: 2px 6px
+        border-radius: 4px
+        font-size: 0.88em
+      pre
+        background: rgba(0,0,0,0.3)
+        padding: 12px
+        border-radius: 6px
+        overflow-x: auto
+        margin-bottom: 12px
 
-    .modal-actions
+    .modal-tech
       display: flex
       flex-wrap: wrap
-      gap: 8px
-      margin-top: 12px
+      margin: 20px 0 4px
+
+    .modal-actions
+      margin-top: 8px
 </style>
