@@ -303,16 +303,6 @@ export const projects = [
   },
   {
     date: new Date("May 2, 2013"),
-    title: "Animated Musical Note",
-    text: "A musical note-shaped LED matrix.",
-    details: "",
-    img: "",
-    category: "led",
-    tech: ["Arduino", "WS2812B", "LED"],
-    repo: "https://github.com/skyfly200/note-rainbow",
-  },
-  {
-    date: new Date("May 2, 2013"),
     title: "Audio Spectrum Visualizer",
     text: "7-band graphic EQ chip hooked up to an Arduino, driving a shift register to PWM-control a row of LEDs to display the audio spectrum.",
     details: "",
