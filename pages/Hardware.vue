@@ -2,9 +2,9 @@
 .hardware.skill
 
   //- Back button
-  v-btn(href="/#skills" variant="text" color="primary").home-btn
+  v-btn(href="/" variant="text" color="primary").home-btn
     i.fas.fa-arrow-left.mr-2
-    | Back to Skills
+    | Home
 
   .page-header(data-aos="fade-down")
     .header-eyebrow Hardware Engineering
@@ -31,86 +31,61 @@
 
   v-divider.my-4
 
-  //- Timeline — alternates on desktop, single side on mobile
-  .projects-timeline
-    v-timeline(:truncate-line="'both'" align="start" :side="isMobile ? 'end' : undefined")
-      v-timeline-item(
-        v-for="(project, index) in filteredProjects"
-        :key="project.title"
-        :dot-color="categoryColor(project.category)"
-        size="small"
-        data-aos="fade-left"
-        data-aos-offset="80"
-      )
-        template(#opposite)
-          .timeline-date(:class="index % 2 === 0 ? 'date-right' : 'date-left'") {{ formatDatetime(project.date) }}
+  //- Timeline
+  v-container.timeline-container
+    .projects-timeline
+      v-timeline(:truncate-line="'both'" align="start" :side="isMobile ? 'end' : undefined")
+        v-timeline-item(
+          v-for="(project, index) in filteredProjects"
+          :key="project.title"
+          :dot-color="categoryColor(project.category)"
+          size="small"
+          data-aos="fade-left"
+          data-aos-offset="80"
+        )
+          template(#opposite)
+            .timeline-date(:class="index % 2 === 0 ? 'date-right' : 'date-left'") {{ formatDatetime(project.date) }}
 
-        v-card.project-card(
-          elevation="3"
-          @click="openProject(project)"
-        ).clickable
+          v-card.project-card(elevation="3" @click="openProject(project)").clickable
 
-          //- Multiple images → carousel
-          .media-wrap(v-if="projectImgs(project).length > 1")
-            v-carousel.square-media(
-              hide-delimiter-background
-              show-arrows="hover"
-              @click.stop
-            )
-              v-carousel-item(
-                v-for="(src, i) in projectImgs(project)"
-                :key="i"
-                :src="isVideo(src) ? undefined : src"
-                cover
-              )
-                video.card-video(v-if="isVideo(src)" loop muted playsinline v-intersect="onVideoIntersect")
-                  source(:src="src")
-            .chip-overlay
+            .media-wrap(v-if="projectImgs(project).length > 1")
+              v-carousel.square-media(hide-delimiter-background show-arrows="hover" @click.stop)
+                v-carousel-item(
+                  v-for="(src, i) in projectImgs(project)"
+                  :key="i"
+                  :src="isVideo(src) ? undefined : src"
+                  cover
+                )
+                  video.card-video(v-if="isVideo(src)" loop muted playsinline v-intersect="onVideoIntersect")
+                    source(:src="src")
+              .chip-overlay
+                v-chip(size="small" :color="categoryColor(project.category)" variant="elevated").category-chip
+                  i.fas.mr-1(:class="categoryIcon(project.category)")
+                  | {{ categoryLabel(project.category) }}
+
+            .media-wrap(v-else-if="projectImgs(project).length === 1")
+              video.card-video.square-media(v-if="isVideo(projectImgs(project)[0])" loop muted playsinline v-intersect="onVideoIntersect")
+                source(:src="projectImgs(project)[0]")
+              v-img.square-media(v-else :src="projectImgs(project)[0]" cover)
+              .chip-overlay
+                v-chip(size="small" :color="categoryColor(project.category)" variant="elevated").category-chip
+                  i.fas.mr-1(:class="categoryIcon(project.category)")
+                  | {{ categoryLabel(project.category) }}
+
+            .no-img-header(v-else)
               v-chip(size="small" :color="categoryColor(project.category)" variant="elevated").category-chip
                 i.fas.mr-1(:class="categoryIcon(project.category)")
                 | {{ categoryLabel(project.category) }}
 
-          //- Single image or video
-          .media-wrap(v-else-if="projectImgs(project).length === 1")
-            video.card-video.square-media(
-              v-if="isVideo(projectImgs(project)[0])"
-              loop muted playsinline
-              v-intersect="onVideoIntersect"
-            )
-              source(:src="projectImgs(project)[0]")
-            v-img.square-media(v-else :src="projectImgs(project)[0]" cover)
-            .chip-overlay
-              v-chip(size="small" :color="categoryColor(project.category)" variant="elevated").category-chip
-                i.fas.mr-1(:class="categoryIcon(project.category)")
-                | {{ categoryLabel(project.category) }}
+            v-card-title.project-title {{ project.title }}
+            v-card-subtitle.project-date {{ formatDatetime(project.date) }}
+            v-card-text.project-text {{ project.text }}
 
-          //- No media
-          .no-img-header(v-else)
-            v-chip(size="small" :color="categoryColor(project.category)" variant="elevated").category-chip
-              i.fas.mr-1(:class="categoryIcon(project.category)")
-              | {{ categoryLabel(project.category) }}
-
-          v-card-title.project-title {{ project.title }}
-          v-card-subtitle.project-date {{ formatDatetime(project.date) }}
-          v-card-text.project-text {{ project.text }}
-
-          .tech-chips(v-if="project.tech && project.tech.length")
-            v-chip(
-              v-for="t in project.tech"
-              :key="t"
-              size="x-small"
-              variant="tonal"
-              color="primary"
-              class="mr-1 mb-1"
-            ) {{ t }}
-
-          .card-hint
-            i.fas.fa-expand-alt.mr-1
-            | Click to expand
+            .tech-chips(v-if="project.tech && project.tech.length")
+              v-chip(v-for="t in project.tech" :key="t" size="x-small" variant="tonal" color="primary" class="mr-1 mb-1") {{ t }}
 
   v-divider.my-8
 
-  //- CTA
   .contact-cta(data-aos="fade-up")
     v-card(variant="elevated" class="pa-6 text-center").cta-card
       .cta-icon-wrap
@@ -123,34 +98,17 @@
           | GitHub
         v-btn(href="/#contact" color="primary" variant="outlined") Contact Me
 
-  //- ── Full-screen project modal ──────────────────────────────
-  v-dialog(
-    v-model="dialog"
-    :max-width="isMobile ? '100vw' : '920px'"
-    :fullscreen="isMobile"
-    scrollable
-  )
+  v-dialog(v-model="dialog" :max-width="isMobile ? '100vw' : '920px'" :fullscreen="isMobile" scrollable)
     .modal-wrapper(v-if="selected")
-      //- Close button floats above top-right corner of card
-      v-btn.modal-close(
-        icon
-        variant="elevated"
-        color="default"
-        size="small"
-        @click="dialog = false"
-      )
+      v-btn.modal-close(icon variant="elevated" color="default" size="small" @click="dialog = false")
         i.fas.fa-times
 
       v-card.modal-card
         .modal-layout
 
-          //- ── Left: media ──────────────────────────────────
           .modal-media-col(v-if="projectImgs(selected).length > 0")
             .media-wrap(v-if="projectImgs(selected).length > 1")
-              v-carousel.modal-media(
-                hide-delimiter-background
-                show-arrows="hover"
-              )
+              v-carousel.modal-media(hide-delimiter-background show-arrows="hover")
                 v-carousel-item(
                   v-for="(src, i) in projectImgs(selected)"
                   :key="i"
@@ -165,7 +123,6 @@
                 source(:src="projectImgs(selected)[0]")
               v-img.modal-media(v-else :src="projectImgs(selected)[0]" cover)
 
-          //- ── Right: info ──────────────────────────────────
           .modal-info-col
             .modal-meta
               v-chip(size="small" :color="categoryColor(selected.category)" label class="mr-2")
@@ -178,54 +135,19 @@
             p.modal-details(v-if="selected.details") {{ selected.details }}
 
             .tech-chips.mt-3(v-if="selected.tech && selected.tech.length")
-              v-chip(
-                v-for="t in selected.tech"
-                :key="t"
-                size="small"
-                variant="tonal"
-                color="primary"
-                class="mr-2 mb-2"
-              ) {{ t }}
+              v-chip(v-for="t in selected.tech" :key="t" size="small" variant="tonal" color="primary" class="mr-2 mb-2") {{ t }}
 
             .modal-actions.mt-4
-              v-btn(
-                v-if="selected.repo"
-                :href="selected.repo"
-                target="_blank"
-                variant="elevated"
-                color="primary"
-                class="mr-2 mb-2"
-              )
+              v-btn(v-if="selected.repo" :href="selected.repo" target="_blank" variant="elevated" color="primary" class="mr-2 mb-2")
                 i.fab.fa-github.mr-2
                 | View Code
-              v-btn(
-                v-if="selected.link"
-                :href="selected.link"
-                target="_blank"
-                variant="tonal"
-                color="primary"
-                class="mr-2 mb-2"
-              )
+              v-btn(v-if="selected.link" :href="selected.link" target="_blank" variant="tonal" color="primary" class="mr-2 mb-2")
                 i.fas.fa-external-link-alt.mr-2
                 | Open Link
-              v-btn(
-                v-if="selected.gerbers"
-                :href="selected.gerbers"
-                target="_blank"
-                variant="tonal"
-                color="success"
-                class="mr-2 mb-2"
-              )
+              v-btn(v-if="selected.gerbers" :href="selected.gerbers" target="_blank" variant="tonal" color="success" class="mr-2 mb-2")
                 i.fas.fa-download.mr-2
                 | Gerbers
-              v-btn(
-                v-if="selected.bom"
-                :href="selected.bom"
-                target="_blank"
-                variant="tonal"
-                color="success"
-                class="mr-2 mb-2"
-              )
+              v-btn(v-if="selected.bom" :href="selected.bom" target="_blank" variant="tonal" color="success" class="mr-2 mb-2")
                 i.fas.fa-download.mr-2
                 | BOM
 </template>
@@ -392,13 +314,15 @@ export default {
         margin-top: 4px
 
   // ── Timeline ─────────────────────────────────────────────
-  .projects-timeline
+  .timeline-container
+    max-width: 960px !important
     padding: 0 16px
-    max-width: 900px
-    margin: 0 auto
 
     @media (max-width: 600px)
       padding: 0 8px
+
+  .projects-timeline
+    width: 100%
 
     .timeline-date
       font-family: 'Nixie One', sans-serif
@@ -423,7 +347,7 @@ export default {
 
       .chip-overlay
         position: absolute
-        bottom: 8px
+        top: 8px
         left: 8px
         z-index: 2
 
@@ -433,11 +357,24 @@ export default {
       margin-bottom: 8px
       background: rgba(255,255,255,0.04) !important
       border: 1px solid rgba(255,255,255,0.08)
-      transition: border-color 0.2s, transform 0.2s
+      transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s
+      cursor: pointer
+
+      // Subtle animated bottom bar as interaction cue
+      &::after
+        content: ''
+        display: block
+        height: 2px
+        width: 0
+        background: linear-gradient(90deg, #7627D0, #a855f7)
+        transition: width 0.3s ease
 
       &:hover
-        border-color: rgba(118, 39, 208, 0.5)
-        transform: translateY(-2px)
+        border-color: rgba(118, 39, 208, 0.7) !important
+        transform: translateY(-3px)
+        box-shadow: 0 6px 24px rgba(118, 39, 208, 0.25) !important
+        &::after
+          width: 100%
 
       .no-img-header
         padding: 12px 16px 0
@@ -460,21 +397,8 @@ export default {
         padding-bottom: 4px
 
       .tech-chips
-        padding: 0 16px 8px
-
-  // ── Clickable cards ───────────────────────────────────────
-  .clickable
-    cursor: pointer
-    &:hover
-      border-color: rgba(118, 39, 208, 0.6) !important
-      transform: translateY(-3px)
-
-  .card-hint
-    font-size: 0.7rem
-    opacity: 0.35
-    padding: 4px 16px 12px
-    display: flex
-    align-items: center
+        padding: 0 16px 16px
+        margin-top: 12px
 
   // ── Square aspect ratio — cards + modal ───────────────────
   .square-media
