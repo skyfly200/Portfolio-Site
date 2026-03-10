@@ -172,7 +172,7 @@ export const projects = [
     title: "PT2399 Delay IC Echo Circuit",
     text: "Old-school bucket brigade delay IC circuit built around the PT2399, with adjustable delay time and feedback for guitar effects.",
     details: "",
-    img: "",
+    img: ["/images/hardware/delay_circuit.mp4"],
     category: "audio",
     tech: ["PT2399", "Analog", "Guitar FX", "Through-hole"],
   },
