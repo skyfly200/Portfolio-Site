@@ -34,7 +34,7 @@
   //- Timeline — plain div, not v-container, so it never swallows siblings
   .timeline-container
     // center the vertical line and have items alternate either side on desktop
-    v-timeline(:truncate-line="'both'" align="center" :side="isMobile ? 'end' : undefined")
+    v-timeline(align="center" :side="isMobile ? 'end' : undefined")
       v-timeline-item(
         v-for="(project, index) in filteredProjects"
         :key="project.title"
@@ -339,13 +339,18 @@ export default {
   // ── Timeline ─────────────────────────────────────────────
   // Plain div — no Vuetify slot magic, just centers and constrains
   .timeline-container
-    max-width: 960px
-    margin: 0 auto
-    padding: 0 16px
+    width: 100%
+    padding: 0 8px
     box-sizing: border-box
+    display: flex
+    justify-content: center
 
     @media (max-width: 600px)
-      padding: 0 8px
+      padding: 0 4px
+
+    .v-timeline
+      width: calc(100% - 16px)
+      max-width: 100%
 
     .timeline-date
       font-family: 'Nixie One', sans-serif
