@@ -256,7 +256,7 @@ export const projects = [
     title: "Animated Musical Note Light",
     text: "A musical note-shaped LED matrix.",
     details: "",
-    img: "",
+    img: ["/images/hardware/music_note.mp4", "/images/hardware/music_note.jpg"],
     category: "led",
     tech: ["Arduino", "WS2812B", "LED"],
     repo: "https://github.com/skyfly200/note-rainbow",
