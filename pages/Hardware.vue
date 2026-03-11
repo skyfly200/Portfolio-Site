@@ -33,7 +33,8 @@
 
   //- Timeline — plain div, not v-container, so it never swallows siblings
   .timeline-container
-    v-timeline(:truncate-line="'both'" align="start" :side="isMobile ? 'end' : undefined")
+    // center the vertical line and have items alternate either side on desktop
+    v-timeline(:truncate-line="'both'" align="center" :side="isMobile ? 'end' : undefined")
       v-timeline-item(
         v-for="(project, index) in filteredProjects"
         :key="project.title"
@@ -86,7 +87,7 @@
   v-divider.my-8
 
   //- CTA
-  .contact-cta(data-aos="fade-up")
+  .contact-cta
     v-card(variant="elevated" class="pa-6 text-center").cta-card
       .cta-icon-wrap
         i.fas.fa-bolt.cta-icon
@@ -173,7 +174,7 @@
 <script>
 import moment from "moment";
 import { marked } from "marked";
-import { projects, stats } from "./HardwareProjects.js";
+import { projects, stats } from "./hardwareProjects.js";
 
 export default {
   name: "hardware",
@@ -436,6 +437,8 @@ export default {
     max-width: 680px
     margin: 0 auto
     padding: 0 24px
+    position: relative
+    z-index: 1
 
     .cta-card
       border-radius: 12px !important
