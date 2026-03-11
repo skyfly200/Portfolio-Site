@@ -113,6 +113,24 @@ export const projects = [
     tech: ["NFT", "Secure Element", "Crypto"],
   },
   {
+    date: new Date("November 22, 2020"),
+    title: "Truck Solar Power and Lighting",
+    text: "A system to power lights and small devices in a truck using solar panels, a charge controller, and a LiIon battery pack.",
+    details: "",
+    img: ["/images/hardware/Truck_solar.jpeg"],
+    category: "led",
+    tech: ["LEDs", "Solar", "Charge Controller", "Li-Ion Battery"],
+  },
+  {
+    date: new Date("Oct 7, 2020"),
+    title: "Multi Lily Stem Array",
+    text: "A branching stem to wire addressable LEDs in organic arrangements.",
+    details: "",
+    img: ["/images/hardware/stem.jpeg", "/images/hardware/stem2.jpeg"],
+    category: "led",
+    tech: ["Wire", "heatshrink", "WS2812B"],
+  },
+  {
     date: new Date("Oct 7, 2020"),
     title: "LED Lily Pyramid Base",
     text: "A custom 3D printed base to house the LED Lily Controller and LiPo battery, with integrated charging and power management.",
@@ -138,6 +156,16 @@ export const projects = [
     img: ["/images/hardware/lily_flex_1.jpg", "/images/hardware/lily_flex_2.jpg", "/images/hardware/lily_flex_3.jpg", "/images/hardware/lily_flex_4.jpg"],
     category: "led",
     tech: ["Origami", "RGB LEDs"],
+  },
+  {
+    date: new Date("October 26, 2019"),
+    title: "USB Serial Controlled Relays",
+    text: "Relays controlled over USB serial with an Arduino. A simple command protocol allows for control of 2 relays for switching AC devices on and off.",
+    details: "",
+    img: ["/images/hardware/USB_Relay.jpg", "/images/hardware/doghouse.jpg", "/images/hardware/doghouse2.jpg"],
+    category: "led",
+    tech: ["Capacitive Touch", "KiCad", "RGB LEDs"],
+    repo: "https://github.com/skyfly200/touch-n-glow",
   },
   {
     date: new Date("October 26, 2019"),
@@ -168,7 +196,7 @@ export const projects = [
     tech: ["MOSFET", "Eagle", "RGB", "12V"],
   },
   {
-    date: new Date("July 2019"),
+    date: new Date("July 22, 2019"),
     title: "PT2399 Delay IC Echo Circuit",
     text: "Old-school bucket brigade delay IC circuit built around the PT2399, with adjustable delay time and feedback for guitar effects.",
     details: "",
@@ -292,6 +320,15 @@ export const projects = [
     repo: "https://github.com/skyfly200/SP0256_AL2",
   },
   {
+    date: new Date("August 2, 2013"),
+    title: "Zero inserion force (ZIF) socket MCU programmer",
+    text: "A custom programmer for microcontrollers with a ZIF socket for quick insertion and removal. Designed with the ATMEGA328P in mind, but adaptable to other chips. Jumpers connect up to a crystal, LED and power.",
+    details: "",
+    img: ["/images/hardware/HW-p1.jpg", "/images/hardware/msgeq7.JPG"],
+    category: "embeded",
+    tech: ["Arduino", "ZIF Socket", "ATMEGA328P"],
+  },
+  {
     date: new Date("June 2, 2013"),
     title: "Music Reactive LED Strip",
     text: "7-band audio reactive RGB LED strip controller driven by an Arduino.",
@@ -324,7 +361,7 @@ export const projects = [
 
 export const stats = [
   { num: "14+", label: "Years Building" },
-  { num: "34+", label: "Hardware Projects" },
+  { num: "37+", label: "Hardware Projects" },
   { num: "7",   label: "Custom PCBs Made" },
   { num: "∞",   label: "LEDs Driven" },
 ];
