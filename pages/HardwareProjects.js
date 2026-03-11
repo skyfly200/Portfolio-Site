@@ -14,7 +14,7 @@
 
 export const projects = [
   {
-    date: new Date("Feb 20, 2026"),
+    date: new Date("February 20, 2026"),
     title: "Hyphea Duo PCB",
     text: "Dual LED strip driver and battery charger hat for XIAO. I2C broken out to add an IMU later for motion-reactive effects.",
     details: "",
@@ -23,7 +23,7 @@ export const projects = [
     tech: ["LED", "XIAO"],
   },
   {
-    date: new Date("Feb 16, 2026"),
+    date: new Date("February 16, 2026"),
     title: "POV POI",
     text: "Persistence of Vision (POV) creates patterns in the air when spun. An updated version of the Light Tube Art Piece concept, this handheld version is designed to be spun like a poi for dynamic light patterns. Powered by an ESP32 and SK6812 LEDs.",
     details: "",
@@ -32,7 +32,7 @@ export const projects = [
     tech: ["LED", "SK6812", "ESP32", "POV"],
   },
   {
-    date: new Date("Feb 3, 2026"),
+    date: new Date("February 3, 2026"),
     title: "Smart Sprout V1",
     text: "A sprout clip with a tetrahedral LED array on top, powered by an Artemis Redboard Nano and a recovered vape battery. Bluetooth controls.",
     details: "",
@@ -41,7 +41,7 @@ export const projects = [
     tech: ["LED", "Artemis", "Bluetooth", "Vape Battery"],
   },
   {
-    date: new Date("Jan 18, 2026"),
+    date: new Date("January 18, 2026"),
     title: "WLED Panel",
     text: "An array of WS2812B LEDs controlled by WLED firmware running on an ESP32.",
     details: "",
@@ -50,7 +50,7 @@ export const projects = [
     tech: ["WS2812B", "WLED", "ESP32"],
   },
   {
-    date: new Date("Jan 8, 2026"),
+    date: new Date("January 8, 2026"),
     title: "Light Tube Art Piece",
     text: "A 3D printed light with 2 WS2812B LED strips driven by an ESP32 and powered by an 18650 Li-Ion battery. Bluetooth controls.",
     details: "",
@@ -59,7 +59,7 @@ export const projects = [
     tech: ["LED", "Bluetooth", "3D Printing", "18650 Battery"],
   },
   {
-    date: new Date("Dec 20, 2025"),
+    date: new Date("December 20, 2025"),
     title: "Glow Flora Home V1",
     text: "Lily origami flowers sprouting from a flower pot with addressable LEDs, an 18650 battery, and an ESP32 controller. Running WLED.",
     details: "",
@@ -68,7 +68,7 @@ export const projects = [
     tech: ["LED", "ESP32", "18650 Battery", "WLED"],
   },
   {
-    date: new Date("Aug 5, 2025"),
+    date: new Date("August 5, 2025"),
     title: "Glow Flora Clip",
     text: "An origami Lily with flexible LED filament powered from a coin cell.",
     details: "",
@@ -86,7 +86,7 @@ export const projects = [
     tech: ["LED", "WS2812B", "ESP32-C6", "Li-Po", "USB C"],
   },
   {
-    date: new Date("Oct 15, 2024"),
+    date: new Date("October 15, 2024"),
     title: "Phi Lamp",
     text: "A lamp designed with the golden spiral.",
     details: "",
@@ -95,7 +95,7 @@ export const projects = [
     tech: ["LED", "USB"],
   },
   {
-    date: new Date("Nov 28, 2023"),
+    date: new Date("November 28, 2023"),
     title: "Air Quality Monitor",
     text: "A unit of sensors to monitor air quality including particulate matter, CO₂, VOC, temperature and humidity. Built with an Artemis Redboard Nano. Read data over Bluetooth.",
     details: "",
@@ -104,7 +104,7 @@ export const projects = [
     tech: ["Artemis", "Bluetooth", "BME680", "PMS5003", "SGP30"],
   },
   {
-    date: new Date("Feb 14, 2021"),
+    date: new Date("February 14, 2021"),
     title: "Physical NFT Prototype",
     text: "A prototype for a physical NFT using a Secure Element Chip to store cryptographic keys.",
     details: "",
@@ -122,7 +122,7 @@ export const projects = [
     tech: ["LEDs", "Solar", "Charge Controller", "Li-Ion Battery"],
   },
   {
-    date: new Date("Oct 7, 2020"),
+    date: new Date("October 7, 2020"),
     title: "Multi Lily Stem Array",
     text: "A branching stem to wire addressable LEDs in organic arrangements.",
     details: "",
@@ -131,7 +131,7 @@ export const projects = [
     tech: ["Wire", "heatshrink", "WS2812B"],
   },
   {
-    date: new Date("Oct 7, 2020"),
+    date: new Date("October 7, 2020"),
     title: "LED Lily Pyramid Base",
     text: "A custom 3D printed base to house the LED Lily Controller and LiPo battery, with integrated charging and power management.",
     details: "",
@@ -178,7 +178,7 @@ export const projects = [
     repo: "https://github.com/skyfly200/touch-n-glow",
   },
   {
-    date: new Date("Oct 18, 2019"),
+    date: new Date("October 18, 2019"),
     title: "Hexy Pix PCB",
     text: "A breakout board for WS2812B 5050 addressable LEDs in a hexagonal layout.",
     details: "",
@@ -252,7 +252,7 @@ export const projects = [
     repo: "https://github.com/skyfly200/BLE-LED-PWA",
   },
   {
-    date: new Date("Feb 4, 2018"),
+    date: new Date("February 4, 2018"),
     title: "LEGO DMX Moving Light",
     text: "A one-axis pan/tilt moving head light fixture made out of LEGO, with an Arduino Uno and a MAX485 breadboard circuit to receive DMX512 control signals.",
     details: "",
@@ -261,7 +261,7 @@ export const projects = [
     tech: ["DMX512", "Arduino", "LEGO", "MAX485"],
   },
   {
-    date: new Date("Dec 25, 2017"),
+    date: new Date("December 25, 2017"),
     title: "LED Origami Rose",
     text: "Origami rose with embedded addressable LEDs, selectable animation modes, and micro-USB recharging. Built with an Arduino Pro Mini, a Li-Po battery, and a SparkFun charge controller / 5V boost module.",
     details: "",
@@ -270,7 +270,7 @@ export const projects = [
     tech: ["WS2812B", "Arduino", "LiPo", "USB Charging"],
   },
   {
-    date: new Date("Dec 25, 2017"),
+    date: new Date("December 25, 2017"),
     title: "Light Painting Wand",
     text: "A string of addressable LEDs to light paint with, powered by an Arduino Pro Mini and a USB cable for power.",
     details: "",
@@ -290,7 +290,7 @@ export const projects = [
     repo: "https://github.com/skyfly200/note-rainbow",
   },
   {
-    date: new Date("Oct 27, 2017"),
+    date: new Date("October 27, 2017"),
     title: "Chasing EL Wire Vest",
     text: "Chasing EL wire vest with addressable LED belt pack. RJ45 expansion port for LEDs, buttons, and sensors.",
     details: "",
@@ -300,7 +300,7 @@ export const projects = [
     repo: "https://github.com/skyfly200/EL-Vest",
   },
   {
-    date: new Date("Jan 29, 2017"),
+    date: new Date("January 29, 2017"),
     title: "TMP/RH PID Controller",
     text: "Arduino PID controller for temperature and humidity with LCD readout and light level sensor. Used for environmental control.",
     details: "",
@@ -310,7 +310,7 @@ export const projects = [
     repo: "https://github.com/skyfly200/PID-TMP-RH",
   },
   {
-    date: new Date("Mar 8, 2014"),
+    date: new Date("March 8, 2014"),
     title: "80s Text-to-Speech Chip",
     text: "Arduino sketch for the SP0256A-AL2 IC manufactured in 1981, a vintage speech synthesis chip.",
     details: "",
@@ -346,6 +346,16 @@ export const projects = [
     img: ["/images/hardware/HW-p1.jpg", "/images/hardware/msgeq7.JPG"],
     category: "audio",
     tech: ["Arduino", "MSGEQ7", "Shift Register", "PWM", "LED Matrix"],
+  },
+  {
+    date: new Date("May 2, 2013"),
+    title: "Wireless Weather Station",
+    text: "Wireless Arduino weather station with temperature, humidity, and pressure sensors.",
+    details: "",
+    img: "/images/hardware/weather-station.jpg",
+    category: "iot",
+    tech: ["Arduino", "DHT22", "BMP180"],
+    repo: "https://github.com/skyfly200/Wireless-Arduino-Weather-Station",
   },
   {
     date: new Date("May 2, 2013"),
