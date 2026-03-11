@@ -122,7 +122,7 @@ export const projects = [
     tech: ["Eagle", "LiPo", "TP4056"],
   },
   {
-    date: new Date("October 26, 2019"),
+    date: new Date("May 15, 2020"),
     title: "Dual RGBW Strip ArtNet Controller",
     text: "A hand-soldered PCB to control two RGBW LED strips with an ESP8266, receiving DMX-over-IP for professional lighting control.",
     details: "",
@@ -131,7 +131,7 @@ export const projects = [
     tech: ["ESP8266", "ArtNet", "RGBW LEDs"],
   },
   {
-    date: new Date("October 26, 2019"),
+    date: new Date("January 16th, 2020"),
     title: "Flex Lily PCB",
     text: "A flex PCB to fit WS2812B-mini LEDs inside of an origami lily.",
     details: "",
