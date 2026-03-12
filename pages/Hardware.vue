@@ -174,7 +174,7 @@
 <script>
 import moment from "moment";
 import { marked } from "marked";
-import { projects, stats } from "./hardwareProjects.js";
+import { projects, stats } from "./HardwareProjects.js";
 
 export default {
   name: "hardware",
