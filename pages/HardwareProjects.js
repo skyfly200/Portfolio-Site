@@ -324,7 +324,7 @@ export const projects = [
     title: "Zero inserion force (ZIF) socket MCU programmer",
     text: "A custom programmer for microcontrollers with a ZIF socket for quick insertion and removal. Designed with the ATMEGA328P in mind, but adaptable to other chips. Jumpers connect up to a crystal, LED and power.",
     details: "",
-    img: ["/images/hardware/HW-p1.jpg", "/images/hardware/msgeq7.JPG"],
+    img: ["/images/hardware/ZIF.jpg"],
     category: "embeded",
     tech: ["Arduino", "ZIF Socket", "ATMEGA328P"],
   },
