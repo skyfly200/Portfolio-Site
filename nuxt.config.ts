@@ -101,7 +101,21 @@ export default defineNuxtConfig({
         '@': path.resolve(__dirname, './'),
       },
     },
+    server: {
+      warmup: {
+        clientFiles: ['./src/components/*.vue']
+      }
+    },
+    build: {
+      target: 'esnext',
+      sourcemap: false
+    },
+    optimizeDeps: {
+      esbuildOptions: {
+        target: 'es2022'
+      }
+    }
   },
   devtools: { enabled: false },
-  compatibilityDate: "2025-02-21"
+  compatibilityDate: "2025-02-21",
 })
