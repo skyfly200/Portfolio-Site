@@ -357,16 +357,6 @@ export const projects = [
     tech: ["Arduino", "DHT22", "BMP180"],
     repo: "https://github.com/skyfly200/Wireless-Arduino-Weather-Station",
   },
-  {
-    date: new Date("May 2, 2013"),
-    title: "Wireless Weather Station",
-    text: "Wireless Arduino weather station with temperature, humidity, and pressure sensors.",
-    details: "",
-    img: "/images/hardware/weather-station.jpg",
-    category: "iot",
-    tech: ["Arduino", "DHT22", "BMP180"],
-    repo: "https://github.com/skyfly200/Wireless-Arduino-Weather-Station",
-  },
 ];
 
 export const stats = [
