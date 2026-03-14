@@ -102,7 +102,7 @@
   //- ── Project modal ──────────────────────────────────────────
   v-dialog(
     v-model="dialog"
-    :max-width="isMobile ? '100vw' : 'calc(100vw - 64px)'"
+    :max-width="isMobile ? '100vw' : '90vw'"
     :fullscreen="isMobile"
     scrollable
   )
@@ -475,151 +475,151 @@ export default {
       flex-wrap: wrap
       gap: 12px
 
-  // ── Modal ─────────────────────────────────────────────────
-  .modal-outer
-    position: relative
-    // Pad top so the floating close btn has room above the card
-    padding-top: 24px
+// ── Modal ─────────────────────────────────────────────────
+.modal-outer
+  position: relative
+  // Pad top so the floating close btn has room above the card
+  padding-top: 24px
 
-  .modal-close
-    position: absolute
-    top: 0
-    right: 0
-    z-index: 30
+.modal-close
+  position: absolute
+  top: 0
+  right: 0
+  z-index: 30
 
-  .modal-card
-    background: #1e1230 !important
-    color: #e0e0e0 !important
-    // Card scrolls internally — never causes page scroll
-    max-height: calc(100vh - 80px)
-    overflow: hidden
-    display: flex
+.modal-card
+  background: #1e1230 !important
+  color: #e0e0e0 !important
+  // Card scrolls internally — never causes page scroll
+  max-height: 90vh
+  overflow: hidden
+  display: flex
+  flex-direction: column
+
+.v-overlay__scrim
+  opacity: 0.6 !important
+
+.modal-layout
+  display: flex
+  flex-direction: row
+  flex: 1
+  min-height: 0
+  overflow: hidden
+
+  @media (max-width: 700px)
     flex-direction: column
 
-  .v-overlay__scrim
-    opacity: 0.6 !important
+// ── Media col — fixed size, does not grow to fill screen ──
+.modal-media-col
+  flex: 0 0 36%
+  max-width: 36%
+  max-height: 90vh
+  overflow: hidden
+  align-self: flex-start
 
-  .modal-layout
-    display: flex
-    flex-direction: row
-    flex: 1
-    min-height: 0
-    overflow: hidden
+  @media (max-width: 700px)
+    flex: none
+    max-width: 100%
+    max-height: 50vh
 
-    @media (max-width: 700px)
-      flex-direction: column
+  .modal-media-wrap
+    width: 100%
+    height: auto
 
-  // ── Media col — fixed size, does not grow to fill screen ──
-  .modal-media-col
-    flex: 0 0 36%
-    max-width: 36%
-    max-height: 420px
-    overflow: hidden
-    align-self: flex-start
-
-    @media (max-width: 700px)
-      flex: none
-      max-width: 100%
-      max-height: 240px
-
-    .modal-media-wrap
+    .modal-img,
+    .modal-video
       width: 100%
-      height: 100%
+      max-height: 90vh
+      object-fit: contain
+      display: block
 
-      .modal-img,
-      .modal-video
-        width: 100%
-        height: 100%
-        object-fit: cover
-        display: block
+    .modal-carousel
+      height: 420px !important
 
-      .modal-carousel
-        height: 420px !important
+      @media (max-width: 700px)
+        height: 240px !important
 
-        @media (max-width: 700px)
-          height: 240px !important
+// ── Info col — owns the scroll ────────────────────────────
+.modal-info-col
+  flex: 1
+  min-width: 0
+  overflow-y: auto
+  padding: 32px 36px 36px 32px
+  display: flex
+  flex-direction: column
 
-  // ── Info col — owns the scroll ────────────────────────────
-  .modal-info-col
-    flex: 1
-    min-width: 0
-    overflow-y: auto
-    padding: 32px 36px 36px 32px
+  @media (max-width: 700px)
+    padding: 24px 20px 28px
+
+  .modal-meta
     display: flex
-    flex-direction: column
+    align-items: center
+    gap: 10px
 
-    @media (max-width: 700px)
-      padding: 24px 20px 28px
+  .modal-date
+    font-family: 'Nixie One', sans-serif
+    font-size: 0.85rem
+    opacity: 0.45
 
-    .modal-meta
-      display: flex
-      align-items: center
-      gap: 10px
+  .modal-title
+    font-family: 'Nixie One', sans-serif
+    font-size: clamp(1.4rem, 2.2vw, 1.9rem)
+    font-weight: 400
+    line-height: 1.2
+    margin: 16px 0 0
 
-    .modal-date
+  .modal-divider
+    margin: 16px 0 !important
+    opacity: 0.12 !important
+
+  .modal-text
+    font-family: 'Raleway', sans-serif
+    font-size: 0.98rem
+    line-height: 1.8
+    opacity: 0.85
+    margin: 0 0 8px
+
+  .modal-details
+    font-family: 'Raleway', sans-serif
+    font-size: 0.88rem
+    line-height: 1.8
+    opacity: 0.6
+    margin-top: 12px
+    padding-top: 12px
+    border-top: 1px solid rgba(255,255,255,0.08)
+
+  // Rendered markdown
+  .modal-body
+    font-family: 'Raleway', sans-serif
+    font-size: 0.98rem
+    line-height: 1.8
+    opacity: 0.85
+    h1, h2, h3
       font-family: 'Nixie One', sans-serif
-      font-size: 0.85rem
-      opacity: 0.45
-
-    .modal-title
-      font-family: 'Nixie One', sans-serif
-      font-size: clamp(1.4rem, 2.2vw, 1.9rem)
       font-weight: 400
-      line-height: 1.2
-      margin: 16px 0 0
+      margin: 20px 0 8px
+    p
+      margin-bottom: 12px
+    ul, ol
+      padding-left: 20px
+      margin-bottom: 12px
+    code
+      background: rgba(255,255,255,0.08)
+      padding: 2px 6px
+      border-radius: 4px
+      font-size: 0.88em
+    pre
+      background: rgba(0,0,0,0.3)
+      padding: 12px
+      border-radius: 6px
+      overflow-x: auto
+      margin-bottom: 12px
 
-    .modal-divider
-      margin: 16px 0 !important
-      opacity: 0.12 !important
+  .modal-tech
+    display: flex
+    flex-wrap: wrap
+    margin: 20px 0 4px
 
-    .modal-text
-      font-family: 'Raleway', sans-serif
-      font-size: 0.98rem
-      line-height: 1.8
-      opacity: 0.85
-      margin: 0 0 8px
-
-    .modal-details
-      font-family: 'Raleway', sans-serif
-      font-size: 0.88rem
-      line-height: 1.8
-      opacity: 0.6
-      margin-top: 12px
-      padding-top: 12px
-      border-top: 1px solid rgba(255,255,255,0.08)
-
-    // Rendered markdown
-    .modal-body
-      font-family: 'Raleway', sans-serif
-      font-size: 0.98rem
-      line-height: 1.8
-      opacity: 0.85
-      h1, h2, h3
-        font-family: 'Nixie One', sans-serif
-        font-weight: 400
-        margin: 20px 0 8px
-      p
-        margin-bottom: 12px
-      ul, ol
-        padding-left: 20px
-        margin-bottom: 12px
-      code
-        background: rgba(255,255,255,0.08)
-        padding: 2px 6px
-        border-radius: 4px
-        font-size: 0.88em
-      pre
-        background: rgba(0,0,0,0.3)
-        padding: 12px
-        border-radius: 6px
-        overflow-x: auto
-        margin-bottom: 12px
-
-    .modal-tech
-      display: flex
-      flex-wrap: wrap
-      margin: 20px 0 4px
-
-    .modal-actions
-      margin-top: 8px
+  .modal-actions
+    margin-top: 8px
 </style>
