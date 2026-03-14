@@ -346,13 +346,23 @@ export default {
     box-sizing: border-box
     display: flex
     justify-content: center
+    overflow-x: hidden
 
     @media (max-width: 600px)
       padding: 0 4px
 
     .v-timeline
-      width: calc(100% - 16px)
+      width: 100% !important
       max-width: 100%
+      min-width: 0
+      box-sizing: border-box
+      flex-wrap: wrap
+
+    .v-timeline-item,
+    .v-timeline-item .v-timeline-item__body
+      width: 100%
+      max-width: 100%
+      min-width: 0
 
     .timeline-date
       font-family: 'Nixie One', sans-serif
