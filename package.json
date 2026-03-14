@@ -45,7 +45,6 @@
     "chai": "^5.1.2",
     "eslint": "^9.17.0",
     "eslint-plugin-vue": "^9.32.0",
-    "node-sass": "^9.0.0",
     "sass": "^1.85.0",
     "sass-embedded": "^1.83.0",
     "sass-loader": "^16.0.5",
