@@ -8,6 +8,7 @@
     "dev": "nuxt dev",
     "watch": "vite build --watch",
     "build": "nuxt build",
+    "analyze": "nuxt build --analyze",
     "start": "nuxt start",
     "preview": "vite preview",
     "lint": "eslint .",
