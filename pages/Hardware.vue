@@ -9,7 +9,7 @@
   .page-header(data-aos="fade-down")
     .header-eyebrow Hardware Engineering
     h1.header-title Projects &amp; Builds
-    p.header-sub A decade of embedded systems, PCB design, wireless devices, and LED everything.
+    p.header-sub Over a decade of embedded systems, PCB design, wireless devices, and LED everything.
     .header-chips
       v-chip(
         v-for="cat in categories"
