@@ -377,6 +377,8 @@ export default {
       text-align: left
 
     @media (max-width: 600px)
+      .timeline-date
+        font-size: 0.7rem
       .date-right, .date-left
         text-align: left
         padding-left: 0
