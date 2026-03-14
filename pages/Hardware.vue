@@ -287,17 +287,19 @@ export default {
 
     .header-eyebrow
       font-family: 'Nixie One', sans-serif
-      font-size: 0.85rem
+      font-size: 0.95rem
       letter-spacing: 0.25em
       text-transform: uppercase
       color: #7627D0
+      text-shadow: 0 0 8px rgba(118, 39, 208, 0.6)
       margin-bottom: 12px
 
     h1.header-title
       font-family: 'Nixie One', sans-serif
-      font-size: clamp(2.2rem, 5vw, 3.5rem)
+      font-size: clamp(2.4rem, 5vw, 3.5rem)
       font-weight: 700
       line-height: 1.1
+      text-shadow: 0 0 12px rgba(118, 39, 208, 0.5)
       margin-bottom: 16px
 
     .header-sub
