@@ -281,13 +281,13 @@ export default {
   // ── Page Header ──────────────────────────────────────────
   .page-header
     text-align: center
-    padding: 48px 24px 24px
+    padding: 24px 24px 24px
     max-width: 760px
     margin: 0 auto
 
     .header-eyebrow
       font-family: 'Nixie One', sans-serif
-      font-size: 0.95rem
+      font-size: 1.9rem
       letter-spacing: 0.25em
       text-transform: uppercase
       color: #7627D0
