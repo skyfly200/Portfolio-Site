@@ -65,6 +65,11 @@ export default {
         font-size: 2em
         padding: 1em
 
+      .welcome-blurb p
+        font-size: 1.1rem
+        @media (min-width: 1200px)
+          font-size: 1.3rem
+
       @media (max-width: 600px)
         .welcome-heading h2
           font-size: 2.5em

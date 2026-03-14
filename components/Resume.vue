@@ -36,14 +36,14 @@ export default {
 // Resume Download Styles
 .resume-download
   width: 100%
-  padding: 10px
+  padding: 30px
   background-color: $color-secondary-2-2
   @extend .flex-box-center
   flex-direction: column
   text-align: center
   @include card-depth(4)
   .resume-header
-    margin-top: 30px
+    margin-top: 50px
 
   .resume-buttons
     width: 100%

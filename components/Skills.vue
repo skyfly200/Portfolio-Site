@@ -71,7 +71,7 @@ export default {
   .topics-header
     color: $grey-0
     width: 100%
-    padding: 30px 20px
+    padding: 50px 20px
     text-align: center
     .topics-heading
       color: black
