@@ -26,12 +26,12 @@ export default {
   components: { Topic },
   data: () => ({
     topics: {
-      audio:    { name: "Audio",          icon: "fa-microphone", link: "audio",   summary: ["Live, Tracking, Mixing", "FM and Online Broadcasting", "Pro Tools, Audition, Ableton"] },
+      audio:    { name: "Audio",          icon: "fa-microphone", link: "audioeng",   summary: ["Live, Tracking, Mixing", "FM and Online Broadcasting", "Pro Tools, Audition, Ableton"] },
       photo:    { name: "Photography",    icon: "fa-camera",     link: "photos",  summary: ["Perspective, Macro, Landscape", "Lighting, Lenses, Techniques", "Photoshop, Lightroom"] },
-      video:    { name: "Videography",    icon: "fa-film",       link: "videos",  summary: ["Videography, Audio, Directing", "Editing, Effects, Animation", "Premiere, After Effects"] },
-      _3d:      { name: "3D Design",      icon: "fa-cube",       link: "_3d",     summary: ["Art, Design, Invention", "Prototyping, Printing", "Blender, SketchUp, Maya"] },
+      video:    { name: "Videography",    icon: "fa-film",       link: "videography",  summary: ["Videography, Audio, Directing", "Editing, Effects, Animation", "Premiere, After Effects"] },
+      _3d:      { name: "3D Design",      icon: "fa-cube",       link: "design3d",     summary: ["Art, Design, Invention", "Prototyping, Printing", "Blender, SketchUp, Maya"] },
       lighting: { name: "Lighting Design",icon: "fa-lightbulb",  link: "lighting",summary: ["MadMapper, Resolume, AfterEffects", "ArtNet, DMX, BT and WiFi (WLED)", "Addressable LEDs, Projection Mapping"] },
-      gen_art:  { name: "Generative Art", icon: "fa-paint-brush",link: "gen-art", summary: ["On-Chain Generative Art NFTs", "Generative 3D Design", "Python, SVG, Three.js, WebGL"] },
+      gen_art:  { name: "Generative Art", icon: "fa-paint-brush",link: "genart", summary: ["On-Chain Generative Art NFTs", "Generative 3D Design", "Python, SVG, Three.js, WebGL"] },
     },
   }),
 };
