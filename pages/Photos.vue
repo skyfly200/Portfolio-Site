@@ -1,23 +1,35 @@
 <template lang="pug">
 .gallery.skill
-  v-fab(to="/multimedia" flat location="top start" app).home-btn Back
-  masonry-wall(:items="items" :ssr-columns="1" :column-width="300" :gap="16")
+
+  v-btn(href="/multimedia" variant="text" color="primary").home-btn
+    i.fas.fa-arrow-left.mr-2
+    | Multimedia
+
+  .page-header(data-aos="fade-down")
+    .header-eyebrow Multimedia
+    h1.header-title Photography
+    p.header-sub Landscapes, macro, travel, and the moments between — from the Dolomites to the Colorado Rockies.
+
+  v-divider.my-6
+
+  masonry-wall.gallery-wall(:items="items" :ssr-columns="1" :column-width="300" :gap="16")
     template(#default="{ item, index }")
-      div
-        v-hover(v-slot="{ isHovering, props }")
-          v-card(:class="{ 'on-hover': isHovering }" :elevation="isHovering ? 12 : 2" v-bind="props" @click="selected = index; focus = true")
-            v-img(:src="item.src" cover class="elevation-2")
-              .overlay(v-if="isHovering")
-                v-card-title.text-h6.text-white.d-flex.flex-column
-                  h3 {{ item.title }}
-                v-card-text.text-h6.text-white.d-flex.flex-column
-                  p {{ item.description }}
+      v-hover(v-slot="{ isHovering, props }")
+        v-card.gallery-card(:class="{ 'on-hover': isHovering }" :elevation="isHovering ? 12 : 2" v-bind="props" @click="selected = index; focus = true")
+          v-img(:src="item.src" cover)
+            .img-overlay(v-if="isHovering")
+              h3.overlay-title {{ item.title }}
+              p.overlay-desc {{ item.description }}
+
   v-overlay(v-model="focus" width="100vw" height="100vh")
     v-carousel(v-model="selected" :cycle="cycle" interval="10000" height="100%" hide-delimiters)
       v-carousel-item(v-for="item in items" :key="item.title" :src="item.src")
-    v-fab.mr-3(v-if="cycle" flat location="bottom end" app icon="fa:fas fa-pause" @click="cycle = false")
-    v-fab.mr-3(v-else flat location="bottom end" app icon="fa:fas fa-play" @click="cycle = true")
-    v-fab.mr-3(flat location="top end" app @click="focus = false") Close
+    .lightbox-controls
+      v-btn(icon variant="elevated" @click="cycle = !cycle" size="small")
+        i(:class="cycle ? 'fas fa-pause' : 'fas fa-play'")
+      v-btn(variant="elevated" @click="focus = false" size="small")
+        i.fas.fa-times.mr-2
+        | Close
 </template>
 
 <script>
@@ -45,7 +57,7 @@ export default {
       { src: "/images/photography/best/img (15).jpg", title: "Bricks n Bliss", description: "Farm Fields north east of Venice, Italy" },
       { src: "/images/photography/best/img (16).jpg", title: "Monet's House", description: "The house Monet lived in amongst his amazing gardens in Giverny, France" },
       { src: "/images/photography/best/img (17).jpg", title: "Cliffs of Etretat", description: "A boat sits on a beach in Etretat, France with its famous cliffs in the background" },
-      { src: "/images/photography/best/img (18).jpg", title: "Flight Over Normandy", description: "A moment from the 80th anniversary of D-Day renactments on Utah Beach" },
+      { src: "/images/photography/best/img (18).jpg", title: "Flight Over Normandy", description: "A moment from the 80th anniversary of D-Day reenactments on Utah Beach" },
       { src: "/images/photography/best/img (19).jpg", title: "Snug Fungi", description: "Three mushrooms perfectly wedged in under a stick" },
       { src: "/images/photography/best/img (20).jpg", title: "Dripping Columbine", description: "Columbine covered in dew and ants" },
       { src: "/images/photography/best/img (21).jpg", title: "Majestic Caps", description: "A cluster of fungi on the edge of a swamp" },
@@ -62,65 +74,105 @@ export default {
       { src: "/images/photography/best/img (32).jpg", title: "Aspen Leaf Dew", description: "Dew drops on an aspen leaf" },
       { src: "/images/photography/best/img (33).jpg", title: "Architectural Textures", description: "A wall at a cafe in Lisbon with a very interesting texture" },
       { src: "/images/photography/best/img (34).jpg", title: "Lisbon Stairway", description: "A stairway through the streets of Lisbon, Portugal" },
-      { src: "/images/photography/best/img (35).jpg", title: "Egyptian Statue", description: " A majestic statue from Egypt in the Lisbon botanical gardens" },
+      { src: "/images/photography/best/img (35).jpg", title: "Egyptian Statue", description: "A majestic statue from Egypt in the Lisbon botanical gardens" },
       { src: "/images/photography/best/img (36).jpg", title: "Avenue Liberdade", description: "Avenue Liberdade in the center of Lisbon, Portugal" },
       { src: "/images/photography/best/img (37).jpg", title: "Reflecting at Dusk", description: "A restaurant across a pond reflects in the last light of the day. Lisbon, Portugal" },
       { src: "/images/photography/best/img (38).jpg", title: "Pena Palace", description: "Pena Palace on the hill top in Sintra, Portugal" },
       { src: "/images/photography/best/img (39).jpg", title: "Monstera Fruit", description: "A blossoming and fruiting Monstera Deliciosa at Pena Palace in Sintra, Portugal" },
-      { src: "/images/photography/best/img (40).jpg", title: "Smoking Room Ceiling", description: "A geometric ceiling supports an exquisite chandelier of morning glory flowers in Pena Palace in Sintra, Portugal" },
+      { src: "/images/photography/best/img (40).jpg", title: "Smoking Room Ceiling", description: "A geometric ceiling supports an exquisite chandelier in Pena Palace, Sintra, Portugal" },
       { src: "/images/photography/best/img (41).jpg", title: "Grotto De Regalia", description: "A magical grotto in the gardens of Quinta De Regalia in Sintra, Portugal" },
-      { src: "/images/photography/best/img (42).jpg", title: "Peace Palace ", description: "The International Peace Palace in the Hague, Netherlands" },
+      { src: "/images/photography/best/img (42).jpg", title: "Peace Palace", description: "The International Peace Palace in the Hague, Netherlands" },
       { src: "/images/photography/best/img (43).jpg", title: "Eenden in Het Plein", description: "Duck in the center square of the Hague" },
-      { src: "/images/photography/best/img (44).jpg", title: "Depot Bloemen", description: "Tulips in front of the depot building, standing on Museumplein in Rotterdam, Netherlands" },
-      { src: "/images/photography/best/img (45).jpg", title: "Tropical Canopy", description: "Palm and various other trees canopies at the Lisbon Botanical gardens in Portugal" },
-      { src: "/images/photography/best/img (46).jpg", title: "Staircase to the Light", description: "A vibrant stairway at the Lisbon Botanical gardens in Portugal" },
+      { src: "/images/photography/best/img (44).jpg", title: "Depot Bloemen", description: "Tulips in front of the depot building on Museumplein in Rotterdam, Netherlands" },
+      { src: "/images/photography/best/img (45).jpg", title: "Tropical Canopy", description: "Palm and other trees canopies at the Lisbon Botanical gardens, Portugal" },
+      { src: "/images/photography/best/img (46).jpg", title: "Staircase to the Light", description: "A vibrant stairway at the Lisbon Botanical gardens, Portugal" },
       { src: "/images/photography/best/img (47).jpg", title: "Gothic Galore", description: "A chapel in Vienna, Austria" },
-      { src: "/images/photography/best/img (48).jpg", title: "Astoria Sunset", description: "A sunset in the hills of Astoria, OR nearby the house from the Goonies" },
+      { src: "/images/photography/best/img (48).jpg", title: "Astoria Sunset", description: "A sunset in the hills of Astoria, OR" },
       { src: "/images/photography/best/img (49).jpg", title: "Ecola State Park", description: "Gorgeous state park on the Oregon coast" },
-      { src: "/images/photography/best/img (50).jpg", title: "Cannon Beach", description: "Where the film The Goonies was filmed" },
-      { src: "/images/photography/best/img (51).jpg", title: "Mangartski Potok Viaduct", description: "Right by the road up to Mangart Peak in Slovenia" },
-      { src: "/images/photography/best/img (52).jpg", title: "Frosty Flagstaff", description: "A frosty view of the back of the flatirons in Boulder, CO with the moon shining up above" },
-      { src: "/images/photography/best/img (53).jpg", title: "Totality 2024", description: "Total solar eclipse of 2024 viewed from the hills nearby Austin Texas" },
-      { src: "/images/photography/best/img (54).jpg", title: "Texas Eclipse Fest", description: "Ligths over the 2024 Texas Eclipse Fest" },
+      { src: "/images/photography/best/img (50).jpg", title: "Cannon Beach", description: "Where The Goonies was filmed" },
+      { src: "/images/photography/best/img (51).jpg", title: "Mangartski Potok Viaduct", description: "By the road up to Mangart Peak in Slovenia" },
+      { src: "/images/photography/best/img (52).jpg", title: "Frosty Flagstaff", description: "A frosty view of the back of the Flatirons in Boulder, CO" },
+      { src: "/images/photography/best/img (53).jpg", title: "Totality 2024", description: "Total solar eclipse of 2024 viewed from the hills near Austin, Texas" },
+      { src: "/images/photography/best/img (54).jpg", title: "Texas Eclipse Fest", description: "Lights over the 2024 Texas Eclipse Fest" },
       { src: "/images/photography/best/img (55).jpg", title: "Gulf Sunrise", description: "Swimming in the sunrise glow of the Gulf" },
-      { src: "/images/photography/best/img (56).jpg", title: "Two Chapels", description: "View from the main bridge in Basel Switzerland" },
-      { src: "/images/photography/best/img (57).jpg", title: "Night Scape", description: "Cannon Beach in Oregon at night" }
-    ]
-  })
+      { src: "/images/photography/best/img (56).jpg", title: "Two Chapels", description: "View from the main bridge in Basel, Switzerland" },
+      { src: "/images/photography/best/img (57).jpg", title: "Night Scape", description: "Cannon Beach in Oregon at night" },
+    ],
+  }),
 };
 </script>
 
 <style lang="sass">
 .gallery
-  flex-direction: column
-  text-align: center
-  .gallery-nav
-    button
-      color: black
-  
-  .on-hover
-    box-shadow: 0px 0px 12px rgba(255, 255, 255, 0.5) !important
+  width: 100%
+  color: white
+  padding-bottom: 80px
 
-  .overlay
-    background: rgba(0, 0, 0, 0.5)
+  .home-btn
+    margin: 16px 0 0 16px
+
+  .page-header
+    text-align: center
+    padding: 48px 24px 24px
+    max-width: 760px
+    margin: 0 auto
+    .header-eyebrow
+      font-family: 'Nixie One', sans-serif
+      font-size: 0.85rem
+      letter-spacing: 0.25em
+      text-transform: uppercase
+      color: #7627D0
+      margin-bottom: 12px
+    h1.header-title
+      font-family: 'Nixie One', sans-serif
+      font-size: clamp(2rem, 5vw, 3rem)
+      font-weight: 700
+      line-height: 1.1
+      margin-bottom: 16px
+    .header-sub
+      font-family: 'Raleway', sans-serif
+      font-size: 1.05rem
+      opacity: 0.7
+
+  .gallery-wall
+    padding: 0 16px
+
+  .gallery-card
+    border-radius: 8px !important
+    overflow: hidden
+    cursor: pointer
+    transition: box-shadow 0.25s, transform 0.25s
+
+    &.on-hover
+      transform: translateY(-2px)
+      box-shadow: 0 8px 28px rgba(118, 39, 208, 0.3) !important
+
+  .img-overlay
+    background: rgba(0,0,0,0.55)
     position: absolute
-    top: 0
-    left: 0
-    right: 0
-    bottom: 0
+    inset: 0
     display: flex
     flex-direction: column
-    justify-content: center
-    align-items: center
+    justify-content: flex-end
     padding: 16px
-    h3
-      margin: 0
-      flex-wrap: wrap
-    p
-      margin: 0
-      
-  .home-btn
-    a
-      color: white
-      
+
+  .overlay-title
+    font-family: 'Nixie One', sans-serif
+    font-size: 1rem
+    color: white
+    margin: 0 0 4px
+
+  .overlay-desc
+    font-family: 'Raleway', sans-serif
+    font-size: 0.82rem
+    color: rgba(255,255,255,0.8)
+    margin: 0
+
+  .lightbox-controls
+    position: fixed
+    bottom: 24px
+    right: 24px
+    display: flex
+    gap: 10px
+    z-index: 10
 </style>
