@@ -42,8 +42,8 @@ export default {
   name: "Design3D",
   data: () => ({
     software: [
-      "Blender","Fusion 360","SketchUp","OpenSCAD","Tinkercad",
-      "Meshmixer","Unity 3D","Three.js",
+      "Blender", "Fusion 360", "Maya", "SketchUp", "OpenSCAD", "Tinkercad", "ZBrush",
+      "Meshmixer","Unity 3D","Three.js", "Illustrator", "Inkscape",
       "Orca Slicer","PrusaSlicer","BambuStudio","Cura","Simplify3D"
     ],
   }),
