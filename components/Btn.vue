@@ -1,23 +1,3 @@
-<template lang="pug">
-a(:href="url")
-  v-btn(target="_blank").button
-    svg.fab.fa-2x(v-if="icon" :class="icon")
-    span.label &nbsp;{{ text }}
-</template>
-
-<script>
-export default {
-  name: "btn",
-  props: ["text", "icon", "url"],
-  components: {}
-};
-</script>
-
-<style lang="sass" scoped>
-.button
-  display: flex
-  justify-content: center
-  margin: 30px auto
-  width: auto
-  color: #fff
-</style>
+version https://git-lfs.github.com/spec/v1
+oid sha256:dcd401af902d051061cebc2b7c69a013abee50ae5d21090dc90cee6fc06fa1f6
+size 399

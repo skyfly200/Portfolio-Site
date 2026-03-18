@@ -1,4 +1,3 @@
-This is a Brave Rewards publisher verification file.
-
-Domain: skylerfly.com
-Token: 6206f825b92a311cb67e11d49c7ddddb74ed06a97f6d675fea24bbbdc0550133
+version https://git-lfs.github.com/spec/v1
+oid sha256:edb57967f078759078d6d4f7abafb8013dc8eb318e9fbadfe19d2b4017d78488
+size 148
