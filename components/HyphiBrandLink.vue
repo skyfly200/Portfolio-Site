@@ -47,7 +47,7 @@ export default {
     flex-shrink: 0
 
   &__name
-    font-size: 1.5rem
+    font-size: 2rem
     letter-spacing: .12em
     background: linear-gradient(to right, #c4a8ff, #ffaa80)
     -webkit-background-clip: text
