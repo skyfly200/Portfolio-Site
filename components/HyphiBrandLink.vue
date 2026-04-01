@@ -22,7 +22,7 @@ export default {
   position: relative
   border-radius: 6px
   border: 1px solid rgba(123, 92, 250, 0.3)
-  background: rgba(10, 10, 15, 0.6)
+  background: rgba(10, 10, 15, 0.7)
   backdrop-filter: blur(8px)
   text-decoration: none
   transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s
@@ -55,7 +55,7 @@ export default {
     -webkit-text-fill-color: transparent
     background-clip: text
     line-height: 1
-    filter: drop-shadow(0 0 6px rgba(200, 160, 255, 0.7)) drop-shadow(0 0 12px rgba(255, 160, 100, 0.4))
+    filter: drop-shadow(0 0 2px rgba(200, 160, 255, 0.7)) drop-shadow(0 0 4px rgba(255, 160, 100, 0.4))
 
   &:hover &__name
     background: linear-gradient(to right, #b09ae8, #f09060)
