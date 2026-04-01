@@ -10,6 +10,7 @@
   Teleport(to="body")
     Transition(name="hyphi-pop")
       .hyphi-float(v-if="hyphiVisible")
+        button.hyphi-float__close(@click="hyphiVisible = false" aria-label="Close") ×
         HyphiBrandLink
 </template>
 
@@ -53,15 +54,42 @@ export default {
 
 .hyphi-float
   position: fixed
-  bottom: 24px
-  left: 50%
-  transform: translateX(-50%)
+  bottom: 16px
+  left: 16px
   z-index: 9999
+  display: flex
+  align-items: flex-start
+  gap: .4rem
+
+  &__close
+    background: rgba(10, 10, 15, 0.6)
+    border: 1px solid rgba(255, 255, 255, 0.15)
+    color: rgba(255, 255, 255, 0.6)
+    border-radius: 50%
+    width: 22px
+    height: 22px
+    font-size: 1rem
+    line-height: 1
+    cursor: pointer
+    display: flex
+    align-items: center
+    justify-content: center
+    padding: 0
+    transition: color 0.2s, border-color 0.2s
+    flex-shrink: 0
+    margin-top: 4px
+    &:hover
+      color: white
+      border-color: rgba(255, 255, 255, 0.4)
 
 .hyphi-pop-enter-active
   transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)
 
-.hyphi-pop-enter-from
+.hyphi-pop-leave-active
+  transition: opacity 0.2s ease, transform 0.2s ease
+
+.hyphi-pop-enter-from,
+.hyphi-pop-leave-to
   opacity: 0
-  transform: translateX(-50%) translateY(20px)
+  transform: translateY(20px)
 </style>

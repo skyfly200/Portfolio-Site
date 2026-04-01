@@ -18,7 +18,7 @@ export default {
   flex-direction: column
   align-items: center
   gap: .5rem
-  padding: .75rem 1.5rem
+  padding: 1.25rem 2rem
   border-radius: 6px
   border: 1px solid rgba(123, 92, 250, 0.3)
   background: rgba(10, 10, 15, 0.6)
