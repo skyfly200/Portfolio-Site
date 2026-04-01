@@ -11,8 +11,6 @@
           p Learning new things is a top priority. I am a lifelong learner, finding new concepts and perspectives every day. Below I have distilled an array of projects and content showcasing my most potent passions and talents. I will be regularly updating this site, so be sure to check back to see what I am up to.
         .bio-link.pa-7
           v-btn(v-if="false" to="/bio" :color="$color-secondary-1-0" rounded="lg" size="large" variant="text") More About Me
-        .hyphi-link-wrap(data-aos="fade" data-aos-delay="100")
-          HyphiBrandLink
         hr
         .welcome-social
           a(href="https://github.com/skyfly200", target="_blank")
@@ -23,6 +21,8 @@
             svg.fab.fa-linkedin.fa-2x
           a(href="mailto:skyler@skylerfly.com", target="_blank")
             svg.fa.fa-envelope.fa-2x
+        .hyphi-link-wrap(data-aos="fade" data-aos-delay="100")
+          HyphiBrandLink
 
     .welcome-img(data-aos="fade-left" data-aos-delay="100")
       img(src="/images/bio-img2.jpg" alt="A picture of me" cover)

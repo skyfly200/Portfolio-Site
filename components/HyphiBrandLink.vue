@@ -43,7 +43,7 @@ export default {
 
   &__cta
     font-size: .8rem
-    color: #7a7a9a
+    color: rgba(255, 255, 255, 0.65)
     letter-spacing: .03em
 
   &__name
@@ -57,7 +57,7 @@ export default {
 
   &__arrow
     font-size: 1.1rem
-    color: #7a7a9a
+    color: rgba(255, 255, 255, 0.65)
     margin-left: .25rem
     transition: color 0.2s, transform 0.2s
 
