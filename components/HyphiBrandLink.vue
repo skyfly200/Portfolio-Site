@@ -49,7 +49,7 @@ export default {
   &__name
     font-size: 1.5rem
     letter-spacing: .12em
-    background: linear-gradient(to right, #7b5cfa, #ff6b35)
+    background: linear-gradient(to right, #c4a8ff, #ffaa80)
     -webkit-background-clip: text
     -webkit-text-fill-color: transparent
     background-clip: text
