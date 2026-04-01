@@ -21,19 +21,16 @@
             svg.fab.fa-linkedin.fa-2x
           a(href="mailto:skyler@skylerfly.com", target="_blank")
             svg.fa.fa-envelope.fa-2x
-        .hyphi-link-wrap(data-aos="fade" data-aos-delay="100")
-          HyphiBrandLink
+
 
     .welcome-img(data-aos="fade-left" data-aos-delay="100")
       img(src="/images/bio-img2.jpg" alt="A picture of me" cover)
 </template>
 
 <script>
-import HyphiBrandLink from "./HyphiBrandLink.vue";
-
 export default {
   name: "welcome",
-  components: { HyphiBrandLink }
+  components: {}
 };
 </script>
 
@@ -68,11 +65,6 @@ export default {
       .welcome-heading h2
         font-size: 2em
         padding: 1em
-
-      .hyphi-link-wrap
-        display: flex
-        justify-content: center
-        padding: 16px 0 8px
 
       .welcome-blurb p
         font-size: 1.1rem
