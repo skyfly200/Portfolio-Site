@@ -19,6 +19,7 @@ export default {
   align-items: center
   gap: .5rem
   padding: 1.25rem 2rem
+  position: relative
   border-radius: 6px
   border: 1px solid rgba(123, 92, 250, 0.3)
   background: rgba(10, 10, 15, 0.6)
@@ -54,9 +55,11 @@ export default {
     -webkit-text-fill-color: transparent
     background-clip: text
     line-height: 1
+    filter: drop-shadow(0 0 6px rgba(200, 160, 255, 0.7)) drop-shadow(0 0 12px rgba(255, 160, 100, 0.4))
 
   &:hover &__name
     background: linear-gradient(to right, #b09ae8, #f09060)
     -webkit-background-clip: text
     background-clip: text
+    filter: drop-shadow(0 0 3px rgba(160, 120, 220, 0.4))
 </style>
