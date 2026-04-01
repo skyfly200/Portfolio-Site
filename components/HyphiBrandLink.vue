@@ -54,7 +54,7 @@ export default {
     -webkit-text-fill-color: transparent
     background-clip: text
     line-height: 1
-    filter: drop-shadow(0 0 2px rgba(200, 160, 255, 0.7)) drop-shadow(0 0 4px rgba(255, 160, 100, 0.4))
+    filter: drop-shadow(0 0 2px rgba(200, 160, 255, 0.35)) drop-shadow(0 0 4px rgba(255, 160, 100, 0.2))
 
   &:hover &__name
     background: linear-gradient(to right, #b09ae8, #f09060)
