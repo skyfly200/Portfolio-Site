@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-82 -82 164 164" width="600" height="600">
+  <defs>
+    <radialGradient id="sphereGrad" cx="38%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#e080ff"/>
+      <stop offset="45%" stop-color="#800080"/>
+      <stop offset="100%" stop-color="#2d003d"/>
+    </radialGradient>
+    <radialGradient id="glowBg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#4b0082" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#0a000f" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="softShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="0" stdDeviation="2" flood-color="#cc00ff" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#softShadow)">
+    <circle cx="0.44" cy="1.93" r="8.21" fill="url(#sphereGrad)"/>
+    <circle cx="-3.28" cy="2.22" r="8.37" fill="url(#sphereGrad)"/>
+    <circle cx="-4.89" cy="-3.37" r="8.52" fill="url(#sphereGrad)"/>
+    <circle cx="1.83" cy="-7.71" r="8.68" fill="url(#sphereGrad)"/>
+    <circle cx="9.81" cy="-1.36" r="8.83" fill="url(#sphereGrad)"/>
+    <circle cx="5.79" cy="10.37" r="8.99" fill="url(#sphereGrad)"/>
+    <circle cx="-8.83" cy="10.68" r="9.14" fill="url(#sphereGrad)"/>
+    <circle cx="-15.04" cy="-4.98" r="9.30" fill="url(#sphereGrad)"/>
+    <circle cx="-0.9" cy="-17.8" r="9.46" fill="url(#sphereGrad)"/>
+    <circle cx="18.07" cy="-8.1" r="9.61" fill="url(#sphereGrad)"/>
+    <circle cx="15.51" cy="15.29" r="9.77" fill="url(#sphereGrad)"/>
+    <circle cx="-9.42" cy="21.81" r="9.92" fill="url(#sphereGrad)"/>
+    <circle cx="-25.72" cy="-0.95" r="10.08" fill="url(#sphereGrad)"/>
+    <circle cx="-9.09" cy="-26.19" r="10.23" fill="url(#sphereGrad)"/>
+    <circle cx="22.62" cy="-19.24" r="10.39" fill="url(#sphereGrad)"/>
+    <circle cx="27.88" cy="15.05" r="10.55" fill="url(#sphereGrad)"/>
+    <circle cx="-4.17" cy="33.4" r="10.70" fill="url(#sphereGrad)"/>
+    <circle cx="-34.56" cy="8.7" r="10.86" fill="url(#sphereGrad)"/>
+    <circle cx="-21.78" cy="-30.68" r="11.01" fill="url(#sphereGrad)"/>
+    <circle cx="21.79" cy="-33.07" r="11.17" fill="url(#sphereGrad)"/>
+    <circle cx="40.65" cy="8.74" r="11.32" fill="url(#sphereGrad)"/>
+    <circle cx="6.89" cy="43.01" r="11.48" fill="url(#sphereGrad)"/>
+    <circle cx="-39.3" cy="23.01" r="11.64" fill="url(#sphereGrad)"/>
+    <circle cx="-37.24" cy="-29.52" r="11.79" fill="url(#sphereGrad)"/>
+    <circle cx="14.6" cy="-47.3" r="11.95" fill="url(#sphereGrad)"/>
+    <circle cx="51.35" cy="-3.67" r="12.10" fill="url(#sphereGrad)"/>
+    <circle cx="22.88" cy="48.32" r="12.26" fill="url(#sphereGrad)"/>
+    <circle cx="-38.1" cy="40.27" r="12.41" fill="url(#sphereGrad)"/>
+    <circle cx="-53.17" cy="-21.67" r="12.57" fill="url(#sphereGrad)"/>
+    <circle cx="0.96" cy="-59.39" r="12.73" fill="url(#sphereGrad)"/>
+  </g>
+</svg>
