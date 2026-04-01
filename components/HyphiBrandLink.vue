@@ -25,12 +25,11 @@ export default {
   background: rgba(10, 10, 15, 0.7)
   backdrop-filter: blur(8px)
   text-decoration: none
-  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s
+  transition: border-color 0.2s, box-shadow 0.2s
 
   &:hover
     border-color: rgba(255, 107, 53, 0.5)
     box-shadow: 0 0 20px rgba(123, 92, 250, 0.12), 0 0 40px rgba(255, 107, 53, 0.06)
-    transform: translateY(-1px)
 
   &__cta
     font-size: .8rem
