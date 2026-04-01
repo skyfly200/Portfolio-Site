@@ -49,9 +49,14 @@ export default {
   &__name
     font-size: 2rem
     letter-spacing: .12em
-    background: linear-gradient(to right, #c4a8ff, #ffaa80)
+    background: linear-gradient(to right, #d8c8ff, #ffc4a0)
     -webkit-background-clip: text
     -webkit-text-fill-color: transparent
     background-clip: text
     line-height: 1
+
+  &:hover &__name
+    background: linear-gradient(to right, #b09ae8, #f09060)
+    -webkit-background-clip: text
+    background-clip: text
 </style>
