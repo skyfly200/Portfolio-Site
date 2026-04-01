@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:061b66f8f19a293df9c585a5c0452d2c8702da0e3892bbfc137ccea46b3da364
-size 115
+[[redirects]]
+  from = "/*"
+  to = "/"
+  status = 200
+  force = false
+  [redirects.headers]
+    X-From = "Netlify"

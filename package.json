@@ -1,3 +1,105 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3fd20730edd710e1533f9b427bbebfa5fa1fda6dd918ff7531c293ea72734d94
-size 2362
+{
+  "name": "Portfolio-Site",
+  "version": "3.1.0",
+  "description": "Portfolio Website for Skyler Fly-Wilson",
+  "author": "Skyler Fly-Wilson",
+  "type": "module",
+  "scripts": {
+    "dev": "nuxt dev",
+    "watch": "vite build --watch",
+    "build": "nuxt build",
+    "analyze": "nuxt build --analyze",
+    "start": "nuxt start",
+    "preview": "vite preview",
+    "lint": "eslint .",
+    "test:unit": "vitest",
+    "coverage": "vitest --coverage"
+  },
+  "dependencies": {
+    "@pinia/nuxt": "^0.11.0",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "@yeger/vue-masonry-wall": "^5.0.17",
+    "aos": "^2.3.4",
+    "autoprefixer": "^10.4.20",
+    "axios": "^1.7.9",
+    "dayjs": "^1.11.13",
+    "leaflet": "^1.9.4",
+    "lodash": "^4.17.21",
+    "marked": "^15.0.3",
+    "moment": "^2.30.1",
+    "nuxt": "^3.15.4",
+    "pinia": "^3.0.2",
+    "pug": "^3.0.3",
+    "vite": "^6.0.3",
+    "vitest": "^2.1.8",
+    "vue": "^3.5.13",
+    "vue-axios": "^3.5.2",
+    "vue-cli-plugin-pug": "^2.0.0",
+    "vue-router": "^4.5.0",
+    "vuetify": "^3.7.13",
+    "vuetify-nuxt-module": "^0.18.3",
+    "webpack-plugin-vuetify": "^3.0.3"
+  },
+  "devDependencies": {
+    "@vue/test-utils": "^2.4.6",
+    "babel-plugin-istanbul": "^7.0.0",
+    "chai": "^5.1.2",
+    "eslint": "^9.17.0",
+    "eslint-plugin-vue": "^9.32.0",
+    "sass": "^1.85.0",
+    "sass-embedded": "^1.83.0",
+    "sass-loader": "^16.0.5",
+    "sharp": "^0.33.5",
+    "sinon": "^19.0.2",
+    "stylus": "^0.64.0",
+    "vite-plugin-image-optimizer": "^1.1.8"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "@vue/prettier",
+      "eslint:recommended"
+    ],
+    "rules": {},
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
+  "license": "GPL-3.0",
+  "nyc": {
+    "instrument": false,
+    "sourceMap": false,
+    "check-coverage": false,
+    "per-file": true,
+    "lines": 90,
+    "statements": 90,
+    "functions": 90,
+    "branches": 90,
+    "include": [
+      "src/**/*.{js,vue}",
+      "src/*.vue"
+    ],
+    "reporter": [
+      "lcov",
+      "text",
+      "text-summary"
+    ],
+    "cache": true,
+    "all": true
+  },
+  "repository": "github:skyfly200/Portfolio-Site"
+}

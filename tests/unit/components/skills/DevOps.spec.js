@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4c55fa17a739d305e678f6fe3f141ea2dcf14dde7d410ea732d58e856ab563ce
-size 313
+import { expect } from "chai";
+import { shallowMount } from "@vue/test-utils";
+import DevOps from "../components/skills/DevOps.vue";
+
+describe("DevOps.vue", () => {
+  it("Renders Title", () => {
+    const wrapper = shallowMount(DevOps);
+    expect(wrapper.text()).to.include("Experience and Skillset");
+  });
+});
