@@ -11,6 +11,8 @@
           p Learning new things is a top priority. I am a lifelong learner, finding new concepts and perspectives every day. Below I have distilled an array of projects and content showcasing my most potent passions and talents. I will be regularly updating this site, so be sure to check back to see what I am up to.
         .bio-link.pa-7
           v-btn(v-if="false" to="/bio" :color="$color-secondary-1-0" rounded="lg" size="large" variant="text") More About Me
+        .hyphi-link-wrap(data-aos="fade" data-aos-delay="100")
+          HyphiBrandLink
         hr
         .welcome-social
           a(href="https://github.com/skyfly200", target="_blank")
@@ -27,9 +29,11 @@
 </template>
 
 <script>
+import HyphiBrandLink from "./HyphiBrandLink.vue";
+
 export default {
   name: "welcome",
-  components: {}
+  components: { HyphiBrandLink }
 };
 </script>
 
@@ -64,6 +68,11 @@ export default {
       .welcome-heading h2
         font-size: 2em
         padding: 1em
+
+      .hyphi-link-wrap
+        display: flex
+        justify-content: center
+        padding: 16px 0 8px
 
       .welcome-blurb p
         font-size: 1.1rem
