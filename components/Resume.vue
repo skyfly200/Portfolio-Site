@@ -54,6 +54,7 @@ export default {
   .resume-buttons
     width: 100%
     display: flex
+    flex-wrap: wrap
     justify-content: center
     align-items: center
     margin-bottom: 40px
@@ -88,7 +89,9 @@ export default {
       justify-content: center
       padding: 10px
       button.resume-btn
-        margin: 20px 0px
+        width: 80vw
+        min-width: unset
+        margin: 10px 0px
         padding: 10px 20px
 
 </style>
