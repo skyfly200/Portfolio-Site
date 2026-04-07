@@ -24,13 +24,13 @@ export default {
 // quote Styles
 .quote
   min-height: 44vh
-  @media (max-width: 600px)
-    min-height: unset
-    padding: 30px 10px
   background-image: url('/images/Dewscape-2-01.jpg')
   background-repeat: repeat
   background-size: 33vw
   padding: 50px 10px
+  @media (max-width: 600px)
+    min-height: unset
+    padding: 30px 10px
   @include card-depth(5)
   background-color: $color-primary-3
   line-height: 2.5em
