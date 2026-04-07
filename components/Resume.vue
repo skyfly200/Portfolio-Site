@@ -85,13 +85,14 @@ export default {
         padding-left: 15px
         padding-right: 15px
     @media (max-width: 700px)
-      flex-direction: column
-      justify-content: center
-      padding: 10px
       button.resume-btn
-        width: 80vw
+        flex: 0 0 calc(50% - 20px)
         min-width: unset
-        margin: 10px 0px
-        padding: 10px 20px
+        margin: 10px
+        font-size: 1.4em
+    @media (max-width: 450px)
+      button.resume-btn
+        flex: 0 0 100%
+        margin: 8px 0
 
 </style>

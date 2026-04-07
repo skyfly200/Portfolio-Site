@@ -75,7 +75,11 @@ export default {
     max-width: 33%
     flex: 33%
 
-  @media (max-width: 570px)
+  @media (max-width: 700px)
+    max-width: 50%
+    flex: 50%
+
+  @media (max-width: 480px)
     max-width: 100%
     flex: 100%
 </style>

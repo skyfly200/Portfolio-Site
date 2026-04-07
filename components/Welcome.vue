@@ -88,15 +88,17 @@ export default {
       max-width: 80vh
       border-radius: 50%
 
-    @media (max-width: 600px), (max-width: 768px) and (orientation: portrait)
+    @media (max-width: 768px)
       order: -1
       img
         width: 60vw
         height: 60vw
 
-  @media (max-width: 600px), (max-width: 768px) and (orientation: portrait)
+  @media (max-width: 768px)
     flex-direction: column
     flex-wrap: wrap
     padding: 10px 0px 40px 0px
+    > div, .welcome-img
+      width: 100%
 
 </style>
