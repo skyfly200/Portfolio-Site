@@ -24,9 +24,12 @@ export default {
 // Contact Styles
 .contact
   padding: 50px 10px
+  min-height: 25vh
   @include card-depth(5)
   background-color: $color-primary-3
   color: #FFF
+  @media (max-width: 768px)
+    padding-top: 60px
 
   .contact-info
     padding: 1em

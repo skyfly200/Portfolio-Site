@@ -67,6 +67,8 @@ export default {
   width: 100%
   min-height: 60vh
   @include card-depth(2)
+  @media (max-width: 768px)
+    padding-top: 20px
 
   .topics-header
     color: $grey-0

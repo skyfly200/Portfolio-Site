@@ -50,6 +50,8 @@ export default {
   @include card-depth(4)
   .resume-header
     margin-top: 50px
+  @media (max-width: 768px)
+    padding-top: 60px
 
   .resume-buttons
     width: 100%
@@ -59,13 +61,14 @@ export default {
     align-items: center
     margin-bottom: 40px
     button.resume-btn
-      min-width: 200px
+      flex: 0 0 calc(25% - 20px)
+      min-width: unset
       display: flex
       justify-content: center
       align-items: center
-      margin: 30px
-      padding: 5px 15px
-      font-size: 180%
+      margin: 10px
+      padding: 5px 10px
+      font-size: 1.4em
       background-color: rgba(0,0,0,0.8)
       color: #FFF
       border-radius: 0px
@@ -78,21 +81,14 @@ export default {
         background-color: rgba(255,255,255,0.8)
         color: #000
 
-    @media (max-width: 900px)
-      button.resume-btn
-        margin: 10px
-        font-size: 1.8em
-        padding-left: 15px
-        padding-right: 15px
     @media (max-width: 700px)
       button.resume-btn
         flex: 0 0 calc(50% - 20px)
-        min-width: unset
-        margin: 10px
-        font-size: 1.4em
+        font-size: 1.2em
     @media (max-width: 450px)
       button.resume-btn
         flex: 0 0 100%
         margin: 8px 0
+        font-size: 1.1em
 
 </style>

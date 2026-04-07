@@ -98,7 +98,9 @@ export default {
     flex-direction: column
     flex-wrap: wrap
     padding: 10px 0px 40px 0px
-    > div, .welcome-img
+    > div
       width: 100%
+    .welcome-img
+      align-self: center
 
 </style>
