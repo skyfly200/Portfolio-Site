@@ -83,12 +83,7 @@ export default {
 
     @media (max-width: 700px)
       button.resume-btn
-        flex: 0 0 calc(50% - 20px)
+        flex: 0 0 calc(100% - 20px)
         font-size: 1.2em
-    @media (max-width: 450px)
-      button.resume-btn
-        flex: 0 0 100%
-        margin: 8px 0
-        font-size: 1.1em
 
 </style>
