@@ -92,6 +92,8 @@ export default {
 
     @media (max-width: 768px)
       order: -1
+      width: 62vw
+      height: 62vw
       img
         width: 60vw
         height: 60vw
