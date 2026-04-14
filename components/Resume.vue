@@ -59,14 +59,21 @@ export default {
     flex-wrap: wrap
     justify-content: center
     align-items: center
-    margin-bottom: 40px
-    button.resume-btn
+    margin-bottom: 20px
+
+    .resume-button
       flex: 0 0 calc(25% - 20px)
-      min-width: unset
+      margin: 10px
+      display: flex
+      a
+        display: block
+        width: 100%
+
+    button.resume-btn
+      width: 100%
       display: flex
       justify-content: center
       align-items: center
-      margin: 10px
       padding: 5px 10px
       font-size: 1.4em
       background-color: rgba(0,0,0,0.8)
@@ -81,9 +88,9 @@ export default {
         background-color: rgba(255,255,255,0.8)
         color: #000
 
-    @media (max-width: 700px)
-      button.resume-btn
-        flex: 0 0 calc(100% - 20px)
-        font-size: 1.2em
+    @media (max-width: 768px)
+      .resume-button
+        flex: 0 0 calc(80% - 20px)
+        margin: 8px auto
 
 </style>
