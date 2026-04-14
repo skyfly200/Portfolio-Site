@@ -82,6 +82,7 @@ export default {
       flex-wrap: wrap
       h1
         margin: 0.5vh
+        line-height: 1.3
         @media (max-width: 400px)
           font-size: 2em
         @media (max-width: 320px)
