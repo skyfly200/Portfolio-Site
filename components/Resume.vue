@@ -62,7 +62,7 @@ export default {
     margin-bottom: 20px
 
     .resume-button
-      flex: 0 0 calc(25% - 20px)
+      flex: 0 0 calc(50% - 20px)
       margin: 10px
       display: flex
       a
