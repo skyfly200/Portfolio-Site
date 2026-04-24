@@ -58,11 +58,11 @@ export default {
     display: flex
     flex-wrap: wrap
     justify-content: center
-    align-items: center
+    align-items: flex-start
     margin-bottom: 20px
 
     .resume-button
-      flex: 0 0 calc(50% - 20px)
+      flex: 0 0 calc(40% - 20px)
       margin: 10px
       display: flex
       a
@@ -74,7 +74,7 @@ export default {
       display: flex
       justify-content: center
       align-items: center
-      padding: 5px 10px
+      padding: 12px 10px
       font-size: 1.4em
       background-color: rgba(0,0,0,0.8)
       color: #FFF
