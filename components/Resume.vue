@@ -49,7 +49,7 @@ export default {
   text-align: center
   @include card-depth(4)
   .resume-header
-    margin-top: 50px
+    margin-top: 30px
     margin-bottom: 30px
   @media (max-width: 768px)
     padding-top: 60px
@@ -60,11 +60,11 @@ export default {
     flex-wrap: wrap
     justify-content: center
     align-items: flex-start
-    margin-bottom: 20px
+    margin-bottom: 40px
 
     .resume-button
-      flex: 0 0 calc(40% - 20px)
-      margin: 10px
+      flex: 0 0 calc(40% - 40px)
+      margin: 20px
       display: flex
       a
         display: block
