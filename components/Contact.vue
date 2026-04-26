@@ -3,9 +3,9 @@
 .contact#contact
   .contact-block
     ClientOnly
-      .contact-header(data-aos="fade" data-aos-delay="200" data-aos-anchor-placement="top-bottom")
+      .contact-header(data-aos="fade" data-aos-delay="200" data-aos-anchor-placement="top-bottom" data-aos-offset="0")
         h1 Get in touch!
-      .contact-info(data-aos="fade" data-aos-delay="200" data-aos-anchor-placement="top-bottom")
+      .contact-info(data-aos="fade" data-aos-delay="200" data-aos-anchor-placement="top-bottom" data-aos-offset="0")
         a(href="mailto:skyler@skylerfly.com", target="_blank").contact-link.email
           h2 magic@skylerfly.com
         a(href="tel:7203100607").contact-link.phone
