@@ -92,7 +92,7 @@ export default {
       { title: "Landscaping Website", img: "/images/front-end/earth-accents.png", description: "Site for a local landscaping company to showcase their work.", tech: ["Vue","Nuxt","Vuetify","Netlify"], url: "https://earthaccents.netlify.app/", repo: "https://github.com/skyfly200/earth-accents-site" },
       { title: "Front Range Mycological Society", img: "/images/front-end/frms.png", description: "A website for the Front Range Mycological Society, exploring the world of fungi through education, forays, and community building.", tech: ["Vue","Nuxt","Markdown","Netlify"], url: "https://frontrangemycosociety.org/", repo: "https://github.com/skyfly200/frms-site" },
       { title: "Hyphi", img: "/images/front-end/hyphi.png", description: "Site for an open-source LED art hardware design company crafting luminescent pieces for live events, flow arts, and living spaces.", tech: ["HTML","Netlify"], url: "https://hyphi.art/", repo: "" },
-      { title: "Hyphi Tools", img: "/images/front-end/hyphi-tools.png", description: "", tech: [], url: "https://tools.hyphi.art/", repo: "https://github.com/skyfly200/hyphi-tools" },
+      { title: "Hyphi Tools", img: "/images/front-end/hyphi-tools.png", description: "A set of tools for origami design, QR code generation, and link shortening.", tech: ["React","Vue","Rabbit Ear"], url: "https://tools.hyphi.art/", repo: "https://github.com/skyfly200/hyphi-tools" },
     ],
   }),
 };
