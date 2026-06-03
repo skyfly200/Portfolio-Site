@@ -3,7 +3,7 @@
 
   v-btn(href="/software" variant="text" color="primary").home-btn
     i.fas.fa-arrow-left.mr-2
-    | Software
+    span Software
 
   .page-header(data-aos="fade-down")
     .header-eyebrow Software
@@ -26,7 +26,7 @@
     .source-btn.mb-8
       v-btn(color="primary" variant="outlined" href="https://github.com/skyfly200/Portfolio-Site" target="_blank")
         i.fab.fa-github.mr-2
-        | View Source
+        span View Source
 
     .section-title Other tools I like to use
 
@@ -56,10 +56,10 @@
           v-card-actions
             v-btn(variant="outlined" color="primary" :href="site.url" target="_blank")
               i.fas.fa-external-link-alt.mr-2
-              | Explore
+              span Explore
             v-btn(v-if="site.repo" variant="text" color="primary" :href="site.repo" target="_blank")
               i.fab.fa-github.mr-2
-              | Source
+              span Source
 </template>
 
 <script>
