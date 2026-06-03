@@ -18,6 +18,7 @@ export default defineNuxtConfig({
         { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge' },
       ],
       link: [
+        { rel: 'icon', type: 'image/svg+xml', href: '/ColorLogo.svg' },
         { rel: 'icon', href: '/favicon.ico' },
         { rel: 'stylesheet', href: 'https://unpkg.com/aos@2.3.1/dist/aos.css' },
         { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Nixie+One|Raleway' },
