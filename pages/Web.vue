@@ -90,6 +90,7 @@ export default {
       { title: "Colorado Community Radio Network", img: "/images/front-end/coloradocommunityradio.png", description: "Official site to connect stations and share the purpose of our network.", tech: ["PHP","Bootstrap","Digital Ocean"], url: "http://coloradocommunityradio.com", repo: "https://github.com/skyfly200/CCRN-Website" },
       { title: "Polytope Solutions", img: "/images/front-end/PolytopeSolutions.png", description: "Tech solutions consulting brand.", tech: ["Vue","Vuetify","Netlify Functions","Mailgun"], url: "https://polytopesolutions.com/", repo: "https://github.com/skyfly200/Polytope-Solutions" },
       { title: "Landscaping Website", img: "/images/front-end/earth-accents.png", description: "Site for a local landscaping company to showcase their work.", tech: ["Vue","Nuxt","Vuetify","Netlify"], url: "https://earthaccents.netlify.app/", repo: "https://github.com/skyfly200/earth-accents-site" },
+      { title: "Front Range Mycological Society", img: "/images/front-end/frms.png", description: "A website for the Front Range Mycological Society, exploring the world of fungi through education, forays, and community building.", tech: ["Vue","Nuxt","Markdown","Netlify"], url: "https://frontrangemycosociety.org/", repo: "https://github.com/skyfly200/frms-site" },
     ],
   }),
 };
