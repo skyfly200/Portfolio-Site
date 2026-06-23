@@ -58,9 +58,9 @@ export default {
         font-size: 2em
         i
           transition: all 200ms
-          filter: drop-shadow( 0px 0px 0px rgba(0, 0, 0, .75))
-          &:hover
-            filter: drop-shadow( 0px 5px 2px rgba(0, 0, 0, .75))
+          filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, .75))
+        &:hover i
+          filter: drop-shadow(0px 5px 2px rgba(0, 0, 0, .75))
 
     .welcome-content
       display: flex
