@@ -16,13 +16,13 @@
         hr
         .welcome-social
           a(href="https://github.com/skyfly200", target="_blank")
-            svg.fab.fa-github.fa-2x
+            i.fab.fa-github.fa-2x
           a(href="http://codepen.io/skyfly200/", target="_blank")
-            svg.fab.fa-codepen.fa-2x
+            i.fab.fa-codepen.fa-2x
           a(href="https://www.linkedin.com/in/skyler-fly-wilson-38870986", target="_blank")
-            svg.fab.fa-linkedin.fa-2x
+            i.fab.fa-linkedin.fa-2x
           a(href="mailto:skyler@skylerfly.com", target="_blank")
-            svg.fa.fa-envelope.fa-2x
+            i.fas.fa-envelope.fa-2x
 
 
     .welcome-img(data-aos="fade-left" data-aos-delay="100")
@@ -53,7 +53,7 @@ export default {
       display: flex
       justify-content: space-around
       padding: 20px
-      a svg
+      a i
         transition: all 200ms
         filter: drop-shadow( 0px 0px 0px rgba(0, 0, 0, .75))
         &:hover

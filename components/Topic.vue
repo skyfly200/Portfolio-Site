@@ -3,8 +3,8 @@ router-link.topic.wow(:to="link")
   .icon-box
     .topic-icon
       span.fa-stack.fa-3x
-        svg.fas.fa-circle.fa-stack-2x
-        svg.fa.fa-stack-1x.fa-inverse(:class="icon")
+        i.fas.fa-circle.fa-stack-2x
+        i.fa.fa-stack-1x.fa-inverse(:class="icon")
   .topic-title
     h1 {{ name }}
   .topic-list

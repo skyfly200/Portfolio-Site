@@ -1,7 +1,7 @@
 <template lang="pug">
 a(:href="url")
   v-btn(target="_blank").button
-    svg.fab.fa-2x(v-if="icon" :class="icon")
+    i.fab.fa-2x(v-if="icon" :class="icon")
     span.label &nbsp;{{ text }}
 </template>
 
