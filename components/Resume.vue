@@ -73,9 +73,9 @@ export default {
     button.resume-btn
       width: 100%
       display: flex
-      justify-content: center
+      justify-content: flex-start
       align-items: center
-      padding: 12px 10px
+      padding: 12px 20px
       font-size: 1.4em
       svg
         height: 1.2em
