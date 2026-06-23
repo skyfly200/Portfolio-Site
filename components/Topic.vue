@@ -43,8 +43,6 @@ export default {
       padding: 0px
       text-shadow: 2px 5px 15px rgba(0,0,0,1)
       transition: text-shadow
-      .fa-circle
-        width: 1em
 
     .fa-inverse
       color: $color-primary-1

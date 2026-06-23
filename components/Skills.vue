@@ -98,7 +98,7 @@ export default {
     padding-bottom: 40px
     display: flex
     flex-wrap: wrap
-    justify-content: start
+    justify-content: center
     align-items: stretch
 
     .github-button button
