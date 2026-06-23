@@ -9,7 +9,7 @@
         a(href="https://docs.google.com/document/d/1eOP-9JIYIdzsZDjC8GpUtUooQatW6zjNYp13QWB6wqc/edit?usp=sharing", target="_blank")
           button.resume-btn.btn.btn-default.wow.zoomIn
             i.fas.fa-cogs
-            .btn-text &nbsp;Software and IT
+            .btn-text &nbsp;Software &amp; IT
       .resume-button(data-aos="flip-down" data-aos-delay="200" data-aos-duration="750" data-aos-anchor="#resume")
         a(href="https://docs.google.com/document/d/1YRo70HkkRz94AQ7oEAPIKkPbyw5t5kzFkKZDYlIV0Lw/edit?usp=sharing", target="_blank")
           button.resume-btn.btn.btn-default.wow.zoomIn
