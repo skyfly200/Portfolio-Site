@@ -10,14 +10,14 @@
 
         .landing-caption(data-aos="fade-up" data-aos-delay="400")
           h2 Multidisciplinary Magic&nbsp;
-            svg.fa.fa-magic.fa-sm
+            i.fas.fa-magic.fa-sm
 
         .landing-statement(data-aos="fade-up" data-aos-delay="600")
           h3 "Any sufficiently advanced technology is indistinguishable from magic"
           h4 Arthur C. Clarke
 
   a.scroll-hint(href="#welcome")
-    svg.fa.fa-angle-down.fa-3x
+    i.fas.fa-angle-down.fa-3x
 </template>
 
 <script>
@@ -62,6 +62,8 @@ export default {
 
       .landing-name
         display: flex
+        justify-content: center
+        width: 100%
         h1
           line-height: 1.2
           padding: 0px
@@ -81,6 +83,8 @@ export default {
       .landing-caption
         margin-top: 10px
         text-shadow: 0px 1px 1px rgba(0,0,0,1)
+        text-align: center
+        width: 100%
         h2
           margin: 0px
           padding: 0px
