@@ -8,7 +8,7 @@
       .resume-button(data-aos="flip-down" data-aos-delay="100" data-aos-duration="750" data-aos-anchor="#resume")
         a(href="https://docs.google.com/document/d/1eOP-9JIYIdzsZDjC8GpUtUooQatW6zjNYp13QWB6wqc/edit?usp=sharing", target="_blank")
           button.resume-btn.btn.btn-default.wow.zoomIn
-            svg.fa.fa-cogs
+            i.fas.fa-cogs
             .btn-text &nbsp;Software and IT
       .resume-button(data-aos="flip-down" data-aos-delay="200" data-aos-duration="750" data-aos-anchor="#resume")
         a(href="https://docs.google.com/document/d/1YRo70HkkRz94AQ7oEAPIKkPbyw5t5kzFkKZDYlIV0Lw/edit?usp=sharing", target="_blank")
@@ -25,7 +25,7 @@
       .resume-button(data-aos="flip-down" data-aos-delay="400" data-aos-duration="750" data-aos-anchor="#resume")
         a(href="https://docs.google.com/document/d/1SrNxaV6kmGSgyJfo2iXVY9L-e66pVPKJBvSu4CQSrsk/edit?usp=sharing", target="_blank")
           button.resume-btn.btn.btn-default.wow.zoomIn
-            svg.fa.fa-film
+            i.fas.fa-film
             .btn-text &nbsp;Multimedia
 
 
@@ -77,6 +77,13 @@ export default {
       align-items: center
       padding: 12px 10px
       font-size: 1.4em
+      svg
+        height: 1.2em
+        width: 1.2em
+        margin-right: 8px
+      i
+        font-size: 1.2em
+        margin-right: 8px
       background-color: rgba(0,0,0,0.8)
       color: #FFF
       border-radius: 0px
