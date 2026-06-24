@@ -30,7 +30,7 @@ export default {
   padding: 60px 10px
   @media (max-width: 600px)
     min-height: 45vh
-    padding: 50px 20px
+    padding: 80px 20px
   @include card-depth(5)
   background-color: $color-primary-3
   line-height: 2.5em
