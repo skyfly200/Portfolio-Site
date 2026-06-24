@@ -43,6 +43,7 @@
               i.fas.fa-arrow-right.ml-2
       v-col(cols="12" md="6")
         v-card.skill-card(@click="$router.push('/consulting')")
+
           v-img(cover src="https://picsum.photos/id/306/600/300" alt="Consulting" height="200")
           v-card-title.card-title Emerging Tech Consulting
           v-card-subtitle.card-sub Expert guidance for businesses and individuals
@@ -50,7 +51,16 @@
           v-card-actions
             v-btn(variant="outlined" color="primary" to="/consulting") See More
               i.fas.fa-arrow-right.ml-2
-</template>
+
+    v-divider.my-8
+
+    .case-studies-cta(data-aos="fade-up")
+      .cta-label See It In Action
+      h2.cta-title Case Studies
+      p.cta-body Real client engagements, technical breakdowns, and measurable outcomes — from network overhauls to blockchain security research.
+      v-btn(color="primary" variant="elevated" to="/case-studies" size="large")
+        i.fas.fa-arrow-right.mr-2
+        span View Case Studies</template>
 
 <script>
 export default { name: "services" };
@@ -129,4 +139,26 @@ export default { name: "services" };
     font-size: 0.9rem
     line-height: 1.7
     opacity: 0.8
+
+  .case-studies-cta
+    text-align: center
+    padding: 40px 24px 0
+    .cta-label
+      font-family: 'Nixie One', sans-serif
+      font-size: 0.85rem
+      letter-spacing: 0.25em
+      text-transform: uppercase
+      color: #7627D0
+      margin-bottom: 12px
+    h2.cta-title
+      font-family: 'Nixie One', sans-serif
+      font-size: clamp(1.6rem, 4vw, 2.2rem)
+      font-weight: 700
+      margin-bottom: 12px
+    .cta-body
+      font-family: 'Raleway', sans-serif
+      font-size: 1rem
+      opacity: 0.7
+      max-width: 560px
+      margin: 0 auto 24px
 </style>
