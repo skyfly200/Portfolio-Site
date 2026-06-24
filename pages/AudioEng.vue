@@ -69,11 +69,11 @@ export default {
   name: "audioEng",
   data: () => ({
     gigs: [
-      { title: "Shine", role: "Live Sound Engineer", description: "Live sound engineering at this beloved Boulder venue.", img: "" },
       { title: "The Laughing Goat", role: "Live Sound Engineer", description: "Live sound at The Laughing Goat, Boulder.", img: "" },
+      { title: "Shine", role: "Live Sound Engineer", description: "Live sound engineering at this beloved Boulder venue.", img: "" },
       { title: "The Caribou Room", role: "Live Sound Engineer", description: "Live sound at this Nederland mountain music venue.", img: "" },
-      { title: "Frozen Dead Guy Days 2017", role: "Stage Manager", description: "Stage management at Nederland's iconic annual festival.", img: "" },
-      { title: "Frozen Dead Guy Days 2018", role: "Stage Manager", description: "Stage management at Nederland's iconic annual festival.", img: "" },
+      { title: "Frozen Dead Guy Days 2017", role: "Stage Manager & Live Sound Engineer", description: "Stage management and live sound at Nederland's iconic annual festival.", img: "" },
+      { title: "Frozen Dead Guy Days 2018", role: "Stage Manager & Live Sound Engineer", description: "Stage management and live sound at Nederland's iconic annual festival.", img: "" },
       { title: "Way High Radio Benefit — Halloween", role: "Live Sound Engineer", description: "Live sound for the Way High Radio Halloween benefit show.", img: "" },
       { title: "Microcosm", role: "Live Sound Engineer", description: "Live sound for the Microcosm event.", img: "" },
     ],
