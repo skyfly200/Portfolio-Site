@@ -46,6 +46,8 @@ export default {
       { title: "The Caribou Room", role: "Live Sound Engineer", description: "Live sound at this Nederland mountain music venue.", img: "" },
       { title: "Frozen Dead Guy Days 2017", role: "Stage Manager", description: "Stage management at Nederland's iconic annual festival.", img: "" },
       { title: "Frozen Dead Guy Days 2018", role: "Stage Manager", description: "Stage management at Nederland's iconic annual festival.", img: "" },
+      { title: "Way High Radio Benefit — Halloween", role: "Live Sound Engineer", description: "Live sound for the Way High Radio Halloween benefit show.", img: "" },
+      { title: "Microcosm", role: "Live Sound Engineer", description: "Live sound for the Microcosm event.", img: "" },
     ],
     topics: {
       audio:    { name: "Audio",          icon: "fa-microphone", link: "audioeng",   summary: ["Live, Tracking, Mixing", "FM and Online Broadcasting", "Pro Tools, Audition, Ableton"] },
