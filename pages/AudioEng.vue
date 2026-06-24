@@ -48,10 +48,37 @@
       v-btn(color="primary" variant="tonal" href="https://archive.org/details/@skybfly" target="_blank")
         i.fas.fa-headphones.mr-2
         | More Recordings
+
+    v-divider.my-8
+
+    .section-title Live Sound Gigs
+
+    v-row
+      v-col(v-for="gig in gigs" :key="gig.title" cols="12" sm="6" lg="4")
+        v-card.info-card.gig-card
+          v-img(v-if="gig.img" :src="gig.img" cover height="180")
+          .gig-placeholder(v-else)
+          v-card-title.card-title {{ gig.title }}
+          v-card-subtitle.card-sub {{ gig.role }}
+          v-card-text
+            p.card-body {{ gig.description }}
 </template>
 
 <script>
-export default { name: "audioEng" };
+export default {
+  name: "audioEng",
+  data: () => ({
+    gigs: [
+      { title: "Shine", role: "Live Sound Engineer", description: "Live sound engineering at this beloved Boulder venue.", img: "" },
+      { title: "The Laughing Goat", role: "Live Sound Engineer", description: "Live sound at The Laughing Goat, Boulder.", img: "" },
+      { title: "The Caribou Room", role: "Live Sound Engineer", description: "Live sound at this Nederland mountain music venue.", img: "" },
+      { title: "Frozen Dead Guy Days 2017", role: "Stage Manager", description: "Stage management at Nederland's iconic annual festival.", img: "" },
+      { title: "Frozen Dead Guy Days 2018", role: "Stage Manager", description: "Stage management at Nederland's iconic annual festival.", img: "" },
+      { title: "Way High Radio Benefit — Halloween", role: "Live Sound Engineer", description: "Live sound for the Way High Radio Halloween benefit show.", img: "" },
+      { title: "Microcosm", role: "Live Sound Engineer", description: "Live sound for the Microcosm event.", img: "" },
+    ],
+  }),
+};
 </script>
 
 <style lang="sass">
@@ -117,4 +144,16 @@ export default { name: "audioEng" };
     flex-wrap: wrap
     gap: 12px
     padding: 8px 16px 16px
+
+  .gig-card
+    overflow: hidden
+    height: 100%
+
+  .gig-placeholder
+    height: 180px
+    background: linear-gradient(135deg, rgba(118,39,208,0.3), rgba(30,10,60,0.6))
+
+  .card-sub
+    font-family: 'Raleway', sans-serif
+    opacity: 0.6
 </style>
