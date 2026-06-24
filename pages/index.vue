@@ -80,6 +80,10 @@ export default {
       color: white
       background: rgba(255, 255, 255, 0.15)
       border-color: rgba(255, 255, 255, 0.45)
+    @media (max-width: 600px)
+      width: 28px
+      height: 28px
+      font-size: 1.1rem
 
 .hyphi-pop-enter-active
   transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)
