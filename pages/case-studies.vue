@@ -34,6 +34,15 @@
           .study-label The Outcome
           p.study-text {{ study.outcome }}
 
+  v-divider.my-8
+
+  .work-cta(data-aos="fade-up")
+    h2.cta-title Interested in working together?
+    p.cta-body If you have a technical challenge that needs solving — network infrastructure, smart contract security, custom tooling, or web development — get in touch.
+    v-btn(color="primary" variant="elevated" href="mailto:skyler@skylerfly.com" size="large")
+      i.fas.fa-envelope.mr-2
+      span Get In Touch
+
 </template>
 
 <script>
@@ -170,4 +179,18 @@ export default {
     border: 1px solid rgba(118, 39, 208, 0.3)
     border-radius: 8px
     padding: 16px 20px
+
+  .work-cta
+    text-align: center
+    padding: 0 24px 60px
+    h2.cta-title
+      font-family: 'Nixie One', sans-serif
+      font-size: clamp(1.4rem, 3vw, 2rem)
+      margin-bottom: 12px
+    .cta-body
+      font-family: 'Raleway', sans-serif
+      font-size: 1rem
+      opacity: 0.7
+      max-width: 520px
+      margin: 0 auto 24px
 </style>

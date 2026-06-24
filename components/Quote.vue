@@ -38,13 +38,13 @@ export default {
     color: #FFF
     text-shadow: 3px 3px 5px #000
     @media (max-width: 1000px)
-      line-height: 2em
+      line-height: 2.2em
       font-size: 1em
     @media (max-width: 600px)
-      line-height: 1.6em
+      line-height: 2em
       font-size: 0.7em
     @media (max-width: 425px)
-      line-height: 1.4em
+      line-height: 1.8em
       font-size: 0.6em
   a:hover
     text-shadow: 3px 5px 7px #000
