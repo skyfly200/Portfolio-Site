@@ -38,7 +38,7 @@
 
   .work-cta(data-aos="fade-up")
     h2.cta-title Interested in working together?
-    p.cta-body If you have a technical challenge that needs solving — network infrastructure, smart contract security, custom tooling, or web development — get in touch.
+    p.cta-body If you have a technical challenge that needs solving: network infrastructure, smart contract security, custom tooling, or web development, get in touch.
     v-btn(color="primary" variant="elevated" href="mailto:skyler@skylerfly.com" size="large")
       i.fas.fa-envelope.mr-2
       span Get In Touch
