@@ -121,7 +121,7 @@ export default {
       { caption: "SASS",    id: "sass-logo",    img: "sass.png",    url: "https://sass-lang.com/" },
       { caption: "Pug",     id: "pug-logo",     img: "pug.png",     url: "https://pugjs.org" },
       { caption: "Netlify", id: "netlify-logo", img: "netlify.png", url: "https://www.netlify.com/" },
-      { caption: "GCP",     id: "gcp-logo",     img: "gcp.png",     url: "https://cloud.google.com" },
+      { caption: "Vuex",    id: "vuex-logo",    img: "vuex.png",    url: "https://vuex.vuejs.org/" },
     ],
     allTools: [
       { caption: "Python",       id: "python-logo",    img: "python.png",    url: "https://www.python.org/" },
