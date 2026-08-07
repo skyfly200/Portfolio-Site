@@ -28,11 +28,11 @@
           v-card-item
             .icon-tile
               i.fas.fa-house-laptop
-            .card-rate $100 to $150 / hr
             v-card-title.card-title Business & Home IT Support
             v-card-subtitle.card-sub In-home, office, and remote support for all your devices.
           v-card-text.card-body
             p Full support for Wi-Fi and networks, computers, phones, IoT devices, point-of-sale systems, audio and video gear, and everyday troubleshooting.
+          .card-rate $100 to $150 / hr
           v-card-actions.card-actions
             v-btn(variant="outlined" color="primary" to="/buis-it") Business
               i.fas.fa-arrow-right.ml-2
@@ -49,11 +49,11 @@
           v-card-item
             .icon-tile
               i.fas.fa-chalkboard-user
-            .card-rate $30 to $100 / hr
             v-card-title.card-title Tech & Coding Tutoring
             v-card-subtitle.card-sub Personalized IT and software development mentorship.
           v-card-text.card-body
             p One-on-one instruction in programming languages, web development, hardware basics, and digital tools, tailored for beginners through advanced learners.
+          .card-rate $30 to $100 / hr
           v-card-actions.card-actions
             v-btn(variant="outlined" color="primary" to="/tutoring") See More
               i.fas.fa-arrow-right.ml-2

@@ -28,7 +28,6 @@
           v-card-item
             .icon-tile
               i.fas.fa-bolt
-            .card-rate $100 to $200 / hr
             v-card-title.card-title Hardware Design & PCB Prototyping
             v-card-subtitle.card-sub From napkin sketch to physical circuit board.
           v-card-text.card-body
@@ -49,6 +48,7 @@
               v-list-item(prepend-icon="fa:fas fa-screwdriver-wrench")
                 strong Firmware Integration & Assembly.
                 |  From digital CAD files to working physical prototypes.
+          .card-rate $100 to $200 / hr
           v-card-actions.card-actions
             v-btn(color="primary" variant="elevated" href="https://calendar.app.google/dVP9wvqD9Hv6RtfT7" target="_blank")
               i.fas.fa-calendar.mr-2
@@ -64,7 +64,6 @@
           v-card-item
             .icon-tile
               i.fas.fa-cube
-            .card-rate $100 to $200 / hr
             v-card-title.card-title 3D CAD & Mechanical Product Design
             v-card-subtitle.card-sub Precision modeling for manufacturing and rapid prototyping.
           v-card-text.card-body
@@ -79,6 +78,7 @@
               v-list-item(prepend-icon="fa:fas fa-shapes")
                 strong Concept Modeling & Assemblies.
                 |  Rough concepts and specs turned into precise 3D models.
+          .card-rate $100 to $200 / hr
           v-card-actions.card-actions
             v-btn(color="primary" variant="elevated" href="https://calendar.app.google/dVP9wvqD9Hv6RtfT7" target="_blank")
               i.fas.fa-calendar.mr-2
@@ -94,7 +94,6 @@
           v-card-item
             .icon-tile
               i.fas.fa-code
-            .card-rate $100 to $200 / hr
             v-card-title.card-title Full-Stack Software Development
             v-card-subtitle.card-sub Custom web apps and complex software architecture.
           v-card-text.card-body
@@ -103,6 +102,7 @@
               v-list-item(prepend-icon="fa:fas fa-window-maximize") Web apps and dashboards in Vue, Nuxt, Node.js, and Python
               v-list-item(prepend-icon="fa:fas fa-plug") API development and system integrations
               v-list-item(prepend-icon="fa:fas fa-link") Smart contracts and Web3 infrastructure
+          .card-rate $100 to $200 / hr
           v-card-actions.card-actions
             v-btn(color="primary" variant="elevated" href="https://calendar.app.google/dVP9wvqD9Hv6RtfT7" target="_blank")
               i.fas.fa-calendar.mr-2
@@ -118,7 +118,6 @@
           v-card-item
             .icon-tile
               i.fas.fa-network-wired
-            .card-rate $100 to $200 / hr
             v-card-title.card-title Network Engineering & Systems Architecture
             v-card-subtitle.card-sub Secure, high-performance infrastructure.
           v-card-text.card-body
@@ -126,6 +125,7 @@
             v-list(bg-color="transparent" density="compact")
               v-list-item(prepend-icon="fa:fas fa-network-wired") Custom network routing and infrastructure layouts
               v-list-item(prepend-icon="fa:fas fa-server") System automation, security systems, and server deployment
+          .card-rate $100 to $200 / hr
           v-card-actions.card-actions
             v-btn(color="primary" variant="elevated" href="https://calendar.app.google/dVP9wvqD9Hv6RtfT7" target="_blank")
               i.fas.fa-calendar.mr-2
