@@ -148,6 +148,14 @@ export default { name: "services" };
 
   .skill-card
     scroll-margin-top: 80px
+    display: flex
+    flex-direction: column
+
+    .v-img
+      flex: 0 0 auto
+
+    .card-body
+      flex: 1 1 auto
 
   .card-rate
     font-family: 'Nixie One', sans-serif
@@ -165,7 +173,9 @@ export default { name: "services" };
     display: flex
     flex-wrap: wrap
     gap: 8px
-    padding: 8px 16px 16px
+    padding: 16px
+    margin-top: auto
+    border-top: 1px solid rgba(255,255,255,0.06)
 
   .card-sub
     font-family: 'Raleway', sans-serif

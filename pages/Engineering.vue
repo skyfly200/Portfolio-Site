@@ -38,6 +38,9 @@
               v-list-item(prepend-icon="fa:fas fa-microchip")
                 strong Component Sourcing & BOM Optimization —
                 |  reliable microcontrollers, power architectures, and sensors.
+              v-list-item(prepend-icon="fa:fas fa-code")
+                strong Embedded Firmware Development —
+                |  bare-metal and RTOS firmware, sensor drivers, and communication protocols.
               v-list-item(prepend-icon="fa:fas fa-screwdriver-wrench")
                 strong Firmware Integration & Assembly —
                 |  from digital CAD files to fully functional physical prototypes.
@@ -193,7 +196,12 @@ export default { name: "engineering" };
     border-radius: 12px !important
     transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s
     height: 100%
+    display: flex
+    flex-direction: column
     scroll-margin-top: 80px
+
+    .card-body
+      flex: 1 1 auto
 
     &:hover
       border-color: rgba(118, 39, 208, 0.7) !important
@@ -230,7 +238,9 @@ export default { name: "engineering" };
     display: flex
     flex-wrap: wrap
     gap: 8px
-    padding: 8px 16px 16px
+    padding: 16px
+    margin-top: auto
+    border-top: 1px solid rgba(255,255,255,0.06)
 
   .cross-cta
     text-align: center
