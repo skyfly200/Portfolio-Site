@@ -43,7 +43,7 @@ export default {
           summary: [
             "Sensing, Control, Automation, Networks",
             "Arduino, RaspberryPi, Nordic, Espresif",
-            "LEDs, Solar, Circuit Boards, RF, Audio"
+            "LEDs, Circuit Boards, RF, Audio, Solar"
           ]
         },
         audio: {
