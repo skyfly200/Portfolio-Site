@@ -13,6 +13,13 @@
           //- p(v-if="false") During high school I had the rare opportunity to intern with Rob Savoy — founder of Open Media Now, which he went on to sell to Red Hat. Rob ran welcomehome.org, one of the first websites on the Internet running Apache HTTP Server. I built a time tracker in PHP for the internship and ran it on that server.
         .bio-link.pa-7
           v-btn(v-if="false" to="/bio" :color="$color-secondary-1-0" rounded="lg" size="large" variant="text") More About Me
+        .hire-links(data-aos="fade" data-aos-delay="100")
+          v-btn(to="/engineering" color="primary" rounded="lg" size="large" variant="elevated")
+            i.fas.fa-microchip.mr-2
+            | Engineering
+          v-btn(to="/services" color="primary" rounded="lg" size="large" variant="outlined")
+            i.fas.fa-headset.mr-2
+            | IT Services
         hr
         .welcome-social
           a(href="https://github.com/skyfly200", target="_blank")
@@ -49,6 +56,13 @@ export default {
   .welcome-block
     @extend .flex-box-center
     padding: 10px 20px
+    .hire-links
+      display: flex
+      justify-content: center
+      flex-wrap: wrap
+      gap: 16px
+      padding: 8px 20px 4px
+
     .welcome-social
       display: flex
       justify-content: space-around

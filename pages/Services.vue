@@ -1,56 +1,54 @@
 <template lang="pug">
 .services.skill
 
-  v-btn(href="/" variant="text" color="primary").home-btn
-    i.fas.fa-arrow-left.mr-2
-    | Home
+  .page-nav
+    v-btn(href="/" variant="text" color="primary" size="small")
+      i.fas.fa-arrow-left.mr-2
+      | Home
+    .nav-links
+      v-btn(to="/engineering" variant="text" color="primary" size="small") Engineering
+      v-btn(to="/services" variant="text" color="primary" size="small").active-link IT Services
 
   .page-header(data-aos="fade-down")
-    .header-eyebrow Available For Hire
-    h1.header-title Services
-    p.header-sub IT support, tutoring, and emerging tech consulting — for homes, businesses, and curious minds.
+    .header-eyebrow Local IT Support &amp; Tutoring
+    h1.header-title IT Services
+    .rate-badge $60 – $100 / hr
+    p.header-sub Technology should empower, not frustrate. I provide patient, detail-oriented technical support and personalized tutoring for homes, small businesses, and curious minds. With a deep background spanning hardware, networking, and software engineering, I take the time to understand your specific goals and solve problems at their root. My priority is always a positive, stress-free experience—leaving you confident, fully supported, and truly satisfied with your tech setup.
 
   v-divider.my-6
 
   .cards-grid
     v-row
       v-col(cols="12" md="6")
-        v-card.skill-card(@click="$router.push('/buis-it')")
-          v-img(cover src="https://picsum.photos/id/1078/600/300" alt="Business IT" height="200")
-          v-card-title.card-title Business IT Solutions
-          v-card-subtitle.card-sub All your IT needs in one place
-          v-card-text.card-body I provide comprehensive IT solutions for small to medium-sized businesses, including networks, point of sale systems, Google listings, security systems, automation and hardware/software procurement.
-          v-card-actions
-            v-btn(variant="outlined" color="primary" to="/buis-it") See More
+        v-card#it-support.skill-card
+          v-img(cover src="https://picsum.photos/id/1078/600/300" alt="Business & Home IT" height="200")
+          v-card-item
+            .card-rate $60 – $100 / hr
+            v-card-title.card-title Business &amp; Home IT Support
+            v-card-subtitle.card-sub In-home, office, and remote support for all your devices and infrastructure.
+          v-card-text.card-body Comprehensive support covering Wi-Fi/networks, computers, phones, IoT devices, point-of-sale systems, audio/video gear, and general tech troubleshooting.
+          v-card-actions.card-actions
+            v-btn(variant="outlined" color="primary" to="/buis-it") Business
               i.fas.fa-arrow-right.ml-2
-      v-col(cols="12" md="6")
-        v-card.skill-card(@click="$router.push('/home-it')")
-          v-img(cover src="https://picsum.photos/id/225/600/300" alt="Home IT" height="200")
-          v-card-title.card-title Home IT Support
-          v-card-subtitle.card-sub In-home and remote support for all your devices
-          v-card-text.card-body I offer in-home and remote IT support services, helping with computers, phones, IoT, security systems, audio/video gear, and general tech support.
-          v-card-actions
-            v-btn(variant="outlined" color="primary" to="/home-it") See More
+            v-btn(variant="outlined" color="primary" to="/home-it") Home
               i.fas.fa-arrow-right.ml-2
+            v-btn(variant="text" color="primary" href="mailto:support@skylerfly.com?subject=IT%20Support%20Inquiry&body=Interested%20in%3A%20Business%20%26%20Home%20IT%20Support%0A%0A")
+              i.fas.fa-envelope.mr-2
+              | Contact
       v-col(cols="12" md="6")
-        v-card.skill-card(@click="$router.push('/tutoring')")
-          v-img(cover src="https://picsum.photos/id/1073/600/300" alt="Tutoring" height="200")
-          v-card-title.card-title Tutoring
-          v-card-subtitle.card-sub Personalized IT and software development tutoring
-          v-card-text.card-body Personalized tutoring in programming languages, web development, database management, and cloud computing — for beginners to advanced learners.
-          v-card-actions
+        v-card#tutoring.skill-card
+          v-img(cover src="https://picsum.photos/id/1073/600/300" alt="Tech & Coding Tutoring" height="200")
+          v-card-item
+            .card-rate $60 – $100 / hr
+            v-card-title.card-title Tech &amp; Coding Tutoring
+            v-card-subtitle.card-sub Personalized IT and software development mentorship.
+          v-card-text.card-body 1-on-1 instruction in programming languages, web development, hardware basics, and digital tools—tailored for beginners to advanced learners.
+          v-card-actions.card-actions
             v-btn(variant="outlined" color="primary" to="/tutoring") See More
               i.fas.fa-arrow-right.ml-2
-      v-col(cols="12" md="6")
-        v-card.skill-card(@click="$router.push('/consulting')")
-
-          v-img(cover src="https://picsum.photos/id/306/600/300" alt="Consulting" height="200")
-          v-card-title.card-title Emerging Tech Consulting
-          v-card-subtitle.card-sub Expert guidance for businesses and individuals
-          v-card-text.card-body Expert consulting on blockchain, AI, automation, EVs, renewable energy, and cloud computing — helping you understand and leverage the technologies shaping the future.
-          v-card-actions
-            v-btn(variant="outlined" color="primary" to="/consulting") See More
-              i.fas.fa-arrow-right.ml-2
+            v-btn(variant="text" color="primary" href="mailto:tutoring@skylerfly.com?subject=Tutoring%20Inquiry&body=Interested%20in%3A%20Tech%20%26%20Coding%20Tutoring%0A%0A")
+              i.fas.fa-envelope.mr-2
+              | Contact
 
     v-divider.my-8
 
@@ -72,13 +70,24 @@ export default { name: "services" };
   color: white
   padding-bottom: 80px
 
-  .home-btn
-    margin: 16px 0 0 16px
+  .page-nav
+    display: flex
+    align-items: center
+    justify-content: space-between
+    flex-wrap: wrap
+    gap: 8px
+    padding: 16px 16px 0
+    .nav-links
+      display: flex
+      gap: 4px
+    .active-link
+      font-weight: 700
+      text-decoration: underline
 
   .page-header
     text-align: center
-    padding: 48px 24px 24px
-    max-width: 760px
+    padding: 40px 24px 24px
+    max-width: 820px
     margin: 0 auto
     .header-eyebrow
       font-family: 'Nixie One', sans-serif
@@ -92,10 +101,21 @@ export default { name: "services" };
       font-size: clamp(2rem, 5vw, 3rem)
       font-weight: 700
       line-height: 1.1
-      margin-bottom: 16px
+      margin-bottom: 12px
+    .rate-badge
+      display: inline-block
+      font-family: 'Nixie One', sans-serif
+      font-size: 0.9rem
+      letter-spacing: 0.05em
+      color: #a855f7
+      border: 1px solid rgba(168, 85, 247, 0.5)
+      border-radius: 999px
+      padding: 4px 16px
+      margin-bottom: 20px
     .header-sub
       font-family: 'Raleway', sans-serif
       font-size: 1.05rem
+      line-height: 1.8
       opacity: 0.7
 
   .cards-grid
@@ -126,9 +146,26 @@ export default { name: "services" };
       &::after
         width: 100%
 
+  .skill-card
+    scroll-margin-top: 80px
+
+  .card-rate
+    font-family: 'Nixie One', sans-serif
+    font-size: 0.8rem
+    letter-spacing: 0.08em
+    color: #a855f7
+    margin: 8px 0 4px
+
   .card-title
     font-family: 'Nixie One', sans-serif
     font-size: 1.2rem
+    white-space: normal
+
+  .card-actions
+    display: flex
+    flex-wrap: wrap
+    gap: 8px
+    padding: 8px 16px 16px
 
   .card-sub
     font-family: 'Raleway', sans-serif
