@@ -11,6 +11,7 @@
 
   .hero
     .hero-glow
+    img.hero-bg(v-if="!heroFailed" :src="heroImg" @error="heroFailed = true" alt="")
     .hero-inner
       .hero-icon(data-aos="zoom-in")
         i.fas.fa-microchip
@@ -21,7 +22,8 @@
   .cards-grid
     v-row
       v-col(cols="12" md="6")
-        v-card#hardware.service-card(data-aos="fade-up" color="hardware")
+        v-card#hardware.service-card(data-aos="fade-up")
+          v-img.card-banner(v-if="!failed.hardware" :src="img.hardware" @error="failed.hardware = true" height="170" cover)
           .accent-bar
           v-card-item
             .icon-tile
@@ -57,6 +59,7 @@
 
       v-col(cols="12" md="6")
         v-card#cad.service-card(data-aos="fade-up" data-aos-delay="80")
+          v-img.card-banner(v-if="!failed.cad" :src="img.cad" @error="failed.cad = true" height="170" cover)
           .accent-bar
           v-card-item
             .icon-tile
@@ -86,6 +89,7 @@
 
       v-col(cols="12" md="6")
         v-card#software.service-card(data-aos="fade-up" data-aos-delay="120")
+          v-img.card-banner(v-if="!failed.software" :src="img.software" @error="failed.software = true" height="170" cover)
           .accent-bar
           v-card-item
             .icon-tile
@@ -109,6 +113,7 @@
 
       v-col(cols="12" md="6")
         v-card#network.service-card(data-aos="fade-up" data-aos-delay="160")
+          v-img.card-banner(v-if="!failed.network" :src="img.network" @error="failed.network = true" height="170" cover)
           .accent-bar
           v-card-item
             .icon-tile
@@ -145,7 +150,22 @@
 </template>
 
 <script>
-export default { name: "engineering" };
+export default {
+  name: "engineering",
+  data: () => ({
+    // Drop these files into public/images/services/ and they appear automatically.
+    // Until a file exists, each card/hero falls back to the gradient design.
+    heroImg: "/images/services/engineering-hero.jpg",
+    heroFailed: false,
+    img: {
+      hardware: "/images/services/hardware.jpg",
+      cad: "/images/services/cad.jpg",
+      software: "/images/services/software.jpg",
+      network: "/images/services/network.jpg",
+    },
+    failed: { hardware: false, cad: false, software: false, network: false },
+  }),
+};
 </script>
 
 <style lang="sass">

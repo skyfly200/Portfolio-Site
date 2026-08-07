@@ -11,6 +11,7 @@
 
   .hero
     .hero-glow
+    img.hero-bg(v-if="!heroFailed" :src="heroImg" @error="heroFailed = true" alt="")
     .hero-inner
       .hero-icon(data-aos="zoom-in")
         i.fas.fa-headset
@@ -22,6 +23,7 @@
     v-row
       v-col(cols="12" md="6")
         v-card#it-support.service-card(data-aos="fade-up")
+          v-img.card-banner(v-if="!failed.itSupport" :src="img.itSupport" @error="failed.itSupport = true" height="170" cover)
           .accent-bar
           v-card-item
             .icon-tile
@@ -42,6 +44,7 @@
 
       v-col(cols="12" md="6")
         v-card#tutoring.service-card(data-aos="fade-up" data-aos-delay="80")
+          v-img.card-banner(v-if="!failed.tutoring" :src="img.tutoring" @error="failed.tutoring = true" height="170" cover)
           .accent-bar
           v-card-item
             .icon-tile
@@ -67,7 +70,20 @@
 </template>
 
 <script>
-export default { name: "services" };
+export default {
+  name: "services",
+  data: () => ({
+    // Drop these files into public/images/services/ and they appear automatically.
+    // Until a file exists, each card/hero falls back to the gradient design.
+    heroImg: "/images/services/it-hero.jpg",
+    heroFailed: false,
+    img: {
+      itSupport: "/images/services/it-support.jpg",
+      tutoring: "/images/services/tutoring.jpg",
+    },
+    failed: { itSupport: false, tutoring: false },
+  }),
+};
 </script>
 
 <style lang="sass">
