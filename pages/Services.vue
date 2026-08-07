@@ -12,7 +12,7 @@
   .page-header(data-aos="fade-down")
     .header-eyebrow Local IT Support &amp; Tutoring
     h1.header-title IT Services
-    .rate-badge $60 – $100 / hr
+    .rate-badge $30 – $150 / hr
     p.header-sub Technology should empower, not frustrate. I provide patient, detail-oriented technical support and personalized tutoring for homes, small businesses, and curious minds. With a deep background spanning hardware, networking, and software engineering, I take the time to understand your specific goals and solve problems at their root. My priority is always a positive, stress-free experience—leaving you confident, fully supported, and truly satisfied with your tech setup.
 
   v-divider.my-6
@@ -23,7 +23,7 @@
         v-card#it-support.skill-card
           v-img(cover src="https://picsum.photos/id/1078/600/300" alt="Business & Home IT" height="200")
           v-card-item
-            .card-rate $60 – $100 / hr
+            .card-rate $100 – $150 / hr
             v-card-title.card-title Business &amp; Home IT Support
             v-card-subtitle.card-sub In-home, office, and remote support for all your devices and infrastructure.
           v-card-text.card-body Comprehensive support covering Wi-Fi/networks, computers, phones, IoT devices, point-of-sale systems, audio/video gear, and general tech troubleshooting.
@@ -39,7 +39,7 @@
         v-card#tutoring.skill-card
           v-img(cover src="https://picsum.photos/id/1073/600/300" alt="Tech & Coding Tutoring" height="200")
           v-card-item
-            .card-rate $60 – $100 / hr
+            .card-rate $30 – $100 / hr
             v-card-title.card-title Tech &amp; Coding Tutoring
             v-card-subtitle.card-sub Personalized IT and software development mentorship.
           v-card-text.card-body 1-on-1 instruction in programming languages, web development, hardware basics, and digital tools—tailored for beginners to advanced learners.

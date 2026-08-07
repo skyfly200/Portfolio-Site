@@ -118,7 +118,7 @@
 
     .cross-cta(data-aos="fade-up")
       .cta-label Looking for local help instead?
-      p.cta-body Home and business IT support, device setup, and 1-on-1 tech &amp; coding tutoring — $60 – $100 / hr.
+      p.cta-body Home and business IT support, device setup, and 1-on-1 tech &amp; coding tutoring — $30 – $150 / hr.
       v-btn(color="primary" variant="outlined" to="/services" size="large")
         span Visit IT Services
         i.fas.fa-arrow-right.ml-2

@@ -47,8 +47,8 @@
             v-expansion-panel-title.card-title Hourly Rates
             v-expansion-panel-text
               v-list(bg-color="transparent")
-                v-list-item Remote Support: $75/hour
-                v-list-item On-Site Support: $100/hour
+                v-list-item Remote Support: $100/hour
+                v-list-item On-Site Support: $150/hour
               p.caption-text *Minimum 1-hour charge for all services.
           v-expansion-panel.info-card
             v-expansion-panel-title.card-title Smart Home Setup Special (Flat Fee)
