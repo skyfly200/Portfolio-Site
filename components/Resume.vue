@@ -51,6 +51,11 @@ export default {
   .resume-header
     margin-top: 30px
     margin-bottom: 30px
+  @media (min-width: 769px)
+    padding: 100px 30px
+    .resume-header
+      margin-top: 20px
+      margin-bottom: 50px
   @media (max-width: 768px)
     padding-top: 60px
 

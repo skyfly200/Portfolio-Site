@@ -28,6 +28,9 @@ export default {
   @include card-depth(5)
   background-color: $color-primary-3
   color: #FFF
+  @media (min-width: 769px)
+    padding: 110px 10px
+    min-height: 40vh
   @media (max-width: 768px)
     padding-top: 60px
 
