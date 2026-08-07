@@ -1,16 +1,22 @@
 <template lang="pug">
-.case-studies.skill
+.hire-page.case-studies.skill
 
-  v-btn(href="/services" variant="text" color="primary").home-btn
-    i.fas.fa-arrow-left.mr-2
-    span Services
+  .page-nav
+    v-btn(href="/" variant="text" color="primary" size="small")
+      i.fas.fa-arrow-left.mr-2
+      | Home
+    .nav-links
+      v-btn(to="/engineering" variant="text" color="primary" size="small") Engineering
+      v-btn(to="/services" variant="text" color="primary" size="small") IT Services
 
-  .page-header(data-aos="fade-down")
-    .header-eyebrow Results &amp; Impact
-    h1.header-title Case Studies
-    p.header-sub Real problems, technical solutions, and measurable outcomes.
-
-  v-divider.my-6
+  .hero
+    .hero-glow
+    .hero-inner
+      .hero-icon(data-aos="zoom-in")
+        i.fas.fa-chart-line
+      .hero-eyebrow(data-aos="fade-up") Results & Impact
+      h1.hero-title(data-aos="fade-up" data-aos-delay="80") Case Studies
+      p.hero-sub(data-aos="fade-up" data-aos-delay="160") Real problems, technical solutions, and measurable outcomes.
 
   .content-wrap
     v-card.study-card.mb-10(v-for="study in studies" :key="study.title" data-aos="fade-up")
@@ -35,14 +41,12 @@
           .study-label The Outcome
           p.study-text {{ study.outcome }}
 
-  v-divider.my-8
-
-  .work-cta(data-aos="fade-up")
-    h2.cta-title Interested in working together?
-    p.cta-body If you have a technical challenge that needs solving: network infrastructure, smart contract security, custom tooling, or web development, get in touch.
-    v-btn(color="primary" variant="elevated" href="mailto:skyler@skylerfly.com" size="large")
-      i.fas.fa-envelope.mr-2
-      span Get In Touch
+    .cross-cta(data-aos="fade-up")
+      .cta-label Interested in working together?
+      p.cta-body If you have a technical challenge that needs solving, from network infrastructure to smart contract security, custom tooling, or web development, get in touch.
+      v-btn(color="primary" variant="elevated" href="mailto:skyler@skylerfly.com" size="large")
+        i.fas.fa-envelope.mr-2
+        span Get In Touch
 
 </template>
 
@@ -103,47 +107,26 @@ export default {
 </script>
 
 <style lang="sass">
+@use "@/assets/sass/hire.sass" as *
+
 .case-studies
-  width: 100%
-  color: white
-  padding-bottom: 80px
-
-  .home-btn
-    margin: 16px 0 0 16px
-
-  .page-header
-    text-align: center
-    padding: 48px 24px 24px
-    max-width: 760px
-    margin: 0 auto
-    .header-eyebrow
-      font-family: 'Nixie One', sans-serif
-      font-size: 0.85rem
-      letter-spacing: 0.25em
-      text-transform: uppercase
-      color: #7627D0
-      margin-bottom: 12px
-    h1.header-title
-      font-family: 'Nixie One', sans-serif
-      font-size: clamp(2rem, 5vw, 3rem)
-      font-weight: 700
-      line-height: 1.1
-      margin-bottom: 16px
-    .header-sub
-      font-family: 'Raleway', sans-serif
-      font-size: 1.05rem
-      opacity: 0.7
+  --accent: #a855f7
+  --accent-2: #7627D0
 
   .content-wrap
     max-width: 900px
-    margin: 0 auto
-    padding: 0 24px
 
   .study-card
-    background: rgba(255,255,255,0.04) !important
+    position: relative
+    background: rgba(255,255,255,0.035) !important
     border: 1px solid rgba(255,255,255,0.08) !important
-    border-radius: 12px !important
+    border-radius: 16px !important
     overflow: hidden
+    transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s
+    &:hover
+      border-color: color-mix(in srgb, var(--accent) 45%, transparent) !important
+      transform: translateY(-3px)
+      box-shadow: 0 14px 40px color-mix(in srgb, var(--accent) 20%, transparent) !important
 
   .study-banner
     border-bottom: 1px solid rgba(255,255,255,0.08)
@@ -153,7 +136,7 @@ export default {
     font-size: 0.8rem
     letter-spacing: 0.2em
     text-transform: uppercase
-    color: #7627D0
+    color: var(--accent)
     margin-bottom: 8px
 
   h2.study-title
@@ -168,7 +151,7 @@ export default {
     font-size: 0.75rem
     letter-spacing: 0.18em
     text-transform: uppercase
-    color: rgba(168, 85, 247, 0.85)
+    color: var(--accent)
     margin-bottom: 10px
 
   .study-text
@@ -187,22 +170,8 @@ export default {
         margin-bottom: 0
 
   .outcome-box
-    background: rgba(118, 39, 208, 0.12)
-    border: 1px solid rgba(118, 39, 208, 0.3)
-    border-radius: 8px
+    background: color-mix(in srgb, var(--accent-2) 14%, transparent)
+    border: 1px solid color-mix(in srgb, var(--accent-2) 32%, transparent)
+    border-radius: 10px
     padding: 16px 20px
-
-  .work-cta
-    text-align: center
-    padding: 0 24px 60px
-    h2.cta-title
-      font-family: 'Nixie One', sans-serif
-      font-size: clamp(1.4rem, 3vw, 2rem)
-      margin-bottom: 12px
-    .cta-body
-      font-family: 'Raleway', sans-serif
-      font-size: 1rem
-      opacity: 0.7
-      max-width: 520px
-      margin: 0 auto 24px
 </style>
