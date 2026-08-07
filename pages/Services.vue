@@ -59,13 +59,6 @@
               | Contact
 
     .cross-cta(data-aos="fade-up")
-      .cta-label See it in action
-      p.cta-body Real client engagements, technical breakdowns, and measurable outcomes, from network overhauls to blockchain security research.
-      v-btn(color="secondary" variant="elevated" to="/case-studies" size="large")
-        i.fas.fa-arrow-right.mr-2
-        span View Case Studies
-
-    .cross-cta(data-aos="fade-up")
       .cta-label Need high-precision engineering?
       p.cta-body PCB design, 3D CAD, full-stack software, and network architecture. $100 to $200 / hr.
       v-btn(color="primary" variant="outlined" to="/engineering" size="large")

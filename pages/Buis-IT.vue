@@ -26,6 +26,13 @@
         v-btn(color="primary" variant="outlined" href="mailto:business-it@skylerfly.com" target="_blank")
           i.fas.fa-envelope.mr-2
           | Contact Me
+
+    .cross-cta(data-aos="fade-up")
+      .cta-label See it in action
+      p.cta-body Real client engagements, technical breakdowns, and measurable outcomes, from network overhauls to blockchain security research.
+      v-btn(color="primary" variant="elevated" to="/case-studies" size="large")
+        i.fas.fa-arrow-right.mr-2
+        span View Case Studies
 </template>
 
 <script>

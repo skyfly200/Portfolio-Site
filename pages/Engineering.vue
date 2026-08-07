@@ -130,6 +130,13 @@
               | Start a Project
 
     .cross-cta(data-aos="fade-up")
+      .cta-label See it in action
+      p.cta-body Real client engagements, technical breakdowns, and measurable outcomes, from network overhauls to blockchain security research.
+      v-btn(color="primary" variant="elevated" to="/case-studies" size="large")
+        i.fas.fa-arrow-right.mr-2
+        span View Case Studies
+
+    .cross-cta(data-aos="fade-up")
       .cta-label Looking for local help instead?
       p.cta-body Home and business IT support, device setup, and 1-on-1 tech and coding tutoring. $30 to $150 / hr.
       v-btn(color="secondary" variant="outlined" to="/services" size="large")
