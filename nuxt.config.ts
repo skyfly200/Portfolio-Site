@@ -60,13 +60,17 @@ export default defineNuxtConfig({
       //   Ripple
       // },
       theme: {
-        primary: {
-          base: "#7627D0",
-          darken1: "#6608D2",
-          darken2: "#4D059E",
-          darken3: "#3E0480",
-          darken4: "#2E0260"
-        }
+        defaultTheme: "dark",
+        themes: {
+          dark: {
+            dark: true,
+            colors: {
+              primary: "#7627D0",
+              secondary: "#18D08B",
+              accent: "#FF5600",
+            },
+          },
+        },
       },
       icons: {
         defaultSet: "fa",
