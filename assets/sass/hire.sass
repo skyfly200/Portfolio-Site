@@ -193,6 +193,34 @@
     margin-top: auto
     border-top: 1px solid rgba(255,255,255,0.06)
 
+  // ---- Detail-page content (info cards) ----
+  .content-wrap
+    max-width: 900px
+    margin: 0 auto
+    padding: 8px 24px 0
+
+  .info-card
+    background: rgba(255,255,255,0.035) !important
+    border: 1px solid rgba(255,255,255,0.08) !important
+    border-radius: 16px !important
+    overflow: hidden
+    transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s
+    &:hover
+      border-color: color-mix(in srgb, var(--accent) 45%, transparent) !important
+      box-shadow: 0 14px 40px color-mix(in srgb, var(--accent) 18%, transparent) !important
+
+  .body-text
+    font-family: 'Raleway', sans-serif
+    font-size: 1rem
+    line-height: 1.8
+    opacity: 0.85
+
+  .caption-text
+    font-family: 'Raleway', sans-serif
+    font-size: 0.8rem
+    opacity: 0.55
+    margin-top: 8px
+
   // ---- Cross-page CTA ----
   .cross-cta
     text-align: center
