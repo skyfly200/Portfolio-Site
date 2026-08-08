@@ -42,8 +42,8 @@ export default {
           link: "hardware",
           summary: [
             "Sensing, Control, Automation, Networks",
-            "Arduino, RaspberryPi, Atmel, Espresif",
-            "LEDs, Solar, Circuit Boards, RF, Audio"
+            "Arduino, RaspberryPi, Nordic, Espresif",
+            "LEDs, Circuit Boards, RF, Audio, Solar"
           ]
         },
         audio: {

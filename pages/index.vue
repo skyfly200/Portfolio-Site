@@ -2,6 +2,7 @@
 .wrapper
   Landing
   Welcome
+  WorkWithMe
   Skills
   Resume
   Quote

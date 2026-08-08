@@ -1,0 +1,273 @@
+// Shared styling for the Engineering and IT Services "hire" pages
+
+.hire-page
+  width: 100%
+  color: white
+  padding-bottom: 100px
+  --accent: #a855f7
+  --accent-2: #7627D0
+  overflow-x: hidden
+
+  .page-nav
+    display: flex
+    align-items: center
+    justify-content: space-between
+    flex-wrap: wrap
+    gap: 8px
+    padding: 16px 16px 0
+    position: relative
+    z-index: 2
+    .nav-links
+      display: flex
+      gap: 4px
+    .active-link
+      font-weight: 700
+      text-decoration: underline
+
+  // ---- Hero ----
+  .hero
+    position: relative
+    text-align: center
+    padding: 56px 24px 40px
+    max-width: 860px
+    margin: 0 auto
+    overflow: visible
+
+    .hero-glow
+      position: absolute
+      top: -60px
+      left: 50%
+      width: 620px
+      height: 420px
+      max-width: 120vw
+      transform: translateX(-50%)
+      background: radial-gradient(ellipse at center, color-mix(in srgb, var(--accent) 45%, transparent) 0%, transparent 70%)
+      filter: blur(30px)
+      opacity: 0.55
+      z-index: 0
+      pointer-events: none
+      animation: hero-pulse 7s ease-in-out infinite
+
+    .hero-bg
+      position: absolute
+      inset: 0
+      width: 100%
+      height: 100%
+      object-fit: cover
+      opacity: 0.18
+      z-index: 0
+      border-radius: 20px
+      -webkit-mask-image: radial-gradient(ellipse at center, #000 40%, transparent 78%)
+      mask-image: radial-gradient(ellipse at center, #000 40%, transparent 78%)
+      pointer-events: none
+
+    .hero-inner
+      position: relative
+      z-index: 1
+
+    .hero-icon
+      width: 64px
+      height: 64px
+      margin: 0 auto 20px
+      border-radius: 18px
+      display: flex
+      align-items: center
+      justify-content: center
+      font-size: 1.6rem
+      color: white
+      background: linear-gradient(135deg, var(--accent-2), var(--accent))
+      box-shadow: 0 8px 30px color-mix(in srgb, var(--accent) 45%, transparent)
+
+    .hero-eyebrow
+      font-family: 'Nixie One', sans-serif
+      font-size: 0.85rem
+      letter-spacing: 0.28em
+      text-transform: uppercase
+      color: var(--accent)
+      margin-bottom: 14px
+
+    h1.hero-title
+      font-family: 'Nixie One', sans-serif
+      font-size: clamp(2.4rem, 6vw, 4rem)
+      font-weight: 700
+      line-height: 1.18
+      padding-bottom: 0.12em
+      margin-bottom: 12px
+      background: linear-gradient(120deg, #ffffff 20%, var(--accent) 100%)
+      -webkit-background-clip: text
+      background-clip: text
+      -webkit-text-fill-color: transparent
+
+    .hero-rate
+      display: inline-block
+      font-family: 'Nixie One', sans-serif
+      font-size: 0.9rem
+      letter-spacing: 0.05em
+      color: var(--accent)
+      border: 1px solid color-mix(in srgb, var(--accent) 55%, transparent)
+      background: color-mix(in srgb, var(--accent) 10%, transparent)
+      border-radius: 999px
+      padding: 5px 18px
+      margin-bottom: 22px
+
+    .hero-sub
+      font-family: 'Raleway', sans-serif
+      font-size: 1.08rem
+      line-height: 1.8
+      opacity: 0.8
+      max-width: 720px
+      margin: 0 auto
+
+  // ---- Cards ----
+  .cards-grid
+    max-width: 1140px
+    margin: 0 auto
+    padding: 8px 24px 0
+
+  .service-card
+    position: relative
+    background: rgba(255,255,255,0.035) !important
+    border: 1px solid rgba(255,255,255,0.08) !important
+    border-radius: 16px !important
+    overflow: hidden
+    height: 100%
+    display: flex
+    flex-direction: column
+    transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s
+    scroll-margin-top: 90px
+
+    .accent-bar
+      position: absolute
+      top: 0
+      left: 0
+      right: 0
+      height: 3px
+      z-index: 2
+      background: linear-gradient(90deg, var(--accent-2), var(--accent))
+      transform: scaleX(0)
+      transform-origin: left
+      transition: transform 0.4s ease
+
+    .card-banner
+      flex: 0 0 auto
+      border-bottom: 1px solid rgba(255,255,255,0.06)
+
+    .icon-tile
+      width: 46px
+      height: 46px
+      border-radius: 12px
+      display: flex
+      align-items: center
+      justify-content: center
+      font-size: 1.15rem
+      color: var(--accent)
+      background: color-mix(in srgb, var(--accent) 14%, transparent)
+      border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent)
+      margin-bottom: 14px
+      transition: transform 0.25s ease
+
+    &:hover
+      border-color: color-mix(in srgb, var(--accent) 60%, transparent) !important
+      transform: translateY(-4px)
+      box-shadow: 0 14px 40px color-mix(in srgb, var(--accent) 22%, transparent) !important
+      .accent-bar
+        transform: scaleX(1)
+      .icon-tile
+        transform: translateY(-2px) scale(1.05)
+
+  .card-rate
+    font-family: 'Nixie One', sans-serif
+    font-size: 0.82rem
+    letter-spacing: 0.08em
+    color: var(--accent)
+    margin-top: auto
+    padding: 14px 16px 0
+
+  .card-title
+    font-family: 'Nixie One', sans-serif
+    font-size: 1.25rem
+    line-height: 1.25
+    white-space: normal
+
+  .card-sub
+    font-family: 'Raleway', sans-serif
+    opacity: 0.6
+    white-space: normal
+
+  .card-body
+    flex: 1 1 auto
+    font-family: 'Raleway', sans-serif
+    font-size: 0.92rem
+    line-height: 1.7
+    opacity: 0.85
+    .v-list-item
+      font-size: 0.86rem
+      opacity: 0.9
+      margin-bottom: 2px
+
+  .card-actions
+    display: flex
+    flex-wrap: wrap
+    gap: 8px
+    padding: 16px
+    margin-top: auto
+    border-top: 1px solid rgba(255,255,255,0.06)
+
+  // ---- Detail-page content (info cards) ----
+  .content-wrap
+    max-width: 900px
+    margin: 0 auto
+    padding: 8px 24px 0
+
+  .info-card
+    background: rgba(255,255,255,0.035) !important
+    border: 1px solid rgba(255,255,255,0.08) !important
+    border-radius: 16px !important
+    overflow: hidden
+    transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s
+    &:hover
+      border-color: color-mix(in srgb, var(--accent) 45%, transparent) !important
+      box-shadow: 0 14px 40px color-mix(in srgb, var(--accent) 18%, transparent) !important
+
+  .body-text
+    font-family: 'Raleway', sans-serif
+    font-size: 1rem
+    line-height: 1.8
+    opacity: 0.85
+
+  .caption-text
+    font-family: 'Raleway', sans-serif
+    font-size: 0.8rem
+    opacity: 0.55
+    margin-top: 8px
+
+  // ---- Cross-page CTA ----
+  .cross-cta
+    text-align: center
+    max-width: 620px
+    margin: 56px auto 0
+    padding: 36px 24px
+    border: 1px solid rgba(255,255,255,0.08)
+    border-radius: 16px
+    background: rgba(255,255,255,0.02)
+    .cta-label
+      font-family: 'Nixie One', sans-serif
+      font-size: 0.85rem
+      letter-spacing: 0.2em
+      text-transform: uppercase
+      color: var(--accent)
+      margin-bottom: 12px
+    .cta-body
+      font-family: 'Raleway', sans-serif
+      font-size: 1rem
+      opacity: 0.78
+      max-width: 480px
+      margin: 0 auto 22px
+
+@keyframes hero-pulse
+  0%, 100%
+    opacity: 0.45
+    transform: translateX(-50%) scale(1)
+  50%
+    opacity: 0.65
+    transform: translateX(-50%) scale(1.08)
