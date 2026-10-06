@@ -44,7 +44,7 @@
             v-list-item(prepend-icon="fa:fas fa-lock") Home security systems: sensors, cameras, doorbells
             v-list-item(prepend-icon="fa:fas fa-desktop") Computer and mobile support: troubleshooting and tune-ups
 
-        v-expansion-panels(flat variant="accordion" data-aos="fade-up" data-aos-delay="160")
+        v-expansion-panels(v-if="showPricing" flat variant="accordion" data-aos="fade-up" data-aos-delay="160")
           v-expansion-panel.info-card.mb-2
             v-expansion-panel-title.card-title Hourly Rates
             v-expansion-panel-text
@@ -64,7 +64,12 @@
 </template>
 
 <script>
-export default { name: "home-it" };
+export default {
+  name: "home-it",
+  setup() {
+    return { showPricing: useShowPricing() };
+  }
+};
 </script>
 
 <style lang="sass">
