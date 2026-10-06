@@ -48,7 +48,7 @@
               v-list-item(prepend-icon="fa:fas fa-screwdriver-wrench")
                 strong Firmware Integration & Assembly.
                 |  From digital CAD files to working physical prototypes.
-          .card-rate $100 to $200 / hr
+          .card-rate(v-if="showPricing") $100 to $200 / hr
           v-card-actions.card-actions
             v-btn(color="primary" variant="elevated" href="https://calendar.app.google/dVP9wvqD9Hv6RtfT7" target="_blank")
               i.fas.fa-calendar.mr-2
@@ -78,7 +78,7 @@
               v-list-item(prepend-icon="fa:fas fa-shapes")
                 strong Concept Modeling & Assemblies.
                 |  Rough concepts and specs turned into precise 3D models.
-          .card-rate $100 to $200 / hr
+          .card-rate(v-if="showPricing") $100 to $200 / hr
           v-card-actions.card-actions
             v-btn(color="primary" variant="elevated" href="https://calendar.app.google/dVP9wvqD9Hv6RtfT7" target="_blank")
               i.fas.fa-calendar.mr-2
@@ -102,7 +102,7 @@
               v-list-item(prepend-icon="fa:fas fa-window-maximize") Web apps and dashboards in Vue, Nuxt, Node.js, and Python
               v-list-item(prepend-icon="fa:fas fa-plug") API development and system integrations
               v-list-item(prepend-icon="fa:fas fa-link") Smart contracts and Web3 infrastructure
-          .card-rate $100 to $200 / hr
+          .card-rate(v-if="showPricing") $100 to $200 / hr
           v-card-actions.card-actions
             v-btn(color="primary" variant="elevated" href="https://calendar.app.google/dVP9wvqD9Hv6RtfT7" target="_blank")
               i.fas.fa-calendar.mr-2
@@ -125,7 +125,7 @@
             v-list(bg-color="transparent" density="compact")
               v-list-item(prepend-icon="fa:fas fa-network-wired") Custom network routing and infrastructure layouts
               v-list-item(prepend-icon="fa:fas fa-server") System automation, security systems, and server deployment
-          .card-rate $100 to $200 / hr
+          .card-rate(v-if="showPricing") $100 to $200 / hr
           v-card-actions.card-actions
             v-btn(color="primary" variant="elevated" href="https://calendar.app.google/dVP9wvqD9Hv6RtfT7" target="_blank")
               i.fas.fa-calendar.mr-2
@@ -143,7 +143,8 @@
 
     .cross-cta(data-aos="fade-up")
       .cta-label Looking for local help instead?
-      p.cta-body Home and business IT support, device setup, and 1-on-1 tech and coding tutoring. $30 to $150 / hr.
+      p.cta-body Home and business IT support, device setup, and 1-on-1 tech and coding tutoring.
+        span(v-if="showPricing")  $30 to $150 / hr.
       v-btn(color="secondary" variant="outlined" to="/services" size="large")
         span Visit IT Services
         i.fas.fa-arrow-right.ml-2
@@ -152,6 +153,9 @@
 <script>
 export default {
   name: "engineering",
+  setup() {
+    return { showPricing: useShowPricing() };
+  },
   data: () => ({
     // Drop these files into public/images/services/ and they appear automatically.
     // Until a file exists, each card/hero falls back to the gradient design.

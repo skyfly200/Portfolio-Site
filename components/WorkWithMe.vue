@@ -11,7 +11,7 @@
         .wwm-icon
           i.fas.fa-microchip
         h3.wwm-card-title Engineering
-        .wwm-rate $100 to $200 / hr
+        .wwm-rate(v-if="showPricing") $100 to $200 / hr
         p.wwm-card-body PCB and hardware design, 3D CAD, full-stack software, and network architecture for products and businesses.
         .wwm-link
           span Explore Engineering
@@ -21,7 +21,7 @@
         .wwm-icon
           i.fas.fa-headset
         h3.wwm-card-title IT Services
-        .wwm-rate $30 to $150 / hr
+        .wwm-rate(v-if="showPricing") $30 to $150 / hr
         p.wwm-card-body Home and business IT support, device and network setup, plus 1-on-1 tech and coding tutoring.
         .wwm-link
           span Explore IT Services
@@ -29,7 +29,12 @@
 </template>
 
 <script>
-export default { name: "work-with-me" };
+export default {
+  name: "work-with-me",
+  setup() {
+    return { showPricing: useShowPricing() };
+  }
+};
 </script>
 
 <style lang="sass">

@@ -32,7 +32,7 @@
             v-card-subtitle.card-sub In-home, office, and remote support for all your devices.
           v-card-text.card-body
             p Full support for Wi-Fi and networks, computers, phones, IoT devices, point-of-sale systems, audio and video gear, and everyday troubleshooting.
-          .card-rate $100 to $150 / hr
+          .card-rate(v-if="showPricing") $100 to $150 / hr
           v-card-actions.card-actions
             v-btn(variant="outlined" color="primary" to="/buis-it") Business
               i.fas.fa-arrow-right.ml-2
@@ -53,7 +53,7 @@
             v-card-subtitle.card-sub Personalized IT and software development mentorship.
           v-card-text.card-body
             p One-on-one instruction in programming languages, web development, hardware basics, and digital tools, tailored for beginners through advanced learners.
-          .card-rate $30 to $100 / hr
+          .card-rate(v-if="showPricing") $30 to $100 / hr
           v-card-actions.card-actions
             v-btn(variant="outlined" color="primary" to="/tutoring") See More
               i.fas.fa-arrow-right.ml-2
@@ -63,7 +63,8 @@
 
     .cross-cta(data-aos="fade-up")
       .cta-label Need high-precision engineering?
-      p.cta-body PCB design, 3D CAD, full-stack software, and network architecture. $100 to $200 / hr.
+      p.cta-body PCB design, 3D CAD, full-stack software, and network architecture.
+        span(v-if="showPricing")  $100 to $200 / hr.
       v-btn(color="primary" variant="outlined" to="/engineering" size="large")
         span Visit Engineering
         i.fas.fa-arrow-right.ml-2
@@ -72,6 +73,9 @@
 <script>
 export default {
   name: "services",
+  setup() {
+    return { showPricing: useShowPricing() };
+  },
   data: () => ({
     // Drop these files into public/images/services/ and they appear automatically.
     // Until a file exists, each card/hero falls back to the gradient design.
