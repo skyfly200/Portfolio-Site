@@ -2,7 +2,12 @@
 
 **Destination:** $80k+/year within 6 months → financial independence (home, plane, travel, make money from passions with freedom of time)
 
-**Updated:** 2026-09-28
+**Income thresholds (clarified 2026-10-18):**
+- **$80k/yr = break-even** for a ~40 hr/week average. It's the floor, not the goal.
+- **$120k+/yr minimum** for any conventional tech job that realistically runs ~60 hr/weeks.
+- **Real target: scale well beyond that.** Skyler was offered ~$250k salaries twice before, and owning businesses has uncapped upside (several business plans are in research or in motion).
+
+**Updated:** 2026-10-13
 
 ---
 
@@ -18,7 +23,7 @@
 | Projection / Live Visuals | $500–1500/show | as booked | TBD |
 | SparkFun (bridge option) | $75–90k salary | full-time | parts discount + stability |
 
-**Math check:** Web3 at 10 hrs/week × $160 avg = $83.2k/yr. Everything else is upside.
+**Math check:** Web3 at 10 hrs/week × $160 avg = $83.2k/yr, which covers break-even. Growth past that comes from more high-rate hours, higher rates, and owned businesses.
 
 ---
 
@@ -64,6 +69,14 @@
 061 (labels/bags) → 056 (mushroom products)
 060 (table setup) → both product streams
 ```
+
+---
+
+## Progress Log
+
+- **2026-10-18** — Clarified the income thresholds (see top). Full-time offers get judged against $120k+ for long hours; SparkFun ($75–90k) stays a bridge option for stability and parts, not a destination.
+- **2026-10-13** — Web3 client: did more billable work at $150/hr, with a little more in the pipeline. The anchor stream is moving, though the volume is still irregular.
+- **2026-10-13** — Missed the planned market event, so no GlowFlora Clips were sold there. 055/059/060 are still open; the next target is the next First Friday at Root Kava Bar.
 
 ---
 

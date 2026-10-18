@@ -30,3 +30,4 @@ Set up a compelling, reusable market table for Root Kava Bar First Friday and fe
 ## Notes
 - First Friday is monthly — plan around that cadence
 - The table itself IS marketing; make it visually interesting
+- 2026-10-13: Missed the planned market event. Book the next date before making stock, so the batch (059) has a deadline.
